@@ -1,17 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VioniaSoft · IT & Software Studio</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비오니아소프트 · VioniaSoft · IT & Software Studio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Function to toggle between languages
+        function changeLanguage(language) {
+            const lang = {
+                ko: {
+                    title: "비오니아소프트 · IT & Software Studio",
+                    aboutUs: "회사 소개",
+                    services: "서비스",
+                    contact: "연락처",
+                    description: "비오니아소프트에 오신 것을 환영합니다! 우리는 귀하의 비즈니스 요구에 맞는 혁신적인 솔루션을 제공합니다.",
+                    serviceList: ["맞춤형 소프트웨어 개발", "비즈니스 컨설팅", "프로젝트 관리", "클라우드 솔루션"],
+                    email: "이메일: contact@vioniasoft.com",
+                },
+                zh: {
+                    title: "VioniaSoft · IT & 软件工作室",
+                    aboutUs: "关于我们",
+                    services: "服务",
+                    contact: "联系我们",
+                    description: "欢迎来到 VioniaSoft！我们为您的业务需求提供创新的解决方案。",
+                    serviceList: ["定制软件开发", "商业咨询", "项目管理", "云解决方案"],
+                    email: "邮箱：contact@vioniasoft.com",
+                },
+                en: {
+                    title: "VioniaSoft · IT & Software Studio",
+                    aboutUs: "About Us",
+                    services: "Services",
+                    contact: "Contact Us",
+                    description: "Welcome to VioniaSoft! We provide innovative solutions for your business needs.",
+                    serviceList: ["Custom Software Development", "Business Consulting", "Project Management", "Cloud Solutions"],
+                    email: "Email: contact@vioniasoft.com",
+                }
+            };
+            
+            document.getElementById('about-heading').innerText = lang[language].aboutUs;
+            document.getElementById('services-heading').innerText = lang[language].services;
+            document.getElementById('contact-heading').innerText = lang[language].contact;
+            document.getElementById('about-description').innerText = lang[language].description;
+            document.getElementById('contact-email').innerText = lang[language].email;
+            
+            const services = lang[language].serviceList;
+            const serviceList = document.getElementById('services-list');
+            serviceList.innerHTML = '';
+            services.forEach(service => {
+                let li = document.createElement('li');
+                li.innerText = service;
+                serviceList.appendChild(li);
+            });
+            
+            document.title = lang[language].title;
+        }
+    </script>
 </head>
 <body>
-    <div class="container">
-        <h1>VioniaSoft</h1>
-        <h2>Under Construction</h2>
-        <p>VioniaSoft · IT & Software Studio</p>
-        <p>Email: <a href="mailto:contact@vioniasoft.com">contact@vioniasoft.com</a></p>
-    </div>
+    <header>
+        <div class="container">
+            <h1 id="company-name">비오니아소프트 · VioniaSoft</h1>
+            <nav>
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="changeLanguage('ko')">한국어</a></li>
+                    <li><a href="javascript:void(0)" onclick="changeLanguage('zh')">中文</a></li>
+                    <li><a href="javascript:void(0)" onclick="changeLanguage('en')">EN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <h2 id="about-heading">회사 소개</h2>
+            <p id="about-description">비오니아소프트에 오신 것을 환영합니다! 우리는 귀하의 비즈니스 요구에 맞는 혁신적인 솔루션을 제공합니다.</p>
+        </section>
+
+        <section id="services" class="section">
+            <h2 id="services-heading">서비스</h2>
+            <ul id="services-list">
+                <li>맞춤형 소프트웨어 개발</li>
+                <li>비즈니스 컨설팅</li>
+                <li>프로젝트 관리</li>
+                <li>클라우드 솔루션</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="section">
+            <h2 id="contact-heading">연락처</h2>
+            <p>저희에게 연락 주시면 빠르게 답변 드리겠습니다:</p>
+            <p id="contact-email">이메일: <a href="mailto:contact@vioniasoft.com">contact@vioniasoft.com</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 비오니아소프트. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Default language set to Korean
+        changeLanguage('ko');
+    </script>
 </body>
 </html>
