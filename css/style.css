@@ -8,86 +8,153 @@
 /* General styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #e0d4ff, #c0b3ff);
-    color: #fff;
+    background: #f4f7f6;
+    color: #333;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
-a {
-    color: #f0e6ff;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #ffffff;
-}
-
-/* Header */
-header {
+/* Navigation */
+nav {
+    background: #2c3e50;
+    padding: 10px 20px;
+    position: fixed;
     width: 100%;
-    padding: 20px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    border-bottom: 2px solid #d8b3ff;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-header h1 {
-    font-size: 2em;
-    color: #fff;
-    text-shadow: 0 0 10px #d8b3ff, 0 0 20px #c0b3ff;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    justify-content: center;
+}
+
+nav ul li {
+    margin-right: 30px;
 }
 
 nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 10px 15px;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background: #16a085;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    color: #fff;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: #16a085;
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
     font-size: 1.2em;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #1abc9c;
 }
 
 /* Main Sections */
 main {
-    padding: 60px 20px;
-    text-align: center;
+    padding: 50px 20px;
 }
 
+/* About Us Section */
 .section {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
 h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: #e6e6ff;
-    text-shadow: 0 0 10px #d8b3ff;
+    color: #2c3e50;
 }
 
-ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-ul li {
+.section p {
     font-size: 1.2em;
-    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Service List */
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.service-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+}
+
+.service-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.service-item p {
+    color: #777;
 }
 
 /* Footer */
 footer {
+    background: #2c3e50;
+    color: #fff;
+    padding: 30px 20px;
     text-align: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.15);
-    border-top: 2px solid #d8b3ff;
+    font-size: 0.9em; /* Slightly smaller font for footer */
+}
+
+footer a {
+    color: #1abc9c;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-info {
+    margin-top: 20px;
+    font-size: 0.9em; /* Smaller font size for footer */
+}
+
+.footer-info p {
+    margin-bottom: 5px;
 }
