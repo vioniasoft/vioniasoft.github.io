@@ -27,14 +27,14 @@
         }
 
         h1 {
-            font-size: 5em; /* 调大标题 */
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 15px #d8b3ff;
+            font-size: 7em; /* 标题进一步放大 */
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px #d8b3ff;
         }
 
         h2 {
-            font-size: 1.8em;
+            font-size: 2em;
             margin-bottom: 20px;
             color: #e6e6ff;
         }
@@ -52,6 +52,16 @@
 
         a:hover {
             color: #ffffff;
+        }
+
+        /* 响应式处理，小屏幕自动缩小标题 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 4em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
