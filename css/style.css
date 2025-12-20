@@ -25,7 +25,7 @@ h1 {
     font-size: 7em;
     margin-bottom: 20px;
     letter-spacing: 3px;
-    color: #e6e6ff;
+    color: white; /* 将颜色设置为白色 */
     text-shadow: 0 0 10px #d8b3ff, 0 0 20px #c0b3ff, 0 0 30px #a18fff;
     background: linear-gradient(90deg, #f0e6ff, #d8b3ff);
     -webkit-background-clip: text;
