@@ -1,12 +1,67 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VioniaSoft</title>
+  <style>
+    /* 整体背景和字体 */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #2c003e, #5a00b3);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin: 0.3rem 0;
+      color: #d1b3ff;
+    }
+
+    .email {
+      color: #ffb3ff;
+      font-weight: bold;
+    }
+
+    /* 简单科技感动画线条 */
+    .line {
+      width: 150px;
+      height: 3px;
+      background: #9b59b6;
+      margin: 20px auto;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 5px #9b59b6; }
+      to { box-shadow: 0 0 20px #d1b3ff; }
+    }
+
+    /* 响应式适配 */
+    @media(max-width: 600px){
+      h1 { font-size: 3rem; }
+      p { font-size: 1.2rem; }
+      .line { width: 100px; }
+    }
+  </style>
 </head>
 <body>
   <h1>VioniaSoft</h1>
+  <div class="line"></div>
   <p>VioniaSoft · IT & Software Studio</p>
-  <p>Email: contact@vioniasoft.com</p>
+  <p class="email">Email: contact@vioniasoft.com</p>
 </body>
 </html>
