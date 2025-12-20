@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VioniaSoft</title>
   <style>
-    /* 整体背景和字体 */
+    /* 整体背景渐变淡紫色 */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #2c003e, #5a00b3);
-      color: #ffffff;
+      background: linear-gradient(135deg, #5e4b8b, #a57edc);
+      color: #fff;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -19,49 +19,73 @@
       text-align: center;
     }
 
+    /* 主标题发光效果 */
     h1 {
       font-size: 4rem;
       margin-bottom: 0.5rem;
-      text-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad;
+      background: linear-gradient(45deg, #c8a2ff, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
 
+    /* 介绍文本 */
     p {
       font-size: 1.5rem;
       margin: 0.3rem 0;
-      color: #d1b3ff;
+      color: #e0ccff;
     }
 
     .email {
-      color: #ffb3ff;
+      color: #ffd6ff;
       font-weight: bold;
     }
 
-    /* 简单科技感动画线条 */
+    /* 科技感发光线条 */
     .line {
-      width: 150px;
-      height: 3px;
-      background: #9b59b6;
-      margin: 20px auto;
-      animation: glow 1.5s infinite alternate;
+      width: 180px;
+      height: 4px;
+      background: linear-gradient(90deg, #c8a2ff, #8e44ad);
+      margin: 25px auto;
+      border-radius: 2px;
+      animation: glow 2s infinite alternate;
     }
 
     @keyframes glow {
-      from { box-shadow: 0 0 5px #9b59b6; }
-      to { box-shadow: 0 0 20px #d1b3ff; }
+      from { box-shadow: 0 0 10px #c8a2ff; }
+      to { box-shadow: 0 0 25px #d1b3ff; }
     }
 
-    /* 响应式适配 */
+    /* 卡片背景块，增强设计感 */
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px 50px;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* 响应式 */
     @media(max-width: 600px){
       h1 { font-size: 3rem; }
       p { font-size: 1.2rem; }
-      .line { width: 100px; }
+      .line { width: 120px; }
+      .card { padding: 20px 30px; }
     }
   </style>
 </head>
 <body>
-  <h1>VioniaSoft</h1>
-  <div class="line"></div>
-  <p>VioniaSoft · IT & Software Studio</p>
-  <p class="email">Email: contact@vioniasoft.com</p>
+  <div class="card">
+    <h1>VioniaSoft</h1>
+    <div class="line"></div>
+    <p>VioniaSoft · IT & Software Studio</p>
+    <p class="email">Email: contact@vioniasoft.com</p>
+  </div>
 </body>
 </html>
