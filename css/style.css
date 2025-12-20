@@ -24,17 +24,20 @@ nav {
     top: 0;
     left: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 20px;
 }
 
 nav ul li {
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 nav ul li a {
@@ -48,6 +51,21 @@ nav ul li a {
 nav ul li a:hover {
     background: #16a085;
     border-radius: 5px;
+}
+
+nav .hamburger {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    display: none;
+    cursor: pointer;
+}
+
+nav .current-language {
+    color: #fff;
+    font-size: 1.1em;
+    padding-right: 20px;
 }
 
 /* Hero Section */
@@ -200,6 +218,10 @@ footer a:hover {
     nav ul li a {
         padding: 12px 10px;
     }
+
+    nav .current-language {
+        font-size: 1em;
+    }
 }
 
 /* Mobile View - Dropdown Menu */
@@ -251,7 +273,7 @@ footer a:hover {
         display: flex;
     }
 
-    .hamburger {
+    nav .hamburger {
         display: block;
         cursor: pointer;
         color: #fff;
