@@ -1,58 +1,93 @@
-body {
+/* Resetting defaults */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* General styling */
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #e0d4ff, #c0b3ff);
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-}
-
-.container {
-    background: rgba(0,0,0,0.25);
-    padding: 60px 50px;
-    border-radius: 20px;
-    border: 2px solid;
-    border-image: linear-gradient(45deg, #d8b3ff, #a18fff) 1;
-    box-shadow: 0 0 40px rgba(128, 0, 255, 0.6), inset 0 0 20px rgba(255,255,255,0.1);
-    backdrop-filter: blur(15px);
-}
-
-h1 {
-    font-size: 7em;
-    margin-bottom: 20px;
-    letter-spacing: 3px;
-    color: white; /* 将颜色设置为白色 */
-    text-shadow: 0 0 10px #d8b3ff, 0 0 20px #c0b3ff, 0 0 30px #a18fff;
-    background: linear-gradient(90deg, #f0e6ff, #d8b3ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #e6e6ff;
-}
-
-p {
-    font-size: 1.2em;
-    color: #f0e6ff;
+    line-height: 1.6;
 }
 
 a {
     color: #f0e6ff;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 a:hover {
     color: #ffffff;
 }
 
-@media (max-width: 768px) {
-    h1 { font-size: 4em; }
-    h2 { font-size: 1.5em; }
+/* Header */
+header {
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #d8b3ff;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #fff;
+    text-shadow: 0 0 10px #d8b3ff, 0 0 20px #c0b3ff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    font-size: 1.2em;
+}
+
+/* Main Sections */
+main {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #e6e6ff;
+    text-shadow: 0 0 10px #d8b3ff;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.15);
+    border-top: 2px solid #d8b3ff;
 }
