@@ -54,6 +54,9 @@
             });
 
             document.title = lang[language].title;
+
+            // Update the language selector
+            document.getElementById('current-language').innerText = language === 'ko' ? '한국어' : language === 'zh' ? '中文' : 'English';
         }
     </script>
 </head>
@@ -64,8 +67,9 @@
         <ul>
             <li><a href="javascript:void(0)" onclick="changeLanguage('ko')">한국어</a></li>
             <li><a href="javascript:void(0)" onclick="changeLanguage('zh')">中文</a></li>
-            <li><a href="javascript:void(0)" onclick="changeLanguage('en')">EN</a></li>
+            <li><a href="javascript:void(0)" onclick="changeLanguage('en')">English</a></li>
         </ul>
+        <span id="current-language" class="current-language">한국어</span>
     </nav>
 
     <!-- Hero Section -->
