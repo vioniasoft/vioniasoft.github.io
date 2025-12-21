@@ -205,37 +205,40 @@ footer{
 }
 
 /* ===== 서비스 알아보기 BUTTON ===== */
-/* ===== PRIMARY CTA BUTTON ===== */
-.btn {
-  display: inline-flex; /* 自适应宽度 */
-  align-items: center;
-  justify-content: center;
+.btn{
+  display:inline-flex;
+  width:auto;
+  align-self:center;
 
-  padding: 14px 40px; /* 按钮内部留白 */
-  border-radius: 999px;
+  align-items:center;
+  justify-content:center;
 
-  background: linear-gradient(
+  padding:14px 40px;
+  border-radius:999px;
+
+  background:linear-gradient(
     135deg,
-    #7c3aed, /* 渐变起点 */
-    #8b5cf6  /* 渐变终点 */
+    #7c3aed,
+    #8b5cf6
   );
 
-  color: #fff;
-  font-weight: 600;
-  font-size: 1em;
-  text-decoration: none;
+  color:#fff;
+  font-weight:600;
+  font-size:1em;
+  text-decoration:none;
 
-  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
-  transition: transform .25s ease,
-              box-shadow .25s ease,
-              filter .25s ease;
+  box-shadow:0 8px 25px rgba(124,58,237,.4);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
 }
 
-/* Hover / Active 状态 */
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 35px rgba(124, 58, 237, 0.5);
-  filter: brightness(1.07);
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 35px rgba(124,58,237,.5);
+  filter:brightness(1.07);
 }
 
 /* ===== MOBILE ===== */
