@@ -190,7 +190,7 @@ nav{
 /* =========================================================
    页面通用结构（Hero / Page / About）
 ========================================================= */
-.hero,
+/* ===== 通用内容区（About / Services 内部） ===== */
 .page,
 .about-bg{
   flex:1;
@@ -200,11 +200,21 @@ nav{
   padding:120px 8% 80px; /* 顶部避开导航 */
 }
 
+
 /* =========================================================
    首页 HERO 区域
 ========================================================= */
+/* ===== 首页 HERO（全屏背景，与 About / Services 行为一致） ===== */
 .hero{
+  min-height:calc(100vh - 64px); /* 扣掉顶部 nav */
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  padding:120px 8% 80px;
   text-align:center;
+
   background:
     radial-gradient(circle at 20% 20%, #93c5fd55, transparent 45%),
     radial-gradient(circle at 80% 30%, #c4b5fd55, transparent 45%);
