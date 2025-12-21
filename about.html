@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About · VioniaSoft</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VioniaSoft</title>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -12,57 +12,30 @@
 <nav>
   <div class="logo">VioniaSoft</div>
   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a data-nav href="index.html"></a></li>
+    <li><a data-nav href="about.html"></a></li>
+    <li><a data-nav href="services.html"></a></li>
+    <li><a data-nav href="contact.html"></a></li>
   </ul>
   <div class="lang">
-    <a>KO</a><a>EN</a><a>ZH</a><a>FR</a>
+    <a onclick="setLang('ko')">KO</a>
+    <a onclick="setLang('en')">EN</a>
+    <a onclick="setLang('zh')">ZH</a>
+    <a onclick="setLang('fr')">FR</a>
   </div>
 </nav>
 
 <section class="page">
-  <h2 class="section-title">회사 소개</h2>
-  <p class="section-desc">
-    비오니아소프트는 기술을 비즈니스 이해를 기반으로 설계합니다.
-  </p>
-
-  <div class="cards">
-    <div class="card">
-      <h3>비즈니스 이해 중심</h3>
-      <p>
-        단순한 개발이 아닌, 실제 운영 흐름과 조직 구조를 먼저 분석합니다.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>안정성과 확장성</h3>
-      <p>
-        장기 운영을 전제로 한 구조 설계로, 지속적인 성장을 지원합니다.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>명확한 커뮤니케이션</h3>
-      <p>
-        모든 개발 과정과 결과를 투명하게 공유합니다.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>지속적인 파트너십</h3>
-      <p>
-        프로젝트 종료 이후에도 함께 개선해 나갑니다.
-      </p>
-    </div>
-  </div>
+  <h2 class="section-title" data-i="aboutTitle"></h2>
+  <p class="section-desc" data-i="aboutDesc"></p>
+  <div class="cards" id="aboutCards"></div>
 </section>
 
 <footer>
-  © 2025 VioniaSoft. All rights reserved.<br>
-  contact@vioniasoft.com
+© 2025 VioniaSoft. All rights reserved.<br>
+contact@vioniasoft.com
 </footer>
 
+<script src="assets/js/main.js"></script>
 </body>
 </html>
