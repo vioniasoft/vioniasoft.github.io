@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -30,37 +30,42 @@
   </div>
 </nav>
 
-<!-- HERO / TITLE -->
+<!-- 标题 & 说明（保持你现在的文字） -->
 <section class="hero">
   <h1 id="contactTitle"></h1>
-  <p id="contactDesc" class="sub"></p>
+  <p id="contactDesc"></p>
 </section>
 
-<!-- CONTACT FORM -->
-<section class="page">
-  <div class="cards" style="max-width:600px; margin:auto; gap:20px; padding-top:0;">
+<!-- 邮件咨询表单 -->
+<section class="about-bg">
+  <div class="about-cards">
+    <div class="cards" style="max-width:760px;margin:0 auto;">
 
-    <div class="card" style="padding:24px 32px;">
-      <form id="contactForm">
-        <input type="text" name="company" placeholder="" id="formCompany"
-          style="width:100%;padding:12px;border-radius:8px;border:1px solid #ccc;margin-bottom:16px;" required>
+      <div class="card">
 
-        <input type="text" name="name" placeholder="" id="formName"
-          style="width:100%;padding:12px;border-radius:8px;border:1px solid #ccc;margin-bottom:16px;" required>
+        <form class="contact-form" id="contactForm">
 
-        <input type="email" name="email" placeholder="" id="formEmail"
-          style="width:100%;padding:12px;border-radius:8px;border:1px solid #ccc;margin-bottom:16px;" required>
+          <div class="form-row">
+            <input type="text" placeholder="회사명" required>
+            <input type="text" placeholder="담당자 이름" required>
+          </div>
 
-        <textarea name="message" id="formMessage" rows="4"
-          style="width:100%;padding:12px;border-radius:8px;border:1px solid #ccc;margin-bottom:20px;"
-          placeholder=""></textarea>
+          <div class="form-row">
+            <input type="email" placeholder="이메일" required>
+            <input type="text" placeholder="연락처">
+          </div>
 
-        <button type="submit" class="btn" style="width:100%;text-align:center;">
-          Submit
-        </button>
-      </form>
+          <textarea rows="5" placeholder="문의 내용"></textarea>
+
+          <button type="submit" class="btn">
+            문의 보내기
+          </button>
+
+        </form>
+
+      </div>
+
     </div>
-
   </div>
 </section>
 
@@ -70,12 +75,14 @@ Email: contact@vioniasoft.com
 </footer>
 
 <script src="assets/js/main.js"></script>
+
 <script>
-// 防止默认提交（静态页暂时）
-document.getElementById('contactForm').onsubmit = function(e){
+/* 静态站：模拟发送 */
+document.getElementById("contactForm").addEventListener("submit", e => {
   e.preventDefault();
-  alert('Thanks! Form submit requires backend or mail service.');
-};
+  alert("문의가 정상적으로 작성되었습니다.\n(메일 전송은 추후 연동 가능합니다)");
+});
 </script>
+
 </body>
 </html>
