@@ -139,20 +139,30 @@ nav{
 }
 
 /* ===== 🔥 标题动画（关键修复点） ===== */
-/* 同时支持 about & services */
+/* ===== 标题动画（About / Services 共用） ===== */
 #aboutTitle,
-#aboutDesc,
-#servicesTitle,
-#servicesDesc{
+#servicesTitle{
   opacity:0;
   transform:translateY(20px);
   animation:fadeUp .8s ease forwards;
 }
 
+/* ===== 描述文字：杂志感排版 + 动画 ===== */
 #aboutDesc,
 #servicesDesc{
-  animation-delay:.15s;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp .8s ease .15s forwards;
+
+  /* 🔥 杂志感排版核心 */
+  max-width:680px;
+  margin:0 auto 56px;
+  color:var(--muted);
+  line-height:1.75;
+  font-size:1.05em;
+  letter-spacing:-0.01em;
 }
+
 
 /* ===== CARDS ===== */
 .cards{
