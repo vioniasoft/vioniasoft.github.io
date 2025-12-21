@@ -106,7 +106,7 @@ function setLang(l){
     el.textContent=t.nav[i];
   });
 
-  if(document.getElementById("heroTitle")){
+  if(window.heroTitle){
     heroTitle.textContent=t.hero;
     heroDesc.textContent=t.desc;
     heroBtn.textContent=t.btn;
@@ -142,4 +142,6 @@ function toggleLang(){
   m.style.display=m.style.display==="block"?"none":"block";
 }
 
-window.onload=()=>{ setLang(localStorage.getItem("lang")||"ko"); };
+window.onload=()=>{
+  setLang(localStorage.getItem("lang")||"ko");
+};
