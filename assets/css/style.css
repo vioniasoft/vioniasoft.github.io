@@ -201,7 +201,17 @@ footer{
   font-size: .9em;
   z-index: 999;
 }
+/* ===== ABOUT TITLE ANIMATION ===== */
+#aboutTitle,
+#aboutDesc{
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp .8s ease forwards;
+}
 
+#aboutDesc{
+  animation-delay: .15s;
+}
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
