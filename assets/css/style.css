@@ -241,3 +241,46 @@ footer{
     padding: 0 12px;
   }
 }
+/* ===== ABOUT HERO ===== */
+.about-hero{
+  padding-top: 140px;
+  text-align: center;
+}
+
+.about-title{
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+
+.about-sub{
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 720px;
+  margin: 0 auto 64px;
+  line-height: 1.9;
+}
+
+/* 卡片 hover 动效增强 */
+.card{
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.12);
+}
+
+/* MOBILE */
+@media (max-width:768px){
+  .about-title{
+    font-size: 2rem;
+  }
+
+  .about-sub{
+    font-size: 1rem;
+    margin-bottom: 44px;
+    padding: 0 10px;
+  }
+}
