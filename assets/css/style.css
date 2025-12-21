@@ -137,8 +137,8 @@ nav{
 
 /* about hero */
 .about-hero{
-  min-height:100vh;
-  padding:140px 8% 60px;
+  min-height:80vh;
+  padding:140px 8% 40px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -161,7 +161,7 @@ nav{
 
 /* about cards area */
 .about-cards{
-  padding:20px 8% 120px;
+  padding:0 8% 120px;
 }
 
 /* ================= CARDS ================= */
@@ -178,7 +178,7 @@ nav{
   box-shadow:0 10px 30px #00000010;
 
   opacity:0;
-  transform:translateY(40px);
+  transform:translateY(32px);
   animation:cardFade .8s ease forwards;
 }
 
@@ -188,7 +188,6 @@ nav{
 .card:nth-child(4){animation-delay:.4s}
 
 .card:hover{
-  transform:translateY(-8px);
   box-shadow:0 20px 40px #00000018;
 }
 
@@ -222,7 +221,7 @@ footer{
 @keyframes cardFade{
   to{
     opacity:1;
-    transform:none;
+    transform:translateY(0);
   }
 }
 
@@ -231,4 +230,5 @@ footer{
   .nav-center{display:none}
 
   .hero h1{font-size:2.2em}
-  .about-hero h1{font-size
+  .about-hero h1{font-size:2em}
+}
