@@ -25,15 +25,16 @@ html,body{
 }
 
 body{
+  min-height:100vh;
   display:flex;
   flex-direction:column;
-  min-height:100vh;
-  /*padding-bottom:64px; 给 fixed footer 预留空间 */
+
   font-family:Segoe UI,Roboto,sans-serif;
   background:var(--bg);
   color:var(--text);
   line-height:1.7;
 }
+
 
 /* =========================================================
    顶部导航栏（NAV）
