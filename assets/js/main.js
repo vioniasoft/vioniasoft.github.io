@@ -1,5 +1,3 @@
-let langOpen=false;
-
 const T={
   ko:{
     nav:["홈","회사소개","서비스","문의"],
@@ -9,22 +7,21 @@ const T={
     aboutTitle:"회사 소개",
     aboutDesc:"비즈니스를 이해하는 기술 파트너입니다.",
     aboutCards:[
-      ["비즈니스 이해 중심","업무 흐름을 먼저 이해합니다"],
-      ["안정성과 확장성","장기 운영 구조"],
-      ["명확한 소통","투명한 커뮤니케이션"],
-      ["지속적 협력","프로젝트 이후도 함께"]
+      ["비즈니스 이해","업무 흐름 중심"],
+      ["안정성과 확장성","장기 구조"],
+      ["명확한 소통","투명한 협업"],
+      ["지속적 파트너","프로젝트 이후도"]
     ],
     servicesTitle:"서비스",
     services:[
       ["소프트웨어 개발","맞춤형 시스템"],
-      ["IT 컨설팅","구조 분석"],
+      ["IT 컨설팅","구조 설계"],
       ["클라우드","AWS / Azure"],
       ["프로젝트 관리","전 과정"]
     ],
     contactTitle:"문의하기",
-    contactDesc:"언제든지 연락 주세요"
+    contactDesc:"contact@vioniasoft.com"
   },
-
   en:{
     nav:["Home","About","Services","Contact"],
     hero:"Supporting Digital Growth",
@@ -33,10 +30,10 @@ const T={
     aboutTitle:"About Us",
     aboutDesc:"We understand business first.",
     aboutCards:[
-      ["Business First","Flow focused"],
-      ["Scalable","Long-term design"],
-      ["Clear Communication","Transparent"],
-      ["Partnership","Beyond delivery"]
+      ["Business","First"],
+      ["Scalable","Long term"],
+      ["Communication","Clear"],
+      ["Partnership","Ongoing"]
     ],
     servicesTitle:"Services",
     services:[
@@ -46,55 +43,7 @@ const T={
       ["Management","Full cycle"]
     ],
     contactTitle:"Contact",
-    contactDesc:"Feel free to reach out"
-  },
-
-  zh:{
-    nav:["首页","关于我们","服务","联系"],
-    hero:"助力企业数字化成长",
-    desc:"稳定可靠的 IT 解决方案。",
-    btn:"查看服务",
-    aboutTitle:"关于我们",
-    aboutDesc:"以业务为中心的技术团队。",
-    aboutCards:[
-      ["理解业务","业务优先"],
-      ["稳定扩展","长期架构"],
-      ["沟通透明","过程清晰"],
-      ["长期合作","持续支持"]
-    ],
-    servicesTitle:"服务",
-    services:[
-      ["软件开发","定制系统"],
-      ["IT 咨询","架构设计"],
-      ["云服务","AWS / Azure"],
-      ["项目管理","全流程"]
-    ],
-    contactTitle:"联系我们",
-    contactDesc:"欢迎随时联系"
-  },
-
-  fr:{
-    nav:["Accueil","À propos","Services","Contact"],
-    hero:"Croissance numérique",
-    desc:"Solutions IT fiables.",
-    btn:"Voir les services",
-    aboutTitle:"À propos",
-    aboutDesc:"La technologie au service du business.",
-    aboutCards:[
-      ["Business","Priorité métier"],
-      ["Scalable","Long terme"],
-      ["Communication","Clair"],
-      ["Partenariat","Durable"]
-    ],
-    servicesTitle:"Services",
-    services:[
-      ["Développement","Systèmes"],
-      ["Conseil","Architecture"],
-      ["Cloud","AWS / Azure"],
-      ["Gestion","Complet"]
-    ],
-    contactTitle:"Contact",
-    contactDesc:"Contactez-nous"
+    contactDesc:"contact@vioniasoft.com"
   }
 };
 
@@ -102,9 +51,7 @@ function setLang(l){
   localStorage.setItem("lang",l);
   const t=T[l];
 
-  document.querySelectorAll("[data-nav]").forEach((el,i)=>{
-    el.textContent=t.nav[i];
-  });
+  document.querySelectorAll("[data-nav]").forEach((el,i)=>el.textContent=t.nav[i]);
 
   if(window.heroTitle){
     heroTitle.textContent=t.hero;
@@ -134,14 +81,11 @@ function setLang(l){
     contactDesc.textContent=t.contactDesc;
   }
 
-  document.getElementById("langMenu").style.display="none";
+  langMenu.style.display="none";
 }
 
 function toggleLang(){
-  const m=document.getElementById("langMenu");
-  m.style.display=m.style.display==="block"?"none":"block";
+  langMenu.style.display=langMenu.style.display==="block"?"none":"block";
 }
 
-window.onload=()=>{
-  setLang(localStorage.getItem("lang")||"ko");
-};
+window.onload=()=>setLang(localStorage.getItem("lang")||"ko");
