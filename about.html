@@ -9,20 +9,25 @@
 <body>
 
 <nav>
-  <div class="logo">VioniaSoft</div>
+  <!-- Logo -->
+  <div class="logo logo-gradient">VioniaSoft</div>
+
+  <!-- 中间导航（文字由 JS 注入） -->
   <div class="nav-center">
-    <a data-nav href="index.html"></a>
-    <a data-nav href="about.html"></a>
-    <a data-nav href="services.html"></a>
-    <a data-nav href="contact.html"></a>
+    <a data-nav class="nav-link" href="index.html"></a>
+    <a data-nav class="nav-link" href="about.html"></a>
+    <a data-nav class="nav-link" href="services.html"></a>
+    <a data-nav class="nav-link" href="contact.html"></a>
   </div>
+
+  <!-- 右侧语言切换 -->
   <div class="nav-right">
     <span class="lang-btn" onclick="toggleLang()">🌐</span>
     <div class="lang-menu" id="langMenu">
-        <div onclick="setLang('ko')">한국어</div>
-        <div onclick="setLang('en')">English</div>
-        <div onclick="setLang('zh')">中文</div>
-        <div onclick="setLang('fr')">Français</div>
+      <div onclick="setLang('ko')">한국어</div>
+      <div onclick="setLang('en')">English</div>
+      <div onclick="setLang('zh')">中文</div>
+      <div onclick="setLang('fr')">Français</div>
     </div>
   </div>
 </nav>
