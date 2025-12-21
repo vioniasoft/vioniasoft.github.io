@@ -355,3 +355,27 @@ footer{
     transform:translateY(0);
   }
 }
+/* ===== CONTACT PAGE LAYOUT ===== */
+.contact-wrap{
+  max-width:760px;
+  margin:0 auto;
+  padding:0 8%;
+}
+
+.contact-card{
+  padding:40px;
+  text-align:left;          /* ✅ 留言板必须左对齐 */
+}
+
+/* 表单整体更像“留言板 / 邮件” */
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* 按钮位置：右下 or 左下（高级官网常用） */
+.contact-form button{
+  margin-top:20px;
+  align-self:flex-start;
+}
