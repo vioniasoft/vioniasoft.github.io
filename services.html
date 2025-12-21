@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Services | VioniaSoft</title>
 
-  <!-- ✅ 正确的 CSS 路径 -->
+  <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
@@ -13,43 +13,34 @@
 <nav>
   <div class="logo">VioniaSoft</div>
   <div class="nav-center">
-    <a href="/about.html">About</a>
-    <a href="/services.html">Services</a>
+    <a data-nav href="index.html"></a>
+    <a data-nav href="about.html"></a>
+    <a data-nav href="services.html"></a>
+    <a data-nav href="contact.html"></a>
   </div>
   <div class="nav-right">
-    <div class="lang">
-      <div class="lang-btn">한국어</div>
-      <div class="lang-menu">
-        <div>English</div>
-        <div>中文</div>
-        <div>Français</div>
-      </div>
+    <span class="lang-btn" onclick="toggleLang()">🌐</span>
+    <div class="lang-menu" id="langMenu">
+      <div onclick="setLang('ko')">한국어</div>
+      <div onclick="setLang('en')">English</div>
+      <div onclick="setLang('zh')">中文</div>
+      <div onclick="setLang('fr')">Français</div>
     </div>
   </div>
 </nav>
 
-<!-- 和 about 一样的结构 -->
-<section class="hero">
-  <h1>Our Services</h1>
-  <p>
-    We provide modern software solutions designed for performance,
-    scalability, and long-term growth.
-  </p>
-</section>
-
-
-<!-- 整体背景区域 -->
+<!-- 整体背景区域（和 about 完全一致） -->
 <section class="about-bg">
 
   <!-- 首屏介绍 -->
   <div class="about-hero">
-    <h1 id="aboutTitle"></h1>
-    <p id="aboutDesc"></p>
+    <h1 id="servicesTitle"></h1>
+    <p id="servicesDesc"></p>
   </div>
 
   <!-- 卡片区域 -->
   <div class="about-cards">
-    <div class="cards" id="aboutCards"></div>
+    <div class="cards" id="servicesCards"></div>
   </div>
 
 </section>
@@ -59,15 +50,8 @@
 Email: contact@vioniasoft.com
 </footer>
 
-<script>
-document.querySelectorAll('.lang-btn').forEach(btn=>{
-  btn.addEventListener('click', () => {
-    const menu = btn.nextElementSibling;
-    menu.style.display =
-      menu.style.display === 'block' ? 'none' : 'block';
-  });
-});
-</script>
+<!-- JS 一定放在 body 结尾 -->
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
