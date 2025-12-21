@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About · VioniaSoft</title>
+<title>회사 소개 · VioniaSoft</title>
+
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
+<!-- ===== NAV ===== -->
 <nav>
   <div class="logo">VioniaSoft</div>
 
@@ -32,19 +34,26 @@
   </div>
 </nav>
 
-<main class="page">
-  <h2 id="aboutTitle"></h2>
-  <p id="aboutDesc" class="section-desc"></p>
+<!-- ===== PAGE ===== -->
+<main class="page about-hero">
 
-  <!-- 🔴 关键：JS 就是往这个容器里塞 4 条内容 -->
+  <!-- 标题区（居中 + 放大） -->
+  <h1 id="aboutTitle" class="about-title"></h1>
+  <p id="aboutDesc" class="about-sub"></p>
+
+  <!-- 公司介绍 4 条卡片（JS 动态填充，关键容器） -->
   <div class="cards" id="aboutCards"></div>
+
 </main>
 
+<!-- ===== FOOTER ===== -->
 <footer>
 © 2025 VioniaSoft. All rights reserved.<br>
 contact@vioniasoft.com
 </footer>
 
+<!-- ===== SCRIPT ===== -->
 <script src="assets/js/main.js"></script>
+
 </body>
 </html>
