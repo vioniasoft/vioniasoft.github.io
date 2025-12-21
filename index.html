@@ -21,7 +21,7 @@
 
   <div class="nav-right">
     <div class="lang">
-      <span onclick="toggleLang()">🌐</span>
+      <span class="lang-btn" onclick="toggleLang()">🌐</span>
       <div class="lang-menu" id="langMenu">
         <div onclick="setLang('ko')">한국어</div>
         <div onclick="setLang('en')">English</div>
@@ -33,28 +33,11 @@
   </div>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <div data-nav onclick="location.href='index.html'"></div>
-  <div data-nav onclick="location.href='about.html'"></div>
-  <div data-nav onclick="location.href='services.html'"></div>
-  <div data-nav onclick="location.href='contact.html'"></div>
-
-  <div onclick="toggleMobileLang()">Language ▸</div>
-  <div class="mobile-lang" id="mobileLang">
-    <div onclick="setLang('ko')">한국어</div>
-    <div onclick="setLang('en')">English</div>
-    <div onclick="setLang('zh')">中文</div>
-    <div onclick="setLang('fr')">Français</div>
-  </div>
-</div>
-
-<main>
-  <section class="hero">
-    <h1 data-i="heroTitle"></h1>
-    <p data-i="heroDesc"></p>
-    <a class="btn" data-i="heroBtn" href="services.html"></a>
-  </section>
-</main>
+<section class="hero">
+  <h1 id="heroTitle"></h1>
+  <p id="heroDesc"></p>
+  <a class="btn" id="heroBtn"></a>
+</section>
 
 <footer>
 © 2025 VioniaSoft. All rights reserved.<br>
