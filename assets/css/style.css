@@ -140,28 +140,60 @@ nav{
 
 /* ===== 🔥 标题动画（关键修复点） ===== */
 /* ===== 标题动画（About / Services 共用） ===== */
+/* ===== 标题（杂志感 + 小紫色横杠） ===== */
 #aboutTitle,
 #servicesTitle{
+  position:relative;
   opacity:0;
   transform:translateY(20px);
   animation:fadeUp .8s ease forwards;
+
+  font-size:2.4em;
+  margin-bottom:20px;
 }
 
-/* ===== 描述文字：杂志感排版 + 动画 ===== */
+/* 紫色小横杠 */
+#aboutTitle::after,
+#servicesTitle::after{
+  content:"";
+  display:block;
+  width:42px;
+  height:3px;
+  margin:16px auto 0;
+
+  background:linear-gradient(
+    90deg,
+    #7c3aed,
+    #8b5cf6
+  );
+  border-radius:999px;
+}
+/* ===== 描述文字（Editorial / 杂志感） ===== */
 #aboutDesc,
 #servicesDesc{
   opacity:0;
   transform:translateY(20px);
   animation:fadeUp .8s ease .15s forwards;
 
-  /* 🔥 杂志感排版核心 */
-  max-width:680px;
-  margin:0 auto 56px;
+  max-width:640px;        /* 🔥 再收一点，更像杂志 */
+  margin:0 auto 72px;
+
   color:var(--muted);
-  line-height:1.75;
+  line-height:1.85;       /* 🔥 阅读感明显提升 */
   font-size:1.05em;
-  letter-spacing:-0.01em;
+  letter-spacing:-0.015em;
 }
+#aboutDesc::first-line,
+#servicesDesc::first-line{
+  font-weight:500;
+  color:var(--text);
+}
+#aboutDesc br{
+  display:block;
+  margin-bottom:14px;
+}
+
+
 
 
 /* ===== CARDS ===== */
