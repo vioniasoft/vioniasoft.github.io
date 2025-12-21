@@ -55,6 +55,64 @@ services:[
 contactTitle:"Contact",
 contactDesc:"Feel free to contact us anytime.",
 form:["Company","Name","Email","Message","Send"]
+},
+
+zh:{
+nav:["首页","关于我们","服务","联系我们"],
+hero:"助力企业实现数字化增长",
+desc:"VioniaSoft 为企业提供稳定可靠的软件与 IT 解决方案。",
+sub:"专注长期运营与可扩展系统架构。",
+explore:"查看服务",
+
+aboutTitle:"关于我们",
+aboutDesc:"我们将技术视为业务增长的核心资产。",
+aboutCards:[
+["业务导向","贴合真实业务场景"],
+["稳定可靠","支持长期运营"],
+["可扩展设计","支持企业成长"],
+["长期合作","不仅是交付"]
+],
+
+servicesTitle:"服务",
+services:[
+["💻 软件开发","定制化系统"],
+["📊 IT 咨询","架构与策略"],
+["☁️ 云服务","AWS / Azure"],
+["🚀 项目管理","全流程支持"]
+],
+
+contactTitle:"联系我们",
+contactDesc:"欢迎随时与我们取得联系。",
+form:["公司","姓名","邮箱","留言","发送"]
+},
+
+fr:{
+nav:["Accueil","À propos","Services","Contact"],
+hero:"Accompagner votre croissance numérique",
+desc:"VioniaSoft développe des solutions logicielles fiables.",
+sub:"Pensé pour la stabilité et l’évolutivité.",
+explore:"Voir les services",
+
+aboutTitle:"À propos",
+aboutDesc:"La technologie comme levier stratégique.",
+aboutCards:[
+["Orienté métier","Aligné sur vos opérations"],
+["Fiable","Pensé long terme"],
+["Évolutif","Prêt pour la croissance"],
+["Partenaire durable","Au-delà du projet"]
+],
+
+servicesTitle:"Services",
+services:[
+["💻 Développement logiciel","Solutions sur mesure"],
+["📊 Conseil IT","Architecture & stratégie"],
+["☁️ Cloud","AWS / Azure"],
+["🚀 Gestion de projet","De bout en bout"]
+],
+
+contactTitle:"Contact",
+contactDesc:"N’hésitez pas à nous contacter.",
+form:["Entreprise","Nom","Email","Message","Envoyer"]
 }
 };
 
@@ -62,45 +120,44 @@ function setLang(l){
 localStorage.setItem("lang", l);
 
 /* NAV */
-const navIds = ["navHome","navAbout","navServices","navContact"];
-navIds.forEach((id,i)=>{
-  const el = document.getElementById(id);
-  if(el) el.innerText = T[l].nav[i];
+["navHome","navAbout","navServices","navContact"].forEach((id,i)=>{
+  const el=document.getElementById(id);
+  if(el) el.innerText=T[l].nav[i];
 });
 
 /* TEXT */
 document.querySelectorAll("[data-i]").forEach(e=>{
-  const key = e.dataset.i;
-  if (T[l][key]) e.innerText = T[l][key];
+  const key=e.dataset.i;
+  if(T[l][key]) e.innerText=T[l][key];
 });
 
 /* ABOUT */
-const about = document.getElementById("aboutCards");
-if (about){
-  about.innerHTML = "";
+const about=document.getElementById("aboutCards");
+if(about){
+  about.innerHTML="";
   T[l].aboutCards.forEach(c=>{
-    about.innerHTML += `<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`;
+    about.innerHTML+=`<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`;
   });
 }
 
 /* SERVICES */
-const services = document.getElementById("serviceCards");
-if (services){
-  services.innerHTML = "";
+const services=document.getElementById("serviceCards");
+if(services){
+  services.innerHTML="";
   T[l].services.forEach(s=>{
-    services.innerHTML += `<div class="card"><h3>${s[0]}</h3><p>${s[1]}</p></div>`;
+    services.innerHTML+=`<div class="card"><h3>${s[0]}</h3><p>${s[1]}</p></div>`;
   });
 }
 
 /* FORM */
-const submit = document.getElementById("submit");
-if (submit){
-  const f = T[l].form;
-  document.getElementById("cname").placeholder = f[0];
-  document.getElementById("pname").placeholder = f[1];
-  document.getElementById("email").placeholder = f[2];
-  document.getElementById("msg").placeholder = f[3];
-  submit.innerText = f[4];
+const submit=document.getElementById("submit");
+if(submit){
+  const f=T[l].form;
+  cname.placeholder=f[0];
+  pname.placeholder=f[1];
+  email.placeholder=f[2];
+  msg.placeholder=f[3];
+  submit.innerText=f[4];
 }
 }
 
