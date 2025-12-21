@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VioniaSoft</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VioniaSoft</title>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
 <nav>
-  <div class="nav-inner">
-    <div class="logo">VioniaSoft</div>
-
-    <div class="nav-center">
-      <a data-nav="home" href="index.html"></a>
-      <a data-nav="about" href="about.html"></a>
-      <a data-nav="services" href="services.html"></a>
-      <a data-nav="contact" href="contact.html"></a>
+  <div class="logo">VioniaSoft</div>
+  <div class="nav-center">
+    <a data-nav href="index.html"></a>
+    <a data-nav href="about.html"></a>
+    <a data-nav href="services.html"></a>
+    <a data-nav href="contact.html"></a>
+  </div>
+  <div class="nav-right">
+    <div class="lang">
+      <span class="lang-btn" onclick="toggleLang()">🌐</span>
+      <div class="lang-menu" id="langMenu">
+        <div onclick="setLang('ko')">한국어</div>
+        <div onclick="setLang('en')">English</div>
+        <div onclick="setLang('zh')">中文</div>
+        <div onclick="setLang('fr')">Français</div>
+      </div>
     </div>
   </div>
 </nav>
 
-<section class="hero page-center">
-  <h1 id="heroTitle" class="home-hero home-hero-delay1"></h1>
-  <p id="heroDesc" class="home-hero home-hero-delay2"></p>
-  <a id="heroBtn" class="btn home-hero home-hero-delay3"></a>
+<section class="hero">
+  <h1 id="heroTitle"></h1>
+  <p id="heroDesc"></p>
+  <a class="btn" id="heroBtn" href="services.html"></a>
 </section>
 
 <footer>
-  © 2025 VioniaSoft. All rights reserved.<br/>
-  contact@vioniasoft.com
+© 2025 VioniaSoft. All rights reserved.<br>
+contact@vioniasoft.com
 </footer>
 
 <script src="assets/js/main.js"></script>
