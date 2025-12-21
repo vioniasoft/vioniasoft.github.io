@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | VioniaSoft</title>
+<title>Contact</title>
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -19,21 +19,29 @@
   <div class="nav-right">
     <span class="lang-btn" onclick="toggleLang()">🌐</span>
     <div class="lang-menu" id="langMenu">
-        <div onclick="setLang('ko')">한국어</div>
-        <div onclick="setLang('en')">English</div>
-        <div onclick="setLang('zh')">中文</div>
-        <div onclick="setLang('fr')">Français</div>
+      <div onclick="setLang('ko')">한국어</div>
+      <div onclick="setLang('en')">English</div>
+      <div onclick="setLang('zh')">中文</div>
+      <div onclick="setLang('fr')">Français</div>
     </div>
   </div>
 </nav>
 
-<section class="page services-page">
+<section class="page">
   <h2 id="contactTitle"></h2>
   <p id="contactDesc"></p>
+
+  <form action="mailto:contact@vioniasoft.com" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button class="btn" type="submit">Send</button>
+  </form>
 </section>
 
 <footer>
-© 2025 VioniaSoft. All rights reserved.
+© 2025 VioniaSoft. All rights reserved.<br>
+Email: contact@vioniasoft.com
 </footer>
 
 <script src="assets/js/main.js"></script>
