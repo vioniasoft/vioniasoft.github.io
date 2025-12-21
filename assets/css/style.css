@@ -5,20 +5,24 @@
   --card:#ffffff;
   --text:#0f172a;
   --muted:#64748b;
-  --shadow-strong:rgba(15,23,42,0.2);
+
+  --fade-delay-step:.15s;
+  --fade-duration:.8s;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 
-html,body{width:100%;height:100%}
+html,body{
+  height:100%;
+}
 
 body{
   font-family:"Segoe UI",Roboto,sans-serif;
   background:var(--bg);
   color:var(--text);
   line-height:1.7;
-  padding-bottom:72px; /* footer */
-  scroll-behavior:smooth;
+  display:flex;
+  flex-direction:column;
 }
 
 /* ===== NAV ===== */
@@ -26,328 +30,203 @@ nav{
   position:fixed;
   top:0;left:0;
   width:100%;
-  height:64px;
-  background:rgba(255,255,255,0.75);
-  backdrop-filter:blur(12px);
+  background:rgba(248,250,252,.9);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid #e5e7eb;
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  align-items:center;
-  padding:0 24px;
   z-index:1000;
-  transition:box-shadow .3s ease,background .3s ease;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 24px;
 }
 
-/* 滚动时阴影 */
-nav.scrolled{
-  box-shadow:0 4px 12px var(--shadow-strong);
-  background:rgba(255,255,255,0.92);
+.nav-inner{
+  width:100%;
+  max-width:1200px;
+  display:flex;
+  align-items:center;
 }
 
-.logo{font-weight:700;font-size:1.3em;color:var(--main)}
+.logo{
+  font-weight:700;
+  font-size:1.2em;
+  color:var(--main);
+}
 
 .nav-center{
+  flex:1;
   display:flex;
   justify-content:center;
   gap:28px;
 }
+
 .nav-center a{
   text-decoration:none;
   color:var(--text);
   font-weight:500;
-  position:relative;
-}
-.nav-center a::after{
-  content:"";
-  position:absolute;bottom:-6px;left:50%;
-  width:0;height:2px;background:var(--main);
-  transition:.3s;transform:translateX(-50%);
-}
-.nav-center a:hover::after{width:100%}
-
-.nav-right{display:flex;align-items:center;gap:16px}
-
-/* language */
-.lang{position:relative}
-.lang-btn{cursor:pointer;font-size:1.2em}
-.lang-menu{
-  display:none;
-  position:absolute;
-  right:0;top:28px;
-  background:#fff;
-  border:1px solid #e5e7eb;
-  border-radius:10px;
-  overflow:hidden;
-}
-.lang-menu div{
-  padding:10px 16px;cursor:pointer;
-}
-.lang-menu div:hover{background:#f1f5f9}
-
-/* mobile */
-.menu-btn{
-  display:none;font-size:1.6em;
-  background:none;border:none;cursor:pointer;
+  cursor:pointer;
 }
 
-/* ===== PAGE ===== */
-.page{
-  padding:120px 8% 80px;
-  min-height:calc(100vh - 64px);
+.nav-center a:hover{
+  color:var(--main);
 }
 
-/* ===== HERO COMMON ===== */
+/* ===== HERO (统一三页) ===== */
 .hero{
   min-height:100vh;
-  padding-top:160px;
+  padding:160px 20px 120px;
   text-align:center;
+
   background:
     radial-gradient(circle at 20% 20%, #93c5fd55, transparent 40%),
     radial-gradient(circle at 80% 30%, #c4b5fd55, transparent 40%);
 }
-.hero h1{
+
+/* ===== PAGE ===== */
+.page{
+  flex:1;
+  padding:120px 8% 80px;
+}
+
+.page-center{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+/* ===== TITLES ===== */
+.hero h1,
+.section-title{
   font-size:3em;
-  margin-bottom:18px;
-  opacity:0;
-  animation:fadeText 1s ease .3s forwards;
+  margin-bottom:20px;
 }
-.hero p{
+
+.hero p,
+.section-desc{
+  font-size:1.1em;
   color:var(--muted);
-  max-width:800px;
-  margin:0 auto 24px;
-  opacity:0;
-  animation:fadeText 1s ease .5s forwards;
+  max-width:820px;
+  margin:0 auto 28px;
 }
-.hero .btn{
-  padding:14px 36px;
+
+.sub{
+  font-size:1em;
+  color:var(--muted);
+  max-width:760px;
+  margin:0 auto 40px;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  padding:14px 40px;
   border-radius:999px;
   background:linear-gradient(135deg,var(--main),var(--sub));
-  color:#fff;font-weight:600;
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
   display:inline-block;
-  opacity:0;
-  animation:fadeText 1s ease .7s forwards;
-}
-
-@keyframes fadeText{
-  from{opacity:0;transform:translateY(12px)}
-  to{opacity:1;transform:none}
-}
-
-/* ===== ABOUT / SERVICES HERO ===== */
-.about-hero, .services-hero{
-  position:relative;
-  text-align:center;
-  padding-top:160px;
-  padding-bottom:120px;
-  background:
-    radial-gradient(circle at 15% 25%, rgba(96,165,250,.28), transparent 40%),
-    radial-gradient(circle at 85% 35%, rgba(167,139,250,.28), transparent 45%);
-}
-
-.about-title, .services-hero h2{
-  font-size:3.2rem;font-weight:800;
-  letter-spacing:-.03em;margin-bottom:30px;
-}
-
-.about-sub, .services-sub{
-  font-size:1.1rem;color:var(--muted);
-  max-width:760px;margin:0 auto 60px;line-height:1.9;
 }
 
 /* ===== CARDS ===== */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:32px;
-  margin-top:20px;
+  gap:28px;
+  margin-top:40px;
 }
 
 .card{
-  background:#fff;
+  background:var(--card);
   border-radius:20px;
-  padding:32px 28px;
-  box-shadow:0 10px 28px rgba(0,0,0,.08);
-  position:relative;
-  overflow:hidden;
-  transition:transform .35s ease,box-shadow .35s ease;
+  padding:34px;
+  box-shadow:0 10px 30px #00000010;
+  transition:.35s ease;
 }
+
+.card h3{
+  margin-bottom:12px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:.95em;
+}
+
 .card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 24px 48px rgba(0,0,0,.16);
+  transform:translateY(-8px);
+  box-shadow:0 18px 40px #00000018;
 }
 
-/* 小图标区 */
-.card::before{
-  content:attr(data-icon);
-  position:absolute;
-  top:-8px;left:-8px;
-  font-size:2.2em;
-  opacity:.2;
+/* ===== FORM ===== */
+.form{
+  max-width:760px;
+  margin:40px auto 0;
+  background:#fff;
+  padding:40px;
+  border-radius:22px;
+  box-shadow:0 20px 40px #00000010;
 }
 
-/* 卡片标题 */
-.card h3{margin-bottom:10px;font-size:1.2em;font-weight:600;}
-.card p{color:var(--muted);font-size:.95em;line-height:1.7;}
+.form input,
+.form textarea{
+  width:100%;
+  padding:14px;
+  margin-bottom:18px;
+  border-radius:10px;
+  border:1px solid #e5e7eb;
+  font-size:.95em;
+}
 
-/* ===== CTA BANNER ===== */
-.cta-section{
-  margin-top:60px;
-  text-align:center;
+.form button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:999px;
   background:linear-gradient(135deg,var(--main),var(--sub));
-  padding:28px 16px;
-  border-radius:18px;
-}
-.cta-section p{
-  font-size:1.15em;color:#fff;margin-bottom:14px;
-}
-.cta-section a{
-  padding:12px 28px;
-  background:#fff;color:var(--main);
-  font-weight:600;border-radius:999px;
-  text-decoration:none;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
 }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER（贴底） ===== */
 footer{
-  position:fixed;bottom:0;left:0;
-  width:100%;height:64px;
-  background:#0f172a;color:#cbd5f5;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;font-size:.9em;
+  background:#0f172a;
+  color:#cbd5f5;
+  padding:40px 20px;
+  text-align:center;
+  font-size:.9em;
+  line-height:1.8;
 }
+
+/* ===== FADE-UP ANIMATION SYSTEM ===== */
+.fade-up,
+.fade-up > *{
+  opacity:0;
+  transform:translateY(24px);
+}
+
+.fade-up.appeared > *{
+  animation:fadeUp var(--fade-duration) ease forwards;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:none}
+}
+
+.fade-up.appeared > *:nth-child(1){animation-delay:calc(var(--fade-delay-step)*1)}
+.fade-up.appeared > *:nth-child(2){animation-delay:calc(var(--fade-delay-step)*2)}
+.fade-up.appeared > *:nth-child(3){animation-delay:calc(var(--fade-delay-step)*3)}
+.fade-up.appeared > *:nth-child(4){animation-delay:calc(var(--fade-delay-step)*4)}
+.fade-up.appeared > *:nth-child(5){animation-delay:calc(var(--fade-delay-step)*5)}
+.fade-up.appeared > *:nth-child(6){animation-delay:calc(var(--fade-delay-step)*6)}
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
-  .nav-center{display:none}
-  .menu-btn{display:block}
-  .about-title, .services-hero h2{font-size:2.2rem}
-  .about-sub, .services-sub{font-size:1rem;margin-bottom:44px}
-}
-/* ===== SERVICES HERO FIX ===== */
-
-.services-hero{
-  position: relative;
-  padding-top: 160px;
-  padding-bottom: 120px;
-  text-align: center;
-  background:
-    radial-gradient(circle at 18% 25%, rgba(96,165,250,.28), transparent 40%),
-    radial-gradient(circle at 82% 35%, rgba(167,139,250,.28), transparent 45%);
-}
-
-.services-title{
-  font-size: 3.2rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 20px;
-}
-
-.services-sub{
-  font-size: 1.15rem;
-  color: var(--muted);
-  max-width: 760px;
-  margin: 0 auto 80px;
-  line-height: 1.9;
-}
-
-/* CTA 和卡片之间的呼吸感 */
-.services-hero .cta-section{
-  margin-top: 80px;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .services-hero{
-    padding-top: 120px;
-    padding-bottom: 80px;
-  }
-
-  .services-title{
-    font-size: 2.1rem;
-  }
-
-  .services-sub{
-    font-size: 1rem;
-    margin-bottom: 56px;
-    padding: 0 12px;
-  }
-}
-/* ===== HERO MOTION SYSTEM (GLOBAL) ===== */
-
-/* 所有 Hero 容器统一 */
-.hero,
-.about-hero,
-.services-hero{
-  position: relative;
-  overflow: hidden;
-}
-
-/* Hero 标题 */
-.hero h1,
-.about-title,
-.services-title{
-  opacity: 0;
-  transform: translateY(24px);
-  animation: heroFadeUp .9s ease forwards;
-  animation-delay: .3s;
-}
-
-/* Hero 副标题 */
-.hero p,
-.about-sub,
-.services-sub{
-  opacity: 0;
-  transform: translateY(24px);
-  animation: heroFadeUp .9s ease forwards;
-  animation-delay: .5s;
-}
-
-/* Hero 按钮（只在首页有） */
-.hero .btn{
-  opacity: 0;
-  transform: translateY(24px);
-  animation: heroFadeUp .9s ease forwards;
-  animation-delay: .7s;
-}
-
-/* Hero 后续内容（卡片区） */
-.about-hero .cards,
-.services-hero .cards{
-  opacity: 0;
-  transform: translateY(24px);
-  animation: heroFadeUp .9s ease forwards;
-  animation-delay: .9s;
-}
-
-/* CTA */
-.services-hero .cta-section{
-  opacity: 0;
-  transform: translateY(24px);
-  animation: heroFadeUp .9s ease forwards;
-  animation-delay: 1.05s;
-}
-
-/* 核心动画 */
-@keyframes heroFadeUp{
-  from{
-    opacity:0;
-    transform:translateY(24px);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-/* MOBILE 节奏略快 */
-@media(max-width:768px){
   .hero h1,
-  .about-title,
-  .services-title{animation-delay:.2s}
+  .section-title{font-size:2em}
 
-  .hero p,
-  .about-sub,
-  .services-sub{animation-delay:.35s}
+  .page{padding:100px 6% 60px}
 
-  .hero .btn{animation-delay:.5s}
+  :root{--fade-delay-step:.1s}
 }
