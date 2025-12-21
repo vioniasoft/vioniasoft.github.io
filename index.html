@@ -6,39 +6,36 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <script src="assets/js/main.js" defer></script>
 </head>
+<body>
 
-<body onload="setLang('ko')">
-
+<!-- NAV -->
 <nav>
-<div class="nav-left">VioniaSoft</div>
-
-<div class="nav-center">
-<a class="nav-item" href="index.html"></a>
-<a class="nav-item" href="about.html"></a>
-<a class="nav-item" href="services.html"></a>
-<a class="nav-item" href="contact.html"></a>
-</div>
-
-<div class="nav-right">
-<div class="lang-desktop">
-<span onclick="toggleLang()">🌐</span>
-<div class="lang-menu" id="langMenu">
-<div onclick="setLang('ko')">한국어</div>
-<div onclick="setLang('en')">English</div>
-<div onclick="setLang('zh')">中文</div>
-<div onclick="setLang('fr')">Français</div>
-</div>
-</div>
+<div class="logo">VioniaSoft</div>
+<ul>
+<li><a href="index.html" data-i="navHome"></a></li>
+<li><a href="about.html" data-i="navAbout"></a></li>
+<li><a href="services.html" data-i="navServices"></a></li>
+<li><a href="contact.html" data-i="navContact"></a></li>
+</ul>
+<div class="lang">
+<a onclick="setLang('ko')">KO</a>
+<a onclick="setLang('en')">EN</a>
+<a onclick="setLang('zh')">中文</a>
+<a onclick="setLang('fr')">FR</a>
 </div>
 </nav>
 
-<section class="page">
-<div class="hero">
-<h1 id="heroTitle"></h1>
-<p id="heroDesc"></p>
-<a class="btn" id="heroBtn" href="services.html"></a>
-</div>
+<section class="page hero">
+<h1 data-i="hero"></h1>
+<p data-i="desc"></p>
+<p class="sub" data-i="sub"></p>
+<a class="btn" href="services.html" data-i="explore"></a>
 </section>
+
+<footer>
+© 2025 VioniaSoft. All rights reserved.<br>
+contact@vioniasoft.com
+</footer>
 
 </body>
 </html>
