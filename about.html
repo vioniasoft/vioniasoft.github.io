@@ -1,58 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VioniaSoft • About</title>
-<link rel="stylesheet" href="assets/style.css">
-<script src="assets/main.js" defer></script>
+  <meta charset="UTF-8" />
+  <title>About | VioniaSoft</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/main.js"></script>
 </head>
-<body onload="setLang(currentLang)">
+
+<body onload="setLang('ko')">
 
 <nav>
-<div class="nav-left">VioniaSoft</div>
-<div class="nav-center">
-<a href="index.html" data-nav="0"></a>
-<a href="about.html" data-nav="1"></a>
-<a href="services.html" data-nav="2"></a>
-<a href="contact.html" data-nav="3"></a>
-</div>
-
-<div class="nav-right">
-<div class="lang-desktop">
-<span onclick="document.getElementById('langMenu').style.display='block'">🌐</span>
-<div class="lang-menu" id="langMenu">
-<div onclick="setLang('ko')">한국어</div>
-<div onclick="setLang('en')">English</div>
-<div onclick="setLang('zh')">中文</div>
-<div onclick="setLang('fr')">Français</div>
-</div>
-</div>
-
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
-</div>
+  <!-- 和 index.html 一模一样的 nav -->
 </nav>
 
-<div class="overlay" id="overlay" onclick="closeMenus()"></div>
-
-<div class="mobile-menu" id="mobileMenu">
-<div data-nav="0" onclick="location='index.html'"></div>
-<div data-nav="1" onclick="location='about.html'"></div>
-<div data-nav="2" onclick="location='services.html'"></div>
-<div data-nav="3" onclick="location='contact.html'"></div>
-<div onclick="toggleMobileLang()">Language ▸</div>
-<div class="mobile-lang" id="mobileLang">
-<div onclick="setLang('ko')">한국어</div>
-<div onclick="setLang('en')">English</div>
-<div onclick="setLang('zh')">中文</div>
-<div onclick="setLang('fr')">Français</div>
-</div>
-</div>
-
-<main>
-<h1 data-i18n="aboutTitle"></h1>
-<p data-i18n="aboutDesc"></p>
-</main>
+<section class="page active">
+  <h1>About VioniaSoft</h1>
+  <p>公司介绍内容写在这里</p>
+</section>
 
 </body>
 </html>
