@@ -59,46 +59,51 @@ form:["Company","Name","Email","Message","Send"]
 };
 
 function setLang(l){
-localStorage.setItem("lang",l);
+localStorage.setItem("lang", l);
 
-/* NAV（关键：单独赋值，绝不 undefined） */
-document.getElementById("navHome").innerText = T[l].nav[0];
-document.getElementById("navAbout").innerText = T[l].nav[1];
-document.getElementById("navServices").innerText = T[l].nav[2];
-document.getElementById("navContact").innerText = T[l].nav[3];
+/* NAV */
+const navIds = ["navHome","navAbout","navServices","navContact"];
+navIds.forEach((id,i)=>{
+  const el = document.getElementById(id);
+  if(el) el.innerText = T[l].nav[i];
+});
 
-/* 正文 */
+/* TEXT */
 document.querySelectorAll("[data-i]").forEach(e=>{
-e.innerText = T[l][e.dataset.i];
+  const key = e.dataset.i;
+  if (T[l][key]) e.innerText = T[l][key];
 });
 
 /* ABOUT */
-if(document.getElementById("aboutCards")){
-aboutCards.innerHTML="";
-T[l].aboutCards.forEach(c=>{
-aboutCards.innerHTML += `<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`;
-});
+const about = document.getElementById("aboutCards");
+if (about){
+  about.innerHTML = "";
+  T[l].aboutCards.forEach(c=>{
+    about.innerHTML += `<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`;
+  });
 }
 
 /* SERVICES */
-if(document.getElementById("serviceCards")){
-serviceCards.innerHTML="";
-T[l].services.forEach(s=>{
-serviceCards.innerHTML += `<div class="card"><h3>${s[0]}</h3><p>${s[1]}</p></div>`;
-});
+const services = document.getElementById("serviceCards");
+if (services){
+  services.innerHTML = "";
+  T[l].services.forEach(s=>{
+    services.innerHTML += `<div class="card"><h3>${s[0]}</h3><p>${s[1]}</p></div>`;
+  });
 }
 
 /* FORM */
-if(document.getElementById("submit")){
-const f=T[l].form;
-cname.placeholder=f[0];
-pname.placeholder=f[1];
-email.placeholder=f[2];
-msg.placeholder=f[3];
-submit.innerText=f[4];
+const submit = document.getElementById("submit");
+if (submit){
+  const f = T[l].form;
+  document.getElementById("cname").placeholder = f[0];
+  document.getElementById("pname").placeholder = f[1];
+  document.getElementById("email").placeholder = f[2];
+  document.getElementById("msg").placeholder = f[3];
+  submit.innerText = f[4];
 }
 }
 
-window.onload=()=>{
+window.addEventListener("DOMContentLoaded",()=>{
 setLang(localStorage.getItem("lang") || "ko");
-};
+});
