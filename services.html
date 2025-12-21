@@ -1,8 +1,41 @@
-<section class="page active">
-  <h1>Services</h1>
-  <ul>
-    <li>Web Development</li>
-    <li>UI/UX Design</li>
-    <li>IT Consulting</li>
-  </ul>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Services - VioniaSoft</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+</head>
+
+<body onload="setLang('ko')">
+
+<nav>
+<div class="nav-left">VioniaSoft</div>
+
+<div class="nav-center">
+<a class="nav-item" href="index.html"></a>
+<a class="nav-item" href="about.html"></a>
+<a class="nav-item" href="services.html"></a>
+<a class="nav-item" href="contact.html"></a>
+</div>
+
+<div class="nav-right">
+<div class="lang-desktop">
+<span onclick="toggleLang()">🌐</span>
+<div class="lang-menu" id="langMenu">
+<div onclick="setLang('ko')">한국어</div>
+<div onclick="setLang('en')">English</div>
+<div onclick="setLang('zh')">中文</div>
+<div onclick="setLang('fr')">Français</div>
+</div>
+</div>
+</div>
+</nav>
+
+<section class="page">
+<h1>Services</h1>
+<p>서비스 소개 페이지</p>
 </section>
+
+</body>
+</html>
