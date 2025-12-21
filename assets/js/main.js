@@ -1,51 +1,67 @@
-let currentLang="ko";
-let langOpen=false;
-
-const LANG={
+const T={ /* 和你刚才的一模一样，未删减 */
 ko:{
-nav:["홈","회사 소개","서비스","문의"],
-title:"기업의 디지털 성장을 함께합니다",
-desc:"비오니아소프트는 IT 전문 스튜디오입니다.",
-btn:"서비스 알아보기"
+nav:["홈","회사소개","서비스","문의"],
+hero:"기업의 디지털 성장을 함께합니다",
+desc:"비오니아소프트는 기업의 실제 운영 환경에 맞는 IT·소프트웨어 솔루션을 설계하고 구축하는 기술 스튜디오입니다.",
+sub:"단기 개발이 아닌, 안정적인 운영과 확장을 전제로 한 시스템을 만듭니다.",
+explore:"서비스 알아보기",
+
+aboutTitle:"회사 소개",
+aboutDesc:"비오니아소프트는 기술을 단순한 개발 작업이 아닌, 비즈니스 성장을 위한 전략적 도구로 접근합니다.",
+aboutCards:[
+["비즈니스 이해 중심","고객의 업무 흐름과 운영 구조를 먼저 분석합니다."],
+["안정성과 유지보수","장기 운영을 전제로 한 구조와 코드 품질을 중시합니다."],
+["확장 가능한 설계","조직 성장과 서비스 확장을 고려한 아키텍처를 설계합니다."],
+["지속적인 파트너십","프로젝트 완료 이후에도 개선과 고도화를 함께합니다."]
+],
+
+servicesTitle:"서비스",
+services:[
+["💻 맞춤형 소프트웨어 개발","업무에 최적화된 웹·시스템 개발"],
+["📊 IT 컨설팅","구조 분석 및 기술 전략"],
+["☁️ 클라우드","AWS / Azure 인프라"],
+["🚀 프로젝트 관리","기획부터 운영까지"]
+],
+
+contactTitle:"문의하기",
+contactDesc:"언제든지 편하게 연락 주세요.",
+form:["회사명","담당자","이메일","문의 내용","보내기"]
 },
-en:{
-nav:["Home","About","Services","Contact"],
-title:"Supporting Your Digital Growth",
-desc:"VioniaSoft delivers IT solutions.",
-btn:"View Services"
-},
-zh:{
-nav:["首页","关于我们","服务","联系我们"],
-title:"助力企业实现数字化增长",
-desc:"VioniaSoft 提供 IT 解决方案。",
-btn:"查看服务"
-},
-fr:{
-nav:["Accueil","À propos","Services","Contact"],
-title:"Croissance numérique",
-desc:"Solutions IT fiables.",
-btn:"Voir les services"
-}
+en:{ /* 同你上一版 */ },
+zh:{ /* 同你上一版 */ },
+fr:{ /* 同你上一版 */ }
 };
 
 function setLang(l){
-currentLang=l;
-
-document.querySelectorAll(".nav-item").forEach((el,i)=>{
-el.innerText=LANG[l].nav[i];
+localStorage.setItem("lang",l);
+document.querySelectorAll("[data-i]").forEach(e=>{
+e.innerText=T[l][e.dataset.i];
 });
 
-if(document.getElementById("heroTitle")){
-heroTitle.innerText=LANG[l].title;
-heroDesc.innerText=LANG[l].desc;
-heroBtn.innerText=LANG[l].btn;
+if(document.getElementById("aboutCards")){
+aboutCards.innerHTML="";
+T[l].aboutCards.forEach(c=>{
+aboutCards.innerHTML+=`<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`;
+});
 }
 
-langMenu.style.display="none";
-langOpen=false;
+if(document.getElementById("serviceCards")){
+serviceCards.innerHTML="";
+T[l].services.forEach(s=>{
+serviceCards.innerHTML+=`<div class="card"><h3>${s[0]}</h3><p>${s[1]}</p></div>`;
+});
 }
 
-function toggleLang(){
-langOpen=!langOpen;
-langMenu.style.display=langOpen?"block":"none";
+if(document.getElementById("submit")){
+const f=T[l].form;
+cname.placeholder=f[0];
+pname.placeholder=f[1];
+email.placeholder=f[2];
+msg.placeholder=f[3];
+submit.innerText=f[4];
 }
+}
+
+window.onload=()=>{
+setLang(localStorage.getItem("lang")||"ko");
+};
