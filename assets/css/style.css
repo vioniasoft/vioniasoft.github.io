@@ -18,7 +18,7 @@ html,body{
   overflow-x:hidden;
 }
 
-/* ================= BODY LAYOUT (关键) ================= */
+/* ===== PAGE LAYOUT (关键) ===== */
 body{
   font-family:Segoe UI,Roboto,sans-serif;
   background:var(--bg);
@@ -30,7 +30,7 @@ body{
   min-height:100vh;
 }
 
-/* ================= NAV ================= */
+/* ===== NAV ===== */
 nav{
   position:fixed;
   top:0;left:0;
@@ -64,13 +64,8 @@ nav{
   font-weight:500;
 }
 
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
+.nav-right{display:flex;align-items:center}
 
-/* language */
 .lang{position:relative}
 .lang-btn{cursor:pointer}
 
@@ -89,19 +84,16 @@ nav{
   padding:10px 16px;
   cursor:pointer;
 }
+.lang-menu div:hover{background:#f1f5f9}
 
-.lang-menu div:hover{
-  background:#f1f5f9;
-}
-
-/* ================= MAIN AREAS ================= */
+/* ===== MAIN AREAS ===== */
 .hero,
 .page,
 .about-bg{
   flex:1;
 }
 
-/* ================= HERO (HOME) ================= */
+/* ===== HERO ===== */
 .hero{
   min-height:100vh;
   padding:160px 8% 120px;
@@ -109,23 +101,14 @@ nav{
   flex-direction:column;
   justify-content:center;
   text-align:center;
-
   background:
     radial-gradient(circle at 20% 20%, #93c5fd55, transparent 40%),
     radial-gradient(circle at 80% 30%, #c4b5fd55, transparent 40%),
     linear-gradient(180deg,#f8fafc,#eef2ff);
 }
 
-.hero h1{
-  font-size:3em;
-  margin-bottom:20px;
-}
-
-.hero p{
-  color:var(--muted);
-  max-width:800px;
-  margin:0 auto 28px;
-}
+.hero h1{font-size:3em;margin-bottom:20px}
+.hero p{color:var(--muted);max-width:800px;margin:0 auto 28px}
 
 .btn{
   padding:14px 36px;
@@ -137,7 +120,7 @@ nav{
   text-decoration:none;
 }
 
-/* ================= ABOUT BACKGROUND ================= */
+/* ===== ABOUT ===== */
 .about-bg{
   background:
     radial-gradient(circle at 25% 20%, #93c5fd66, transparent 45%),
@@ -145,7 +128,6 @@ nav{
     linear-gradient(180deg,#f8fafc,#eef2ff);
 }
 
-/* about hero */
 .about-hero{
   min-height:100vh;
   padding:120px 8% 40px;
@@ -155,25 +137,12 @@ nav{
   text-align:center;
 }
 
-.about-hero h1{
-  font-size:2.6em;
-  margin-bottom:16px;
-  letter-spacing:-0.02em;
-}
+.about-hero h1{font-size:2.6em;margin-bottom:16px}
+.about-hero p{color:var(--muted);max-width:640px;margin:0 auto}
 
-.about-hero p{
-  color:var(--muted);
-  font-size:1.1em;
-  max-width:640px;
-  margin:0 auto;
-}
+.about-cards{padding:0 8% 120px}
 
-/* about cards area */
-.about-cards{
-  padding:0 8% 120px;
-}
-
-/* ================= CARDS ================= */
+/* ===== CARDS (scroll animation) ===== */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -185,27 +154,38 @@ nav{
   border-radius:18px;
   padding:32px;
   box-shadow:0 10px 30px #00000010;
-
   opacity:0;
   transform:translateY(32px);
-  transition:opacity .6s ease, transform .6s ease;
+  transition:.6s;
 }
-
 .card.show{
   opacity:1;
   transform:translateY(0);
 }
 
-.card:hover{
-  box-shadow:0 20px 40px #00000018;
-}
-
-/* ================= PAGE ================= */
+/* ===== PAGE ===== */
 .page{
   padding:120px 8% 120px;
 }
 
-/* ================= FOOTER (粘底) ================= */
+/* ===== CONTACT FORM ===== */
+form{
+  max-width:520px;
+  margin:0 auto;
+  display:grid;
+  gap:16px;
+}
+
+input,textarea{
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid #e5e7eb;
+  font-family:inherit;
+}
+
+textarea{min-height:120px}
+
+/* ===== FOOTER (粘底) ===== */
 footer{
   height:64px;
   background:#0f172a;
@@ -217,10 +197,8 @@ footer{
   font-size:.9em;
 }
 
-/* ================= MOBILE ================= */
+/* ===== MOBILE ===== */
 @media(max-width:768px){
   .nav-center{display:none}
-
   .hero h1{font-size:2.2em}
-  .about-hero h1{font-size:2em}
 }
