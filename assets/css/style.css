@@ -8,7 +8,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
 
-/* ===== NAV ===== */
+/* NAV */
 nav{
 position:fixed;
 top:0;left:0;
@@ -29,7 +29,12 @@ display:flex;
 justify-content:center;
 gap:28px;
 }
-.nav-center a{cursor:pointer;text-decoration:none;color:inherit}
+
+.nav-center a{
+cursor:pointer;
+text-decoration:none;
+color:inherit;
+}
 
 .nav-right{
 margin-left:auto;
@@ -38,7 +43,7 @@ align-items:center;
 gap:16px;
 }
 
-/* ===== LANGUAGE ===== */
+/* LANG */
 .lang-desktop{position:relative}
 .lang-menu{
 display:none;
@@ -56,15 +61,7 @@ cursor:pointer;
 }
 .lang-menu div:hover{background:#f1f5f9}
 
-.menu-btn{
-display:none;
-font-size:1.8em;
-background:none;
-border:none;
-cursor:pointer;
-}
-
-/* ===== HERO ===== */
+/* HERO */
 .page{padding:120px 8%}
 .hero{text-align:center}
 .hero h1{font-size:2.2em;margin-bottom:20px}
@@ -79,7 +76,9 @@ display:inline-block;
 text-decoration:none;
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE */
+.menu-btn{display:none}
+
 @media(max-width:768px){
 .nav-center{display:none}
 .lang-desktop{display:none}
