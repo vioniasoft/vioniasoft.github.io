@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services · VioniaSoft</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VioniaSoft</title>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -12,49 +12,29 @@
 <nav>
   <div class="logo">VioniaSoft</div>
   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a data-nav href="index.html"></a></li>
+    <li><a data-nav href="about.html"></a></li>
+    <li><a data-nav href="services.html"></a></li>
+    <li><a data-nav href="contact.html"></a></li>
   </ul>
   <div class="lang">
-    <a>KO</a><a>EN</a><a>ZH</a><a>FR</a>
+    <a onclick="setLang('ko')">KO</a>
+    <a onclick="setLang('en')">EN</a>
+    <a onclick="setLang('zh')">ZH</a>
+    <a onclick="setLang('fr')">FR</a>
   </div>
 </nav>
 
 <section class="page">
-  <h2 class="section-title">서비스</h2>
-  <p class="section-desc">
-    비즈니스 환경에 최적화된 IT 솔루션을 제공합니다.
-  </p>
-
-  <div class="cards">
-    <div class="card">
-      <h3>💻 맞춤형 소프트웨어 개발</h3>
-      <p>기업 업무에 맞춘 웹 시스템 및 내부 관리 시스템</p>
-    </div>
-
-    <div class="card">
-      <h3>📊 IT 컨설팅</h3>
-      <p>기존 시스템 분석 및 기술 전략 수립</p>
-    </div>
-
-    <div class="card">
-      <h3>☁️ 클라우드 솔루션</h3>
-      <p>AWS / Azure 기반 인프라 설계 및 운영</p>
-    </div>
-
-    <div class="card">
-      <h3>🚀 프로젝트 관리</h3>
-      <p>기획부터 배포, 유지보수까지 전 과정 관리</p>
-    </div>
-  </div>
+  <h2 class="section-title" data-i="servicesTitle"></h2>
+  <div class="cards" id="serviceCards"></div>
 </section>
 
 <footer>
-  © 2025 VioniaSoft. All rights reserved.<br>
-  contact@vioniasoft.com
+© 2025 VioniaSoft. All rights reserved.<br>
+contact@vioniasoft.com
 </footer>
 
+<script src="assets/js/main.js"></script>
 </body>
 </html>
