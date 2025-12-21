@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VioniaSoft</title>
-
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
 <!-- ===== NAV ===== -->
 <nav>
-  <div class="logo">VioniaSoft</div>
+  <!-- Logo -->
+  <div class="logo logo-gradient">VioniaSoft</div>
 
+  <!-- 中间导航（文字由 JS 注入） -->
   <div class="nav-center">
-    <a data-nav href="index.html"></a>
-    <a data-nav href="about.html"></a>
-    <a data-nav href="services.html"></a>
-    <a data-nav href="contact.html"></a>
+    <a data-nav class="nav-link" href="index.html"></a>
+    <a data-nav class="nav-link" href="about.html"></a>
+    <a data-nav class="nav-link" href="services.html"></a>
+    <a data-nav class="nav-link" href="contact.html"></a>
   </div>
 
+  <!-- 语言切换 -->
   <div class="nav-right">
     <span class="lang-btn" onclick="toggleLang()">🌐</span>
     <div class="lang-menu" id="langMenu">
@@ -31,22 +33,21 @@
   </div>
 </nav>
 
-<!-- ===== HERO (首页背景只在这里) ===== -->
+<!-- ===== HERO（首页专用）===== -->
 <section class="hero">
   <h1 id="heroTitle"></h1>
   <p id="heroDesc"></p>
-  <a class="btn" id="heroBtn" href="services.html"></a>
+  <a href="services.html" id="heroBtn" class="btn"></a>
 </section>
 
-<!-- ===== 首页内容预览 ===== -->
+<!-- ===== 首页内容预览（不带背景）===== -->
 <section class="page">
   <div class="cards" id="aboutCards"></div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
-  © 2025 VioniaSoft. All rights reserved.<br>
-  Email: contact@vioniasoft.com
+© 2025 VioniaSoft. All rights reserved.<br>
+Email: contact@vioniasoft.com
 </footer>
 
 <script src="assets/js/main.js"></script>
