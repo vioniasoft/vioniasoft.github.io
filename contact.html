@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact · VioniaSoft</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VioniaSoft</title>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -12,35 +12,37 @@
 <nav>
   <div class="logo">VioniaSoft</div>
   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a data-nav href="index.html"></a></li>
+    <li><a data-nav href="about.html"></a></li>
+    <li><a data-nav href="services.html"></a></li>
+    <li><a data-nav href="contact.html"></a></li>
   </ul>
   <div class="lang">
-    <a>KO</a><a>EN</a><a>ZH</a><a>FR</a>
+    <a onclick="setLang('ko')">KO</a>
+    <a onclick="setLang('en')">EN</a>
+    <a onclick="setLang('zh')">ZH</a>
+    <a onclick="setLang('fr')">FR</a>
   </div>
 </nav>
 
 <section class="page">
-  <h2 class="section-title">문의하기</h2>
-  <p class="section-desc">
-    프로젝트 제안이나 협업 문의를 남겨주세요.
-  </p>
+  <h2 class="section-title" data-i="contactTitle"></h2>
+  <p class="section-desc" data-i="contactDesc"></p>
 
   <div class="form">
-    <input type="text" placeholder="회사명">
-    <input type="text" placeholder="담당자 이름">
-    <input type="email" placeholder="이메일">
-    <textarea rows="5" placeholder="문의 내용"></textarea>
-    <button>문의 보내기</button>
+    <input id="cname">
+    <input id="pname">
+    <input id="email">
+    <textarea id="msg" rows="5"></textarea>
+    <button id="submit"></button>
   </div>
 </section>
 
 <footer>
-  © 2025 VioniaSoft. All rights reserved.<br>
-  contact@vioniasoft.com
+© 2025 VioniaSoft. All rights reserved.<br>
+contact@vioniasoft.com
 </footer>
 
+<script src="assets/js/main.js"></script>
 </body>
 </html>
