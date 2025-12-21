@@ -284,3 +284,51 @@ footer{
     padding: 0 10px;
   }
 }
+
+
+/* ===== SERVICES HERO (Match About) ===== */
+
+.services-hero{
+  position: relative;
+  padding-top: 160px;
+  padding-bottom: 120px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 18% 25%, rgba(96,165,250,.35), transparent 40%),
+    radial-gradient(circle at 82% 35%, rgba(167,139,250,.35), transparent 45%);
+}
+
+/* Services 标题 */
+.services-hero h2{
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 80px;
+}
+
+/* 卡片区 */
+.services-hero .cards{
+  margin-top: 0;
+}
+
+/* 卡片复用 About 的动效 */
+.services-hero .card{
+  animation: fadeUp .8s ease both;
+}
+
+.services-hero .card:nth-child(2){animation-delay:.1s}
+.services-hero .card:nth-child(3){animation-delay:.2s}
+.services-hero .card:nth-child(4){animation-delay:.3s}
+
+/* MOBILE */
+@media(max-width:768px){
+  .services-hero{
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+
+  .services-hero h2{
+    font-size: 2.1rem;
+    margin-bottom: 56px;
+  }
+}
