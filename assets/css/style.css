@@ -272,3 +272,82 @@ footer{
     padding: 0 12px;
   }
 }
+/* ===== HERO MOTION SYSTEM (GLOBAL) ===== */
+
+/* 所有 Hero 容器统一 */
+.hero,
+.about-hero,
+.services-hero{
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero 标题 */
+.hero h1,
+.about-title,
+.services-title{
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroFadeUp .9s ease forwards;
+  animation-delay: .3s;
+}
+
+/* Hero 副标题 */
+.hero p,
+.about-sub,
+.services-sub{
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroFadeUp .9s ease forwards;
+  animation-delay: .5s;
+}
+
+/* Hero 按钮（只在首页有） */
+.hero .btn{
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroFadeUp .9s ease forwards;
+  animation-delay: .7s;
+}
+
+/* Hero 后续内容（卡片区） */
+.about-hero .cards,
+.services-hero .cards{
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroFadeUp .9s ease forwards;
+  animation-delay: .9s;
+}
+
+/* CTA */
+.services-hero .cta-section{
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroFadeUp .9s ease forwards;
+  animation-delay: 1.05s;
+}
+
+/* 核心动画 */
+@keyframes heroFadeUp{
+  from{
+    opacity:0;
+    transform:translateY(24px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* MOBILE 节奏略快 */
+@media(max-width:768px){
+  .hero h1,
+  .about-title,
+  .services-title{animation-delay:.2s}
+
+  .hero p,
+  .about-sub,
+  .services-sub{animation-delay:.35s}
+
+  .hero .btn{animation-delay:.5s}
+}
