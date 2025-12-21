@@ -1,133 +1,45 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>비오니아소프트 · VioniaSoft</title>
-
-<style>
-body{
-    font-family:Segoe UI,Roboto,sans-serif;
-    background:#f8fafc;
-    color:#0f172a;
-    margin:0;
-    padding:0;
-}
-
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    background:#fff;
-    border-bottom:1px solid #e5e7eb;
-    padding:14px 24px;
-    display:flex;
-    justify-content:center;
-    gap:30px;
-}
-
-nav a{
-    text-decoration:none;
-    color:#0f172a;
-    font-weight:500;
-}
-
-main{
-    padding:120px 8% 80px;
-}
-
-h1{
-    font-size:2.4em;
-    margin-bottom:20px;
-}
-
-p{
-    color:#475569;
-    max-width:800px;
-    margin-bottom:40px;
-}
-
-section{
-    margin-top:80px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:24px;
-}
-
-.card{
-    background:#fff;
-    border-radius:14px;
-    padding:24px;
-    box-shadow:0 10px 30px #00000010;
-}
-
-footer{
-    background:#0f172a;
-    color:#cbd5f5;
-    text-align:center;
-    padding:40px;
-}
-</style>
+  <meta charset="UTF-8" />
+  <title>VioniaSoft</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/main.js"></script>
 </head>
 
-<body>
+<body onload="setLang('ko')">
 
 <nav>
-    <a>Home</a>
-    <a>About</a>
-    <a>Services</a>
-    <a>Contact</a>
+  <div class="nav-left">VioniaSoft</div>
+
+  <div class="nav-center">
+    <a class="nav-item" href="index.html"></a>
+    <a class="nav-item" href="about.html"></a>
+    <a class="nav-item" href="services.html"></a>
+    <a class="nav-item" href="contact.html"></a>
+  </div>
+
+  <div class="nav-right">
+    <div class="lang-desktop">
+      <span onclick="toggleLang()">🌐</span>
+      <div class="lang-menu" id="langMenu">
+        <div onclick="setLang('ko')">한국어</div>
+        <div onclick="setLang('en')">English</div>
+        <div onclick="setLang('zh')">中文</div>
+        <div onclick="setLang('fr')">Français</div>
+      </div>
+    </div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
 </nav>
 
-<main>
-    <h1>기업의 디지털 성장을 함께합니다</h1>
-
-    <p>
-        비오니아소프트는 기업을 위한 IT 및 소프트웨어 솔루션을
-        설계·개발·운영하는 전문 스튜디오입니다.
-        안정성과 확장성을 기반으로 지속 가능한 시스템을 제공합니다.
-    </p>
-
-    <section>
-        <h2>회사 소개</h2>
-        <p>
-            비오니아소프트는 기술을 단순한 도구가 아닌
-            비즈니스 성장을 위한 전략으로 접근합니다.
-            우리는 고객의 환경과 목표를 이해하고
-            실제 운영에 적합한 시스템을 설계합니다.
-        </p>
-
-        <div class="cards">
-            <div class="card">
-                <h3>글로벌 프로젝트 경험</h3>
-                <p>다양한 국가 및 산업 분야의 프로젝트 수행 경험</p>
-            </div>
-
-            <div class="card">
-                <h3>안정성과 보안 중심</h3>
-                <p>장기 운영을 고려한 구조와 보안 설계</p>
-            </div>
-
-            <div class="card">
-                <h3>지속적인 협업</h3>
-                <p>개발 이후에도 함께 성장하는 파트너십</p>
-            </div>
-
-            <div class="card">
-                <h3>실무 중심 개발</h3>
-                <p>실제 운영 환경에 맞춘 시스템 제공</p>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer>
-    © 2025 비오니아소프트. All rights reserved.<br>
-    이메일: contact@vioniasoft.com
-</footer>
+<section class="page active">
+  <div class="hero">
+    <h1 id="heroTitle"></h1>
+    <p id="heroDesc"></p>
+    <a class="btn" id="heroBtn"></a>
+  </div>
+</section>
 
 </body>
 </html>
