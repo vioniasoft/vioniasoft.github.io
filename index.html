@@ -3,57 +3,111 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VioniaSoft • Home</title>
-<link rel="stylesheet" href="assets/style.css">
-<script src="assets/main.js" defer></script>
+<title>비오니아소프트 · VioniaSoft</title>
+
+<link rel="stylesheet" href="./assets/style.css">
+<script src="./assets/main.js" defer></script>
 </head>
-<body onload="setLang(currentLang)">
 
+<body>
+
+<!-- ===== NAV ===== -->
 <nav>
-<div class="nav-left">VioniaSoft</div>
-<div class="nav-center">
-<a href="index.html" data-nav="0"></a>
-<a href="about.html" data-nav="1"></a>
-<a href="services.html" data-nav="2"></a>
-<a href="contact.html" data-nav="3"></a>
-</div>
+    <div class="nav-left">VioniaSoft</div>
 
-<div class="nav-right">
-<div class="lang-desktop">
-<span onclick="document.getElementById('langMenu').style.display='block'">🌐</span>
-<div class="lang-menu" id="langMenu">
-<div onclick="setLang('ko')">한국어</div>
-<div onclick="setLang('en')">English</div>
-<div onclick="setLang('zh')">中文</div>
-<div onclick="setLang('fr')">Français</div>
-</div>
-</div>
+    <div class="nav-center">
+        <a data-nav="home" href="index.html">Home</a>
+        <a data-nav="about" href="about.html">About</a>
+        <a data-nav="services" href="services.html">Services</a>
+        <a data-nav="contact" href="contact.html">Contact</a>
+    </div>
 
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
-</div>
+    <div class="nav-right">
+        <div class="lang">
+            🌐
+            <div class="lang-menu" id="langMenu">
+                <div onclick="setLang('ko')">한국어</div>
+                <div onclick="setLang('en')">English</div>
+                <div onclick="setLang('zh')">中文</div>
+                <div onclick="setLang('fr')">Français</div>
+            </div>
+        </div>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
 </nav>
 
 <div class="overlay" id="overlay" onclick="closeMenus()"></div>
 
 <div class="mobile-menu" id="mobileMenu">
-<div data-nav="0" onclick="location='index.html'"></div>
-<div data-nav="1" onclick="location='about.html'"></div>
-<div data-nav="2" onclick="location='services.html'"></div>
-<div data-nav="3" onclick="location='contact.html'"></div>
-<div onclick="toggleMobileLang()">Language ▸</div>
-<div class="mobile-lang" id="mobileLang">
-<div onclick="setLang('ko')">한국어</div>
-<div onclick="setLang('en')">English</div>
-<div onclick="setLang('zh')">中文</div>
-<div onclick="setLang('fr')">Français</div>
-</div>
+    <div data-nav="home" onclick="go('index.html')">Home</div>
+    <div data-nav="about" onclick="go('about.html')">About</div>
+    <div data-nav="services" onclick="go('services.html')">Services</div>
+    <div data-nav="contact" onclick="go('contact.html')">Contact</div>
+    <div onclick="toggleMobileLang()">Language</div>
+    <div class="mobile-lang" id="mobileLang">
+        <div onclick="setLang('ko')">한국어</div>
+        <div onclick="setLang('en')">English</div>
+        <div onclick="setLang('zh')">中文</div>
+        <div onclick="setLang('fr')">Français</div>
+    </div>
 </div>
 
+<!-- ===== HERO ===== -->
 <main>
-<h1 data-i18n="homeTitle"></h1>
-<p data-i18n="homeDesc"></p>
-<a class="btn" data-i18n="homeBtn" href="services.html"></a>
+    <h1 data-i18n="homeTitle">기업의 디지털 성장을 함께합니다</h1>
+    <p data-i18n="homeDesc">
+        비오니아소프트는 기업을 위한 IT 및 소프트웨어 솔루션을 설계·개발·운영하는 전문 스튜디오입니다.
+        안정성과 확장성을 기반으로 지속 가능한 시스템을 제공합니다.
+    </p>
+
+    <a class="btn" href="services.html" data-i18n="homeBtn">서비스 알아보기</a>
+
+    <!-- ===== ABOUT PREVIEW ===== -->
+    <section>
+        <h2 data-i18n="aboutTitle">회사 소개</h2>
+        <p data-i18n="aboutDesc">
+            비오니아소프트는 기술을 단순한 도구가 아닌,
+            비즈니스 성장을 위한 전략으로 접근합니다.
+            우리는 고객의 환경과 목표를 이해하고,
+            실제 운영에 적합한 시스템을 설계합니다.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <h3 data-i18n="aboutCard1Title">글로벌 프로젝트 경험</h3>
+                <p data-i18n="aboutCard1Desc">
+                    다양한 국가와 산업에서 프로젝트를 수행해 왔습니다.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="aboutCard2Title">안정성과 보안 중심</h3>
+                <p data-i18n="aboutCard2Desc">
+                    장기 운영을 고려한 안정적인 구조를 설계합니다.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="aboutCard3Title">지속적인 협업</h3>
+                <p data-i18n="aboutCard3Desc">
+                    개발 이후에도 함께 성장하는 파트너십을 지향합니다.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="aboutCard4Title">실무 중심 개발</h3>
+                <p data-i18n="aboutCard4Desc">
+                    실제 운영 환경에 맞춘 실용적인 시스템을 제공합니다.
+                </p>
+            </div>
+        </div>
+    </section>
 </main>
+
+<footer>
+    © 2025 비오니아소프트. All rights reserved.<br>
+    이메일: contact@vioniasoft.com
+</footer>
 
 </body>
 </html>
