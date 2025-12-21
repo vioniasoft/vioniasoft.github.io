@@ -145,3 +145,6 @@ function toggleLang(){
 window.onload=()=>{
   setLang(localStorage.getItem("lang")||"ko");
 };
+window.addEventListener("scroll",()=>{
+  document.querySelector("nav").classList.toggle("scrolled", window.scrollY>10);
+});
