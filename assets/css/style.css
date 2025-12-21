@@ -94,7 +94,6 @@ nav{
 }
 
 /* ===== PAGE CORE ===== */
-/* 关键：不要 100vh，只用 flex 撑 */
 .hero,
 .page,
 .about-bg{
@@ -105,7 +104,7 @@ nav{
   padding:120px 8% 80px;
 }
 
-/* ===== HERO (HOME) ===== */
+/* ===== HERO ===== */
 .hero{
   text-align:center;
   background:
@@ -162,7 +161,7 @@ nav{
   gap:28px;
 }
 
-/* 默认卡片隐藏，用于滚动动画 */
+/* 卡片（含入场 + hover 最终效果） */
 .card{
   background:#fff;
   border-radius:18px;
@@ -170,19 +169,27 @@ nav{
   box-shadow:0 10px 30px #00000010;
   transform:translateY(40px);
   opacity:0;
+  will-change: transform;
   transition:
-    transform .6s ease,
+    transform .25s ease,
     opacity .6s ease,
-    box-shadow .3s ease;
+    box-shadow .35s ease,
+    background .45s ease;
 }
 
+/* 滚动出现 */
 .card.show{
   transform:translateY(0);
   opacity:1;
 }
 
+/* hover 最终组合（轻微上移 + 阴影 + 柔光） */
 .card:hover{
-  box-shadow:0 20px 40px #00000018;
+  transform: translateY(-6px);
+  box-shadow:0 18px 40px #00000018;
+  background:
+    radial-gradient(circle at top left,#93c5fd33,transparent 60%),
+    #ffffff;
 }
 
 /* ===== FOOTER ===== */
@@ -201,6 +208,7 @@ footer{
   font-size: .9em;
   z-index: 999;
 }
+
 /* ===== ABOUT TITLE ANIMATION ===== */
 #aboutTitle,
 #aboutDesc{
@@ -217,6 +225,11 @@ footer{
 @media(max-width:768px){
   .nav-center{display:none}
   .hero h1{font-size:2.2em}
+
+  /* 移动端禁用 hover 上移（防止点一下跳） */
+  .card:hover{
+    transform: translateY(0);
+  }
 }
 
 /* ===== ANIMATION ===== */
