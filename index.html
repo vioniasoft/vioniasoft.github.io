@@ -1,61 +1,57 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VioniaSoft</title>
-<link rel="stylesheet" href="assets/css/style.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VioniaSoft</title>
 
+  <!-- 主样式 -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+<!-- ===== NAV ===== -->
 <nav>
-<div class="logo">VioniaSoft</div>
+  <div class="logo">VioniaSoft</div>
 
-<div class="nav-center">
-<a data-nav href="index.html"></a>
-<a data-nav href="about.html"></a>
-<a data-nav href="services.html"></a>
-<a data-nav href="contact.html"></a>
-</div>
+  <div class="nav-center">
+    <a data-nav href="index.html"></a>
+    <a data-nav href="about.html"></a>
+    <a data-nav href="services.html"></a>
+    <a data-nav href="contact.html"></a>
+  </div>
 
-<div class="nav-right">
-<span class="lang-btn" onclick="toggleLang()">🌐</span>
-<div class="lang-menu" id="langMenu">
-        <div onclick="setLang('ko')">한국어</div>
-        <div onclick="setLang('en')">English</div>
-        <div onclick="setLang('zh')">中文</div>
-        <div onclick="setLang('fr')">Français</div>
+  <div class="nav-right">
+    <span class="lang-btn" onclick="toggleLang()">🌐</span>
+    <div class="lang-menu" id="langMenu">
       <div onclick="setLang('ko')">한국어</div>
       <div onclick="setLang('en')">English</div>
       <div onclick="setLang('zh')">中文</div>
       <div onclick="setLang('fr')">Français</div>
-</div>
-</div>
+    </div>
+  </div>
 </nav>
 
-<!-- HERO -->
+<!-- ===== HERO ===== -->
 <section class="hero">
-<h1 id="heroTitle"></h1>
-<p id="heroDesc"></p>
+  <h1 id="heroTitle"></h1>
+  <p id="heroDesc"></p>
+  <!-- 服务查看按钮 -->
   <a class="btn" id="heroBtn" href="services.html"></a>
 </section>
 
+<!-- ===== ABOUT PREVIEW ===== -->
 <section class="page">
   <div class="cards" id="aboutCards"></div>
-  <p id="heroSub" class="sub"></p>
-  <a href="services.html" id="heroBtn" class="btn"></a>
 </section>
 
+<!-- ===== FOOTER ===== -->
 <footer>
-© 2025 VioniaSoft. All rights reserved.<br>
-Email: contact@vioniasoft.com
+  © 2025 VioniaSoft. All rights reserved.<br>
+  Email: contact@vioniasoft.com
 </footer>
 
+<!-- 主脚本 -->
 <script src="assets/js/main.js"></script>
 </body>
 </html>
