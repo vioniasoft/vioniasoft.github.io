@@ -140,7 +140,7 @@ nav{
 
 /* ===== 🔥 标题动画（关键修复点） ===== */
 /* ===== 标题动画（About / Services 共用） ===== */
-/* ===== 标题（杂志感 + 小紫色横杠） ===== */
+/* ===== 标题（杂志感 + 紫色横杠） ===== */
 #aboutTitle,
 #servicesTitle{
   position:relative;
@@ -168,30 +168,37 @@ nav{
   );
   border-radius:999px;
 }
-/* ===== 描述文字（Editorial / 杂志感） ===== */
+
+/* ===== 描述文字（Editorial 杂志感） ===== */
 #aboutDesc,
 #servicesDesc{
   opacity:0;
   transform:translateY(20px);
   animation:fadeUp .8s ease .15s forwards;
 
-  max-width:640px;        /* 🔥 再收一点，更像杂志 */
+  max-width:640px;
   margin:0 auto 72px;
 
   color:var(--muted);
-  line-height:1.85;       /* 🔥 阅读感明显提升 */
+  line-height:1.85;
   font-size:1.05em;
   letter-spacing:-0.015em;
 }
-#aboutDesc::first-line,
+
+/* ✨ 方案 A：首行导语效果 */
+/*#aboutDesc::first-line,
 #servicesDesc::first-line{
   font-weight:500;
   color:var(--text);
-}
-#aboutDesc br{
+}*/
+
+/* ✨ 方案 B：段落呼吸（用于 <br> 分段） */
+/*#aboutDesc br,
+#servicesDesc br{
   display:block;
   margin-bottom:14px;
-}
+}*/
+
 
 
 
