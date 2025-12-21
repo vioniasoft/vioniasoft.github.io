@@ -230,3 +230,33 @@ footer{
 
   :root{--fade-delay-step:.1s}
 }
+/* ===== HOME HERO ANIMATION ===== */
+
+.home-hero {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: homeFadeIn 1s ease forwards;
+}
+
+.home-hero-delay1 {
+  animation-delay: .3s;
+}
+
+.home-hero-delay2 {
+  animation-delay: .5s;
+}
+
+.home-hero-delay3 {
+  animation-delay: .7s;
+}
+
+@keyframes homeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
