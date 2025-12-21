@@ -30,14 +30,17 @@ btn:"Voir les services"
 
 function setLang(l){
 currentLang=l;
+
 document.querySelectorAll(".nav-item").forEach((el,i)=>{
 el.innerText=LANG[l].nav[i];
 });
+
 if(document.getElementById("heroTitle")){
 heroTitle.innerText=LANG[l].title;
 heroDesc.innerText=LANG[l].desc;
 heroBtn.innerText=LANG[l].btn;
 }
+
 langMenu.style.display="none";
 langOpen=false;
 }
