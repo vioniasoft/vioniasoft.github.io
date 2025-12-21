@@ -16,16 +16,18 @@ html,body{
   width:100%;
   height:100%;
   overflow-x:hidden;
-  overflow-y:auto;
 }
 
+/* ================= BODY LAYOUT (关键) ================= */
 body{
   font-family:Segoe UI,Roboto,sans-serif;
   background:var(--bg);
   color:var(--text);
   line-height:1.7;
-  padding-bottom:64px;
-  overflow-x:hidden;
+
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
 }
 
 /* ================= NAV ================= */
@@ -68,6 +70,7 @@ nav{
   gap:16px;
 }
 
+/* language */
 .lang{position:relative}
 .lang-btn{cursor:pointer}
 
@@ -80,7 +83,6 @@ nav{
   border:1px solid #e5e7eb;
   border-radius:10px;
   overflow:hidden;
-  z-index:1001;
 }
 
 .lang-menu div{
@@ -92,19 +94,21 @@ nav{
   background:#f1f5f9;
 }
 
-/* ================= PAGE BASE ================= */
-.page{
-  padding:120px 8% 120px;
+/* ================= MAIN AREAS ================= */
+.hero,
+.page,
+.about-bg{
+  flex:1;
 }
 
 /* ================= HERO (HOME) ================= */
 .hero{
-  height:100vh;
+  min-height:100vh;
   padding:160px 8% 120px;
-  text-align:center;
   display:flex;
   flex-direction:column;
   justify-content:center;
+  text-align:center;
 
   background:
     radial-gradient(circle at 20% 20%, #93c5fd55, transparent 40%),
@@ -133,23 +137,17 @@ nav{
   text-decoration:none;
 }
 
-/* ================= ABOUT SCROLL LOCK ================= */
-body.about-lock{
-  overflow:hidden;
-}
-
-/* ================= ABOUT FULL BACKGROUND ================= */
+/* ================= ABOUT BACKGROUND ================= */
 .about-bg{
   background:
     radial-gradient(circle at 25% 20%, #93c5fd66, transparent 45%),
     radial-gradient(circle at 75% 40%, #c4b5fd66, transparent 45%),
     linear-gradient(180deg,#f8fafc,#eef2ff);
-  overflow:hidden;
 }
 
 /* about hero */
 .about-hero{
-  height:100vh;
+  min-height:100vh;
   padding:120px 8% 40px;
   display:flex;
   flex-direction:column;
@@ -175,7 +173,7 @@ body.about-lock{
   padding:0 8% 120px;
 }
 
-/* ================= CARDS (SCROLL ANIMATION) ================= */
+/* ================= CARDS ================= */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -193,7 +191,6 @@ body.about-lock{
   transition:opacity .6s ease, transform .6s ease;
 }
 
-/* 当进入可视区 */
 .card.show{
   opacity:1;
   transform:translateY(0);
@@ -203,11 +200,13 @@ body.about-lock{
   box-shadow:0 20px 40px #00000018;
 }
 
-/* ================= FOOTER ================= */
+/* ================= PAGE ================= */
+.page{
+  padding:120px 8% 120px;
+}
+
+/* ================= FOOTER (粘底) ================= */
 footer{
-  position:relative;
-  bottom:0;left:0;
-  width:100%;
   height:64px;
   background:#0f172a;
   color:#cbd5f5;
