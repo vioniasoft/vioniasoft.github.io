@@ -223,3 +223,52 @@ footer{
   .about-title, .services-hero h2{font-size:2.2rem}
   .about-sub, .services-sub{font-size:1rem;margin-bottom:44px}
 }
+/* ===== SERVICES HERO FIX ===== */
+
+.services-hero{
+  position: relative;
+  padding-top: 160px;
+  padding-bottom: 120px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 18% 25%, rgba(96,165,250,.28), transparent 40%),
+    radial-gradient(circle at 82% 35%, rgba(167,139,250,.28), transparent 45%);
+}
+
+.services-title{
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.services-sub{
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 760px;
+  margin: 0 auto 80px;
+  line-height: 1.9;
+}
+
+/* CTA 和卡片之间的呼吸感 */
+.services-hero .cta-section{
+  margin-top: 80px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .services-hero{
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+
+  .services-title{
+    font-size: 2.1rem;
+  }
+
+  .services-sub{
+    font-size: 1rem;
+    margin-bottom: 56px;
+    padding: 0 12px;
+  }
+}
