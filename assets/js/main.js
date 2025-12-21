@@ -69,16 +69,16 @@ function setLang(lang) {
   localStorage.setItem("lang", lang);
   const t = T[lang];
 
-  // Nav
   document.querySelectorAll("[data-nav]").forEach((el, i) => {
     el.textContent = t.nav[i];
   });
 
-  // Hero (index)
+  // Hero
   if (window.heroTitle) {
     heroTitle.textContent = t.hero;
     heroDesc.textContent = t.desc;
-    heroBtn.textContent = t.btn;
+    if (window.heroSub) heroSub.textContent = t.sub;
+    heroBtn.textContent = t.explore; // ✅ 修正点
   }
 
   // About
@@ -98,7 +98,7 @@ function setLang(lang) {
     observeCards();
   }
 
-  // Services ✅（修正后的关键部分）
+  // Services
   if (window.servicesCards) {
     servicesTitle.textContent = t.servicesTitle;
     servicesCards.innerHTML = "";
