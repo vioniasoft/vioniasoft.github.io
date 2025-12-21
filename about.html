@@ -1,61 +1,43 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About · VioniaSoft</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About</title>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
 <nav>
-  <div class="nav-inner">
-    <div class="logo">VioniaSoft</div>
-
-    <div class="nav-center">
-      <a data-nav="home" href="index.html"></a>
-      <a data-nav="about" href="about.html"></a>
-      <a data-nav="services" href="services.html"></a>
-      <a data-nav="contact" href="contact.html"></a>
+  <div class="logo">VioniaSoft</div>
+  <div class="nav-center">
+    <a data-nav href="index.html"></a>
+    <a data-nav href="about.html"></a>
+    <a data-nav href="services.html"></a>
+    <a data-nav href="contact.html"></a>
+  </div>
+  <div class="nav-right">
+    <div class="lang">
+      <span class="lang-btn" onclick="toggleLang()">🌐</span>
+      <div class="lang-menu" id="langMenu">
+        <div onclick="setLang('ko')">한국어</div>
+        <div onclick="setLang('en')">English</div>
+        <div onclick="setLang('zh')">中文</div>
+        <div onclick="setLang('fr')">Français</div>
+      </div>
     </div>
   </div>
 </nav>
 
-<section class="hero fade-up">
-  <h1 data-i="aboutHeroTitle"></h1>
-  <p data-i="aboutHeroDesc"></p>
-</section>
-
-<section class="page fade-up">
-  <div class="page-center">
-    <h2 class="section-title" data-i="aboutTitle"></h2>
-    <p class="section-desc" data-i="aboutDesc"></p>
-
-    <div class="cards">
-      <div class="card">
-        <h3 data-i="aboutCard1Title"></h3>
-        <p data-i="aboutCard1Desc"></p>
-      </div>
-      <div class="card">
-        <h3 data-i="aboutCard2Title"></h3>
-        <p data-i="aboutCard2Desc"></p>
-      </div>
-      <div class="card">
-        <h3 data-i="aboutCard3Title"></h3>
-        <p data-i="aboutCard3Desc"></p>
-      </div>
-      <div class="card">
-        <h3 data-i="aboutCard4Title"></h3>
-        <p data-i="aboutCard4Desc"></p>
-      </div>
-    </div>
-  </div>
+<section class="page">
+  <h2 id="aboutTitle"></h2>
+  <p id="aboutDesc"></p>
+  <div class="cards" id="aboutCards"></div>
 </section>
 
 <footer>
-  © 2025 VioniaSoft. All rights reserved.<br/>
-  contact@vioniasoft.com
+© 2025 VioniaSoft. All rights reserved.<br>
+contact@vioniasoft.com
 </footer>
 
 <script src="assets/js/main.js"></script>
