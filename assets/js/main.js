@@ -1,182 +1,147 @@
-/* ===============================
-   VioniaSoft Main JS
-   =============================== */
+let langOpen=false;
 
-/* ---------- Language Data ---------- */
-const LANG = {
+const T={
   ko:{
-    nav:{home:"홈",about:"회사소개",services:"서비스",contact:"문의"},
-
-    /* Home */
-    heroTitle:"기업의 디지털 성장을 함께합니다",
-    heroDesc:"비오니아소프트는 비즈니스를 이해하는 IT 솔루션 파트너입니다.",
-    heroBtn:"서비스 알아보기",
-
-    /* About */
-    aboutHeroTitle:"회사 소개",
-    aboutHeroDesc:"비즈니스를 이해하는 기술 파트너입니다.",
-    aboutTitle:"비즈니스 중심의 기술",
-    aboutDesc:"우리는 단순한 개발이 아닌, 실제 운영되는 비즈니스 환경을 이해하고 시스템을 설계합니다.",
-    aboutCard1Title:"비즈니스 이해",
-    aboutCard1Desc:"업무 흐름과 조직 구조를 먼저 파악합니다.",
-    aboutCard2Title:"안정적 구조",
-    aboutCard2Desc:"장기 운영과 확장을 고려한 설계",
-    aboutCard3Title:"명확한 소통",
-    aboutCard3Desc:"과정과 결과를 투명하게 공유",
-    aboutCard4Title:"지속 파트너십",
-    aboutCard4Desc:"프로젝트 이후에도 함께 성장",
-
-    /* Services */
-    servicesHeroTitle:"서비스",
-    servicesHeroDesc:"기획부터 운영까지 함께합니다.",
-    servicesTitle:"제공 서비스",
-    servicesDesc:"기업 환경에 최적화된 IT 솔루션을 제공합니다.",
-    service1Title:"맞춤형 소프트웨어 개발",
-    service1Desc:"업무에 맞춘 웹·시스템 개발",
-    service2Title:"IT 컨설팅",
-    service2Desc:"구조 분석 및 기술 전략 수립",
-    service3Title:"클라우드 솔루션",
-    service3Desc:"안정적인 인프라 구축과 운영",
-    service4Title:"프로젝트 관리",
-    service4Desc:"기획부터 유지보수까지"
+    nav:["홈","회사소개","서비스","문의"],
+    hero:"기업의 디지털 성장을 함께합니다",
+    desc:"비오니아소프트는 안정적인 IT 솔루션을 제공합니다.",
+    btn:"서비스 알아보기",
+    aboutTitle:"회사 소개",
+    aboutDesc:"비즈니스를 이해하는 기술 파트너입니다.",
+    aboutCards:[
+      ["비즈니스 이해 중심","업무 흐름을 먼저 이해합니다"],
+      ["안정성과 확장성","장기 운영 구조"],
+      ["명확한 소통","투명한 커뮤니케이션"],
+      ["지속적 협력","프로젝트 이후도 함께"]
+    ],
+    servicesTitle:"서비스",
+    services:[
+      ["소프트웨어 개발","맞춤형 시스템"],
+      ["IT 컨설팅","구조 분석"],
+      ["클라우드","AWS / Azure"],
+      ["프로젝트 관리","전 과정"]
+    ],
+    contactTitle:"문의하기",
+    contactDesc:"언제든지 연락 주세요"
   },
 
   en:{
-    nav:{home:"Home",about:"About",services:"Services",contact:"Contact"},
-
-    heroTitle:"Supporting Your Digital Growth",
-    heroDesc:"VioniaSoft is a business-focused IT solution partner.",
-    heroBtn:"View Services",
-
-    aboutHeroTitle:"About Us",
-    aboutHeroDesc:"A technology partner who understands business.",
-    aboutTitle:"Business-Oriented Technology",
-    aboutDesc:"We design systems based on real operational needs.",
-    aboutCard1Title:"Business Understanding",
-    aboutCard1Desc:"We start from your workflow",
-    aboutCard2Title:"Stable Architecture",
-    aboutCard2Desc:"Designed for long-term growth",
-    aboutCard3Title:"Clear Communication",
-    aboutCard3Desc:"Transparent process",
-    aboutCard4Title:"Long-Term Partner",
-    aboutCard4Desc:"Growing together",
-
-    servicesHeroTitle:"Services",
-    servicesHeroDesc:"From planning to operation.",
-    servicesTitle:"Our Services",
-    servicesDesc:"Optimized IT solutions for companies.",
-    service1Title:"Custom Development",
-    service1Desc:"Tailored business systems",
-    service2Title:"IT Consulting",
-    service2Desc:"Architecture & strategy",
-    service3Title:"Cloud Solutions",
-    service3Desc:"Reliable infrastructure",
-    service4Title:"Project Management",
-    service4Desc:"End-to-end delivery"
+    nav:["Home","About","Services","Contact"],
+    hero:"Supporting Digital Growth",
+    desc:"Reliable IT solutions for business.",
+    btn:"View Services",
+    aboutTitle:"About Us",
+    aboutDesc:"We understand business first.",
+    aboutCards:[
+      ["Business First","Flow focused"],
+      ["Scalable","Long-term design"],
+      ["Clear Communication","Transparent"],
+      ["Partnership","Beyond delivery"]
+    ],
+    servicesTitle:"Services",
+    services:[
+      ["Development","Custom systems"],
+      ["Consulting","Architecture"],
+      ["Cloud","AWS / Azure"],
+      ["Management","Full cycle"]
+    ],
+    contactTitle:"Contact",
+    contactDesc:"Feel free to reach out"
   },
 
   zh:{
-    nav:{home:"首页",about:"关于我们",services:"服务",contact:"联系"},
-
-    heroTitle:"助力企业实现数字化增长",
-    heroDesc:"VioniaSoft 是理解业务的 IT 解决方案伙伴。",
-    heroBtn:"查看服务",
-
-    aboutHeroTitle:"关于我们",
-    aboutHeroDesc:"理解业务的技术伙伴",
-    aboutTitle:"以业务为核心",
-    aboutDesc:"我们构建真正可以长期运营的系统。",
-    aboutCard1Title:"理解业务",
-    aboutCard1Desc:"从流程出发",
-    aboutCard2Title:"稳定架构",
-    aboutCard2Desc:"支持长期扩展",
-    aboutCard3Title:"清晰沟通",
-    aboutCard3Desc:"过程透明",
-    aboutCard4Title:"长期合作",
-    aboutCard4Desc:"持续支持",
-
-    servicesHeroTitle:"服务",
-    servicesHeroDesc:"从规划到运营",
-    servicesTitle:"我们的服务",
-    servicesDesc:"为企业定制 IT 解决方案",
-    service1Title:"定制开发",
-    service1Desc:"业务系统开发",
-    service2Title:"IT 咨询",
-    service2Desc:"架构与策略",
-    service3Title:"云服务",
-    service3Desc:"稳定运行",
-    service4Title:"项目管理",
-    service4Desc:"全流程负责"
+    nav:["首页","关于我们","服务","联系"],
+    hero:"助力企业数字化成长",
+    desc:"稳定可靠的 IT 解决方案。",
+    btn:"查看服务",
+    aboutTitle:"关于我们",
+    aboutDesc:"以业务为中心的技术团队。",
+    aboutCards:[
+      ["理解业务","业务优先"],
+      ["稳定扩展","长期架构"],
+      ["沟通透明","过程清晰"],
+      ["长期合作","持续支持"]
+    ],
+    servicesTitle:"服务",
+    services:[
+      ["软件开发","定制系统"],
+      ["IT 咨询","架构设计"],
+      ["云服务","AWS / Azure"],
+      ["项目管理","全流程"]
+    ],
+    contactTitle:"联系我们",
+    contactDesc:"欢迎随时联系"
   },
 
   fr:{
-    nav:{home:"Accueil",about:"À propos",services:"Services",contact:"Contact"},
-
-    heroTitle:"Accompagner votre croissance numérique",
-    heroDesc:"VioniaSoft est un partenaire IT orienté business.",
-    heroBtn:"Voir les services",
-
-    aboutHeroTitle:"À propos",
-    aboutHeroDesc:"Partenaire technologique orienté business",
-    aboutTitle:"Technologie & Business",
-    aboutDesc:"Des systèmes pensés pour une exploitation réelle.",
-    aboutCard1Title:"Vision métier",
-    aboutCard1Desc:"Comprendre vos besoins",
-    aboutCard2Title:"Architecture stable",
-    aboutCard2Desc:"Pensée long terme",
-    aboutCard3Title:"Communication claire",
-    aboutCard3Desc:"Processus transparent",
-    aboutCard4Title:"Partenariat durable",
-    aboutCard4Desc:"Au-delà du projet",
-
-    servicesHeroTitle:"Services",
-    servicesHeroDesc:"De la stratégie à l’exploitation",
-    servicesTitle:"Nos services",
-    servicesDesc:"Solutions IT adaptées",
-    service1Title:"Développement",
-    service1Desc:"Solutions sur mesure",
-    service2Title:"Conseil IT",
-    service2Desc:"Stratégie & structure",
-    service3Title:"Cloud",
-    service3Desc:"Infrastructure fiable",
-    service4Title:"Gestion de projet",
-    service4Desc:"De bout en bout"
+    nav:["Accueil","À propos","Services","Contact"],
+    hero:"Croissance numérique",
+    desc:"Solutions IT fiables.",
+    btn:"Voir les services",
+    aboutTitle:"À propos",
+    aboutDesc:"La technologie au service du business.",
+    aboutCards:[
+      ["Business","Priorité métier"],
+      ["Scalable","Long terme"],
+      ["Communication","Clair"],
+      ["Partenariat","Durable"]
+    ],
+    servicesTitle:"Services",
+    services:[
+      ["Développement","Systèmes"],
+      ["Conseil","Architecture"],
+      ["Cloud","AWS / Azure"],
+      ["Gestion","Complet"]
+    ],
+    contactTitle:"Contact",
+    contactDesc:"Contactez-nous"
   }
 };
 
-/* ---------- Apply Language ---------- */
-function setLang(lang){
-  localStorage.setItem("lang",lang);
-  const t = LANG[lang];
+function setLang(l){
+  localStorage.setItem("lang",l);
+  const t=T[l];
 
-  /* nav */
-  document.querySelectorAll("[data-nav]").forEach(el=>{
-    el.innerText = t.nav[el.dataset.nav];
+  document.querySelectorAll("[data-nav]").forEach((el,i)=>{
+    el.textContent=t.nav[i];
   });
 
-  /* text */
-  document.querySelectorAll("[data-i]").forEach(el=>{
-    if(t[el.dataset.i]){
-      el.innerText = t[el.dataset.i];
-    }
-  });
-
-  /* home hero (ID based, avoid undefined) */
   if(document.getElementById("heroTitle")){
-    heroTitle.innerText = t.heroTitle;
-    heroDesc.innerText  = t.heroDesc;
-    heroBtn.innerText   = t.heroBtn;
-    heroBtn.href        = "services.html";
+    heroTitle.textContent=t.hero;
+    heroDesc.textContent=t.desc;
+    heroBtn.textContent=t.btn;
   }
+
+  if(window.aboutCards){
+    aboutTitle.textContent=t.aboutTitle;
+    aboutDesc.textContent=t.aboutDesc;
+    aboutCards.innerHTML="";
+    t.aboutCards.forEach(c=>{
+      aboutCards.innerHTML+=`<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`;
+    });
+  }
+
+  if(window.serviceCards){
+    servicesTitle.textContent=t.servicesTitle;
+    serviceCards.innerHTML="";
+    t.services.forEach(s=>{
+      serviceCards.innerHTML+=`<div class="card"><h3>${s[0]}</h3><p>${s[1]}</p></div>`;
+    });
+  }
+
+  if(window.contactTitle){
+    contactTitle.textContent=t.contactTitle;
+    contactDesc.textContent=t.contactDesc;
+  }
+
+  document.getElementById("langMenu").style.display="none";
 }
 
-/* ---------- On Load ---------- */
-window.addEventListener("load",()=>{
-  const lang = localStorage.getItem("lang") || "ko";
-  setLang(lang);
+function toggleLang(){
+  const m=document.getElementById("langMenu");
+  m.style.display=m.style.display==="block"?"none":"block";
+}
 
-  /* fade-up for about / services */
-  document.querySelectorAll(".fade-up").forEach(el=>{
-    setTimeout(()=>el.classList.add("appeared"),100);
-  });
-});
+window.onload=()=>{
+  setLang(localStorage.getItem("lang")||"ko");
+};
