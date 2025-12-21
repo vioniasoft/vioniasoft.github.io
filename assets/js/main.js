@@ -142,4 +142,4 @@ function toggleLang(){
   m.style.display=m.style.display==="block"?"none":"block";
 }
 
-
+window.onload=()=>{ setLang(localStorage.getItem("lang")||"ko"); };
