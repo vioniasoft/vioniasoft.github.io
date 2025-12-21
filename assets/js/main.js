@@ -1,7 +1,4 @@
-/* ================= Language ================= */
-let langOpen = false;
-
-const T = {
+const T={
   ko:{
     nav:["홈","회사소개","서비스","문의"],
     hero:"기업의 디지털 성장을 함께합니다",
@@ -23,9 +20,8 @@ const T = {
       ["프로젝트 관리","전 과정"]
     ],
     contactTitle:"문의하기",
-    contactDesc:"언제든지 연락 주세요"
+    contactDesc:"메일로 바로 연락 주세요"
   },
-
   en:{
     nav:["Home","About","Services","Contact"],
     hero:"Supporting Digital Growth",
@@ -47,9 +43,8 @@ const T = {
       ["Management","Full cycle"]
     ],
     contactTitle:"Contact",
-    contactDesc:"Feel free to reach out"
+    contactDesc:"Send us an email anytime"
   },
-
   zh:{
     nav:["首页","关于我们","服务","联系"],
     hero:"助力企业数字化成长",
@@ -71,9 +66,8 @@ const T = {
       ["项目管理","全流程"]
     ],
     contactTitle:"联系我们",
-    contactDesc:"欢迎随时联系"
+    contactDesc:"欢迎通过邮件联系"
   },
-
   fr:{
     nav:["Accueil","À propos","Services","Contact"],
     hero:"Croissance numérique",
@@ -95,120 +89,72 @@ const T = {
       ["Gestion","Complet"]
     ],
     contactTitle:"Contact",
-    contactDesc:"Contactez-nous"
+    contactDesc:"Contactez-nous par email"
   }
 };
 
-/* ================= Language Switch ================= */
 function setLang(l){
-  localStorage.setItem("lang", l);
-  const t = T[l];
+  localStorage.setItem("lang",l);
+  const t=T[l];
 
   document.querySelectorAll("[data-nav]").forEach((el,i)=>{
-    el.textContent = t.nav[i];
+    el.textContent=t.nav[i];
   });
 
-  if(document.getElementById("heroTitle")){
-    heroTitle.textContent = t.hero;
-    heroDesc.textContent = t.desc;
-    heroBtn.textContent = t.btn;
+  if(window.heroTitle){
+    heroTitle.textContent=t.hero;
+    heroDesc.textContent=t.desc;
+    heroBtn.textContent=t.btn;
   }
 
   if(window.aboutCards){
-    aboutTitle.textContent = t.aboutTitle;
-    aboutDesc.textContent = t.aboutDesc;
-    aboutCards.innerHTML = "";
+    aboutTitle.textContent=t.aboutTitle;
+    aboutDesc.textContent=t.aboutDesc;
+    aboutCards.innerHTML="";
     t.aboutCards.forEach(c=>{
-      aboutCards.innerHTML += `
-        <div class="card">
-          <h3>${c[0]}</h3>
-          <p>${c[1]}</p>
-        </div>`;
+      aboutCards.innerHTML+=`<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`;
     });
+    observeCards();
   }
 
   if(window.serviceCards){
-    servicesTitle.textContent = t.servicesTitle;
-    serviceCards.innerHTML = "";
+    servicesTitle.textContent=t.servicesTitle;
+    serviceCards.innerHTML="";
     t.services.forEach(s=>{
-      serviceCards.innerHTML += `
-        <div class="card">
-          <h3>${s[0]}</h3>
-          <p>${s[1]}</p>
-        </div>`;
+      serviceCards.innerHTML+=`<div class="card"><h3>${s[0]}</h3><p>${s[1]}</p></div>`;
     });
+    observeCards();
   }
 
   if(window.contactTitle){
-    contactTitle.textContent = t.contactTitle;
-    contactDesc.textContent = t.contactDesc;
+    contactTitle.textContent=t.contactTitle;
+    contactDesc.textContent=t.contactDesc;
   }
-
-  document.getElementById("langMenu").style.display = "none";
-
-  observeCards(); // 语言切换后重新绑定动画
 }
 
 function toggleLang(){
-  const m = document.getElementById("langMenu");
-  m.style.display = m.style.display === "block" ? "none" : "block";
+  const m=document.getElementById("langMenu");
+  m.style.display=m.style.display==="block"?"none":"block";
 }
 
-/* ================= Card Scroll Animation ================= */
+/* ===== Card observer ===== */
 let observer;
-
 function observeCards(){
   if(observer) observer.disconnect();
-
-  observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add("show");
-        observer.unobserve(entry.target);
+  observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add("show");
+        observer.unobserve(e.target);
       }
     });
-  },{ threshold:0.2 });
-
-  document.querySelectorAll(".card").forEach(card=>{
-    card.classList.remove("show");
-    observer.observe(card);
+  },{threshold:0.2});
+  document.querySelectorAll(".card").forEach(c=>{
+    c.classList.remove("show");
+    observer.observe(c);
   });
 }
 
-/* ================= Init ================= */
-window.addEventListener("load",()=>{
-  setLang(localStorage.getItem("lang") || "ko");
-});
-
-/* ================= About First Screen Scroll Lock ================= */
-(function(){
-  // 只在 about.html 生效
-  if(!location.pathname.includes("about")) return;
-
-  let unlocked = false;
-
-  function unlockScroll(){
-    if(unlocked) return;
-    unlocked = true;
-    document.body.classList.remove("about-lock");
-    window.removeEventListener("wheel",onWheel);
-    window.removeEventListener("touchmove",onTouch);
-  }
-
-  function onWheel(e){
-    e.preventDefault();
-    unlockScroll();
-    window.scrollTo({ top:1, behavior:"smooth" });
-  }
-
-  function onTouch(e){
-    unlockScroll();
-  }
-
-  window.addEventListener("load",()=>{
-    document.body.classList.add("about-lock");
-
-    window.addEventListener("wheel",onWheel,{ passive:false });
-    window.addEventListener("touchmove",onTouch,{ passive:true });
-  });
-})();
+window.onload=()=>{
+  setLang(localStorage.getItem("lang")||"ko");
+};
