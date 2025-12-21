@@ -1,88 +1,52 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | VioniaSoft</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VioniaSoft</title>
 
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<nav>
-  <!-- Logo -->
-  <div class="logo logo-gradient">VioniaSoft</div>
+  <!-- ================= NAV ================= -->
+  <nav>
+    <div class="logo logo-gradient">VioniaSoft</div>
 
-  <!-- 中间导航（文字由 JS 注入） -->
-  <div class="nav-center">
-    <a data-nav class="nav-link" href="index.html"></a>
-    <a data-nav class="nav-link" href="about.html"></a>
-    <a data-nav class="nav-link" href="services.html"></a>
-    <a data-nav class="nav-link" href="contact.html"></a>
-  </div>
-
-  <!-- 右侧语言切换 -->
-  <div class="nav-right">
-    <span class="lang-btn" onclick="toggleLang()">🌐</span>
-    <div class="lang-menu" id="langMenu">
-      <div onclick="setLang('ko')">한국어</div>
-      <div onclick="setLang('en')">English</div>
-      <div onclick="setLang('zh')">中文</div>
-      <div onclick="setLang('fr')">Français</div>
-    </div>
-  </div>
-</nav>
-
-<!-- Hero -->
-<section class="hero">
-  <h1 id="contactTitle"></h1>
-  <p id="contactDesc"></p>
-</section>
-
-<!-- Contact Form -->
-<section class="about-bg contact-page">
-  <div class="contact-wrap">
-
-    <div class="card contact-card">
-
-      <form class="contact-form" id="contactForm">
-
-        <div class="form-row">
-          <input type="text" placeholder="회사명" required>
-          <input type="text" placeholder="담당자 이름" required>
-        </div>
-
-        <div class="form-row">
-          <input type="email" placeholder="이메일" required>
-          <input type="text" placeholder="연락처">
-        </div>
-
-        <textarea rows="5" placeholder="문의 내용"></textarea>
-
-        <button type="submit" class="btn">
-          문의 보내기
-        </button>
-
-      </form>
-
+    <div class="nav-center">
+      <a data-nav class="nav-link" href="index.html"></a>
+      <a data-nav class="nav-link" href="about.html"></a>
+      <a data-nav class="nav-link" href="services.html"></a>
+      <a data-nav class="nav-link" href="contact.html"></a>
     </div>
 
-  </div>
-</section>
+    <div class="nav-right">
+      <span class="lang-btn" onclick="toggleLang()">🌐</span>
+      <div class="lang-menu" id="langMenu">
+        <div onclick="setLang('ko')">한국어</div>
+        <div onclick="setLang('en')">English</div>
+        <div onclick="setLang('zh')">中文</div>
+        <div onclick="setLang('fr')">Français</div>
+      </div>
+    </div>
+  </nav>
 
-<footer>
-© 2025 VioniaSoft. All rights reserved.<br>
-Email: contact@vioniasoft.com
-</footer>
+  <!-- ================= HERO ================= -->
+  <section class="hero page">
+    <h1 data-hero-title></h1>
+    <p data-hero-desc></p>
 
-<script src="assets/js/main.js"></script>
+    <a href="services.html" class="btn" data-hero-btn></a>
+  </section>
 
-<script>
-document.getElementById("contactForm").addEventListener("submit", e => {
-  e.preventDefault();
-  alert("문의가 정상적으로 작성되었습니다.\n(메일 전송需要后端或服务集成)");
-});
-</script>
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    © 2025 VioniaSoft. All rights reserved.
+  </footer>
 
+  <!-- JS -->
+  <script src="lang.js"></script>
 </body>
 </html>
