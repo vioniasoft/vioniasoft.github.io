@@ -190,32 +190,29 @@ nav{
 }
 
 /* =========================================================
-   页面通用结构（Hero / Page / About）
-   目标：内容少 = 一屏，内容多 = 自动延展
+   页面通用结构（内页）
 ========================================================= */
-
-/* ===== 内页通用内容区（About / Services / Contact） ===== */
 .page,
 .about-bg{
-  min-height:calc(100vh - 64px); /* 至少一屏，扣掉导航 */
+  min-height:calc(100vh - 64px);
   display:flex;
   flex-direction:column;
-  justify-content:flex-start;   /* 内容从上开始，避免被拉空 */
+  justify-content:flex-start;
   padding:120px 8% 80px;
 }
 
 
 /* =========================================================
-   首页 HERO 区域（重点修复）
+   首页 HERO（最终稳定版）
 ========================================================= */
 .hero{
-  min-height:calc(100vh - 64px); /* 首页始终一整屏 */
+  min-height:calc(100vh - 64px); /* 刚好一屏 */
   display:flex;
   flex-direction:column;
-  justify-content:center;       /* 首页内容垂直居中 */
+  justify-content:flex-start;   /* ❗不再垂直居中 */
   align-items:center;
 
-  padding:120px 8% 80px;
+  padding:140px 8% 60px;        /* 上多一点，下少一点 */
   text-align:center;
 
   background:
@@ -223,24 +220,24 @@ nav{
     radial-gradient(circle at 80% 30%, #c4b5fd55, transparent 45%);
 }
 
-/* ===== 首页标题 ===== */
+/* 标题 */
 .hero h1{
   font-size:3em;
   margin-bottom:20px;
   animation:fadeUp .8s ease forwards;
 }
 
-/* ===== 首页描述文字 ===== */
+/* 描述 */
 .hero p{
   max-width:800px;
-  margin:0 auto 36px; /* 拉开与按钮距离（关键） */
+  margin:0 auto 40px; /* 控制按钮距离 */
   color:var(--muted);
   animation:fadeUp .8s ease .15s forwards;
 }
 
-/* ===== 首页按钮 ===== */
+/* 按钮 */
 .hero .btn{
-  margin-top:0; /* 由 p 的 margin-bottom 控制，更稳定 */
+  margin-top:0;
 }
 
 
