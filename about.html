@@ -3,19 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About</title>
+<title>About · VioniaSoft</title>
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
 <nav>
   <div class="logo">VioniaSoft</div>
+
   <div class="nav-center">
     <a data-nav href="index.html"></a>
     <a data-nav href="about.html"></a>
     <a data-nav href="services.html"></a>
     <a data-nav href="contact.html"></a>
   </div>
+
   <div class="nav-right">
     <div class="lang">
       <span class="lang-btn" onclick="toggleLang()">🌐</span>
@@ -29,11 +32,13 @@
   </div>
 </nav>
 
-<section class="page">
+<main class="page">
   <h2 id="aboutTitle"></h2>
-  <p id="aboutDesc"></p>
+  <p id="aboutDesc" class="section-desc"></p>
+
+  <!-- 🔴 关键：JS 就是往这个容器里塞 4 条内容 -->
   <div class="cards" id="aboutCards"></div>
-</section>
+</main>
 
 <footer>
 © 2025 VioniaSoft. All rights reserved.<br>
