@@ -1,116 +1,60 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>비오니아소프트 · VioniaSoft · IT & Software Studio</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script>
-        // Function to toggle between languages
-        function changeLanguage(language) {
-            const lang = {
-                ko: {
-                    title: "비오니아소프트 · IT & Software Studio",
-                    aboutUs: "회사 소개",
-                    services: "서비스",
-                    contact: "연락처",
-                    description: "비오니아소프트에 오신 것을 환영합니다! 우리는 귀하의 비즈니스 요구에 맞는 혁신적인 솔루션을 제공합니다.",
-                    serviceList: ["맞춤형 소프트웨어 개발", "비즈니스 컨설팅", "프로젝트 관리", "클라우드 솔루션"],
-                    email: "이메일: contact@vioniasoft.com",
-                },
-                zh: {
-                    title: "VioniaSoft · IT & 软件工作室",
-                    aboutUs: "关于我们",
-                    services: "服务",
-                    contact: "联系我们",
-                    description: "欢迎来到 VioniaSoft！我们为您的业务需求提供创新的解决方案。",
-                    serviceList: ["定制软件开发", "商业咨询", "项目管理", "云解决方案"],
-                    email: "邮箱：contact@vioniasoft.com",
-                },
-                en: {
-                    title: "VioniaSoft · IT & Software Studio",
-                    aboutUs: "About Us",
-                    services: "Services",
-                    contact: "Contact Us",
-                    description: "Welcome to VioniaSoft! We provide innovative solutions for your business needs.",
-                    serviceList: ["Custom Software Development", "Business Consulting", "Project Management", "Cloud Solutions"],
-                    email: "Email: contact@vioniasoft.com",
-                }
-            };
-
-            document.getElementById('about-heading').innerText = lang[language].aboutUs;
-            document.getElementById('services-heading').innerText = lang[language].services;
-            document.getElementById('contact-heading').innerText = lang[language].contact;
-            document.getElementById('about-description').innerText = lang[language].description;
-            document.getElementById('contact-email').innerText = lang[language].email;
-
-            const services = lang[language].serviceList;
-            const serviceList = document.getElementById('services-list');
-            serviceList.innerHTML = '';
-            services.forEach(service => {
-                let li = document.createElement('li');
-                li.innerText = service;
-                serviceList.appendChild(li);
-            });
-
-            document.title = lang[language].title;
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VioniaSoft</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/main.js" defer></script>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav>
-        <button class="hamburger" onclick="document.querySelector('nav').classList.toggle('open')">&#9776;</button>
-        <ul>
-            <li><a href="javascript:void(0)" onclick="changeLanguage('ko')">한국어</a></li>
-            <li><a href="javascript:void(0)" onclick="changeLanguage('zh')">中文</a></li>
-            <li><a href="javascript:void(0)" onclick="changeLanguage('en')">EN</a></li>
-        </ul>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>VioniaSoft · 비오니아소프트</h1>
-        <p>Your IT & Software Studio</p>
-        <a href="#about" class="btn">Learn More</a>
-    </section>
+<nav>
+<div class="nav-left">VioniaSoft</div>
 
-    <!-- Main Sections -->
-    <main>
-        <!-- About Us Section -->
-        <section id="about" class="section">
-            <h2 id="about-heading">회사 소개</h2>
-            <p id="about-description">비오니아소프트에 오신 것을 환영합니다! 우리는 귀하의 비즈니스 요구에 맞는 혁신적인 솔루션을 제공합니다.</p>
-        </section>
+<div class="nav-center">
+<a href="index.html" data-nav="0"></a>
+<a href="about.html" data-nav="1"></a>
+<a href="services.html" data-nav="2"></a>
+<a href="contact.html" data-nav="3"></a>
+</div>
 
-        <!-- Services Section -->
-        <section id="services" class="section">
-            <h2 id="services-heading">서비스</h2>
-            <div class="service-list" id="services-list">
-                <div class="service-item">
-                    <h3>맞춤형 소프트웨어 개발</h3>
-                    <p>우리는 귀하의 요구에 맞는 맞춤형 소프트웨어 솔루션을 제공합니다.</p>
-                </div>
-                <div class="service-item">
-                    <h3>비즈니스 컨설팅</h3>
-                    <p>귀하의 비즈니스가 성장할 수 있도록 돕는 컨설팅 서비스를 제공합니다.</p>
-                </div>
-                <div class="service-item">
-                    <h3>프로젝트 관리</h3>
-                    <p>효율적인 프로젝트 관리를 통해 목표를 달성합니다.</p>
-                </div>
-                <div class="service-item">
-                    <h3>클라우드 솔루션</h3>
-                    <p>최신 클라우드 기술을 이용하여 비즈니스를 지원합니다.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+<div class="nav-right">
+<div class="lang-desktop">
+<span onclick="document.querySelector('.lang-menu').style.display='block'">🌐</span>
+<div class="lang-menu">
+<div onclick="setLang('ko')">한국어</div>
+<div onclick="setLang('en')">English</div>
+<div onclick="setLang('zh')">中文</div>
+<div onclick="setLang('fr')">Français</div>
+</div>
+</div>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+</div>
+</nav>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 비오니아소프트. All rights reserved.</p>
-        <p>이메일: contact@vioniasoft.com</p>
-    </footer>
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<div class="mobile-menu" id="mobileMenu">
+<div data-nav="0" onclick="location='index.html'"></div>
+<div data-nav="1" onclick="location='about.html'"></div>
+<div data-nav="2" onclick="location='services.html'"></div>
+<div data-nav="3" onclick="location='contact.html'"></div>
+<div onclick="toggleMobileLang()">Language ▸</div>
+<div class="mobile-lang" id="mobileLang">
+<div onclick="setLang('ko')">한국어</div>
+<div onclick="setLang('en')">English</div>
+<div onclick="setLang('zh')">中文</div>
+<div onclick="setLang('fr')">Français</div>
+</div>
+</div>
+
+<main>
+<h1 data-i18n="homeTitle"></h1>
+<p data-i18n="homeDesc"></p>
+<a class="btn" href="services.html" data-i18n="homeBtn"></a>
+</main>
+
 </body>
 </html>
