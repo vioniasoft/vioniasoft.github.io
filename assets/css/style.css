@@ -291,6 +291,17 @@ footer{
 }
 
 /* ===== CONTACT MAIL FORM ===== */
+.contact-wrap{
+  max-width:760px;
+  margin:0 auto;
+  padding:0 8%;
+  text-align:left;
+}
+
+.contact-card{
+  padding:36px 32px;
+}
+
 .contact-form{
   display:flex;
   flex-direction:column;
@@ -324,7 +335,6 @@ footer{
 .contact-form textarea{
   resize:vertical;
 }
-
 .contact-form button{
   margin-top:12px;
   align-self:flex-start; /* 像邮件发送按钮 */
