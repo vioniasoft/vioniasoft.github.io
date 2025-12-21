@@ -30,13 +30,13 @@
   </div>
 </nav>
 
-<!-- 标题 & 说明（保持你现在的文字） -->
+<!-- 标题 & 说明（JS 多语言填充） -->
 <section class="hero">
   <h1 id="contactTitle"></h1>
   <p id="contactDesc"></p>
 </section>
 
-<!-- 邮件咨询表单 -->
+<!-- 留言表单区域（统一 about-bg 卡片风格） -->
 <section class="about-bg">
   <div class="contact-wrap">
 
@@ -67,7 +67,6 @@
   </div>
 </section>
 
-
 <footer>
 © 2025 VioniaSoft. All rights reserved.<br>
 Email: contact@vioniasoft.com
@@ -76,10 +75,9 @@ Email: contact@vioniasoft.com
 <script src="assets/js/main.js"></script>
 
 <script>
-/* 静态站：模拟发送 */
 document.getElementById("contactForm").addEventListener("submit", e => {
   e.preventDefault();
-  alert("문의가 정상적으로 작성되었습니다.\n(메일 전송은 추후 연동 가능합니다)");
+  alert("문의가 정상적으로 작성되었습니다.\n(메일 전송需要后端或服务集成)");
 });
 </script>
 
