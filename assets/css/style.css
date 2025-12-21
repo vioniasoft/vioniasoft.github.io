@@ -139,3 +139,105 @@ footer{
   .nav-center{display:none}
   .menu-btn{display:block}
 }
+/* ===== ABOUT PAGE VISUAL UPGRADE ===== */
+
+/* 整个 About 顶部背景 */
+.about-hero{
+  position: relative;
+  padding-top: 160px;
+  padding-bottom: 120px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(147,197,253,.35), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(196,181,253,.35), transparent 45%);
+}
+
+/* 标题 */
+.about-title{
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+/* 副标题 */
+.about-sub{
+  font-size: 1.2rem;
+  color: var(--muted);
+  max-width: 760px;
+  margin: 0 auto 80px;
+  line-height: 1.9;
+}
+
+/* 卡片整体排版 */
+.about-hero .cards{
+  margin-top: 20px;
+}
+
+/* 卡片设计升级 */
+.card{
+  position: relative;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 38px 32px;
+  box-shadow: 0 12px 32px rgba(15,23,42,.08);
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s cubic-bezier(.2,.8,.2,1);
+}
+
+/* hover 动效 */
+.card:hover{
+  transform: translateY(-12px);
+  box-shadow: 0 30px 60px rgba(15,23,42,.18);
+}
+
+/* 卡片标题 */
+.card h3{
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+/* 卡片描述 */
+.card p{
+  font-size: .95rem;
+  line-height: 1.8;
+}
+
+/* 进入动画 */
+.card{
+  animation: fadeUp .8s ease both;
+}
+
+.card:nth-child(2){animation-delay:.1s}
+.card:nth-child(3){animation-delay:.2s}
+.card:nth-child(4){animation-delay:.3s}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .about-hero{
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+
+  .about-title{
+    font-size: 2.1rem;
+  }
+
+  .about-sub{
+    font-size: 1rem;
+    margin-bottom: 56px;
+    padding: 0 12px;
+  }
+}
