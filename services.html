@@ -1,42 +1,78 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services | VioniaSoft</title>
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | VioniaSoft</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<nav>
-  <div class="logo">VioniaSoft</div>
-  <div class="nav-center">
-    <a data-nav href="index.html"></a>
-    <a data-nav href="about.html"></a>
-    <a data-nav href="services.html"></a>
-    <a data-nav href="contact.html"></a>
-  </div>
-  <div class="nav-right">
-    <span class="lang-btn" onclick="toggleLang()">🌐</span>
-    <div class="lang-menu" id="langMenu">
-        <div onclick="setLang('ko')">한국어</div>
-        <div onclick="setLang('en')">English</div>
-        <div onclick="setLang('zh')">中文</div>
-        <div onclick="setLang('fr')">Français</div>
+  <nav>
+    <div class="logo">VioniaSoft</div>
+    <div class="nav-center">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
     </div>
-  </div>
-</nav>
+    <div class="nav-right">
+      <!-- 语言切换同 about 一样 -->
+      <div class="lang">
+        <div class="lang-btn">한국어</div>
+        <div class="lang-menu">
+          <div>English</div>
+          <div>中文</div>
+          <div>Français</div>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-<section class="page services-page">
-  <h2 id="servicesTitle"></h2>
-  <div class="cards" id="serviceCards"></div>
-</section>
+  <!-- ======= HERO AREA ======= -->
+  <section class="hero">
+    <h1>Our Services</h1>
+    <p>Explore what we offer — from software development to cloud solutions built for performance and reliability.</p>
+  </section>
 
-<footer>
-© 2025 VioniaSoft. All rights reserved.<br>
-Email: contact@vioniasoft.com
-</footer>
+  <!-- ======= SERVICES CONTENT ======= -->
+  <section class="page">
+    <div class="cards">
 
-<script src="assets/js/main.js"></script>
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>Custom web applications built with modern technologies tailored to your needs.</p>
+      </div>
+
+      <div class="card">
+        <h3>Mobile Apps</h3>
+        <p>iOS & Android app solutions that deliver seamless user experiences.</p>
+      </div>
+
+      <div class="card">
+        <h3>Cloud Integration</h3>
+        <p>Scalable cloud architecture and deployment for secure and fast performance.</p>
+      </div>
+
+      <div class="card">
+        <h3>UI/UX Design</h3>
+        <p>Intuitive, accessible interfaces designed to delight your users.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2025 VioniaSoft. All rights reserved.
+  </footer>
+
+<script>
+/* ===== language dropdown 同 about 页面的一样 ===== */
+document.querySelectorAll('.lang-btn').forEach(btn=>{
+  btn.addEventListener('click', () => {
+    const menu = btn.nextElementSibling;
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+  });
+});
+</script>
+
 </body>
 </html>
