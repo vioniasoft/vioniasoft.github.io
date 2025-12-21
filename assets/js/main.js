@@ -1,4 +1,4 @@
-const T={
+const T = {
 ko:{
 nav:["홈","회사소개","서비스","문의"],
 hero:"기업의 디지털 성장을 함께합니다",
@@ -46,14 +46,14 @@ aboutCards:[
 
 servicesTitle:"Services",
 services:[
-["💻 Software Development","Custom systems"],
+["💻 Software Development","Custom business systems"],
 ["📊 IT Consulting","Architecture & strategy"],
-["☁️ Cloud","AWS / Azure"],
-["🚀 Project Management","End-to-end"]
+["☁️ Cloud","AWS / Azure infrastructure"],
+["🚀 Project Management","End-to-end delivery"]
 ],
 
 contactTitle:"Contact",
-contactDesc:"Feel free to reach out to us.",
+contactDesc:"Feel free to contact us anytime.",
 form:["Company","Name","Email","Message","Send"]
 }
 };
@@ -61,22 +61,22 @@ form:["Company","Name","Email","Message","Send"]
 function setLang(l){
 localStorage.setItem("lang",l);
 
-/* NAV */
-document.getElementById("navHome").innerText=T[l].nav[0];
-document.getElementById("navAbout").innerText=T[l].nav[1];
-document.getElementById("navServices").innerText=T[l].nav[2];
-document.getElementById("navContact").innerText=T[l].nav[3];
+/* NAV（关键：单独赋值，绝不 undefined） */
+document.getElementById("navHome").innerText = T[l].nav[0];
+document.getElementById("navAbout").innerText = T[l].nav[1];
+document.getElementById("navServices").innerText = T[l].nav[2];
+document.getElementById("navContact").innerText = T[l].nav[3];
 
-/* TEXT */
+/* 正文 */
 document.querySelectorAll("[data-i]").forEach(e=>{
-e.innerText=T[l][e.dataset.i];
+e.innerText = T[l][e.dataset.i];
 });
 
 /* ABOUT */
 if(document.getElementById("aboutCards")){
 aboutCards.innerHTML="";
 T[l].aboutCards.forEach(c=>{
-aboutCards.innerHTML+=`<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`;
+aboutCards.innerHTML += `<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`;
 });
 }
 
@@ -84,7 +84,7 @@ aboutCards.innerHTML+=`<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`;
 if(document.getElementById("serviceCards")){
 serviceCards.innerHTML="";
 T[l].services.forEach(s=>{
-serviceCards.innerHTML+=`<div class="card"><h3>${s[0]}</h3><p>${s[1]}</p></div>`;
+serviceCards.innerHTML += `<div class="card"><h3>${s[0]}</h3><p>${s[1]}</p></div>`;
 });
 }
 
@@ -100,5 +100,5 @@ submit.innerText=f[4];
 }
 
 window.onload=()=>{
-setLang(localStorage.getItem("lang")||"ko");
+setLang(localStorage.getItem("lang") || "ko");
 };
