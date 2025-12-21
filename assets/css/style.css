@@ -198,6 +198,7 @@ nav{
 .about-bg{
   min-height:calc(100vh - 64px); /* 至少一屏，扣掉导航 */
   display:flex;
+  flex:1;
   flex-direction:column;
   justify-content:flex-start;   /* 内容从上开始 */
   padding:120px 8% 80px;
@@ -208,13 +209,14 @@ nav{
    首页 HERO（与 services.html 行为完全一致）
 ========================================================= */
 .hero{
-  min-height:calc(100vh - 64px); /* 内容不满一页也不会出现滚轮 */
+  min-height:calc(100vh - 64px);
+/*min-height:100vh;  内容不满一页也不会出现滚轮 */
   display:flex;
   flex-direction:column;
-  justify-content:flex-start;   /* 关键：不要居中 */
+  justify-content:flex-start;
   align-items:center;
 
-  padding:120px 8% 80px;        /* 与 services / about 完全一致 */
+  padding:140px 8% 60px;
   text-align:center;
 
   background:
