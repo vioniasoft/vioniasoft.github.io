@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VioniaSoft</title>
+  <title>Contact | VioniaSoft</title>
 
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -30,12 +30,41 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- Hero -->
 <section class="hero">
-  <h1 id="heroTitle"></h1>
-  <p id="heroDesc"></p>
-  <p id="heroSub" class="sub"></p>
-  <a href="services.html" id="heroBtn" class="btn"></a>
+  <h1 id="contactTitle"></h1>
+  <p id="contactDesc"></p>
+</section>
+
+<!-- Contact Form -->
+<section class="about-bg contact-page">
+  <div class="contact-wrap">
+
+    <div class="card contact-card">
+
+      <form class="contact-form" id="contactForm">
+
+        <div class="form-row">
+          <input type="text" placeholder="회사명" required>
+          <input type="text" placeholder="담당자 이름" required>
+        </div>
+
+        <div class="form-row">
+          <input type="email" placeholder="이메일" required>
+          <input type="text" placeholder="연락처">
+        </div>
+
+        <textarea rows="5" placeholder="문의 내용"></textarea>
+
+        <button type="submit" class="btn">
+          문의 보내기
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
 </section>
 
 <footer>
@@ -44,5 +73,13 @@ Email: contact@vioniasoft.com
 </footer>
 
 <script src="assets/js/main.js"></script>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+  alert("문의가 정상적으로 작성되었습니다.\n(메일 전송需要后端或服务集成)");
+});
+</script>
+
 </body>
 </html>
