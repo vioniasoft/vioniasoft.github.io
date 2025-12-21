@@ -133,6 +133,11 @@ nav{
   text-decoration:none;
 }
 
+/* ================= ABOUT SCROLL LOCK ================= */
+body.about-lock{
+  overflow:hidden;
+}
+
 /* ================= ABOUT FULL BACKGROUND ================= */
 .about-bg{
   background:
