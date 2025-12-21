@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>VioniaSoft</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <script defer src="js/main.js"></script>
+<meta charset="UTF-8">
+<title>VioniaSoft</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
 </head>
 
 <body onload="setLang('ko')">
 
 <nav>
-  <div class="nav-left">VioniaSoft</div>
+<div class="nav-left">VioniaSoft</div>
 
-  <div class="nav-center">
-    <a class="nav-item" href="index.html"></a>
-    <a class="nav-item" href="about.html"></a>
-    <a class="nav-item" href="services.html"></a>
-    <a class="nav-item" href="contact.html"></a>
-  </div>
+<div class="nav-center">
+<a class="nav-item" href="index.html"></a>
+<a class="nav-item" href="about.html"></a>
+<a class="nav-item" href="services.html"></a>
+<a class="nav-item" href="contact.html"></a>
+</div>
 
-  <div class="nav-right">
-    <div class="lang-desktop">
-      <span onclick="toggleLang()">🌐</span>
-      <div class="lang-menu" id="langMenu">
-        <div onclick="setLang('ko')">한국어</div>
-        <div onclick="setLang('en')">English</div>
-        <div onclick="setLang('zh')">中文</div>
-        <div onclick="setLang('fr')">Français</div>
-      </div>
-    </div>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-  </div>
+<div class="nav-right">
+<div class="lang-desktop">
+<span onclick="toggleLang()">🌐</span>
+<div class="lang-menu" id="langMenu">
+<div onclick="setLang('ko')">한국어</div>
+<div onclick="setLang('en')">English</div>
+<div onclick="setLang('zh')">中文</div>
+<div onclick="setLang('fr')">Français</div>
+</div>
+</div>
+</div>
 </nav>
 
-<section class="page active">
-  <div class="hero">
-    <h1 id="heroTitle"></h1>
-    <p id="heroDesc"></p>
-    <a class="btn" id="heroBtn"></a>
-  </div>
+<section class="page">
+<div class="hero">
+<h1 id="heroTitle"></h1>
+<p id="heroDesc"></p>
+<a class="btn" id="heroBtn" href="services.html"></a>
+</div>
 </section>
 
 </body>
