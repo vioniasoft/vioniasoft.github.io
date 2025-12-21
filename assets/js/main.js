@@ -3,8 +3,8 @@ const T = {
     nav: ["홈", "회사소개", "서비스", "문의"],
 
     hero: "기업의 디지털 성장을 함께합니다",
-    desc: "비오니아소프트는 기업을 위한 IT 및 소프트웨어 솔루션을 설계·개발·운영하는 전문 스튜디오입니다.",
-    sub: "우리는 단기적인 개발이 아닌, 실제 비즈니스 환경에서 안정적으로 운영될 수 있는 시스템을 만듭니다.",
+    desc: "비오니아소프트는 기업의 실제 운영 환경에 맞는 IT·소프트웨어 솔루션을 설계하고 구축하는 기술 스튜디오입니다.",
+    sub: "단기 개발이 아닌, 안정적인 운영과 확장을 전제로 한 시스템을 만듭니다.",
     explore: "서비스 알아보기",
 
     aboutTitle: "회사 소개",
@@ -28,39 +28,103 @@ const T = {
     ],
 
     contactTitle: "문의하기",
-    contactDesc: "프로젝트 제안, 기술 상담, 협업 문의 등 언제든지 편하게 연락해 주세요.",
-    form: ["회사명", "담당자 이름", "이메일", "문의 내용", "문의 보내기"]
+    contactDesc: "프로젝트 제안, 기술 상담, 협업 문의 등 언제든지 편하게 연락해 주세요."
   },
 
   en: {
     nav: ["Home", "About", "Services", "Contact"],
 
     hero: "Supporting Sustainable Digital Growth",
-    desc: "VioniaSoft is an IT & software studio delivering reliable systems for businesses.",
-    sub: "We focus on long-term stability, scalability, and real operational needs.",
+    desc: "VioniaSoft is a technology studio that designs and builds IT and software solutions tailored to real business operations.",
+    sub: "We focus on long-term stability and scalability — not short-term development.",
     explore: "View Services",
 
     aboutTitle: "About Us",
-    aboutDesc: "We approach technology as a strategic business asset, not just a development task.",
+    aboutDesc:
+      "At VioniaSoft, we treat technology as part of business strategy rather than a simple development task. " +
+      "We propose realistic solutions based on a deep understanding of our clients’ operations and goals.",
 
     aboutCards: [
-      ["Business-Oriented", "Technology aligned with operations"],
-      ["Stable & Scalable", "Designed for long-term use"],
-      ["Clear Communication", "Transparent process"],
-      ["Long-Term Partner", "Beyond project delivery"]
+      ["Business-Oriented", "Technology aligned with real operations"],
+      ["Stable & Scalable", "Designed for long-term growth"],
+      ["Clear Communication", "Transparent process and delivery"],
+      ["Long-Term Partner", "Continuous collaboration beyond launch"]
     ],
 
     servicesTitle: "Services",
     services: [
-      ["💻 Software Development", "Custom business systems"],
-      ["📊 IT Consulting", "Architecture & strategy"],
-      ["☁️ Cloud Solutions", "Infrastructure & operations"],
-      ["🚀 Project Management", "End-to-end delivery"]
+      ["💻 Software Development", "Custom web systems, internal tools, and platforms"],
+      ["📊 IT Consulting", "System analysis, architecture, and technical strategy"],
+      ["☁️ Cloud Solutions", "AWS & Azure based infrastructure and operations"],
+      ["🚀 Project Management", "End-to-end delivery from planning to maintenance"]
     ],
 
-    contactTitle: "Contact / Inquiry",
-    contactDesc: "Let’s discuss your project or collaboration.",
-    form: ["Company", "Name", "Email", "Message", "Send Inquiry"]
+    contactTitle: "Contact",
+    contactDesc: "Feel free to reach out for project inquiries or collaboration."
+  },
+
+  zh: {
+    nav: ["首页", "关于我们", "服务", "联系"],
+
+    hero: "助力企业实现可持续的数字化成长",
+    desc: "VioniaSoft 是一家专注于为企业真实运营环境设计和构建 IT 与软件解决方案的技术工作室。",
+    sub: "我们关注长期稳定运行与可扩展性，而非短期开发。",
+    explore: "查看服务",
+
+    aboutTitle: "关于我们",
+    aboutDesc:
+      "VioniaSoft 将技术视为企业战略的一部分，而不仅仅是开发工作。 " +
+      "在深入理解客户组织结构、运营方式和成长目标后，提供最切实可行的解决方案。",
+
+    aboutCards: [
+      ["以业务为核心", "技术服务于真实业务流程"],
+      ["稳定与扩展", "面向长期运营的系统设计"],
+      ["透明沟通", "过程与结果清晰可见"],
+      ["长期合作", "项目交付后的持续支持"]
+    ],
+
+    servicesTitle: "服务",
+    services: [
+      ["💻 定制软件开发", "企业系统、内部管理工具及平台开发"],
+      ["📊 IT 咨询", "系统分析、技术架构与策略制定"],
+      ["☁️ 云解决方案", "基于 AWS / Azure 的云架构与运维支持"],
+      ["🚀 项目管理", "从规划到运维的全流程管理"]
+    ],
+
+    contactTitle: "联系我们",
+    contactDesc: "欢迎随时联系我们洽谈项目或合作。"
+  },
+
+  fr: {
+    nav: ["Accueil", "À propos", "Services", "Contact"],
+
+    hero: "Accompagner une croissance numérique durable",
+    desc: "VioniaSoft est un studio technologique qui conçoit et développe des solutions IT adaptées aux réalités des entreprises.",
+    sub: "Nous privilégions la stabilité et l’évolutivité à long terme.",
+    explore: "Découvrir nos services",
+
+    aboutTitle: "À propos",
+    aboutDesc:
+      "Chez VioniaSoft, la technologie fait partie intégrante de la stratégie d’entreprise. " +
+      "Nous proposons des solutions réalistes basées sur une compréhension approfondie des besoins métiers.",
+
+    aboutCards: [
+      ["Vision métier", "La technologie au service des opérations"],
+      ["Stable et évolutif", "Pensé pour le long terme"],
+      ["Communication claire", "Processus transparent"],
+      ["Partenariat durable", "Collaboration continue après livraison"]
+    ],
+
+    servicesTitle: "Services",
+    services: [
+      ["💻 Développement logiciel", "Systèmes sur mesure et plateformes métiers"],
+      ["📊 Conseil IT", "Analyse et stratégie technique"],
+      ["☁️ Solutions cloud", "Infrastructure AWS / Azure"],
+      ["🚀 Gestion de projet", "Pilotage de bout en bout"]
+    ],
+
+    contactTitle: "Contact",
+    contactDesc: "Contactez-nous pour discuter de votre projet ou d’une collaboration."
   }
 };
 
