@@ -3,25 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About · VioniaSoft</title>
+<title>About</title>
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
 <nav>
   <div class="logo">VioniaSoft</div>
-
   <div class="nav-center">
     <a data-nav href="index.html"></a>
     <a data-nav href="about.html"></a>
     <a data-nav href="services.html"></a>
     <a data-nav href="contact.html"></a>
   </div>
-
   <div class="nav-right">
     <div class="lang">
-      <span onclick="toggleLang()">🌐</span>
+      <span class="lang-btn" onclick="toggleLang()">🌐</span>
       <div class="lang-menu" id="langMenu">
         <div onclick="setLang('ko')">한국어</div>
         <div onclick="setLang('en')">English</div>
@@ -29,32 +26,14 @@
         <div onclick="setLang('fr')">Français</div>
       </div>
     </div>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <div data-nav onclick="location.href='index.html'"></div>
-  <div data-nav onclick="location.href='about.html'"></div>
-  <div data-nav onclick="location.href='services.html'"></div>
-  <div data-nav onclick="location.href='contact.html'"></div>
-
-  <div onclick="toggleMobileLang()">Language ▸</div>
-  <div class="mobile-lang" id="mobileLang">
-    <div onclick="setLang('ko')">한국어</div>
-    <div onclick="setLang('en')">English</div>
-    <div onclick="setLang('zh')">中文</div>
-    <div onclick="setLang('fr')">Français</div>
-  </div>
-</div>
-
-<main>
-  <section class="page">
-    <h2 class="section-title" data-i="aboutTitle"></h2>
-    <p class="section-desc" data-i="aboutDesc"></p>
-    <div class="cards" id="aboutCards"></div>
-  </section>
-</main>
+<section class="page">
+  <h2 id="aboutTitle"></h2>
+  <p id="aboutDesc"></p>
+  <div class="cards" id="aboutCards"></div>
+</section>
 
 <footer>
 © 2025 VioniaSoft. All rights reserved.<br>
