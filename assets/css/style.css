@@ -155,3 +155,27 @@ footer{
   .nav-center{display:none}
   .hero h1{font-size:2.2em}
 }
+
+/* ===== ABOUT HERO (회사소개 상단) ===== */
+.about-hero{
+  padding:160px 8% 100px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 25% 20%, #93c5fd66, transparent 45%),
+    radial-gradient(circle at 75% 30%, #c4b5fd66, transparent 45%),
+    linear-gradient(180deg,#f8fafc,#eef2ff);
+  animation:fadeUp 1s ease both;
+}
+
+.about-hero h1{
+  font-size:2.6em;
+  margin-bottom:18px;
+  letter-spacing:-0.02em;
+}
+
+.about-hero p{
+  color:var(--muted);
+  font-size:1.1em;
+  max-width:640px;
+  margin:0 auto;
+}
