@@ -179,3 +179,36 @@ function observeCards(){
 window.addEventListener("load",()=>{
   setLang(localStorage.getItem("lang") || "ko");
 });
+
+/* ================= About First Screen Scroll Lock ================= */
+(function(){
+  // 只在 about.html 生效
+  if(!location.pathname.includes("about")) return;
+
+  let unlocked = false;
+
+  function unlockScroll(){
+    if(unlocked) return;
+    unlocked = true;
+    document.body.classList.remove("about-lock");
+    window.removeEventListener("wheel",onWheel);
+    window.removeEventListener("touchmove",onTouch);
+  }
+
+  function onWheel(e){
+    e.preventDefault();
+    unlockScroll();
+    window.scrollTo({ top:1, behavior:"smooth" });
+  }
+
+  function onTouch(e){
+    unlockScroll();
+  }
+
+  window.addEventListener("load",()=>{
+    document.body.classList.add("about-lock");
+
+    window.addEventListener("wheel",onWheel,{ passive:false });
+    window.addEventListener("touchmove",onTouch,{ passive:true });
+  });
+})();
