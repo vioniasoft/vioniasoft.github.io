@@ -6,7 +6,11 @@
   --muted:#64748b;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
   font-family:Segoe UI,Roboto,sans-serif;
@@ -16,14 +20,14 @@ body{
   padding-bottom:64px;
 }
 
-/* ===== NAV ===== */
+/* ================= NAV ================= */
 nav{
   position:fixed;
   top:0;left:0;
   width:100%;
   height:64px;
   background:#ffffffee;
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid #e5e7eb;
   display:grid;
   grid-template-columns:auto 1fr auto;
@@ -32,24 +36,39 @@ nav{
   z-index:1000;
 }
 
-.logo{font-weight:700;font-size:1.2em;color:var(--main)}
+.logo{
+  font-weight:700;
+  font-size:1.2em;
+  color:var(--main);
+}
 
 .nav-center{
   display:flex;
   justify-content:center;
   gap:28px;
 }
+
 .nav-center a{
   text-decoration:none;
   color:var(--text);
   font-weight:500;
 }
 
-.nav-right{display:flex;align-items:center}
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
 
-/* ===== LANG ===== */
-.lang{position:relative}
-.lang-btn{cursor:pointer}
+/* language */
+.lang{
+  position:relative;
+}
+
+.lang-btn{
+  cursor:pointer;
+}
+
 .lang-menu{
   display:none;
   position:absolute;
@@ -59,22 +78,37 @@ nav{
   border:1px solid #e5e7eb;
   border-radius:10px;
   overflow:hidden;
+  z-index:1001;
 }
+
 .lang-menu div{
   padding:10px 16px;
   cursor:pointer;
 }
-.lang-menu div:hover{background:#f1f5f9}
 
-/* ===== HERO ===== */
+.lang-menu div:hover{
+  background:#f1f5f9;
+}
+
+/* ================= PAGE BASE ================= */
+.page{
+  padding:120px 8% 120px;
+}
+
+/* ================= HERO (HOME) ================= */
 .hero{
   min-height:100vh;
   padding:160px 8% 120px;
   text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
   background:
-    radial-gradient(circle at 20% 20%, #93c5fd88, transparent 45%),
-    radial-gradient(circle at 80% 30%, #c4b5fd88, transparent 45%),
+    radial-gradient(circle at 20% 20%, #93c5fd55, transparent 40%),
+    radial-gradient(circle at 80% 30%, #c4b5fd55, transparent 40%),
     linear-gradient(180deg,#f8fafc,#eef2ff);
+
   animation:fadeUp 1s ease both;
 }
 
@@ -96,80 +130,25 @@ nav{
   color:#fff;
   font-weight:600;
   display:inline-block;
+  text-decoration:none;
 }
 
-/* ===== PAGE ===== */
-.page{
-  padding:120px 8% 100px;
-  animation:fadeUp .8s ease both;
+/* ================= ABOUT FULL BACKGROUND ================= */
+.about-bg{
+  background:
+    radial-gradient(circle at 25% 20%, #93c5fd66, transparent 45%),
+    radial-gradient(circle at 75% 40%, #c4b5fd66, transparent 45%),
+    linear-gradient(180deg,#f8fafc,#eef2ff);
 }
 
-.services-page{
-  padding-top:90px;
-}
-
-/* ===== CARDS ===== */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:28px;
-  margin-top:48px;
-}
-
-.card{
-  background:#fff;
-  border-radius:18px;
-  padding:32px;
-  box-shadow:0 12px 32px #00000012;
-  transition:.35s ease;
-}
-
-.card:hover{
-  transform:translateY(-12px);
-  box-shadow:0 28px 56px #0000001f;
-}
-
-/* ===== FOOTER ===== */
-footer{
-  position:fixed;
-  bottom:0;left:0;
-  width:100%;
-  height:64px;
-  background:#0f172a;
-  color:#cbd5f5;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  font-size:.9em;
-}
-
-/* ===== ANIM ===== */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(24px)}
-  to{opacity:1;transform:none}
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:768px){
-  .nav-center{display:none}
-  .hero h1{font-size:2.2em}
-}
-
-/* ===== ABOUT HERO (회사소개 상단) ===== */
+/* about hero */
 .about-hero{
   min-height:100vh;
   padding:160px 8% 120px;
-  text-align:center;
   display:flex;
   flex-direction:column;
   justify-content:center;
-
-  background:
-    radial-gradient(circle at 25% 20%, #93c5fd66, transparent 45%),
-    radial-gradient(circle at 75% 30%, #c4b5fd66, transparent 45%),
-    linear-gradient(180deg,#f8fafc,#eef2ff);
-
+  text-align:center;
   animation:fadeUp 1s ease both;
 }
 
@@ -185,16 +164,70 @@ footer{
   max-width:640px;
   margin:0 auto;
 }
-/* ===== ABOUT FULL BACKGROUND ===== */
-.about-bg{
-  background:
-    radial-gradient(circle at 25% 20%, #93c5fd66, transparent 45%),
-    radial-gradient(circle at 75% 40%, #c4b5fd66, transparent 45%),
-    linear-gradient(180deg,#f8fafc,#eef2ff);
-}
 
-/* 卡片区域在同一背景中 */
+/* about cards area */
 .about-cards{
   padding:40px 8% 120px;
 }
-/* ======================================== */
+
+/* ================= CARDS ================= */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:28px;
+}
+
+.card{
+  background:#fff;
+  border-radius:18px;
+  padding:32px;
+  box-shadow:0 10px 30px #00000010;
+  transition:.4s ease;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px #00000018;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  position:fixed;
+  bottom:0;left:0;
+  width:100%;
+  height:64px;
+  background:#0f172a;
+  color:#cbd5f5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:.9em;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(24px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+  .nav-center{
+    display:none;
+  }
+
+  .hero h1{
+    font-size:2.2em;
+  }
+
+  .about-hero h1{
+    font-size:2em;
+  }
+}
