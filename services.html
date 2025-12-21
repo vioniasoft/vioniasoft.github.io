@@ -1,60 +1,61 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services · VioniaSoft</title>
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services · VioniaSoft</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 
 <body>
 
-<!-- ===== NAV ===== -->
 <nav>
-  <div class="logo">VioniaSoft</div>
+  <div class="nav-inner">
+    <div class="logo">VioniaSoft</div>
 
-  <div class="nav-center">
-    <a data-nav href="index.html"></a>
-    <a data-nav href="about.html"></a>
-    <a data-nav href="services.html"></a>
-    <a data-nav href="contact.html"></a>
-  </div>
-
-  <div class="nav-right">
-    <div class="lang">
-      <span class="lang-btn" onclick="toggleLang()">🌐</span>
-      <div class="lang-menu" id="langMenu">
-        <div onclick="setLang('ko')">한국어</div>
-        <div onclick="setLang('en')">English</div>
-        <div onclick="setLang('zh')">中文</div>
-        <div onclick="setLang('fr')">Français</div>
-      </div>
+    <div class="nav-center">
+      <a data-nav="home" href="index.html"></a>
+      <a data-nav="about" href="about.html"></a>
+      <a data-nav="services" href="services.html"></a>
+      <a data-nav="contact" href="contact.html"></a>
     </div>
   </div>
 </nav>
 
-<!-- ===== PAGE ===== -->
-<main class="page services-hero">
+<section class="hero fade-up">
+  <h1 data-i="servicesHeroTitle"></h1>
+  <p data-i="servicesHeroDesc"></p>
+</section>
 
-  <!-- Hero 标题区（和 About 完全同级） -->
-  <h1 id="servicesTitle" class="services-title"></h1>
-  <p class="services-sub" data-i="servicesDesc"></p>
+<section class="page fade-up">
+  <div class="page-center">
+    <h2 class="section-title" data-i="servicesTitle"></h2>
+    <p class="section-desc" data-i="servicesDesc"></p>
 
-  <!-- 服务卡片 -->
-  <div class="cards" id="serviceCards"></div>
-
-  <!-- CTA -->
-  <div class="cta-section">
-    <p data-i="servicesCTA"></p>
-    <a href="contact.html" data-i="servicesCTABtn"></a>
+    <div class="cards">
+      <div class="card">
+        <h3 data-i="service1Title"></h3>
+        <p data-i="service1Desc"></p>
+      </div>
+      <div class="card">
+        <h3 data-i="service2Title"></h3>
+        <p data-i="service2Desc"></p>
+      </div>
+      <div class="card">
+        <h3 data-i="service3Title"></h3>
+        <p data-i="service3Desc"></p>
+      </div>
+      <div class="card">
+        <h3 data-i="service4Title"></h3>
+        <p data-i="service4Desc"></p>
+      </div>
+    </div>
   </div>
+</section>
 
-</main>
-
-<!-- ===== FOOTER ===== -->
 <footer>
-© 2025 VioniaSoft. All rights reserved.<br>
-contact@vioniasoft.com
+  © 2025 VioniaSoft. All rights reserved.<br/>
+  contact@vioniasoft.com
 </footer>
 
 <script src="assets/js/main.js"></script>
