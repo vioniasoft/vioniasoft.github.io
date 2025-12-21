@@ -188,6 +188,30 @@ nav{
     radial-gradient(circle at top left,#93c5fd33,transparent 60%),
     #ffffff;
 }
+/* ===== ABOUT TEXT REFINEMENT ===== */
+#aboutTitle {
+  font-size: 2.6em;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+#aboutDesc {
+  max-width: 640px;          /* ✅ 核心：限制行宽 */
+  margin: 0 auto 64px;       /* 居中 + 与卡片拉开距离 */
+  font-size: 1.05em;
+  line-height: 1.9;          /* 行距更舒服 */
+  color: var(--muted);
+  font-weight: 400;
+}
+#aboutTitle::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--main), var(--sub));
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
 
 /* ===== FOOTER ===== */
 footer{
