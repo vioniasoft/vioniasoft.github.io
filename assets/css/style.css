@@ -6,6 +6,7 @@
   --muted:#64748b;
 }
 
+/* ===== RESET & LAYOUT ===== */
 *{
   margin:0;
   padding:0;
@@ -13,21 +14,18 @@
 }
 
 html,body{
-  width:100%;
   height:100%;
   overflow-x:hidden;
 }
 
-/* ===== PAGE LAYOUT (关键) ===== */
 body{
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
   font-family:Segoe UI,Roboto,sans-serif;
   background:var(--bg);
   color:var(--text);
   line-height:1.7;
-
-  display:flex;
-  flex-direction:column;
-  min-height:100vh;
 }
 
 /* ===== NAV ===== */
@@ -64,8 +62,13 @@ nav{
   font-weight:500;
 }
 
-.nav-right{display:flex;align-items:center}
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
 
+/* ===== LANGUAGE ===== */
 .lang{position:relative}
 .lang-btn{cursor:pointer}
 
@@ -84,31 +87,43 @@ nav{
   padding:10px 16px;
   cursor:pointer;
 }
-.lang-menu div:hover{background:#f1f5f9}
 
-/* ===== MAIN AREAS ===== */
+.lang-menu div:hover{
+  background:#f1f5f9;
+}
+
+/* ===== PAGE CORE ===== */
+/* 关键：不要 100vh，只用 flex 撑 */
 .hero,
 .page,
 .about-bg{
   flex:1;
-}
-
-/* ===== HERO ===== */
-.hero{
-  min-height:100vh;
-  padding:160px 8% 120px;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  text-align:center;
-  background:
-    radial-gradient(circle at 20% 20%, #93c5fd55, transparent 40%),
-    radial-gradient(circle at 80% 30%, #c4b5fd55, transparent 40%),
-    linear-gradient(180deg,#f8fafc,#eef2ff);
+  padding:120px 8% 80px;
 }
 
-.hero h1{font-size:3em;margin-bottom:20px}
-.hero p{color:var(--muted);max-width:800px;margin:0 auto 28px}
+/* ===== HERO (HOME) ===== */
+.hero{
+  text-align:center;
+  background:
+    radial-gradient(circle at 20% 20%, #93c5fd55, transparent 45%),
+    radial-gradient(circle at 80% 30%, #c4b5fd55, transparent 45%);
+}
+
+.hero h1{
+  font-size:3em;
+  margin-bottom:20px;
+  animation:fadeUp .8s ease forwards;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:800px;
+  margin:0 auto 28px;
+  animation:fadeUp .8s ease .15s forwards;
+}
 
 .btn{
   padding:14px 36px;
@@ -117,75 +132,59 @@ nav{
   color:#fff;
   font-weight:600;
   display:inline-block;
-  text-decoration:none;
+  animation:fadeUp .8s ease .3s forwards;
 }
 
-/* ===== ABOUT ===== */
+/* ===== ABOUT BACKGROUND ===== */
 .about-bg{
   background:
-    radial-gradient(circle at 25% 20%, #93c5fd66, transparent 45%),
-    radial-gradient(circle at 75% 40%, #c4b5fd66, transparent 45%),
-    linear-gradient(180deg,#f8fafc,#eef2ff);
-}
-
-.about-hero{
-  min-height:100vh;
-  padding:120px 8% 40px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+    radial-gradient(circle at 15% 20%, #93c5fd55, transparent 45%),
+    radial-gradient(circle at 85% 30%, #c4b5fd55, transparent 45%);
   text-align:center;
 }
 
-.about-hero h1{font-size:2.6em;margin-bottom:16px}
-.about-hero p{color:var(--muted);max-width:640px;margin:0 auto}
+#aboutTitle{
+  font-size:2.4em;
+  margin-bottom:12px;
+}
 
-.about-cards{padding:0 8% 120px}
+#aboutDesc{
+  color:var(--muted);
+  max-width:700px;
+  margin:0 auto 56px;
+}
 
-/* ===== CARDS (scroll animation) ===== */
+/* ===== CARDS ===== */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:28px;
 }
 
+/* 默认卡片隐藏，用于滚动动画 */
 .card{
   background:#fff;
   border-radius:18px;
   padding:32px;
   box-shadow:0 10px 30px #00000010;
+  transform:translateY(40px);
   opacity:0;
-  transform:translateY(32px);
-  transition:.6s;
+  transition:
+    transform .6s ease,
+    opacity .6s ease,
+    box-shadow .3s ease;
 }
+
 .card.show{
-  opacity:1;
   transform:translateY(0);
+  opacity:1;
 }
 
-/* ===== PAGE ===== */
-.page{
-  padding:120px 8% 120px;
+.card:hover{
+  box-shadow:0 20px 40px #00000018;
 }
 
-/* ===== CONTACT FORM ===== */
-form{
-  max-width:520px;
-  margin:0 auto;
-  display:grid;
-  gap:16px;
-}
-
-input,textarea{
-  padding:12px 14px;
-  border-radius:10px;
-  border:1px solid #e5e7eb;
-  font-family:inherit;
-}
-
-textarea{min-height:120px}
-
-/* ===== FOOTER (粘底) ===== */
+/* ===== FOOTER ===== */
 footer{
   height:64px;
   background:#0f172a;
@@ -201,4 +200,16 @@ footer{
 @media(max-width:768px){
   .nav-center{display:none}
   .hero h1{font-size:2.2em}
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
