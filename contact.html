@@ -21,7 +21,7 @@
 
   <div class="nav-right">
     <div class="lang">
-      <span onclick="toggleLang()">🌐</span>
+      <span class="lang-btn" onclick="toggleLang()">🌐</span>
       <div class="lang-menu" id="langMenu">
         <div onclick="setLang('ko')">한국어</div>
         <div onclick="setLang('en')">English</div>
@@ -29,39 +29,13 @@
         <div onclick="setLang('fr')">Français</div>
       </div>
     </div>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <div data-nav onclick="location.href='index.html'"></div>
-  <div data-nav onclick="location.href='about.html'"></div>
-  <div data-nav onclick="location.href='services.html'"></div>
-  <div data-nav onclick="location.href='contact.html'"></div>
-
-  <div onclick="toggleMobileLang()">Language ▸</div>
-  <div class="mobile-lang" id="mobileLang">
-    <div onclick="setLang('ko')">한국어</div>
-    <div onclick="setLang('en')">English</div>
-    <div onclick="setLang('zh')">中文</div>
-    <div onclick="setLang('fr')">Français</div>
-  </div>
-</div>
-
-<main>
-  <section class="page">
-    <h2 class="section-title" data-i="contactTitle"></h2>
-    <p class="section-desc" data-i="contactDesc"></p>
-
-    <div class="form">
-      <input id="cname">
-      <input id="pname">
-      <input id="email">
-      <textarea id="msg" rows="5"></textarea>
-      <button id="submit"></button>
-    </div>
-  </section>
-</main>
+<section class="page">
+  <h2 id="contactTitle"></h2>
+  <p id="contactDesc"></p>
+</section>
 
 <footer>
 © 2025 VioniaSoft. All rights reserved.<br>
