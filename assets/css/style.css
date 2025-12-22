@@ -11,7 +11,6 @@
 
 /* =========================================================
    RESET & 基础设置
-   统一盒模型，清除默认 margin/padding
 ========================================================= */
 *{
   margin:0;
@@ -22,6 +21,7 @@
 html,body{
   height:100%;
   overflow-x:hidden;   /* 防止横向滚动条 */
+  overflow-y:auto;     /* 确保纵向滚动条正常 */
 }
 
 body{
@@ -33,8 +33,8 @@ body{
   background:var(--bg);
   color:var(--text);
   line-height:1.7;
+  padding-bottom:0;    /* 去掉不必要的底部空白 */
 }
-
 
 /* =========================================================
    顶部导航栏（NAV）
@@ -56,8 +56,6 @@ nav{
   backdrop-filter:blur(10px);
   border-bottom:1px solid #e5e7eb;
 }
-
-
 
 /* ===== 导航链接高级交互 ===== */
 .nav-link{
@@ -104,9 +102,6 @@ nav{
 .nav-link:hover::after{
   width:100%;
 }
-
-
-
 
 /* Logo */
 .logo{
@@ -192,36 +187,33 @@ nav{
 
 /* =========================================================
    页面通用结构（内页：About / Services / Contact）
-   行为：内容少 = 一屏；内容多 = 自动滚动
 ========================================================= */
 .page,
 .about-bg{
-  min-height:calc(100vh - 64px); /* 至少一屏，扣掉导航 */
+  min-height:calc(100vh - 64px); /* 保证至少一屏，扣掉导航 */
   display:flex;
   flex:1;
   flex-direction:column;
-  justify-content:flex-start;   /* 内容从上开始 */
+  justify-content:flex-start;
   padding:120px 8% 80px;
+  box-sizing:border-box;  /* 防止溢出 */
 }
 
-
 /* =========================================================
-   首页 HERO（与 services.html 行为完全一致）
+   首页 HERO
 ========================================================= */
 .hero{
-  min-height:calc(100vh - 64px);
-/*min-height:100vh;  内容不满一页也不会出现滚轮 */
+  min-height:calc(100vh - 64px); /* 视口高度 - 导航栏高度 */
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
   align-items:center;
-
   padding:140px 8% 60px;
   text-align:center;
-
   background:
     radial-gradient(circle at 20% 20%, #93c5fd55, transparent 45%),
     radial-gradient(circle at 80% 30%, #c4b5fd55, transparent 45%);
+  box-sizing:border-box;   /* 确保布局无溢出 */
 }
 
 /* ===== 首页标题 ===== */
@@ -243,7 +235,6 @@ nav{
 .hero .btn{
   margin-top:40;
 }
-
 
 /* =========================================================
    About / Services 背景与标题
@@ -378,125 +369,4 @@ nav{
 
 /* Contact 页面不垂直居中 */
 .contact-page{
-  justify-content:flex-start;
-  padding-bottom:160px; /* 防止 footer 遮挡 */
-}
-
-/* 表单容器 */
-.contact-wrap{
-  max-width:760px;
-  margin:0 auto;
-  padding:0 8%;
-}
-
-/* 表单卡片 */
-.contact-card{
-  padding:40px;
-  text-align:left;
-}
-
-/* 表单结构 */
-.contact-form{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-}
-
-/* 两列输入行 */
-.contact-form .form-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
-
-/* 输入框样式 */
-.contact-form input,
-.contact-form textarea{
-  width:100%;
-  padding:14px 16px;
-
-  font-size:.95em;
-  font-family:inherit;
-
-  border-radius:10px;
-  border:1px solid #e5e7eb;
-
-  transition:border .25s ease, box-shadow .25s ease;
-}
-
-/* 聚焦状态 */
-.contact-form input:focus,
-.contact-form textarea:focus{
-  outline:none;
-  border-color:var(--sub);
-  box-shadow:0 0 0 3px rgba(124,58,237,.15);
-}
-
-/* 文本域 */
-.contact-form textarea{
-  resize:vertical;
-}
-
-/* 发送按钮 */
-.contact-form button{
-  margin-top:20px;
-  align-self:flex-start;
-}
-
-/* =========================================================
-   页脚（Footer）
-========================================================= */
-/* footer{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:64px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  background:#0f172a;
-  color:#cbd5f5;
-  font-size:.9em;
-}*/
-footer{
-  position:relative;   /* ← 改这一行 */
-  width:100%;
-  height:64px;
-  background:#0f172a;
-  color:#cbd5f5;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:.9em;
-}
-
-/* =========================================================
-   响应式（Mobile）
-========================================================= */
-@media(max-width:768px){
-  .nav-center{display:none;}
-  .hero h1{font-size:2.2em;}
-}
-
-@media(max-width:640px){
-  .contact-form .form-row{
-    grid-template-columns:1fr;
-  }
-}
-
-/* =========================================================
-   动画（Animations）
-========================================================= */
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
+  justify-content
