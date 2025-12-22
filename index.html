@@ -15,10 +15,22 @@
 
   <!-- 中间导航（文字由 JS 注入） -->
   <div class="nav-center">
-    <a data-nav class="nav-link" href="index.html"></a>
-    <a data-nav class="nav-link" href="about.html"></a>
-    <a data-nav class="nav-link" href="services.html"></a>
-    <a data-nav class="nav-link" href="contact.html"></a>
+    <a data-nav class="nav-link" href="index.html">Home</a>
+    <a data-nav class="nav-link" href="about.html">About</a>
+    <a data-nav class="nav-link" href="services.html">Services</a>
+    <a data-nav class="nav-link" href="contact.html">Contact</a>
+  </div>
+
+  <!-- 移动端菜单按钮 -->
+  <div class="nav-mobile">
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+    <!-- 下拉菜单 -->
+    <div class="nav-dropdown">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
 
   <!-- 语言切换 -->
@@ -35,16 +47,38 @@
 
 <!-- ===== HERO（首页专用）===== -->
 <section class="hero">
-  <h1 id="heroTitle"></h1>
-  <p id="heroDesc"></p>
-  <a href="services.html" id="heroBtn" class="btn"></a>
+  <h1 id="heroTitle">Welcome to VioniaSoft</h1>
+  <p id="heroDesc">We specialize in building beautiful, user-friendly websites and applications.</p>
+  <a href="services.html" id="heroBtn" class="btn">Learn More</a>
 </section>
 
+<!-- ===== FOOTER ===== -->
 <footer>
-© 2025 VioniaSoft. All rights reserved.<br>
-Email: contact@vioniasoft.com
+  © 2025 VioniaSoft. All rights reserved.<br>
+  Email: contact@vioniasoft.com
 </footer>
 
 <script src="assets/js/main.js"></script>
+
+<script>
+  // JavaScript for mobile menu toggle
+  function toggleMenu() {
+    const navMobile = document.querySelector('.nav-mobile');
+    navMobile.classList.toggle('open');
+  }
+
+  // JavaScript for language menu toggle
+  function toggleLang() {
+    const langMenu = document.getElementById('langMenu');
+    langMenu.classList.toggle('open');
+  }
+
+  // JavaScript to set language (example, you can implement language switching logic here)
+  function setLang(lang) {
+    console.log(`Language changed to: ${lang}`);
+    // Implement actual language switch here (e.g., loading different content based on selected language)
+  }
+</script>
+
 </body>
 </html>
