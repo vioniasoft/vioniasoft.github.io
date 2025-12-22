@@ -369,4 +369,110 @@ nav{
 
 /* Contact 页面不垂直居中 */
 .contact-page{
-  justify-content
+  justify-content:flex-start;
+  padding-bottom:160px; /* 防止 footer 遮挡 */
+}
+
+/* 表单容器 */
+.contact-wrap{
+  max-width:760px;
+  margin:0 auto;
+  padding:0 8%;
+}
+
+/* 表单卡片 */
+.contact-card{
+  padding:40px;
+  text-align:left;
+}
+
+/* 表单结构 */
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* 两列输入行 */
+.contact-form .form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+/* 输入框样式 */
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:14px 16px;
+
+  font-size:.95em;
+  font-family:inherit;
+
+  border-radius:10px;
+  border:1px solid #e5e7eb;
+
+  transition:border .25s ease, box-shadow .25s ease;
+}
+
+/* 聚焦状态 */
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline:none;
+  border-color:var(--sub);
+  box-shadow:0 0 0 3px rgba(124,58,237,.15);
+}
+
+/* 文本域 */
+.contact-form textarea{
+  resize:vertical;
+}
+
+/* 发送按钮 */
+.contact-form button{
+  margin-top:20px;
+  align-self:flex-start;
+}
+
+/* =========================================================
+   页脚（Footer）
+========================================================= */
+footer{
+  position:relative;
+  width:100%;
+  height:64px;
+  background:#0f172a;
+  color:#cbd5f5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.9em;
+}
+
+/* =========================================================
+   响应式（Mobile）
+========================================================= */
+@media(max-width:768px){
+  .nav-center{display:none;}
+  .hero h1{font-size:2.2em;}
+}
+
+@media(max-width:640px){
+  .contact-form .form-row{
+    grid-template-columns:1fr;
+  }
+}
+
+/* =========================================================
+   动画（Animations）
+========================================================= */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
