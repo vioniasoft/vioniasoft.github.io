@@ -1,3 +1,4 @@
+不行现在更乱套了 还不如
 :root{
   --main:#2563eb;
   --sub:#7c3aed;
@@ -6,7 +7,12 @@
   --muted:#64748b;
 }
 
-/* ===== Reset ===== */
+/* =========================================================
+   RESET & 基础设置
+
+
+这个版本
+========================================================= */
 *{
   margin:0;
   padding:0;
@@ -16,16 +22,23 @@
 html,body{
   height:100%;
   overflow-x:hidden;
+  overflow-y:auto;
 }
 
 body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
   font-family:Segoe UI,Roboto,sans-serif;
   background:var(--bg);
   color:var(--text);
   line-height:1.7;
+  padding-bottom:0;
 }
 
-/* ===== NAV ===== */
+/* =========================================================
+   顶部导航栏（NAV）
+========================================================= */
 nav{
   position:fixed;
   top:0;
@@ -42,57 +55,86 @@ nav{
   border-bottom:1px solid #e5e7eb;
 }
 
+/* nav 占位补偿 */
 body::before{
   content:"";
   display:block;
   height:64px;
 }
 
+/* ===== 导航链接 ===== */
+.nav-link{
+  position:relative;
+  padding:6px 2px;
+  font-size:1em;
+  font-weight:500;
+  color:var(--text);
+  text-decoration:none;
+  transition:color .25s ease,transform .25s ease;
+}
+
+.nav-link:hover{
+  color:var(--sub);
+  transform:translateY(-1px);
+}
+
+.nav-link::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#7c3aed,#8b5cf6);
+  transition:width .3s ease;
+}
+
+.nav-link:hover::after{
+  width:100%;
+}
+
 /* Logo */
 .logo-gradient{
   font-size:1.6em;
   font-weight:800;
+  letter-spacing:.3px;
   background:linear-gradient(135deg,#7c3aed,#8b5cf6);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   cursor:pointer;
+  transition:transform .25s ease,filter .25s ease;
 }
 
-/* PC Nav */
+.logo-gradient:hover{
+  transform:scale(1.05);
+  filter:brightness(1.1);
+}
+
 .nav-center{
   display:flex;
   justify-content:center;
   gap:28px;
 }
 
-.nav-link{
-  text-decoration:none;
-  font-weight:500;
-  color:var(--text);
-}
-
-/* Right */
 .nav-right{
   display:flex;
   align-items:center;
-  justify-content:flex-end;
   gap:16px;
 }
 
-/* ===== Language PC ===== */
+/* =========================================================
+   语言切换
+========================================================= */
 .lang{
   position:relative;
-}
-
-.lang-btn{
-  cursor:pointer;
 }
 
 .lang-menu{
   display:none;
   position:absolute;
   right:0;
-  top:32px;
+  top:28px;
   background:#fff;
   border:1px solid #e5e7eb;
   border-radius:10px;
@@ -108,124 +150,456 @@ body::before{
   background:#f1f5f9;
 }
 
-/* ===== Mobile ===== */
-.pc-only{display:flex;}
-.mobile-only{display:none;}
+/* =========================================================
+   页面结构
+========================================================= */
+.page,
+.about-bg{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  justify-content:flex-start;
+  padding:120px 8% 80px;
+}
 
+/* =========================================================
+   HERO
+========================================================= */
+.hero{
+  min-height:calc(100vh - 64px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:140px 8% 60px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 20% 20%,#93c5fd55,transparent 45%),
+    radial-gradient(circle at 80% 30%,#c4b5fd55,transparent 45%);
+}
+
+.hero h1{
+  font-size:3em;
+  margin-bottom:20px;
+}
+
+.hero p{
+  max-width:800px;
+  margin:0 auto 36px;
+  color:var(--muted);
+}
+
+/* =========================================================
+   About / Services
+========================================================= */
+.about-bg{
+  text-align:center;
+  background:
+    radial-gradient(circle at 15% 20%,#93c5fd55,transparent 45%),
+    radial-gradient(circle at 85% 30%,#c4b5fd55,transparent 45%);
+}
+
+#aboutTitle,
+#servicesTitle{
+  font-size:2.4em;
+  margin-bottom:20px;
+}
+
+#aboutTitle::after,
+#servicesTitle::after{
+  content:"";
+  display:block;
+  width:42px;
+  height:3px;
+  margin:16px auto 0;
+  border-radius:999px;
+  background:linear-gradient(90deg,#7c3aed,#8b5cf6);
+}
+
+#aboutDesc{
+  max-width:640px;
+  margin:0 auto 72px;
+  color:var(--muted);
+}
+
+/* =========================================================
+   Cards
+========================================================= */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:28px;
+}
+
+.card{
+  background:#fff;
+  padding:32px;
+  border-radius:18px;
+  box-shadow:0 10px 30px #00000010;
+  opacity:0;
+  transform:translateY(40px);
+  transition:
+    transform .25s ease,
+    opacity .6s ease,
+    box-shadow .35s ease,
+    background .45s ease;
+}
+
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 40px #00000018;
+  background:
+    radial-gradient(circle at top left,#93c5fd33,transparent 60%),
+    #ffffff;
+}
+
+/* =========================================================
+   Button
+========================================================= */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 40px;
+  border-radius:999px;
+  font-size:1em;
+  font-weight:600;
+  text-decoration:none;
+  color:#fff;
+  background:linear-gradient(135deg,#7c3aed,#8b5cf6);
+  box-shadow:0 8px 25px rgba(124,58,237,.4);
+  transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 35px rgba(124,58,237,.5);
+  filter:brightness(1.07);
+}
+
+/* =========================================================
+   Footer
+========================================================= */
+footer{
+  margin-top:auto;
+  background:#0f172a;
+  color:#cbd5f5;
+  text-align:center;
+  font-size:.9em;
+  padding:20px 0;
+}
+
+/* =========================================================
+   Mobile Navigation
+========================================================= */
 .nav-mobile{
+  display:none;
   position:relative;
 }
 
-.menu-btn{
-  font-size:1.7em;
-  cursor:pointer;
-}
-
-/* Dropdown */
 .nav-dropdown{
   display:none;
   position:absolute;
   top:64px;
-  right:0;
-  width:240px;
+  right:16px;
+  width:calc(100vw - 32px);
   background:#fff;
   border-radius:12px;
-  box-shadow:0 12px 30px rgba(0,0,0,.15);
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
   overflow:hidden;
+  animation:slideDown .25s ease forwards;
 }
 
 .nav-mobile.open .nav-dropdown{
   display:block;
 }
 
-/* 一级菜单 */
-.nav-dropdown a{
-  display:block;
-  padding:14px 20px;
-  color:var(--text);
-  text-decoration:none;
-  font-weight:500;
+/* =========================================================
+   PC / Mobile 显示控制
+========================================================= */
+.pc-only { display: flex; }
+.mobile-only { display: none; }
+
+/* =========================================================
+   Mobile 样式
+========================================================= */
+@media (max-width: 768px){
+
+  .pc-only { display: none !important; }
+  .mobile-only { display: block; }
+
+  .nav-mobile {
+    position: relative;
+  }
+
+  .menu-btn {
+    font-size: 1.6em;
+    cursor: pointer;
+  }
+
+  .nav-dropdown {
+    right: 0;
+    width: 220px;
+  }
+
+  .nav-dropdown a,
+  .mobile-lang div {
+    display: block;
+    padding: 12px 16px;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-dropdown a:hover,
+  .mobile-lang div:hover {
+    background: #f1f5f9;
+  }
+
+  .mobile-lang {
+    border-top: 1px solid #e5e7eb;
+  }
 }
 
-.nav-dropdown a:hover{
-  background:#f1f5f9;
+
+@keyframes slideDown{
+  from{opacity:0;transform:translateY(-10px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
-/* 分割线（细） */
-.menu-divider{
-  height:1px;
-  background:#e5e7eb;
-  margin:6px 0;
-}
-
-/* Language Toggle */
-.menu-lang-toggle{
-  padding:14px 20px;
-  font-weight:600;
-  cursor:pointer;
-  display:flex;
-  justify-content:space-between;
-}
-
-/* 二级语言 */
-.menu-sub{
-  display:none;
-}
-
-.menu-sub.open{
-  display:block;
-}
-
-.menu-sub div{
-  padding:12px 36px;
-  cursor:pointer;
-  color:var(--muted);
-}
-
-.menu-sub div:hover{
-  background:#f1f5f9;
-}
-
-/* ===== Responsive ===== */
+/* =========================================================
+   Responsive
+========================================================= */
 @media (max-width:768px){
-  .pc-only{display:none!important;}
-  .mobile-only{display:flex!important;}
+
+  .nav-center{
+    display:none;
+  }
+
+  .nav-mobile{
+    display:block;
+  }
+
+  .hero,
+  .page,
+  .about-bg{
+    padding:96px 6% 64px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
 }
 
-/* ===============================
-   🔧 Mobile Menu 强制修复补丁
-   不影响原有样式
-================================ */
+/* =========================================================
+   Mobile NAV 修正（右对齐 & 菜单位置）
+========================================================= */
+@media (max-width: 768px) {
 
-/* 1️⃣ 强制修复菜单文字不可见问题 */
+  /* nav 三列仍保留，但右侧强制贴右 */
+  nav {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .nav-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  /* ☰ 按钮本身 */
+  .nav-mobile {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .menu-btn {
+    font-size: 1.7em;
+    cursor: pointer;
+    padding: 6px 8px;
+  }
+
+  /* 下拉菜单必须从右边展开 */
+  .nav-dropdown {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: auto;
+    width: 220px;
+    text-align: left;
+  }
+}
+
+/* =========================================================
+   Mobile Menu Structure（层级显示）
+========================================================= */
+@media (max-width: 768px) {
+
+  .nav-dropdown {
+    padding: 8px 0;
+  }
+
+  /* 一级菜单（导航） */
+  .nav-dropdown > a {
+    display: block;
+    padding: 14px 20px;
+    font-weight: 500;
+  }
+
+  /* 分隔线 */
+  .menu-divider {
+    height: 1px;
+    margin: 6px 0;
+    background: #e5e7eb;
+  }
+
+  /* Language 标题 */
+  .menu-group-title {
+    padding: 10px 20px 6px;
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  /* 二级菜单（语言） */
+  .menu-sub div {
+    padding: 10px 32px;
+    font-size: 0.95em;
+    cursor: pointer;
+  }
+
+  .menu-sub div:hover {
+    background: #f1f5f9;
+  }
+}
+
+/* =========================
+   Mobile Dropdown Text Fix
+========================= */
 .nav-dropdown a,
-.nav-dropdown div{
-  color: var(--text) !important;
-  font-size: 1em !important;
-  line-height: 1.4 !important;
-  opacity: 1 !important;
+.nav-dropdown div {
+  display: block;
+  padding: 14px 20px;
+  font-size: 0.95em;
+  color: var(--text);
+  text-decoration: none;
+  line-height: 1.4;
 }
 
-/* 2️⃣ 修复菜单高度塌陷 */
-.nav-dropdown a{
-  min-height: 44px;
+.nav-dropdown a:hover,
+.nav-dropdown div:hover {
+  background: #f1f5f9;
+}
+.menu-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 8px 0;
+}
+
+.menu-group-title {
+  padding: 10px 20px 6px;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.menu-sub div {
+  padding-left: 36px;
+  font-size: 0.9em;
+}
+/* ================= PC / Mobile 控制 ================= */
+.pc-only { display: flex; }
+.mobile-only { display: none; }
+
+@media (max-width: 768px) {
+  .pc-only { display: none !important; }
+  .mobile-only { display: flex !important; }
+
+  .nav-mobile {
+    position: relative;
+  }
+
+  .nav-dropdown {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    width: 220px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    display: none;
+    padding: 12px 0;
+  }
+
+  .nav-mobile.open .nav-dropdown {
+    display: block;
+  }
+
+  .nav-dropdown a,
+  .menu-sub div {
+    display: block;
+    padding: 12px 20px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .menu-divider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 10px 0;
+  }
+
+  .menu-group-title {
+    padding: 6px 20px;
+    font-size: .8em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+}
+/* ===== Divider（细线）===== */
+.menu-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 8px 0;
+}
+
+/* ===== Mobile Menu ===== */
+.nav-dropdown a {
+  display: block;
+  padding: 12px 20px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* ===== Language Toggle ===== */
+.menu-lang-toggle {
+  padding: 12px 20px;
+  font-weight: 600;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
-/* 3️⃣ Language 子菜单默认关闭 */
-.menu-sub{
-  display: none !important;
+.menu-sub {
+  display: none;
+  padding-left: 12px;
 }
 
-/* JS 加 .open 时才展开 */
-.menu-sub.open{
-  display: block !important;
+.menu-sub.open {
+  display: block;
 }
 
-/* 4️⃣ 分割线细化 */
-.menu-divider{
-  height: 1px !important;
-  background: #e5e7eb !important;
+.menu-sub div {
+  padding: 10px 20px;
+  font-size: .95em;
+  color: var(--muted);
 }
 
