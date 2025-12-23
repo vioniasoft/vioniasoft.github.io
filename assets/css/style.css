@@ -627,25 +627,32 @@ footer {
 
 
 /* =========================================================
-   Footer 视觉固定到底（修正版，项目专用）
+   Footer 正确贴底方案（最终版）
 ========================================================= */
 
-/* 主体最小填满屏幕（减去 nav 高度） */
-.page,
-.about-bg,
-.contact-page {
-  min-height: calc(100vh - 64px - 60px); /* nav + footer 预留 */
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* hero 单独处理（避免溢出） */
-.hero {
-  min-height: calc(100vh - 64px);
+/* 只有内容少的页面才撑满 */
+.hero,
+.contact-page {
+  flex: 1;
 }
 
-/* footer 正常流，永不悬浮 */
+/* 内容多的页面不要强行拉伸 */
+.page,
+.about-bg {
+  flex: 0 0 auto;
+}
+
+/* footer 永远在最后 */
 footer {
   margin-top: auto;
 }
-
