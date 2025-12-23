@@ -209,3 +209,12 @@ function observeCards() {
 window.addEventListener("DOMContentLoaded", () => {
   setLang(localStorage.getItem("lang") || "ko");
 });
+
+
+/* ===== Inject NAV ===== */
+fetch("/assets/partials/nav.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("siteNav").innerHTML = html;
+    setLang(localStorage.getItem("lang") || "ko");
+  });
