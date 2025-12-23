@@ -23,27 +23,27 @@
 
       <form class="contact-form" id="contactForm" novalidate>
 
-        <!-- 姓名 / 邮箱 -->
+        <!-- 이름 / 이메일 -->
         <div class="form-row">
           <div class="field">
-            <input type="text" name="name" id="fName">
+            <input type="text" id="fName" name="name" required>
             <div class="field-error"></div>
           </div>
 
           <div class="field">
-            <input type="email" name="email" id="fEmail">
+            <input type="email" id="fEmail" name="email" required>
             <div class="field-error"></div>
           </div>
         </div>
 
-        <!-- 公司名 -->
+        <!-- 회사명 -->
         <div class="field">
-          <input type="text" name="company" id="fCompany">
+          <input type="text" id="fCompany" name="company">
         </div>
 
-        <!-- 咨询类型 -->
+        <!-- 문의 유형 -->
         <div class="field">
-          <select name="type" id="fType">
+          <select id="fType" name="type" required>
             <option value=""></option>
             <option value="project"></option>
             <option value="consulting"></option>
@@ -53,17 +53,15 @@
           <div class="field-error"></div>
         </div>
 
-        <!-- 内容 -->
+        <!-- 내용 -->
         <div class="field">
-          <textarea name="message" id="fMessage" rows="6"></textarea>
+          <textarea id="fMessage" name="message" rows="6" required></textarea>
           <div class="field-error"></div>
         </div>
 
-        <!-- 提交按钮 -->
         <button type="submit" class="btn" id="fSubmit"></button>
 
-        <!-- 页面内提示 -->
-        <div id="formNotice" style="margin-top:12px;font-size:.9em;"></div>
+        <div id="formNotice" class="form-notice"></div>
 
       </form>
 
@@ -78,7 +76,9 @@
   © 2025 VioniaSoft. All rights reserved.
 </footer>
 
+<!-- JS -->
 <script src="/assets/js/main.js"></script>
+<script src="/assets/js/contact.js"></script>
 
 </body>
 </html>
