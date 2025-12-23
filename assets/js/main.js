@@ -385,7 +385,7 @@ function toggleMobileLang(e) {
 /* =========================================================
    Contact Form (Validation + i18n + Success UI)
 ========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
+/* document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
   if (!form) return;
 
@@ -457,5 +457,5 @@ ${fields.message.value}`
     window.location.href =
       `mailto:info@vioniasoft.com?subject=Website Inquiry&body=${body}`;
   });
-});
+});*/
 
