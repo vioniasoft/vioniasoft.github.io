@@ -26,38 +26,44 @@
     <div class="card contact-card">
 
       <form class="contact-form" id="contactForm" novalidate>
-
-        <!-- 이름 / 이메일 -->
-        <div class="form-row">
-          <input type="text" name="name" placeholder="이름 *" required>
-          <input type="email" name="email" placeholder="이메일 *" required>
+      
+        <div class="form-group">
+          <input type="text" id="name" data-i18n-placeholder="name" />
+          <small class="error"></small>
         </div>
-
-        <!-- 회사명 -->
-        <input type="text" name="company" placeholder="회사명 (선택)">
-
-        <!-- 문의 유형 -->
-        <select name="type" required>
-          <option value="">문의 유형을 선택해 주세요 *</option>
-          <option value="project">프로젝트 제안</option>
-          <option value="consulting">기술 상담</option>
-          <option value="partnership">협업 / 파트너십</option>
-          <option value="other">기타</option>
-        </select>
-
-        <!-- 문의 내용 -->
-        <textarea
-          name="message"
-          rows="6"
-          placeholder="문의 내용을 입력해 주세요 *"
-          required
-        ></textarea>
-
-        <button type="submit" class="btn">
-          보내기
+      
+        <div class="form-group">
+          <input type="email" id="email" data-i18n-placeholder="email" />
+          <small class="error"></small>
+        </div>
+      
+        <div class="form-group">
+          <input type="text" id="company" data-i18n-placeholder="company" />
+        </div>
+      
+        <div class="form-group">
+          <select id="type">
+            <option value="" data-i18n="typePlaceholder"></option>
+            <option value="project" data-i18n="typeProject"></option>
+            <option value="consulting" data-i18n="typeConsulting"></option>
+            <option value="partnership" data-i18n="typePartner"></option>
+          </select>
+          <small class="error"></small>
+        </div>
+      
+        <div class="form-group">
+          <textarea rows="5" id="message" data-i18n-placeholder="message"></textarea>
+          <small class="error"></small>
+        </div>
+      
+        <button type="submit" class="btn" id="submitBtn">
+          <span class="btn-text" data-i18n="send"></span>
         </button>
-
+      
+        <p class="form-success" id="successMsg"></p>
+      
       </form>
+
 
     </div>
   </div>
