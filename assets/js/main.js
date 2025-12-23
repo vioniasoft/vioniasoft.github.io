@@ -230,11 +230,11 @@ function observeCards() {
 /* =========================================================
    Init
 ========================================================= */
-window.addEventListener("DOMContentLoaded", () => {
-  setLang(localStorage.getItem("lang") || "ko");
+/*window.addEventListener("DOMContentLoaded", () => {
+  setLang(localStorage.getItem("lang") || "ko");*/
 
   /* Contact → mailto */
-  const form = $("contactForm");
+  /* const form = $("contactForm");
   if (form) {
     form.addEventListener("submit", e => {
       e.preventDefault();
@@ -251,7 +251,7 @@ window.addEventListener("DOMContentLoaded", () => {
         `mailto:info@vioniasoft.com?subject=Inquiry from Website&body=${body}`;
     });
   }
-});
+});*/
 
 /* =========================================================
    Inject NAV
