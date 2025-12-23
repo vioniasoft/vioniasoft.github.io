@@ -71,6 +71,11 @@ const CF = {
   }
 };
 
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+
 /* =========================================================
    Init
 ========================================================= */
@@ -108,7 +113,23 @@ function handleSubmit(e) {
   let hasError = false;
 
   if (!fName.value.trim()) { showError(fName, t.errors.name); hasError = true; }
-  if (!fEmail.value.trim()) { showError(fEmail, t.errors.email); hasError = true; }
+  if (!fEmail.value.trim()) {
+     showError(fEmail, t.errors.email);
+     hasError = true;
+   } else if (!isValidEmail(fEmail.value.trim())) {
+     showError(
+       fEmail,
+       lang === "ko"
+         ? "이메일 형식이 올바르지 않습니다. (예: example@domain.com)"
+         : lang === "en"
+         ? "Please enter a valid email address."
+         : lang === "zh"
+         ? "请输入正确的邮箱格式。"
+         : "Veuillez saisir une adresse email valide."
+     );
+     hasError = true;
+   }
+
   if (!fType.value) { showError(fType, t.errors.type); hasError = true; }
   if (!fMessage.value.trim()) { showError(fMessage, t.errors.message); hasError = true; }
 
@@ -151,3 +172,5 @@ function showError(el, msg) {
 function clearErrors() {
   document.querySelectorAll(".field-error").forEach(e => e.textContent = "");
 }
+
+
