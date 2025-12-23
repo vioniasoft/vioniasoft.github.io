@@ -639,6 +639,80 @@ button.loading {
   pointer-events: none;
 }
 
+/* =========================
+   Submit Button Loading
+========================= */
+.btn {
+  position: relative;
+}
+
+.btn-loading {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+  margin: 0 auto;
+}
+
+.btn.loading .btn-text {
+  display: none;
+}
+
+.btn.loading .btn-loading {
+  display: block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   Success Card
+========================= */
+.success-card {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #ecfdf5;
+  border: 1px solid #10b981;
+  text-align: center;
+  animation: fadeUp .4s ease;
+}
+
+.success-icon {
+  font-size: 32px;
+  color: #10b981;
+  margin-bottom: 8px;
+}
+
+.success-text {
+  color: #065f46;
+  font-size: .95em;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
 
 
 /* =========================================================
