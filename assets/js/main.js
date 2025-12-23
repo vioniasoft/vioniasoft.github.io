@@ -370,3 +370,21 @@ function toggleMobileLang() {
 }
 
 
+
+/* =========================================================
+   Mobile Menu Close (统一出口)
+========================================================= */
+function closeMobileMenu() {
+  const nav = document.getElementById("navMobile");
+  if (!nav) return;
+
+  nav.classList.remove("open");
+
+  // 同时收起 Language 二级
+  const title = nav.querySelector(".menu-group-title");
+  const sub = nav.querySelector(".menu-sub");
+
+  title?.classList.remove("open");
+  sub?.classList.remove("open");
+}
+
