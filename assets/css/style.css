@@ -519,9 +519,6 @@ footer{
 
 
 
-
-
-
 /* =========================================================
    FIX: Mobile Menu Text Invisible（关键修复）
 ========================================================= */
@@ -533,4 +530,49 @@ footer{
     white-space: nowrap;
   }
 }
+
+
+
+
+
+
+/* =========================================================
+   Mobile Language Sub Menu（可展开）
+========================================================= */
+@media (max-width: 768px) {
+
+  /* Language 标题行（可点击） */
+  .menu-group-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .menu-group-title::after {
+    content: "▶";
+    font-size: 0.75em;
+    transition: transform .25s ease;
+  }
+
+  /* 展开状态 */
+  .menu-group-title.open::after {
+    transform: rotate(90deg);
+  }
+
+  /* 子菜单默认收起 */
+  .menu-sub {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+  }
+
+  /* 子菜单展开 */
+  .menu-sub.open {
+    max-height: 200px;
+  }
+}
+
+
+
 
