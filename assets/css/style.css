@@ -45,7 +45,7 @@ nav{
   border-bottom:1px solid #e5e7eb;
 }
 
-/* nav 占位补偿 */
+/* nav 占位 */
 body::before{
   content:"";
   display:block;
@@ -202,59 +202,86 @@ footer{
   width:220px;
   background:#fff;
   border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,.12);
-  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.15);
+  padding:12px 0;
 }
 
 .nav-mobile.open .nav-dropdown{
   display:block;
 }
 
-/* ================= MOBILE ================= */
+/* dropdown items */
+.nav-dropdown a,
+.nav-dropdown div{
+  display:block;
+  padding:12px 20px;
+  font-size:.95em;
+  color:var(--text);
+  text-decoration:none;
+}
+
+.nav-dropdown a:hover,
+.nav-dropdown div:hover{
+  background:#f1f5f9;
+}
+
+/* divider */
+.menu-divider{
+  height:1px;
+  background:#e5e7eb;
+  margin:8px 0;
+}
+
+/* language group */
+.menu-group-title{
+  padding:6px 20px;
+  font-size:.8em;
+  font-weight:600;
+  color:var(--muted);
+  text-transform:uppercase;
+}
+
+.menu-lang-toggle{
+  padding:12px 20px;
+  font-weight:600;
+  display:flex;
+  justify-content:space-between;
+  cursor:pointer;
+}
+
+.menu-sub{
+  display:none;
+}
+
+.menu-sub.open{
+  display:block;
+}
+
+.menu-sub div{
+  padding:10px 32px;
+  font-size:.9em;
+  color:var(--muted);
+}
+
+/* ================= RESPONSIVE ================= */
+.pc-only{display:flex;}
+.mobile-only{display:none;}
+
 @media (max-width:768px){
 
-  .nav-center{
-    display:none;
-  }
+  .pc-only{display:none!important;}
+  .mobile-only{display:flex!important;}
 
-  .nav-mobile{
-    display:flex;
-    justify-content:flex-end;
-  }
+  .nav-center{display:none;}
+  .nav-mobile{display:flex;}
 
+  .hero,
   .page,
-  .about-bg,
-  .hero{
+  .about-bg{
     padding:96px 6% 64px;
   }
 
   .cards{
     grid-template-columns:1fr;
-  }
-
-  .nav-dropdown a,
-  .nav-dropdown div{
-    display:block;
-    padding:14px 20px;
-    color:var(--text);
-    text-decoration:none;
-  }
-
-  .nav-dropdown a:hover,
-  .nav-dropdown div:hover{
-    background:#f1f5f9;
-  }
-
-  .menu-divider{
-    height:1px;
-    background:#e5e7eb;
-    margin:6px 0;
-  }
-
-  .menu-group-title{
-    padding:10px 20px 6px;
-    font-size:.8em;
-    color:var(--muted);
-    font-weight:600;
   }
 }
