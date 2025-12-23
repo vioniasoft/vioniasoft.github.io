@@ -376,24 +376,17 @@ function toggleMobileLang() {
 ========================================================= */
 function closeMobileMenu() {
   const nav = document.getElementById("navMobile");
-  if (!nav) return;
-
-  nav.classList.remove("open");
-
-  // 同时收起 Language 二级
-  const title = nav.querySelector(".menu-group-title");
-  const sub = nav.querySelector(".menu-sub");
-
-  title?.classList.remove("open");
-  sub?.classList.remove("open");
+  if (nav) nav.classList.remove("open");
 }
 
-
+function toggleMobileMenu() {
+  const nav = document.getElementById("navMobile");
+  if (nav) nav.classList.toggle("open");
+}
 
 function toggleMobileLang(e) {
-  e.stopPropagation(); // ⛔ 阻止冒泡（非常关键）
+  e.stopPropagation(); // ⛔ 必须
   const sub = document.getElementById("mobileLangSub");
   if (sub) sub.classList.toggle("open");
 }
-
 
