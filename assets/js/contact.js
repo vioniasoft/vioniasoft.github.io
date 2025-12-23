@@ -132,9 +132,21 @@ function handleSubmit(e) {
 /* =========================================================
    Helpers
 ========================================================= */
-function showError(input, msg) {
+/* function showError(input, msg) {
   input.closest(".field").querySelector(".field-error").textContent = msg;
+}*/
+function showError(el, msg) {
+  let field = el.closest(".field");
+
+  // 兜底（防止某些浏览器 select / textarea 失效）
+  if (!field) {
+    field = el.parentElement;
+  }
+
+  const err = field.querySelector(".field-error");
+  if (err) err.textContent = msg;
 }
+
 
 function clearErrors() {
   document.querySelectorAll(".field-error").forEach(e => e.textContent = "");
