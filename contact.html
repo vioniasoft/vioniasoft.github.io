@@ -5,65 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact | VioniaSoft</title>
 
+  <!-- 主样式 -->
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="siteNav"></nav>
+<div id="siteNav"></div>
 
 <!-- CONTACT -->
 <section class="page contact-page">
 
-  <div class="contact-hero">
-    <h1 id="contactTitle">문의하기</h1>
-    <p id="contactDesc">
-      프로젝트 제안, 기술 상담, 협업 문의 등 언제든지 편하게 연락해 주세요.
-    </p>
-  </div>
+  <h1 id="contactTitle">문의하기</h1>
+  <p id="contactDesc">
+    프로젝트 제안, 기술 상담, 협업 문의 등 언제든지 편하게 연락해 주세요.
+  </p>
 
   <div class="contact-wrap">
     <div class="card contact-card">
 
       <form class="contact-form" id="contactForm" novalidate>
-      
-        <div class="form-group">
-          <input type="text" id="name" data-i18n-placeholder="name" />
-          <small class="error"></small>
-        </div>
-      
-        <div class="form-group">
-          <input type="email" id="email" data-i18n-placeholder="email" />
-          <small class="error"></small>
-        </div>
-      
-        <div class="form-group">
-          <input type="text" id="company" data-i18n-placeholder="company" />
-        </div>
-      
-        <div class="form-group">
-          <select id="type">
-            <option value="" data-i18n="typePlaceholder"></option>
-            <option value="project" data-i18n="typeProject"></option>
-            <option value="consulting" data-i18n="typeConsulting"></option>
-            <option value="partnership" data-i18n="typePartner"></option>
-          </select>
-          <small class="error"></small>
-        </div>
-      
-        <div class="form-group">
-          <textarea rows="5" id="message" data-i18n-placeholder="message"></textarea>
-          <small class="error"></small>
-        </div>
-      
-        <button type="submit" class="btn" id="submitBtn">
-          <span class="btn-text" data-i18n="send"></span>
-        </button>
-      
-        <p class="form-success" id="successMsg"></p>
-      
-      </form>
 
+        <div class="form-row">
+          <input
+            type="text"
+            id="contactName"
+            placeholder="이름"
+            required
+          >
+          <input
+            type="email"
+            id="contactEmail"
+            placeholder="이메일"
+            required
+          >
+        </div>
+
+        <textarea
+          id="contactMessage"
+          rows="6"
+          placeholder="문의 내용을 입력해 주세요"
+          required
+        ></textarea>
+
+        <!-- 错误提示 -->
+        <div class="form-error" id="formError"></div>
+
+        <button type="submit" class="btn">
+          문의 보내기
+        </button>
+
+      </form>
 
     </div>
   </div>
@@ -76,6 +68,7 @@
   © 2025 VioniaSoft. All rights reserved.
 </footer>
 
+<!-- 主 JS（一定要在 body 最底部） -->
 <script src="/assets/js/main.js"></script>
 
 </body>
