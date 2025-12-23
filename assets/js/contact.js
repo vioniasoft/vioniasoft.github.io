@@ -16,7 +16,7 @@ const CF = {
       type: "문의 유형을 선택해 주세요.",
       message: "문의 내용을 입력해 주세요."
     },
-    success: "메일 앱이 열립니다. 문의 감사합니다."
+    success: "문의가 성공적으로 전송되었습니다."
   },
 
   en: {
@@ -33,7 +33,7 @@ const CF = {
       type: "Please select inquiry type.",
       message: "Please enter your message."
     },
-    success: "Your email client will open shortly."
+    success: "Your inquiry has been sent successfully."
   },
 
   zh: {
@@ -50,7 +50,7 @@ const CF = {
       type: "请选择咨询类型。",
       message: "请输入咨询内容。"
     },
-    success: "即将为您打开邮箱应用。"
+    success: "您的咨询已成功发送。"
   },
 
   fr: {
@@ -67,28 +67,20 @@ const CF = {
       type: "Veuillez sélectionner un type.",
       message: "Veuillez saisir votre message."
     },
-    success: "Votre client mail va s’ouvrir."
+    success: "Votre demande a été envoyée avec succès."
   }
 };
 
 /* =========================================================
    Init
 ========================================================= */
-window.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
-  if (!form) return;
-
+document.addEventListener("DOMContentLoaded", () => {
   applyContactLang(localStorage.getItem("lang") || "ko");
-
-  document.addEventListener("lang:changed", e => {
-    applyContactLang(e.detail);
-  });
-
-  form.addEventListener("submit", handleSubmit);
+  document.getElementById("contactForm").addEventListener("submit", handleSubmit);
 });
 
 /* =========================================================
-   Apply Language
+   Language Apply（不改 setLang）
 ========================================================= */
 function applyContactLang(lang) {
   const t = CF[lang] || CF.ko;
@@ -105,135 +97,45 @@ function applyContactLang(lang) {
 }
 
 /* =========================================================
-   Submit Handler
+   Submit
 ========================================================= */
 function handleSubmit(e) {
   e.preventDefault();
+  clearErrors();
 
   const lang = localStorage.getItem("lang") || "ko";
   const t = CF[lang];
-
-  clearErrors();
-  formNotice.textContent = "";
-
   let hasError = false;
 
-  if (!fName.value.trim()) {
-    showError(fName, t.errors.name);
-    hasError = true;
-  }
-
-  if (!fEmail.value.trim()) {
-    showError(fEmail, t.errors.email);
-    hasError = true;
-  }
-
-  if (!fType.value) {
-    showError(fType, t.errors.type);
-    hasError = true;
-  }
-
-  if (!fMessage.value.trim()) {
-    showError(fMessage, t.errors.message);
-    hasError = true;
-  }
+  if (!fName.value.trim()) { showError(fName, t.errors.name); hasError = true; }
+  if (!fEmail.value.trim()) { showError(fEmail, t.errors.email); hasError = true; }
+  if (!fType.value) { showError(fType, t.errors.type); hasError = true; }
+  if (!fMessage.value.trim()) { showError(fMessage, t.errors.message); hasError = true; }
 
   if (hasError) return;
 
-  /* ===== Loading ===== */
-  fSubmit.classList.add("loading");
+  // loading
   fSubmit.disabled = true;
+  fSubmit.textContent = "Sending...";
 
-  const body = encodeURIComponent(
-`Name: ${fName.value}
-Email: ${fEmail.value}
-Company: ${fCompany.value || "-"}
-Type: ${fType.options[fType.selectedIndex].text}
-
-Message:
-${fMessage.value}`
-  );
-
-  /* ===== Fake delay for UX ===== */
   setTimeout(() => {
-    fSubmit.classList.remove("loading");
+    formNotice.textContent = t.success;
+    formNotice.style.color = "#16a34a";
+
+    document.getElementById("contactForm").reset();
+
     fSubmit.disabled = false;
-
-    document.getElementById("successCard").style.display = "block";
-    document.querySelector(".success-text").textContent = t.success;
-
-    window.location.href =
-      `mailto:info@vioniasoft.com?subject=Website Inquiry&body=${body}`;
+    fSubmit.textContent = t.submit;
   }, 800);
 }
 
-
 /* =========================================================
-   Error Helpers
+   Helpers
 ========================================================= */
 function showError(input, msg) {
-  const err = input.parentElement.querySelector(".field-error");
-  if (err) err.textContent = msg;
+  input.closest(".field").querySelector(".field-error").textContent = msg;
 }
 
 function clearErrors() {
-  document.querySelectorAll(".field-error").forEach(el => {
-    el.textContent = "";
-  });
+  document.querySelectorAll(".field-error").forEach(e => e.textContent = "");
 }
-
-
-/* =========================================================
-   Contact Form – Real API (Formspree)
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
-  if (!form) return;
-
-  const submitBtn = document.getElementById("fSubmit");
-  const notice = document.getElementById("formNotice");
-
-  const FORM_ENDPOINT = "https://formspree.io/f/abcdwxyz"; 
-  // ↑↑↑ 换成你自己的 Formspree 地址
-
-  form.addEventListener("submit", async e => {
-    e.preventDefault();
-    notice.textContent = "";
-
-    // loading 状态
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending...";
-
-    const data = new FormData(form);
-
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" }
-      });
-
-      if (res.ok) {
-        // ✅ 成功
-        notice.textContent = "문의가 성공적으로 전송되었습니다.";
-        notice.style.color = "#16a34a";
-
-        // ✅ 清空表单
-        form.reset();
-
-        // 小动画
-        form.classList.add("form-success");
-        setTimeout(() => form.classList.remove("form-success"), 1200);
-      } else {
-        throw new Error("Submit failed");
-      }
-    } catch (err) {
-      notice.textContent = "전송 중 오류가 발생했습니다. 다시 시도해 주세요.";
-      notice.style.color = "#dc2626";
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "문의 보내기";
-    }
-  });
-});
