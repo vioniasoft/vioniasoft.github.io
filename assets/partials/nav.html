@@ -31,8 +31,9 @@
     <div class="nav-mobile mobile-only" id="navMobile">
       <span class="menu-btn" onclick="toggleMobileMenu()">☰</span>
     
+      <!--<div class="nav-dropdown" onclick="event.stopPropagation()"> -->
       <div class="nav-dropdown" onclick="event.stopPropagation()">
-    
+
         <!-- 主导航 -->
         <a data-nav href="/index.html" onclick="closeMobileMenu()"></a>
         <a data-nav href="/about.html" onclick="closeMobileMenu()"></a>
@@ -42,10 +43,13 @@
         <div class="menu-divider"></div>
     
         <!-- Language -->
-        <div class="menu-group-title" onclick="toggleMobileLang(event)">
+        <!-- <div class="menu-group-title" onclick="toggleMobileLang(event)">
           Language
+        </div>-->
+        <div class="menu-group-title" onclick="toggleMobileLang(event)">
+          Language <span class="arrow">▶</span>
         </div>
-    
+
         <div class="menu-sub" id="mobileLangSub">
           <div onclick="setLang('ko'); closeMobileMenu()">한국어</div>
           <div onclick="setLang('en'); closeMobileMenu()">English</div>
