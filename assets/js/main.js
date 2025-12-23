@@ -1,5 +1,5 @@
 /* =========================================================
-   Language Data（原样保留 + 稳定化）
+   Language Data（原样保留）
 ========================================================= */
 const T = {
   ko: {
@@ -28,7 +28,6 @@ const T = {
     contactTitle: "문의하기",
     contactDesc: "프로젝트 제안, 기술 상담, 협업 문의 등 언제든지 편하게 연락해 주세요."
   },
-
   en: {
     nav: ["Home", "About", "Services", "Contact"],
     hero: "Supporting Sustainable Digital Growth",
@@ -36,8 +35,7 @@ const T = {
     sub: "We focus on long-term stability and scalability — not short-term development.",
     explore: "View Services",
     aboutTitle: "About Us",
-    aboutDesc:
-      "At VioniaSoft, we treat technology as part of business strategy rather than a simple development task.",
+    aboutDesc: "At VioniaSoft, we treat technology as part of business strategy rather than a simple development task.",
     aboutCards: [
       ["Business-Oriented", "Technology aligned with real operations"],
       ["Stable & Scalable", "Designed for long-term growth"],
@@ -54,7 +52,6 @@ const T = {
     contactTitle: "Contact",
     contactDesc: "Feel free to reach out for project inquiries or collaboration."
   },
-
   zh: {
     nav: ["首页", "关于我们", "服务", "联系"],
     hero: "助力企业实现可持续的数字化成长",
@@ -62,8 +59,7 @@ const T = {
     sub: "我们关注长期稳定运行与可扩展性，而非短期开发。",
     explore: "查看服务",
     aboutTitle: "关于我们",
-    aboutDesc:
-      "VioniaSoft 将技术视为企业战略的一部分，而不仅仅是开发工作。",
+    aboutDesc: "VioniaSoft 将技术视为企业战略的一部分，而不仅仅是开发工作。",
     aboutCards: [
       ["以业务为核心", "技术服务于真实业务流程"],
       ["稳定与扩展", "面向长期运营的系统设计"],
@@ -80,7 +76,6 @@ const T = {
     contactTitle: "联系我们",
     contactDesc: "欢迎随时联系我们洽谈项目或合作。"
   },
-
   fr: {
     nav: ["Accueil", "À propos", "Services", "Contact"],
     hero: "Accompagner une croissance numérique durable",
@@ -88,8 +83,7 @@ const T = {
     sub: "Nous privilégions la stabilité et l’évolutivité à long terme.",
     explore: "Découvrir nos services",
     aboutTitle: "À propos",
-    aboutDesc:
-      "Chez VioniaSoft, la technologie fait partie intégrante de la stratégie d’entreprise.",
+    aboutDesc: "Chez VioniaSoft, la technologie fait partie intégrante de la stratégie d’entreprise.",
     aboutCards: [
       ["Vision métier", "La technologie au service des opérations"],
       ["Stable et évolutif", "Pensé pour le long terme"],
@@ -109,12 +103,12 @@ const T = {
 };
 
 /* =========================================================
-   Safe DOM Helper
+   Helper
 ========================================================= */
 const $ = id => document.getElementById(id);
 
 /* =========================================================
-   Language Switch（原功能完整保留）
+   Language Switch（完整保留）
 ========================================================= */
 function setLang(lang) {
   const t = T[lang];
@@ -165,26 +159,27 @@ function setLang(lang) {
 }
 
 /* =========================================================
-   Language Menu
+   PC Language Menu
 ========================================================= */
 function toggleLang() {
   const menu = $("langMenu");
-  if (menu) menu.style.display = menu.style.display === "block" ? "none" : "block";
+  if (menu) {
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  }
 }
 
 /* =========================================================
-   Mobile Menu（新增，不影响原功能）
+   Mobile Menu（正确版）
 ========================================================= */
-function toggleMenu() {
-  const menu = $("mobileMenu");
-  if (menu) menu.style.display = menu.style.display === "block" ? "none" : "block";
+function toggleMobileMenu() {
+  const nav = $("navMobile");
+  if (nav) nav.classList.toggle("open");
 }
 
 /* =========================================================
-   Card Scroll Animation（原样保留）
+   Card Animation（保留）
 ========================================================= */
 let observer;
-
 function observeCards() {
   if (observer) observer.disconnect();
 
@@ -210,10 +205,12 @@ window.addEventListener("DOMContentLoaded", () => {
   setLang(localStorage.getItem("lang") || "ko");
 });
 
-/* ===== Inject NAV ===== */
+/* =========================================================
+   Inject NAV
+========================================================= */
 fetch("/assets/partials/nav.html")
   .then(res => res.text())
   .then(html => {
-    document.getElementById("siteNav").innerHTML = html;
+    $("siteNav").innerHTML = html;
     setLang(localStorage.getItem("lang") || "ko");
   });
