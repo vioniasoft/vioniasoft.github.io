@@ -181,3 +181,59 @@ function clearErrors() {
     el.textContent = "";
   });
 }
+
+
+/* =========================================================
+   Contact Form – Real API (Formspree)
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  const submitBtn = document.getElementById("fSubmit");
+  const notice = document.getElementById("formNotice");
+
+  const FORM_ENDPOINT = "https://formspree.io/f/abcdwxyz"; 
+  // ↑↑↑ 换成你自己的 Formspree 地址
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    notice.textContent = "";
+
+    // loading 状态
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" }
+      });
+
+      if (res.ok) {
+        // ✅ 成功
+        notice.textContent = "문의가 성공적으로 전송되었습니다.";
+        notice.style.color = "#16a34a";
+
+        // ✅ 清空表单
+        form.reset();
+
+        // 小动画
+        form.classList.add("form-success");
+        setTimeout(() => form.classList.remove("form-success"), 1200);
+      } else {
+        throw new Error("Submit failed");
+      }
+    } catch (err) {
+      notice.textContent = "전송 중 오류가 발생했습니다. 다시 시도해 주세요.";
+      notice.style.color = "#dc2626";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "문의 보내기";
+    }
+  });
+});
