@@ -283,3 +283,50 @@ document.addEventListener("mouseover", () => {
     menu.style.display = "none";
   });
 });
+
+
+/* =========================================================
+   Mobile Menu Auto Close（新增，基于你原结构）
+========================================================= */
+
+document.addEventListener("click", (e) => {
+  const navMobile = document.getElementById("navMobile");
+  if (!navMobile) return;
+
+  const menuBtn = navMobile.querySelector(".menu-btn");
+  const dropdown = navMobile.querySelector(".nav-dropdown");
+
+  // 菜单未打开，不处理
+  if (!navMobile.classList.contains("open")) return;
+
+  // 点击 ☰ 按钮本身，不关闭（交给 toggleMobileMenu）
+  if (menuBtn && menuBtn.contains(e.target)) return;
+
+  // 点击菜单里的任意内容 → 关闭
+  if (dropdown && dropdown.contains(e.target)) {
+    navMobile.classList.remove("open");
+    return;
+  }
+
+  // 点击屏幕空白区域 → 关闭
+  navMobile.classList.remove("open");
+});
+
+/* =========================================================
+   Mobile Language Click Auto Close（语言点完即收）
+========================================================= */
+
+const _setLangMobile = setLang;
+setLang = function (lang) {
+  _setLangMobile(lang);
+
+  // 关闭 PC 语言菜单
+  const langMenu = document.getElementById("langMenu");
+  if (langMenu) langMenu.style.display = "none";
+
+  // 关闭 Mobile 菜单
+  const navMobile = document.getElementById("navMobile");
+  if (navMobile) navMobile.classList.remove("open");
+};
+
+
