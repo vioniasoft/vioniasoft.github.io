@@ -250,16 +250,36 @@ window.addEventListener("DOMContentLoaded", () => {
 /* =========================================================
    Inject NAV
 ========================================================= */
-fetch("/assets/partials/nav.html")
+/* fetch("/assets/partials/nav.html")
   .then(res => res.text())
   .then(html => {
     $("siteNav").innerHTML = html;
     setLang(localStorage.getItem("lang") || "ko");
-  });
+  });*/
 
 /* =========================================================
    PC Language Menu Auto Close（新增，不破坏原逻辑）
 ========================================================= */
+/* =========================================================
+   Inject NAV + Sync Language（关键修复）
+========================================================= */
+fetch("/assets/partials/nav.html")
+  .then(res => res.text())
+  .then(html => {
+    const navRoot = document.getElementById("siteNav");
+    if (!navRoot) return;
+
+    navRoot.innerHTML = html;
+
+    // ⚠️ 关键：确保 nav 注入完成后再同步语言（PC + Mobile）
+    requestAnimationFrame(() => {
+      setLang(localStorage.getItem("lang") || "ko");
+    });
+  });
+
+
+
+
 
 // 点击语言后自动关闭（PC）
 const _setLang = setLang;
