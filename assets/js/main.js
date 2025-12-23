@@ -459,3 +459,49 @@ ${fields.message.value}`
   });
 });*/
 
+
+
+/* =========================================================
+   Contact Form (ONLY if exists)
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const contactForm = document.getElementById("contactForm");
+  const formNotice = document.getElementById("formNotice");
+
+  if (!contactForm || !formNotice) return;
+
+  contactForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const lang = localStorage.getItem("lang") || "ko";
+    const t = CF[lang];
+
+    formNotice.textContent = "";
+    formNotice.style.color = "#dc2626";
+
+    if (!this.name.value.trim() ||
+        !this.email.value.trim() ||
+        !this.type.value ||
+        !this.message.value.trim()) {
+      formNotice.textContent = t.error;
+      return;
+    }
+
+    const body = encodeURIComponent(
+`Name: ${this.name.value}
+Email: ${this.email.value}
+Company: ${this.company.value || "-"}
+Type: ${this.type.options[this.type.selectedIndex].text}
+
+Message:
+${this.message.value}`
+    );
+
+    formNotice.style.color = "#16a34a";
+    formNotice.textContent = t.success;
+
+    window.location.href =
+      `mailto:info@vioniasoft.com?subject=Website Inquiry&body=${body}`;
+  });
+});
+
