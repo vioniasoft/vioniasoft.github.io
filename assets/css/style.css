@@ -492,3 +492,21 @@ footer{
 .nav-dropdown div:hover {
   background: #f1f5f9;
 }
+.menu-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 8px 0;
+}
+
+.menu-group-title {
+  padding: 10px 20px 6px;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.menu-sub div {
+  padding-left: 36px;
+  font-size: 0.9em;
+}
