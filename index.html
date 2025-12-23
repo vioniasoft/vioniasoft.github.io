@@ -1,51 +1,31 @@
-<nav>
-  <!-- Logo -->
-  <div class="logo-gradient" onclick="location.href='/'">
-    VioniaSoft
-  </div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VioniaSoft</title>
 
-  <!-- PC 中间导航 -->
-  <div class="nav-center pc-only">
-    <a class="nav-link" data-nav href="/index.html"></a>
-    <a class="nav-link" data-nav href="/about.html"></a>
-    <a class="nav-link" data-nav href="/services.html"></a>
-    <a class="nav-link" data-nav href="/contact.html"></a>
-  </div>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
 
-  <!-- 右侧 -->
-  <div class="nav-right">
+<!-- NAV（由 JS 注入） -->
+<nav id="siteNav"></nav>
 
-    <!-- PC 语言（只在桌面） -->
-    <div class="lang pc-only">
-      <span class="lang-btn" onclick="toggleLang()">🌐</span>
-      <div class="lang-menu" id="langMenu">
-        <div onclick="setLang('ko')">한국어</div>
-        <div onclick="setLang('en')">English</div>
-        <div onclick="setLang('zh')">中文</div>
-      </div>
-    </div>
+<!-- HERO -->
+<section class="hero">
+  <h1 id="heroTitle"></h1>
+  <p id="heroDesc"></p>
+  <p id="heroSub"></p>
+  <a href="/services.html" class="btn" id="heroBtn"></a>
+</section>
 
-    <!-- Mobile 菜单 -->
-    <div class="nav-mobile mobile-only" id="navMobile">
-      <span class="menu-btn" onclick="toggleMobileMenu()">☰</span>
+<!-- FOOTER -->
+<footer>
+  © 2025 VioniaSoft. All rights reserved.<br>
+  Email: contact@vioniasoft.com
+</footer>
 
-      <div class="nav-dropdown">
-        <!-- 导航 -->
-        <a data-nav href="/index.html"></a>
-        <a data-nav href="/about.html"></a>
-        <a data-nav href="/services.html"></a>
-        <a data-nav href="/contact.html"></a>
-
-        <hr>
-
-        <!-- 语言（移动端专用） -->
-        <div class="mobile-lang">
-          <div onclick="setLang('ko')">한국어</div>
-          <div onclick="setLang('en')">English</div>
-          <div onclick="setLang('zh')">中文</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
