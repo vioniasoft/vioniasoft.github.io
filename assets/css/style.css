@@ -463,6 +463,7 @@ footer{
 ========================================================= */
 
 .contact-page {
+  min-height: calc(100vh - 64px); /* 扣掉导航 */
   padding: 80px 20px 40px;
 }
 
@@ -531,7 +532,25 @@ footer{
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
 }
 
+.contact-hero {
+  min-height: 40vh;              /* 控制“居中区域高度” */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;       /* 垂直居中 */
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
+.contact-hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.contact-hero p {
+  color: #6b7280;
+  font-size: 1.05rem;
+}
 
 
 
