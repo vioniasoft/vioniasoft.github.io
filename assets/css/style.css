@@ -562,6 +562,7 @@ footer{
 
   /* 子菜单默认收起 */
   .menu-sub {
+    display: none;
     max-height: 0;
     overflow: hidden;
     transition: max-height .3s ease;
@@ -569,6 +570,7 @@ footer{
 
   /* 子菜单展开 */
   .menu-sub.open {
+    display: block;
     max-height: 200px;
   }
 }
