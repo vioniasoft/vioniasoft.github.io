@@ -26,24 +26,24 @@
         <!-- 姓名 / 邮箱 -->
         <div class="form-row">
           <div class="field">
-            <input type="text" name="name">
+            <input type="text" name="name" id="fName">
             <div class="field-error"></div>
           </div>
 
           <div class="field">
-            <input type="email" name="email">
+            <input type="email" name="email" id="fEmail">
             <div class="field-error"></div>
           </div>
         </div>
 
         <!-- 公司名 -->
         <div class="field">
-          <input type="text" name="company">
+          <input type="text" name="company" id="fCompany">
         </div>
 
         <!-- 咨询类型 -->
         <div class="field">
-          <select name="type">
+          <select name="type" id="fType">
             <option value=""></option>
             <option value="project"></option>
             <option value="consulting"></option>
@@ -55,11 +55,15 @@
 
         <!-- 内容 -->
         <div class="field">
-          <textarea name="message" rows="6"></textarea>
+          <textarea name="message" id="fMessage" rows="6"></textarea>
           <div class="field-error"></div>
         </div>
 
-        <button type="submit" class="btn" id="contactSubmit"></button>
+        <!-- 提交按钮 -->
+        <button type="submit" class="btn" id="fSubmit"></button>
+
+        <!-- 页面内提示 -->
+        <div id="formNotice" style="margin-top:12px;font-size:.9em;"></div>
 
       </form>
 
@@ -75,5 +79,6 @@
 </footer>
 
 <script src="/assets/js/main.js"></script>
+
 </body>
 </html>
