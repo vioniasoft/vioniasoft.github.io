@@ -1,521 +1,155 @@
-/* =========================================================
-   全局变量（主题色 / 文本色 / 背景色）
-========================================================= */
 :root{
-  --main:#2563eb;      /* 主色（蓝） */
-  --sub:#7c3aed;       /* 辅助色（紫） */
-  --bg:#f8fafc;        /* 页面背景色 */
-  --text:#0f172a;      /* 主文本颜色 */
-  --muted:#64748b;     /* 次级/说明文字颜色 */
+  --main:#2563eb;
+  --sub:#7c3aed;
+  --bg:#f8fafc;
+  --text:#0f172a;
+  --muted:#64748b;
 }
 
-/* =========================================================
-   RESET & 基础设置
-========================================================= */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html,body{
-  height:100%;
-  overflow-x:hidden;   /* 防止横向滚动条 */
-  overflow-y:auto;     /* 确保纵向滚动条正常 */
-}
-
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;overflow-x:hidden;}
 body{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-
   font-family:Segoe UI,Roboto,sans-serif;
   background:var(--bg);
   color:var(--text);
   line-height:1.7;
-  padding-bottom:0;    /* 去掉不必要的底部空白 */
 }
 
-/* =========================================================
-   顶部导航栏（NAV）
-========================================================= */
+/* ===== NAV ===== */
 nav{
   position:fixed;
-  top:0;
-  left:0;
+  top:0;left:0;
   width:100%;
   height:64px;
-  z-index:1000;
-
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  align-items:center;
-
-  padding:0 24px;
   background:#ffffffee;
   backdrop-filter:blur(10px);
   border-bottom:1px solid #e5e7eb;
+  z-index:1000;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
 }
 
-/* ===== 导航链接高级交互 ===== */
-.nav-link{
-  position:relative;
-  padding:6px 2px;
-
-  font-size:1em;
-  font-weight:500;
-  color:var(--text);
-  text-decoration:none;
-
-  transition:
-    color .25s ease,
-    transform .25s ease;
-}
-
-/* 文字 hover */
-.nav-link:hover{
-  color:var(--sub);
-  transform:translateY(-1px);
-}
-
-/* 渐变下划线 */
-.nav-link::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-
-  width:0;
-  height:2px;
-  border-radius:999px;
-
-  background:linear-gradient(
-    90deg,
-    #7c3aed,
-    #8b5cf6
-  );
-
-  transition:width .3s ease;
-}
-
-/* hover 时展开下划线 */
-.nav-link:hover::after{
-  width:100%;
-}
-
-/* Logo */
-.logo{
-  font-size:1.2em;
-  font-weight:700;
-  color:var(--main);
-}
-
-/* ===== Logo 渐变品牌感 ===== */
 .logo-gradient{
-  font-size:1.6em;
+  font-size:1.4em;
   font-weight:800;
-  letter-spacing:.3px;
-
-  background:linear-gradient(
-    135deg,
-    #7c3aed,
-    #8b5cf6
-  );
+  background:linear-gradient(135deg,#7c3aed,#8b5cf6);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-
-  cursor:pointer;
-  transition:transform .25s ease, filter .25s ease;
 }
 
-.logo-gradient:hover{
-  transform:scale(1.05);
-  filter:brightness(1.1);
-}
-
-/* 中间导航链接 */
+/* ===== DESKTOP NAV ===== */
 .nav-center{
   display:flex;
-  justify-content:center;
   gap:28px;
 }
 
-.nav-center a{
+.nav-link{
   text-decoration:none;
   color:var(--text);
   font-weight:500;
 }
 
-/* 右侧功能区（语言/按钮等） */
 .nav-right{
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:14px;
 }
 
-/* =========================================================
-   语言切换（LANGUAGE）
-========================================================= */
-.lang{
-  position:relative;
-}
-
-.lang-btn{
+/* ===== MOBILE MENU BUTTON ===== */
+.menu-btn{
+  display:none;
+  font-size:1.4em;
   cursor:pointer;
 }
 
+/* ===== LANGUAGE ===== */
 .lang-menu{
   display:none;
   position:absolute;
-  right:0;
-  top:28px;
-
+  right:20px;
+  top:64px;
   background:#fff;
   border:1px solid #e5e7eb;
   border-radius:10px;
   overflow:hidden;
 }
-
 .lang-menu div{
   padding:10px 16px;
   cursor:pointer;
 }
+.lang-menu div:hover{background:#f1f5f9;}
 
-.lang-menu div:hover{
+/* ===== MOBILE DROPDOWN ===== */
+.mobile-menu{
+  display:none;
+  position:absolute;
+  top:64px;
+  right:20px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  width:200px;
+  overflow:hidden;
+}
+.mobile-menu a{
+  display:block;
+  padding:14px 18px;
+  text-decoration:none;
+  color:var(--text);
+}
+.mobile-menu a:hover{
   background:#f1f5f9;
 }
 
-/* =========================================================
-   页面通用结构（内页：About / Services / Contact）
-========================================================= */
-.page,
-.about-bg{
-  min-height:calc(100vh - 64px); /* 保证至少一屏，扣掉导航 */
-  display:flex;
-  flex:1;
-  flex-direction:column;
-  justify-content:flex-start;
+/* ===== PAGE CONTENT ===== */
+main{
+  padding-top:64px;
+}
+
+.hero, .page{
   padding:120px 8% 80px;
-  box-sizing:border-box;  /* 防止溢出 */
-  overflow:hidden; /* 防止页面溢出 */
-}
-
-/* =========================================================
-   首页 HERO
-========================================================= */
-.hero{
-  min-height:calc(100vh - 64px); /* 视口高度 - 导航栏高度 */
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  align-items:center;
-  padding:140px 8% 60px;
   text-align:center;
-  background:
-    radial-gradient(circle at 20% 20%, #93c5fd55, transparent 45%),
-    radial-gradient(circle at 80% 30%, #c4b5fd55, transparent 45%);
-  box-sizing:border-box;   /* 确保布局无溢出 */
 }
 
-/* ===== 首页标题 ===== */
-.hero h1{
-  font-size:3em;
-  margin-bottom:20px;
-  animation:fadeUp .8s ease forwards;
-}
-
-/* ===== 首页描述 ===== */
-.hero p{
-  max-width:800px;
-  margin:0 auto 36px; /* 与 services 视觉节奏一致 */
-  color:var(--muted);
-  animation:fadeUp .8s ease .15s forwards;
-}
-
-/* ===== 首页按钮 ===== */
-.hero .btn{
-  margin-top:40;
-}
-
-/* =========================================================
-   About / Services 背景与标题
-========================================================= */
-.about-bg{
-  text-align:center;
-  background:
-    radial-gradient(circle at 15% 20%, #93c5fd55, transparent 45%),
-    radial-gradient(circle at 85% 30%, #c4b5fd55, transparent 45%);
-}
-
-/* 标题区与卡片区的间距 */
-.about-hero{
-  margin-bottom:64px;
-}
-
-/* About / Services 主标题 */
-#aboutTitle,
-#servicesTitle{
-  position:relative;
-  font-size:2.4em;
-  margin-bottom:20px;
-
-  opacity:0;
-  transform:translateY(20px);
-  animation:fadeUp .8s ease forwards;
-}
-
-/* 标题下方紫色装饰线 */
-#aboutTitle::after,
-#servicesTitle::after{
-  content:"";
-  display:block;
-  width:42px;
-  height:3px;
-  margin:16px auto 0;
-  border-radius:999px;
-  background:linear-gradient(90deg,#7c3aed,#8b5cf6);
-}
-
-/* 标题描述文字 */
-#aboutDesc,
-#servicesDesc{
-  max-width:640px;
-  margin:0 auto 72px;
-
-  color:var(--muted);
-  line-height:1.85;
-  font-size:1.05em;
-  letter-spacing:-0.015em;
-
-  opacity:0;
-  transform:translateY(20px);
-  animation:fadeUp .8s ease .15s forwards;
-}
-
-/* =========================================================
-   卡片组件（Cards）
-========================================================= */
+/* ===== CARDS ===== */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:28px;
 }
-
 .card{
   background:#fff;
   padding:32px;
   border-radius:18px;
-
   box-shadow:0 10px 30px #00000010;
-
-  opacity:0;
-  transform:translateY(40px);
-  transition:
-    transform .25s ease,
-    opacity .6s ease,
-    box-shadow .35s ease,
-    background .45s ease;
 }
 
-/* 滚动显示动画 */
-.card.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* Hover 效果 */
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 18px 40px #00000018;
-  background:
-    radial-gradient(circle at top left,#93c5fd33,transparent 60%),
-    #ffffff;
-}
-
-/* =========================================================
-   通用按钮（Button）
-========================================================= */
+/* ===== BUTTON ===== */
 .btn{
-  display:inline-flex;
-  align-self:center;
-  align-items:center;
-  justify-content:center;
-
+  display:inline-block;
+  margin-top:32px;
   padding:14px 40px;
   border-radius:999px;
-
-  font-size:1em;
-  font-weight:600;
-  text-decoration:none;
   color:#fff;
-
   background:linear-gradient(135deg,#7c3aed,#8b5cf6);
-  box-shadow:0 8px 25px rgba(124,58,237,.4);
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    filter .25s ease;
+  text-decoration:none;
+  font-weight:600;
 }
 
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 14px 35px rgba(124,58,237,.5);
-  filter:brightness(1.07);
-}
-
-/* =========================================================
-   联系页（Contact Page）
-========================================================= */
-
-/* Contact 页面不垂直居中 */
-.contact-page{
-  justify-content:flex-start;
-  padding-bottom:160px; /* 防止 footer 遮挡 */
-}
-
-/* 表单容器 */
-.contact-wrap{
-  max-width:760px;
-  margin:0 auto;
-  padding:0 8%;
-}
-
-/* 表单卡片 */
-.contact-card{
-  padding:40px;
-  text-align:left;
-}
-
-/* 表单结构 */
-.contact-form{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-}
-
-/* 两列输入行 */
-.contact-form .form-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
-
-/* 输入框样式 */
-.contact-form input,
-.contact-form textarea{
-  width:100%;
-  padding:14px 16px;
-
-  font-size:.95em;
-  font-family:inherit;
-
-  border-radius:10px;
-  border:1px solid #e5e7eb;
-
-  transition:border .25s ease, box-shadow .25s ease;
-}
-
-/* 聚焦状态 */
-.contact-form input:focus,
-.contact-form textarea:focus{
-  outline:none;
-  border-color:var(--sub);
-  box-shadow:0 0 0 3px rgba(124,58,237,.15);
-}
-
-/* 文本域 */
-.contact-form textarea{
-  resize:vertical;
-}
-
-/* 发送按钮 */
-.contact-form button{
-  margin-top:20px;
-  align-self:flex-start;
-}
-
-/* =========================================================
-   页脚（Footer）调整
-========================================================= */
+/* ===== FOOTER ===== */
 footer{
-  position:relative;  /* 让页脚不再固定，避免被遮挡 */
-  width:100%;
-  height:auto; /* 根据内容高度调整 */
   background:#0f172a;
   color:#cbd5f5;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:.9em;
-  padding:20px 0; /* 增加上下内边距，给内容空间 */
+  text-align:center;
+  padding:24px 10px;
 }
 
-/* =========================================================
-   下拉菜单动画（Mobile）
-========================================================= */
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ===== RESPONSIVE ===== */
+@media (max-width:768px){
+  .nav-center{display:none;}
+  .menu-btn{display:block;}
 }
-
-.nav-dropdown {
-  display: none; /* 默认隐藏下拉菜单 */
-  position: absolute;
-  top: 64px; /* 距离导航条下方 */
-  right: 0;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  width: 200px;
-  animation: slideDown 0.3s ease-out forwards; /* 增加下拉动画 */
-}
-
-/* 当菜单打开时显示动画 */
-.nav-mobile.open .nav-dropdown {
-  display: block;
-}
-
-
-/* =========================================================
-   动画（Animations）
-========================================================= */
-/* =========================================================
-   下拉菜单动画（Mobile）
-========================================================= */
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.nav-dropdown {
-  display: none; /* 默认隐藏下拉菜单 */
-  position: absolute;
-  top: 64px; /* 距离导航条下方 */
-  right: 0;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  width: 200px;
-  animation: slideDown 0.3s ease-out forwards; /* 增加下拉动画 */
-}
-
-/* 当菜单打开时显示动画 */
-.nav-mobile.open .nav-dropdown {
-  display: block;
-}
-
