@@ -30,24 +30,30 @@
     <div class="nav-mobile mobile-only" id="navMobile">
       <span class="menu-btn" onclick="toggleMobileMenu()">☰</span>
 
-      <div class="nav-dropdown" id="mobileMenu">
-        <!-- 主菜单 -->
-        <a class="m-nav" data-nav href="/index.html"></a>
-        <a class="m-nav" data-nav href="/about.html"></a>
-        <a class="m-nav" data-nav href="/services.html"></a>
-        <a class="m-nav" data-nav href="/contact.html"></a>
-
-        <div class="menu-divider"></div>
-
-        <div class="menu-group-title">Language</div>
-
-        <div class="menu-sub">
-          <div onclick="setLang('ko')">한국어</div>
-          <div onclick="setLang('en')">English</div>
-          <div onclick="setLang('zh')">中文</div>
-          <div onclick="setLang('fr')">Français</div>
+        <div class="nav-dropdown">
+        
+          <!-- 主导航 -->
+          <a class="m-nav" href="/index.html"></a>
+          <a class="m-nav" href="/about.html"></a>
+          <a class="m-nav" href="/services.html"></a>
+          <a class="m-nav" href="/contact.html"></a>
+        
+          <div class="menu-divider"></div>
+        
+          <!-- Language Toggle -->
+          <div class="menu-lang-toggle" onclick="toggleMobileLang()">
+            Language
+            <span class="arrow">▾</span>
+          </div>
+        
+          <div class="menu-sub" id="mobileLang">
+            <div onclick="setLang('ko')">한국어</div>
+            <div onclick="setLang('en')">English</div>
+            <div onclick="setLang('zh')">中文</div>
+            <div onclick="setLang('fr')">Français</div>
+          </div>
         </div>
-      </div>
+
     </div>
 
   </div>
