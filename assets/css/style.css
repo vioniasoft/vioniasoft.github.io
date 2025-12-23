@@ -621,6 +621,23 @@ footer{
     max-height: 200px;
   }
 }
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.field-error {
+  font-size: 0.8em;
+  color: #dc2626;
+  margin-top: 4px;
+  min-height: 1em;
+}
+
+button.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
 
 
 
