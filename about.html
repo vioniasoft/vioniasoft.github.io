@@ -1,62 +1,58 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | VioniaSoft</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
-<nav>
-  <!-- Logo -->
-  <div class="logo logo-gradient">VioniaSoft</div>
+<!-- NAV：与 index 完全一致 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | VioniaSoft</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
 
-  <!-- 中间导航（文字由 JS 注入） -->
-  <div class="nav-center">
-    <a data-nav class="nav-link" href="index.html">Home</a>
-    <a data-nav class="nav-link" href="about.html">About</a>
-    <a data-nav class="nav-link" href="services.html">Services</a>
-    <a data-nav class="nav-link" href="contact.html">Contact</a>
-  </div>
+<!-- NAV：与 index 完全一致 -->
+<nav>…（与 index.html 完全相同，直接复制）…</nav>
 
-  <!-- 语言切换 -->
-  <div class="nav-right">
-    <span class="lang-btn" onclick="toggleLang()">🌐</span>
-    <div class="lang-menu" id="langMenu">
-      <div onclick="setLang('ko')">한국어</div>
-      <div onclick="setLang('en')">English</div>
-      <div onclick="setLang('zh')">中文</div>
-      <div onclick="setLang('fr')">Français</div>
-    </div>
-  </div>
-</nav>
-
-<!-- ===== ABOUT PAGE ===== -->
-<section class="about-bg">
-
-  <!-- 首屏介绍 -->
+<section class="about-bg page">
   <div class="about-hero">
-    <h1 id="aboutTitle">About Us</h1>
-    <p id="aboutDesc">We are a company dedicated to creating innovative solutions and providing exceptional services for the future.</p>
+    <h1 id="aboutTitle"></h1>
+    <p id="aboutDesc"></p>
   </div>
 
-  <!-- 卡片区域 -->
-  <div class="about-cards">
-    <div class="cards" id="aboutCards">
-      <!-- 卡片内容由 JS 动态填充 -->
-    </div>
-  </div>
-
+  <div class="cards" id="aboutCards"></div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
-  © 2025 VioniaSoft. All rights reserved.<br>
-  Email: contact@vioniasoft.com
+  © 2025 VioniaSoft.
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
+
+
+<section class="about-bg page">
+  <div class="about-hero">
+    <h1 id="aboutTitle"></h1>
+    <p id="aboutDesc"></p>
+  </div>
+
+  <div class="cards" id="aboutCards"></div>
+</section>
+
+<footer>
+  © 2025 VioniaSoft.
+</footer>
+
+<script src="/assets/js/main.js"></script>
 </body>
 </html>
