@@ -256,3 +256,30 @@ fetch("/assets/partials/nav.html")
     $("siteNav").innerHTML = html;
     setLang(localStorage.getItem("lang") || "ko");
   });
+
+/* =========================================================
+   PC Language Menu Auto Close（新增，不破坏原逻辑）
+========================================================= */
+
+// 点击语言后自动关闭（PC）
+const _setLang = setLang;
+setLang = function (lang) {
+  _setLang(lang);
+
+  const menu = document.getElementById("langMenu");
+  if (menu) {
+    menu.style.display = "none";
+  }
+};
+
+// 鼠标移出语言区域自动关闭（PC）
+document.addEventListener("mouseover", () => {
+  const langWrap = document.querySelector(".lang.pc-only");
+  const menu = document.getElementById("langMenu");
+
+  if (!langWrap || !menu) return;
+
+  langWrap.addEventListener("mouseleave", () => {
+    menu.style.display = "none";
+  });
+});
