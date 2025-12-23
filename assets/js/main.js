@@ -120,10 +120,16 @@ function setLang(lang) {
 
   localStorage.setItem("lang", lang);
 
-  document.querySelectorAll("[data-nav]").forEach((el, i) => {
+  /* document.querySelectorAll("[data-nav]").forEach((el, i) => {
     if (t.nav[i]) el.textContent = t.nav[i];
+  });*/
+   
+  document.querySelectorAll("[data-nav]").forEach((el, i) => {
+    const index = i % t.nav.length; // ⭐ 关键
+    el.textContent = t.nav[index];
   });
 
+   
   if ($("heroTitle")) {
     $("heroTitle").textContent = t.hero;
     $("heroDesc").textContent = t.desc;
