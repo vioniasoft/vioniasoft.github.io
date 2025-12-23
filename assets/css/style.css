@@ -474,3 +474,21 @@ footer{
     background: #f1f5f9;
   }
 }
+
+/* =========================
+   Mobile Dropdown Text Fix
+========================= */
+.nav-dropdown a,
+.nav-dropdown div {
+  display: block;
+  padding: 14px 20px;
+  font-size: 0.95em;
+  color: var(--text);
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.nav-dropdown a:hover,
+.nav-dropdown div:hover {
+  background: #f1f5f9;
+}
