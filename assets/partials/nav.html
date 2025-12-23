@@ -1,30 +1,51 @@
-<div class="logo-gradient">VioniaSoft</div>
-
-<div class="nav-center">
-  <a href="/" class="nav-link" data-nav></a>
-  <a href="/about.html" class="nav-link" data-nav></a>
-  <a href="/services.html" class="nav-link" data-nav></a>
-  <a href="/contact.html" class="nav-link" data-nav></a>
-</div>
-
-<div class="nav-right">
-  <div class="lang">
-    <span class="lang-btn" onclick="toggleLang()">🌐</span>
-    <div class="lang-menu" id="langMenu">
-      <div onclick="setLang('ko')">한국어</div>
-      <div onclick="setLang('en')">English</div>
-      <div onclick="setLang('zh')">中文</div>
-      <div onclick="setLang('fr')">Français</div>
-    </div>
+<nav>
+  <!-- Logo -->
+  <div class="logo-gradient" onclick="location.href='/'">
+    VioniaSoft
   </div>
 
-  <div class="nav-mobile" id="mobileNav">
-    <span onclick="document.getElementById('mobileNav').classList.toggle('open')">☰</span>
-    <div class="nav-dropdown">
-      <a href="/" data-nav></a>
-      <a href="/about.html" data-nav></a>
-      <a href="/services.html" data-nav></a>
-      <a href="/contact.html" data-nav></a>
-    </div>
+  <!-- PC 中间导航 -->
+  <div class="nav-center pc-only">
+    <a class="nav-link" data-nav href="/index.html"></a>
+    <a class="nav-link" data-nav href="/about.html"></a>
+    <a class="nav-link" data-nav href="/services.html"></a>
+    <a class="nav-link" data-nav href="/contact.html"></a>
   </div>
-</div>
+
+  <!-- 右侧 -->
+  <div class="nav-right">
+
+    <!-- PC 语言（只在桌面） -->
+    <div class="lang pc-only">
+      <span class="lang-btn" onclick="toggleLang()">🌐</span>
+      <div class="lang-menu" id="langMenu">
+        <div onclick="setLang('ko')">한국어</div>
+        <div onclick="setLang('en')">English</div>
+        <div onclick="setLang('zh')">中文</div>
+      </div>
+    </div>
+
+    <!-- Mobile 菜单 -->
+    <div class="nav-mobile mobile-only" id="navMobile">
+      <span class="menu-btn" onclick="toggleMobileMenu()">☰</span>
+
+      <div class="nav-dropdown">
+        <!-- 导航 -->
+        <a data-nav href="/index.html"></a>
+        <a data-nav href="/about.html"></a>
+        <a data-nav href="/services.html"></a>
+        <a data-nav href="/contact.html"></a>
+
+        <hr>
+
+        <!-- 语言（移动端专用） -->
+        <div class="mobile-lang">
+          <div onclick="setLang('ko')">한국어</div>
+          <div onclick="setLang('en')">English</div>
+          <div onclick="setLang('zh')">中文</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
