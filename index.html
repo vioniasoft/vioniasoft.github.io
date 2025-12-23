@@ -1,51 +1,57 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VioniaSoft</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
 <nav>
-  <!-- Logo -->
-  <div class="logo logo-gradient">VioniaSoft</div>
+  <div class="logo-gradient">VioniaSoft</div>
 
-  <!-- 中间导航（文字由 JS 注入） -->
   <div class="nav-center">
-    <a data-nav class="nav-link" href="index.html">Home</a>
-    <a data-nav class="nav-link" href="about.html">About</a>
-    <a data-nav class="nav-link" href="services.html">Services</a>
-    <a data-nav class="nav-link" href="contact.html">Contact</a>
+    <a href="/" class="nav-link" data-nav></a>
+    <a href="/about.html" class="nav-link" data-nav></a>
+    <a href="/services.html" class="nav-link" data-nav></a>
+    <a href="/contact.html" class="nav-link" data-nav></a>
   </div>
 
-  <!-- 语言切换 -->
   <div class="nav-right">
-    <span class="lang-btn" onclick="toggleLang()">🌐</span>
-    <div class="lang-menu" id="langMenu">
-      <div onclick="setLang('ko')">한국어</div>
-      <div onclick="setLang('en')">English</div>
-      <div onclick="setLang('zh')">中文</div>
-      <div onclick="setLang('fr')">Français</div>
+    <div class="lang">
+      <span class="lang-btn" onclick="toggleLang()">🌐</span>
+      <div class="lang-menu" id="langMenu">
+        <div onclick="setLang('ko')">한국어</div>
+        <div onclick="setLang('en')">English</div>
+        <div onclick="setLang('zh')">中文</div>
+        <div onclick="setLang('fr')">Français</div>
+      </div>
+    </div>
+
+    <div class="nav-mobile" id="mobileNav">
+      <span onclick="document.getElementById('mobileNav').classList.toggle('open')">☰</span>
+      <div class="nav-dropdown">
+        <a href="/" data-nav></a>
+        <a href="/about.html" data-nav></a>
+        <a href="/services.html" data-nav></a>
+        <a href="/contact.html" data-nav></a>
+      </div>
     </div>
   </div>
 </nav>
 
-<!-- ===== HERO（首页专用）===== -->
 <section class="hero">
-  <h1 id="heroTitle">Welcome to VioniaSoft</h1>
-  <p id="heroDesc">Innovating for the future, building solutions that drive success.</p>
-  <a href="services.html" id="heroBtn" class="btn">Explore Our Services</a>
+  <h1 id="heroTitle"></h1>
+  <p id="heroDesc"></p>
+  <p id="heroSub"></p>
+  <a href="/services.html" class="btn" id="heroBtn"></a>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
-  © 2025 VioniaSoft. All rights reserved.<br>
-  Email: contact@vioniasoft.com
+  © 2025 VioniaSoft. All rights reserved.
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 </body>
 </html>
