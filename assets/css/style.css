@@ -389,3 +389,44 @@ footer{
     grid-template-columns:1fr;
   }
 }
+
+/* =========================================================
+   Mobile NAV 修正（右对齐 & 菜单位置）
+========================================================= */
+@media (max-width: 768px) {
+
+  /* nav 三列仍保留，但右侧强制贴右 */
+  nav {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .nav-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  /* ☰ 按钮本身 */
+  .nav-mobile {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .menu-btn {
+    font-size: 1.7em;
+    cursor: pointer;
+    padding: 6px 8px;
+  }
+
+  /* 下拉菜单必须从右边展开 */
+  .nav-dropdown {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: auto;
+    width: 220px;
+    text-align: left;
+  }
+}
+
