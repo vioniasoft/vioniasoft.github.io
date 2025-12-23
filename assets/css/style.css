@@ -430,4 +430,48 @@ footer{
 }
 
 
+/* =========================================================
+   Mobile Menu Structure（层级显示）
+========================================================= */
+@media (max-width: 768px) {
+
+  .nav-dropdown {
+    padding: 8px 0;
+  }
+
+  /* 一级菜单（导航） */
+  .nav-dropdown > a {
+    display: block;
+    padding: 14px 20px;
+    font-weight: 500;
+  }
+
+  /* 分隔线 */
+  .menu-divider {
+    height: 1px;
+    margin: 6px 0;
+    background: #e5e7eb;
+  }
+
+  /* Language 标题 */
+  .menu-group-title {
+    padding: 10px 20px 6px;
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  /* 二级菜单（语言） */
+  .menu-sub div {
+    padding: 10px 32px;
+    font-size: 0.95em;
+    cursor: pointer;
+  }
+
+  .menu-sub div:hover {
+    background: #f1f5f9;
+  }
+}
 
