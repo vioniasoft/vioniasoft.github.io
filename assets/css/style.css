@@ -314,6 +314,53 @@ footer{
   display:block;
 }
 
+/* =========================================================
+   PC / Mobile 显示控制
+========================================================= */
+.pc-only { display: flex; }
+.mobile-only { display: none; }
+
+/* =========================================================
+   Mobile 样式
+========================================================= */
+@media (max-width: 768px){
+
+  .pc-only { display: none !important; }
+  .mobile-only { display: block; }
+
+  .nav-mobile {
+    position: relative;
+  }
+
+  .menu-btn {
+    font-size: 1.6em;
+    cursor: pointer;
+  }
+
+  .nav-dropdown {
+    right: 0;
+    width: 220px;
+  }
+
+  .nav-dropdown a,
+  .mobile-lang div {
+    display: block;
+    padding: 12px 16px;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-dropdown a:hover,
+  .mobile-lang div:hover {
+    background: #f1f5f9;
+  }
+
+  .mobile-lang {
+    border-top: 1px solid #e5e7eb;
+  }
+}
+
+
 @keyframes slideDown{
   from{opacity:0;transform:translateY(-10px);}
   to{opacity:1;transform:translateY(0);}
