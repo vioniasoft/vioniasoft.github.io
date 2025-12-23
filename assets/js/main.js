@@ -27,7 +27,7 @@ const T = {
     ],
     contactTitle: "문의하기",
     contactDesc: "프로젝트 제안, 기술 상담, 협업 문의 등 언제든지 편하게 연락해 주세요."
-    form: {
+    /*form: {
      name: "이름 *",
      email: "이메일 *",
      company: "회사명 (선택)",
@@ -40,7 +40,7 @@ const T = {
      errRequired: "필수 항목입니다.",
      errEmail: "올바른 이메일 형식이 아닙니다.",
      success: "문의가 성공적으로 전송되었습니다."
-   }
+   }*/
   },
 
   en: {
@@ -67,7 +67,7 @@ const T = {
     ],
     contactTitle: "Contact",
     contactDesc: "Feel free to reach out for project inquiries or collaboration."
-    form: {
+    /*form: {
      name: "Name *",
      email: "Email *",
      company: "Company (optional)",
@@ -80,7 +80,7 @@ const T = {
      errRequired: "This field is required.",
      errEmail: "Invalid email address.",
      success: "Your message has been sent successfully."
-   }
+   }*/
   },
 
   zh: {
@@ -106,7 +106,7 @@ const T = {
     ],
     contactTitle: "联系我们",
     contactDesc: "欢迎随时联系我们洽谈项目或合作。"
-    form: {
+    /*form: {
      name: "姓名 *",
      email: "邮箱 *",
      company: "公司（选填）",
@@ -119,7 +119,7 @@ const T = {
      errRequired: "这是必填项。",
      errEmail: "邮箱格式不正确。",
      success: "提交成功，我们会尽快联系您。"
-   }
+   }*/
   },
 
   fr: {
@@ -145,7 +145,7 @@ const T = {
     ],
     contactTitle: "Contact",
     contactDesc: "Contactez-nous pour discuter de votre projet ou d’une collaboration."
-    form: {
+    /*form: {
      name: "Nom *",
      email: "Email *",
      company: "Entreprise (optionnel)",
@@ -158,7 +158,7 @@ const T = {
      errRequired: "Champ requis.",
      errEmail: "Email invalide.",
      success: "Message envoyé avec succès."
-   }
+   }*/
   }
 };
 
