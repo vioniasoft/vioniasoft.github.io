@@ -25,29 +25,41 @@
 
         <!-- 姓名 / 邮箱 -->
         <div class="form-row">
-          <input type="text" name="name" id="fName" required>
-          <input type="email" name="email" id="fEmail" required>
+          <div class="field">
+            <input type="text" name="name">
+            <div class="field-error"></div>
+          </div>
+
+          <div class="field">
+            <input type="email" name="email">
+            <div class="field-error"></div>
+          </div>
         </div>
 
         <!-- 公司名 -->
-        <input type="text" name="company" id="fCompany">
+        <div class="field">
+          <input type="text" name="company">
+        </div>
 
         <!-- 咨询类型 -->
-        <select name="type" id="fType" required>
-          <option value=""></option>
-          <option value="project"></option>
-          <option value="consulting"></option>
-          <option value="partnership"></option>
-          <option value="other"></option>
-        </select>
+        <div class="field">
+          <select name="type">
+            <option value=""></option>
+            <option value="project"></option>
+            <option value="consulting"></option>
+            <option value="partnership"></option>
+            <option value="other"></option>
+          </select>
+          <div class="field-error"></div>
+        </div>
 
         <!-- 内容 -->
-        <textarea name="message" id="fMessage" rows="6" required></textarea>
+        <div class="field">
+          <textarea name="message" rows="6"></textarea>
+          <div class="field-error"></div>
+        </div>
 
-        <button type="submit" class="btn" id="fSubmit"></button>
-
-        <!-- 提示信息 -->
-        <div id="formNotice" style="margin-top:12px;font-size:.9em;"></div>
+        <button type="submit" class="btn" id="contactSubmit"></button>
 
       </form>
 
@@ -63,114 +75,5 @@
 </footer>
 
 <script src="/assets/js/main.js"></script>
-
-<script>
-/* =========================================================
-   Contact Form i18n（仅此页面使用）
-========================================================= */
-const CF = {
-  ko: {
-    name: "이름 *",
-    email: "이메일 *",
-    company: "회사명 (선택)",
-    typePlaceholder: "문의 유형을 선택해 주세요 *",
-    types: ["프로젝트 제안", "기술 상담", "협업 / 파트너십", "기타"],
-    message: "문의 내용을 입력해 주세요 *",
-    submit: "문의 보내기",
-    error: "필수 항목을 모두 입력해 주세요.",
-    success: "메일 앱이 열립니다. 문의 감사합니다."
-  },
-  en: {
-    name: "Name *",
-    email: "Email *",
-    company: "Company (optional)",
-    typePlaceholder: "Select inquiry type *",
-    types: ["Project Proposal", "Technical Consulting", "Partnership", "Other"],
-    message: "Please describe your inquiry *",
-    submit: "Send Inquiry",
-    error: "Please fill in all required fields.",
-    success: "Your email client will open shortly."
-  },
-  zh: {
-    name: "姓名 *",
-    email: "邮箱 *",
-    company: "公司名（选填）",
-    typePlaceholder: "请选择咨询类型 *",
-    types: ["项目提案", "技术咨询", "合作 / 伙伴关系", "其他"],
-    message: "请输入咨询内容 *",
-    submit: "发送咨询",
-    error: "请填写所有必填项。",
-    success: "将为您打开邮箱应用。"
-  },
-  fr: {
-    name: "Nom *",
-    email: "Email *",
-    company: "Entreprise (optionnel)",
-    typePlaceholder: "Type de demande *",
-    types: ["Proposition de projet", "Conseil technique", "Partenariat", "Autre"],
-    message: "Décrivez votre demande *",
-    submit: "Envoyer la demande",
-    error: "Veuillez remplir tous les champs obligatoires.",
-    success: "Votre client mail va s’ouvrir."
-  }
-};
-
-function applyContactLang(lang) {
-  const t = CF[lang] || CF.ko;
-
-  fName.placeholder = t.name;
-  fEmail.placeholder = t.email;
-  fCompany.placeholder = t.company;
-  fMessage.placeholder = t.message;
-  fSubmit.textContent = t.submit;
-
-  const opts = fType.querySelectorAll("option");
-  opts[0].textContent = t.typePlaceholder;
-  t.types.forEach((txt, i) => (opts[i + 1].textContent = txt));
-}
-
-/* 同步语言（跟随你原来的 setLang） */
-const _setLangContact = window.setLang;
-window.setLang = function(lang) {
-  _setLangContact(lang);
-  applyContactLang(lang);
-};
-
-/* 初始化 */
-applyContactLang(localStorage.getItem("lang") || "ko");
-
-/* =========================================================
-   Mailto Submit
-========================================================= */
-contactForm.addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const lang = localStorage.getItem("lang") || "ko";
-  const t = CF[lang];
-
-  if (!this.name.value || !this.email.value || !this.type.value || !this.message.value) {
-    formNotice.textContent = t.error;
-    formNotice.style.color = "#dc2626";
-    return;
-  }
-
-  const body = encodeURIComponent(
-`Name: ${this.name.value}
-Email: ${this.email.value}
-Company: ${this.company.value || "-"}
-Type: ${this.type.options[this.type.selectedIndex].text}
-
-Message:
-${this.message.value}`
-  );
-
-  formNotice.textContent = t.success;
-  formNotice.style.color = "#16a34a";
-
-  window.location.href =
-    `mailto:info@vioniasoft.com?subject=Website Inquiry&body=${body}`;
-});
-</script>
-
 </body>
 </html>
