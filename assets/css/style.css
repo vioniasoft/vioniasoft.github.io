@@ -515,6 +515,25 @@ footer{
   resize: vertical;
 }
 
+.contact-form select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  font-size: 1em;
+  font-family: inherit;
+  background: #fff;
+  outline: none;
+}
+
+.contact-form select:focus {
+  border-color: var(--sub);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+
+
+
 
 
 
