@@ -188,20 +188,20 @@ function toggleMobileMenu() {
 }
 
 /* 点击空白关闭 Mobile Menu */
-document.addEventListener("click", e => {
+/* document.addEventListener("click", e => {
   const nav = $("navMobile");
   if (!nav || !nav.classList.contains("open")) return;
   if (!nav.contains(e.target)) {
     nav.classList.remove("open");
   }
-});
+});*/
 
 /* 点击菜单项自动关闭 */
-document.addEventListener("click", e => {
+/* document.addEventListener("click", e => {
   if (e.target.closest(".nav-dropdown a")) {
     $("navMobile")?.classList.remove("open");
   }
-});
+});*/
 
 /* =========================================================
    Card Animation（原样）
@@ -315,7 +315,7 @@ document.addEventListener("mouseover", () => {
    Mobile Menu Auto Close（新增，基于你原结构）
 ========================================================= */
 
-document.addEventListener("click", (e) => {
+/* document.addEventListener("click", (e) => {
   const navMobile = document.getElementById("navMobile");
   if (!navMobile) return;
 
@@ -336,7 +336,20 @@ document.addEventListener("click", (e) => {
 
   // 点击屏幕空白区域 → 关闭
   navMobile.classList.remove("open");
-});
+});*/
+
+
+/* =========================================================
+   Mobile Menu Auto Close
+========================================================= */
+function closeMobileMenu() {
+  const nav = document.getElementById("navMobile");
+  const langSub = document.getElementById("mobileLangSub");
+
+  if (nav) nav.classList.remove("open");
+  if (langSub) langSub.classList.remove("open"); // ⭐ 核心
+}
+
 
 /* =========================================================
    Mobile Language Click Auto Close（语言点完即收）
