@@ -15,14 +15,13 @@
   <!-- 右侧 -->
   <div class="nav-right">
 
-    <!-- PC 语言（仅桌面） -->
+    <!-- PC 语言（只在桌面） -->
     <div class="lang pc-only">
       <span class="lang-btn" onclick="toggleLang()">🌐</span>
       <div class="lang-menu" id="langMenu">
         <div onclick="setLang('ko')">한국어</div>
         <div onclick="setLang('en')">English</div>
         <div onclick="setLang('zh')">中文</div>
-        <div onclick="setLang('fr')">Français</div>
       </div>
     </div>
 
@@ -30,30 +29,22 @@
     <div class="nav-mobile mobile-only" id="navMobile">
       <span class="menu-btn" onclick="toggleMobileMenu()">☰</span>
 
-        <div class="nav-dropdown">
-        
-          <!-- 主导航 -->
-          <a class="m-nav" href="/index.html"></a>
-          <a class="m-nav" href="/about.html"></a>
-          <a class="m-nav" href="/services.html"></a>
-          <a class="m-nav" href="/contact.html"></a>
-        
-          <div class="menu-divider"></div>
-        
-          <!-- Language Toggle -->
-          <div class="menu-lang-toggle" onclick="toggleMobileLang()">
-            Language
-            <span class="arrow">▾</span>
-          </div>
-        
-          <div class="menu-sub" id="mobileLang">
-            <div onclick="setLang('ko')">한국어</div>
-            <div onclick="setLang('en')">English</div>
-            <div onclick="setLang('zh')">中文</div>
-            <div onclick="setLang('fr')">Français</div>
-          </div>
-        </div>
+      <div class="nav-dropdown">
+        <!-- 导航 -->
+        <a data-nav href="/index.html"></a>
+        <a data-nav href="/about.html"></a>
+        <a data-nav href="/services.html"></a>
+        <a data-nav href="/contact.html"></a>
 
+        <hr>
+
+        <!-- 语言（移动端专用） -->
+        <div class="mobile-lang">
+          <div onclick="setLang('ko')">한국어</div>
+          <div onclick="setLang('en')">English</div>
+          <div onclick="setLang('zh')">中文</div>
+        </div>
+      </div>
     </div>
 
   </div>
