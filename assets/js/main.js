@@ -27,6 +27,20 @@ const T = {
     ],
     contactTitle: "문의하기",
     contactDesc: "프로젝트 제안, 기술 상담, 협업 문의 등 언제든지 편하게 연락해 주세요."
+    form: {
+     name: "이름 *",
+     email: "이메일 *",
+     company: "회사명 (선택)",
+     typePlaceholder: "문의 유형을 선택해 주세요 *",
+     typeProject: "프로젝트 문의",
+     typeConsulting: "기술 상담",
+     typePartner: "협업 제안",
+     message: "문의 내용을 입력해 주세요 *",
+     send: "보내기",
+     errRequired: "필수 항목입니다.",
+     errEmail: "올바른 이메일 형식이 아닙니다.",
+     success: "문의가 성공적으로 전송되었습니다."
+   }
   },
 
   en: {
@@ -53,6 +67,20 @@ const T = {
     ],
     contactTitle: "Contact",
     contactDesc: "Feel free to reach out for project inquiries or collaboration."
+    form: {
+     name: "Name *",
+     email: "Email *",
+     company: "Company (optional)",
+     typePlaceholder: "Select inquiry type *",
+     typeProject: "Project Inquiry",
+     typeConsulting: "Consulting",
+     typePartner: "Partnership",
+     message: "Your message *",
+     send: "Send",
+     errRequired: "This field is required.",
+     errEmail: "Invalid email address.",
+     success: "Your message has been sent successfully."
+   }
   },
 
   zh: {
@@ -78,6 +106,20 @@ const T = {
     ],
     contactTitle: "联系我们",
     contactDesc: "欢迎随时联系我们洽谈项目或合作。"
+    form: {
+     name: "姓名 *",
+     email: "邮箱 *",
+     company: "公司（选填）",
+     typePlaceholder: "请选择咨询类型 *",
+     typeProject: "项目咨询",
+     typeConsulting: "技术咨询",
+     typePartner: "合作提案",
+     message: "请输入咨询内容 *",
+     send: "发送",
+     errRequired: "这是必填项。",
+     errEmail: "邮箱格式不正确。",
+     success: "提交成功，我们会尽快联系您。"
+   }
   },
 
   fr: {
@@ -103,6 +145,20 @@ const T = {
     ],
     contactTitle: "Contact",
     contactDesc: "Contactez-nous pour discuter de votre projet ou d’une collaboration."
+    form: {
+     name: "Nom *",
+     email: "Email *",
+     company: "Entreprise (optionnel)",
+     typePlaceholder: "Type de demande *",
+     typeProject: "Projet",
+     typeConsulting: "Consultation",
+     typePartner: "Partenariat",
+     message: "Votre message *",
+     send: "Envoyer",
+     errRequired: "Champ requis.",
+     errEmail: "Email invalide.",
+     success: "Message envoyé avec succès."
+   }
   }
 };
 
@@ -119,10 +175,6 @@ function setLang(lang) {
   if (!t) return;
 
   localStorage.setItem("lang", lang);
-
-  /* document.querySelectorAll("[data-nav]").forEach((el, i) => {
-    if (t.nav[i]) el.textContent = t.nav[i];
-  });*/
    
   document.querySelectorAll("[data-nav]").forEach((el, i) => {
     const index = i % t.nav.length; // ⭐ 关键
@@ -187,22 +239,6 @@ function toggleMobileMenu() {
   if (nav) nav.classList.toggle("open");
 }
 
-/* 点击空白关闭 Mobile Menu */
-/* document.addEventListener("click", e => {
-  const nav = $("navMobile");
-  if (!nav || !nav.classList.contains("open")) return;
-  if (!nav.contains(e.target)) {
-    nav.classList.remove("open");
-  }
-});*/
-
-/* 点击菜单项自动关闭 */
-/* document.addEventListener("click", e => {
-  if (e.target.closest(".nav-dropdown a")) {
-    $("navMobile")?.classList.remove("open");
-  }
-});*/
-
 /* =========================================================
    Card Animation（原样）
 ========================================================= */
@@ -228,45 +264,6 @@ function observeCards() {
 }
 
 /* =========================================================
-   Init
-========================================================= */
-/*window.addEventListener("DOMContentLoaded", () => {
-  setLang(localStorage.getItem("lang") || "ko");*/
-
-  /* Contact → mailto */
-  /* const form = $("contactForm");
-  if (form) {
-    form.addEventListener("submit", e => {
-      e.preventDefault();
-
-      const name = form.querySelector("input[type='text']").value;
-      const email = form.querySelector("input[type='email']").value;
-      const msg = form.querySelector("textarea").value;
-
-      const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\n\n${msg}`
-      );
-
-      window.location.href =
-        `mailto:info@vioniasoft.com?subject=Inquiry from Website&body=${body}`;
-    });
-  }
-});*/
-
-/* =========================================================
-   Inject NAV
-========================================================= */
-/* fetch("/assets/partials/nav.html")
-  .then(res => res.text())
-  .then(html => {
-    $("siteNav").innerHTML = html;
-    setLang(localStorage.getItem("lang") || "ko");
-  });*/
-
-/* =========================================================
-   PC Language Menu Auto Close（新增，不破坏原逻辑）
-========================================================= */
-/* =========================================================
    Inject NAV + Sync Language（关键修复）
 ========================================================= */
 fetch("/assets/partials/nav.html")
@@ -282,8 +279,6 @@ fetch("/assets/partials/nav.html")
       setLang(localStorage.getItem("lang") || "ko");
     });
   });
-
-
 
 
 
@@ -309,34 +304,6 @@ document.addEventListener("mouseover", () => {
     menu.style.display = "none";
   });
 });
-
-
-/* =========================================================
-   Mobile Menu Auto Close（新增，基于你原结构）
-========================================================= */
-
-/* document.addEventListener("click", (e) => {
-  const navMobile = document.getElementById("navMobile");
-  if (!navMobile) return;
-
-  const menuBtn = navMobile.querySelector(".menu-btn");
-  const dropdown = navMobile.querySelector(".nav-dropdown");
-
-  // 菜单未打开，不处理
-  if (!navMobile.classList.contains("open")) return;
-
-  // 点击 ☰ 按钮本身，不关闭（交给 toggleMobileMenu）
-  if (menuBtn && menuBtn.contains(e.target)) return;
-
-  // 点击菜单里的任意内容 → 关闭
-  if (dropdown && dropdown.contains(e.target)) {
-    navMobile.classList.remove("open");
-    return;
-  }
-
-  // 点击屏幕空白区域 → 关闭
-  navMobile.classList.remove("open");
-});*/
 
 
 /* =========================================================
@@ -379,8 +346,6 @@ setLang = function (lang) {
   if (navMobile) navMobile.classList.remove("open");
 };
 
-
-
 /* =========================================================
    Mobile Language Toggle
 ========================================================= */
@@ -392,8 +357,6 @@ function toggleMobileLang() {
   title.classList.toggle("open");
   sub.classList.toggle("open");
 }
-
-
 
 /* =========================================================
    Mobile Menu Close (统一出口)
@@ -411,15 +374,88 @@ function toggleMobileMenu() {
   if (nav) nav.classList.toggle("open");
 }
 
-/*function toggleMobileLang(e) {
-  e.stopPropagation(); // ⛔ 必须
-  const sub = document.getElementById("mobileLangSub");
-  if (sub) sub.classList.toggle("open");
-}*/
 function toggleMobileLang(e) {
   e.stopPropagation(); // ⭐ 防止 document click
   document
     .getElementById("mobileLangSub")
     ?.classList.toggle("open");
 }
+
+
+/* =========================================================
+   Contact Form (Validation + i18n + Success UI)
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  const fields = {
+    name: form.querySelector("#name"),
+    email: form.querySelector("#email"),
+    company: form.querySelector("#company"),
+    type: form.querySelector("#type"),
+    message: form.querySelector("#message")
+  };
+
+  const successMsg = document.getElementById("successMsg");
+  const submitBtn = document.getElementById("submitBtn");
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const lang = localStorage.getItem("lang") || "ko";
+    const t = T[lang].form;
+
+    let valid = true;
+
+    // 清空错误
+    form.querySelectorAll(".error").forEach(e => (e.textContent = ""));
+    successMsg.textContent = "";
+
+    // 必填校验
+    ["name", "email", "type", "message"].forEach(key => {
+      const input = fields[key];
+      const error = input.parentElement.querySelector(".error");
+
+      if (!input.value.trim()) {
+        error.textContent = t.errRequired;
+        valid = false;
+      }
+    });
+
+    // Email 格式
+    if (
+      fields.email.value &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email.value)
+    ) {
+      fields.email.parentElement.querySelector(".error").textContent =
+        t.errEmail;
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // 成功 UI
+    submitBtn.classList.add("loading");
+
+    setTimeout(() => {
+      submitBtn.classList.remove("loading");
+      successMsg.textContent = t.success;
+      form.reset();
+    }, 600);
+
+    // mailto
+    const body = encodeURIComponent(
+      `Name: ${fields.name.value}
+Email: ${fields.email.value}
+Company: ${fields.company.value}
+Type: ${fields.type.value}
+
+${fields.message.value}`
+    );
+
+    window.location.href =
+      `mailto:info@vioniasoft.com?subject=Website Inquiry&body=${body}`;
+  });
+});
 
