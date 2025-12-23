@@ -388,3 +388,12 @@ function closeMobileMenu() {
   sub?.classList.remove("open");
 }
 
+
+
+function toggleMobileLang(e) {
+  e.stopPropagation(); // ⛔ 阻止冒泡（非常关键）
+  const sub = document.getElementById("mobileLangSub");
+  if (sub) sub.classList.toggle("open");
+}
+
+
