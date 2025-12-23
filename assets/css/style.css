@@ -191,3 +191,41 @@ body::before{
   .pc-only{display:none!important;}
   .mobile-only{display:flex!important;}
 }
+
+/* ===============================
+   🔧 Mobile Menu 强制修复补丁
+   不影响原有样式
+================================ */
+
+/* 1️⃣ 强制修复菜单文字不可见问题 */
+.nav-dropdown a,
+.nav-dropdown div{
+  color: var(--text) !important;
+  font-size: 1em !important;
+  line-height: 1.4 !important;
+  opacity: 1 !important;
+}
+
+/* 2️⃣ 修复菜单高度塌陷 */
+.nav-dropdown a{
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* 3️⃣ Language 子菜单默认关闭 */
+.menu-sub{
+  display: none !important;
+}
+
+/* JS 加 .open 时才展开 */
+.menu-sub.open{
+  display: block !important;
+}
+
+/* 4️⃣ 分割线细化 */
+.menu-divider{
+  height: 1px !important;
+  background: #e5e7eb !important;
+}
+
