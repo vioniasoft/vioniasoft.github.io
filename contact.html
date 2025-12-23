@@ -23,56 +23,35 @@
 
       <form class="contact-form" id="contactForm" novalidate>
 
-        <!-- 이름 / 이메일 -->
         <div class="form-row">
           <div class="field">
-            <input type="text" id="fName" name="name" required>
+            <input type="text" name="name" id="fName" required>
             <div class="field-error"></div>
           </div>
-
+      
           <div class="field">
-            <input type="email" id="fEmail" name="email" required>
+            <input type="email" name="email" id="fEmail" required>
             <div class="field-error"></div>
           </div>
         </div>
-
-        <!-- 회사명 -->
-        <div class="field">
-          <input type="text" id="fCompany" name="company">
-        </div>
-
-        <!-- 문의 유형 -->
-        <div class="field">
-          <select id="fType" name="type" required>
-            <option value=""></option>
-            <option value="project"></option>
-            <option value="consulting"></option>
-            <option value="partnership"></option>
-            <option value="other"></option>
-          </select>
-          <div class="field-error"></div>
-        </div>
-
-        <!-- 내용 -->
-        <div class="field">
-          <textarea id="fMessage" name="message" rows="6" required></textarea>
-          <div class="field-error"></div>
-        </div>
-
-        <button type="submit" class="btn" id="fSubmit">
-          <span class="btn-text"></span>
-          <span class="btn-loading"></span>
-        </button>
-        
-        <!-- 成功卡片 -->
-        <div id="successCard" class="success-card">
-          <div class="success-icon">✓</div>
-          <div class="success-text"></div>
-        </div>
-        
+      
+        <input type="text" name="company" id="fCompany">
+      
+        <select name="type" id="fType" required>
+          <option value=""></option>
+          <option value="project"></option>
+          <option value="consulting"></option>
+          <option value="partnership"></option>
+          <option value="other"></option>
+        </select>
+        <div class="field-error"></div>
+      
+        <textarea name="message" id="fMessage" rows="6" required></textarea>
+        <div class="field-error"></div>
+      
+        <button type="submit" class="btn" id="fSubmit"></button>
+      
         <div id="formNotice" class="form-notice"></div>
-
-
       </form>
 
     </div>
