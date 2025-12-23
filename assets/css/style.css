@@ -625,3 +625,27 @@ footer {
   }
 }
 
+
+/* =========================================================
+   Footer 视觉固定到底（修正版，项目专用）
+========================================================= */
+
+/* 主体最小填满屏幕（减去 nav 高度） */
+.page,
+.about-bg,
+.contact-page {
+  min-height: calc(100vh - 64px - 60px); /* nav + footer 预留 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* hero 单独处理（避免溢出） */
+.hero {
+  min-height: calc(100vh - 64px);
+}
+
+/* footer 正常流，永不悬浮 */
+footer {
+  margin-top: auto;
+}
+
