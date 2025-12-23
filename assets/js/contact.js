@@ -114,6 +114,7 @@ function handleSubmit(e) {
   const t = CF[lang];
 
   clearErrors();
+  formNotice.textContent = "";
 
   let hasError = false;
 
@@ -139,6 +140,10 @@ function handleSubmit(e) {
 
   if (hasError) return;
 
+  /* ===== Loading ===== */
+  fSubmit.classList.add("loading");
+  fSubmit.disabled = true;
+
   const body = encodeURIComponent(
 `Name: ${fName.value}
 Email: ${fEmail.value}
@@ -149,11 +154,19 @@ Message:
 ${fMessage.value}`
   );
 
-  document.getElementById("formNotice").textContent = t.success;
+  /* ===== Fake delay for UX ===== */
+  setTimeout(() => {
+    fSubmit.classList.remove("loading");
+    fSubmit.disabled = false;
 
-  window.location.href =
-    `mailto:info@vioniasoft.com?subject=Website Inquiry&body=${body}`;
+    document.getElementById("successCard").style.display = "block";
+    document.querySelector(".success-text").textContent = t.success;
+
+    window.location.href =
+      `mailto:info@vioniasoft.com?subject=Website Inquiry&body=${body}`;
+  }, 800);
 }
+
 
 /* =========================================================
    Error Helpers
