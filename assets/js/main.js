@@ -356,3 +356,17 @@ setLang = function (lang) {
 };
 
 
+
+/* =========================================================
+   Mobile Language Toggle
+========================================================= */
+function toggleMobileLang() {
+  const title = document.querySelector(".menu-group-title");
+  const sub = document.querySelector(".menu-sub");
+  if (!title || !sub) return;
+
+  title.classList.toggle("open");
+  sub.classList.toggle("open");
+}
+
+
