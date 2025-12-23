@@ -376,7 +376,10 @@ function toggleMobileLang() {
 ========================================================= */
 function closeMobileMenu() {
   const nav = document.getElementById("navMobile");
+  const langSub = document.getElementById("mobileLangSub");
+
   if (nav) nav.classList.remove("open");
+  if (langSub) langSub.classList.remove("open"); // ⭐ 关键
 }
 
 function toggleMobileMenu() {
