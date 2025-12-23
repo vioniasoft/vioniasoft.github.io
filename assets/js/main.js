@@ -350,6 +350,17 @@ function closeMobileMenu() {
   if (langSub) langSub.classList.remove("open"); // ⭐ 核心
 }
 
+document.addEventListener("click", e => {
+  const nav = document.getElementById("navMobile");
+  if (!nav || !nav.classList.contains("open")) return;
+
+  // 点在 nav 内部（包括 Language ▶）不关
+  if (nav.contains(e.target)) return;
+
+  // 点空白
+  closeMobileMenu();
+});
+
 
 /* =========================================================
    Mobile Language Click Auto Close（语言点完即收）
