@@ -4,50 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Services | VioniaSoft</title>
+
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
-<nav>
-  <div class="logo-gradient">VioniaSoft</div>
+<!-- NAV -->
+<nav id="siteNav"></nav>
 
-  <div class="nav-center">
-    <a href="/" class="nav-link" data-nav></a>
-    <a href="/about.html" class="nav-link" data-nav></a>
-    <a href="/services.html" class="nav-link" data-nav></a>
-    <a href="/contact.html" class="nav-link" data-nav></a>
+<!-- SERVICES -->
+<section class="about-bg page">
+
+  <div class="about-hero">
+    <h1 id="servicesTitle"></h1>
+    <p id="servicesDesc"></p>
   </div>
 
-  <div class="nav-right">
-    <div class="lang">
-      <span class="lang-btn" onclick="toggleLang()">🌐</span>
-      <div class="lang-menu" id="langMenu">
-        <div onclick="setLang('ko')">한국어</div>
-        <div onclick="setLang('en')">English</div>
-        <div onclick="setLang('zh')">中文</div>
-        <div onclick="setLang('fr')">Français</div>
-      </div>
-    </div>
-
-    <div class="nav-mobile" id="mobileNav">
-      <span onclick="document.getElementById('mobileNav').classList.toggle('open')">☰</span>
-      <div class="nav-dropdown">
-        <a href="/" data-nav></a>
-        <a href="/about.html" data-nav></a>
-        <a href="/services.html" data-nav></a>
-        <a href="/contact.html" data-nav></a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<section class="page">
-  <h1 id="servicesTitle"></h1>
   <div class="cards" id="servicesCards"></div>
+
 </section>
 
+<!-- FOOTER -->
 <footer>
-  © 2025 VioniaSoft.
+  © 2025 VioniaSoft. All rights reserved.<br>
+  Email: contact@vioniasoft.com
 </footer>
 
 <script src="/assets/js/main.js"></script>
