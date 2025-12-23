@@ -12,7 +12,7 @@
     <a class="nav-link" data-nav href="/contact.html"></a>
   </div>
 
-  <!-- 右侧区域 -->
+  <!-- 右侧 -->
   <div class="nav-right">
 
     <!-- PC 语言（仅桌面） -->
@@ -30,29 +30,23 @@
     <div class="nav-mobile mobile-only" id="navMobile">
       <span class="menu-btn" onclick="toggleMobileMenu()">☰</span>
 
-      <div class="nav-dropdown">
+      <div class="nav-dropdown" id="mobileMenu">
+        <!-- 主菜单 -->
+        <a class="m-nav" data-nav href="/index.html"></a>
+        <a class="m-nav" data-nav href="/about.html"></a>
+        <a class="m-nav" data-nav href="/services.html"></a>
+        <a class="m-nav" data-nav href="/contact.html"></a>
 
-        <!-- 主导航 -->
-        <a class="m-nav" data-mnav href="/index.html"></a>
-        <a class="m-nav" data-mnav href="/about.html"></a>
-        <a class="m-nav" data-mnav href="/services.html"></a>
-        <a class="m-nav" data-mnav href="/contact.html"></a>
-
-
-        <!-- 分隔线 -->
         <div class="menu-divider"></div>
 
-        <!-- Language 标题 -->
         <div class="menu-group-title">Language</div>
 
-        <!-- 语言选项（二级） -->
         <div class="menu-sub">
           <div onclick="setLang('ko')">한국어</div>
           <div onclick="setLang('en')">English</div>
           <div onclick="setLang('zh')">中文</div>
           <div onclick="setLang('fr')">Français</div>
         </div>
-
       </div>
     </div>
 
