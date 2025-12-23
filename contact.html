@@ -4,14 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact | VioniaSoft</title>
-
-  <!-- 主样式 -->
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
 <!-- NAV -->
-<div id="siteNav"></div>
+<nav id="siteNav"></nav>
 
 <!-- CONTACT -->
 <section class="page contact-page">
@@ -27,28 +25,21 @@
       <form class="contact-form" id="contactForm" novalidate>
 
         <div class="form-row">
-          <input
-            type="text"
-            id="contactName"
-            placeholder="이름"
-            required
-          >
-          <input
-            type="email"
-            id="contactEmail"
-            placeholder="이메일"
-            required
-          >
+          <input type="text" id="name" name="name" placeholder="이름" required>
+          <input type="email" id="email" name="email" placeholder="이메일" required>
         </div>
 
-        <textarea
-          id="contactMessage"
-          rows="6"
-          placeholder="문의 내용을 입력해 주세요"
-          required
-        ></textarea>
+        <input type="text" id="company" name="company" placeholder="회사명 (선택)">
 
-        <!-- 错误提示 -->
+        <select id="type" name="type" required>
+          <option value="">문의 유형을 선택해 주세요 *</option>
+          <option value="project">프로젝트 문의</option>
+          <option value="consulting">기술 상담</option>
+          <option value="partnership">협업 / 파트너십</option>
+        </select>
+
+        <textarea id="message" name="message" rows="6" placeholder="문의 내용을 입력해 주세요 *" required></textarea>
+
         <div class="form-error" id="formError"></div>
 
         <button type="submit" class="btn">
@@ -68,7 +59,6 @@
   © 2025 VioniaSoft. All rights reserved.
 </footer>
 
-<!-- 主 JS（一定要在 body 最底部） -->
 <script src="/assets/js/main.js"></script>
 
 </body>
