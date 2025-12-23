@@ -597,9 +597,21 @@ footer {
 /* =========================================================
    Mobile Menu 宽度收紧（不影响逻辑）
 ========================================================= */
+.nav-dropdown {
+  width: 190px;
+  right: 12px;
+  border-radius: 14px;
+  padding: 6px 0;
+  box-shadow: 0 14px 36px rgba(0,0,0,.18);
+}
+
 @media (max-width: 768px) {
   .nav-dropdown {
-    width: 160px;      /* 原来 220px → 收紧 */
-    right: 10px;       /* 稍微贴边一点 */
+    width: 190px;
+    right: 12px;
+    border-radius: 14px;
+    padding: 6px 0;
+    box-shadow: 0 14px 36px rgba(0,0,0,.18);
   }
 }
+
