@@ -510,3 +510,53 @@ footer{
   padding-left: 36px;
   font-size: 0.9em;
 }
+/* ================= PC / Mobile 控制 ================= */
+.pc-only { display: flex; }
+.mobile-only { display: none; }
+
+@media (max-width: 768px) {
+  .pc-only { display: none !important; }
+  .mobile-only { display: flex !important; }
+
+  .nav-mobile {
+    position: relative;
+  }
+
+  .nav-dropdown {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    width: 220px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    display: none;
+    padding: 12px 0;
+  }
+
+  .nav-mobile.open .nav-dropdown {
+    display: block;
+  }
+
+  .nav-dropdown a,
+  .menu-sub div {
+    display: block;
+    padding: 12px 20px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .menu-divider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 10px 0;
+  }
+
+  .menu-group-title {
+    padding: 6px 20px;
+    font-size: .8em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+}
