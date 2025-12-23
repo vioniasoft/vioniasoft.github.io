@@ -411,9 +411,15 @@ function toggleMobileMenu() {
   if (nav) nav.classList.toggle("open");
 }
 
-function toggleMobileLang(e) {
+/*function toggleMobileLang(e) {
   e.stopPropagation(); // ⛔ 必须
   const sub = document.getElementById("mobileLangSub");
   if (sub) sub.classList.toggle("open");
+}*/
+function toggleMobileLang(e) {
+  e.stopPropagation(); // ⭐ 防止 document click
+  document
+    .getElementById("mobileLangSub")
+    ?.classList.toggle("open");
 }
 
