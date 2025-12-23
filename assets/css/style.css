@@ -575,4 +575,20 @@ footer{
 
 
 
+/* =========================================================
+   Footer 真·底部锁定（无抖动）
+========================================================= */
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
 
