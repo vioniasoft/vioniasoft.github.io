@@ -15,23 +15,44 @@
 <!-- CONTACT -->
 <section class="page contact-page">
 
-  <h1 id="contactTitle"></h1>
-  <p id="contactDesc"></p>
+  <h1 id="contactTitle">문의하기</h1>
+  <p id="contactDesc">
+    프로젝트 제안, 기술 상담, 협업 문의 등 언제든지 편하게 연락해 주세요.
+  </p>
 
   <div class="contact-wrap">
     <div class="card contact-card">
 
       <form class="contact-form" id="contactForm">
 
+        <!-- 이름 / 이메일 -->
         <div class="form-row">
-          <input type="text" placeholder="Name" required>
-          <input type="email" placeholder="Email" required>
+          <input type="text" name="name" placeholder="이름 *" required>
+          <input type="email" name="email" placeholder="이메일 *" required>
         </div>
 
-        <textarea rows="6" placeholder="Message" required></textarea>
+        <!-- 회사명 -->
+        <input type="text" name="company" placeholder="회사명 (선택)">
+
+        <!-- 문의 유형 -->
+        <select name="type" required>
+          <option value="">문의 유형을 선택해 주세요 *</option>
+          <option value="project">프로젝트 제안</option>
+          <option value="consulting">기술 상담</option>
+          <option value="partnership">협업 / 파트너십</option>
+          <option value="other">기타</option>
+        </select>
+
+        <!-- 문의 내용 -->
+        <textarea
+          name="message"
+          rows="6"
+          placeholder="문의 내용을 입력해 주세요 *"
+          required
+        ></textarea>
 
         <button type="submit" class="btn">
-          Send
+          보내기
         </button>
 
       </form>
@@ -43,7 +64,7 @@
 
 <!-- FOOTER -->
 <footer>
-        Email: info@vioniasoft.com<br>
+  Email: info@vioniasoft.com<br>
   © 2025 VioniaSoft. All rights reserved.
 </footer>
 
@@ -52,7 +73,35 @@
 <script>
 document.getElementById("contactForm")?.addEventListener("submit", e => {
   e.preventDefault();
-  alert("Message sent successfully.");
+
+  const form = e.target;
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const type = form.type.value;
+  const message = form.message.value.trim();
+
+  if (!name) {
+    alert("이름을 입력해 주세요.");
+    return;
+  }
+
+  if (!email) {
+    alert("이메일을 입력해 주세요.");
+    return;
+  }
+
+  if (!type) {
+    alert("문의 유형을 선택해 주세요.");
+    return;
+  }
+
+  if (!message) {
+    alert("문의 내용을 입력해 주세요.");
+    return;
+  }
+
+  alert("문의가 정상적으로 전송되었습니다.\n빠른 시일 내에 연락드리겠습니다.");
+  form.reset();
 });
 </script>
 
