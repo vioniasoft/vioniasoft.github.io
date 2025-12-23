@@ -44,13 +44,15 @@
         <!-- Language 标题 -->
         <div class="menu-group-title" onclick="toggleMobileLang()">Language</div>
 
+        
         <!-- 语言选项（二级） -->
         <div class="menu-sub">
-          <div onclick="setLang('ko')">한국어</div>
-          <div onclick="setLang('en')">English</div>
-          <div onclick="setLang('zh')">中文</div>
-          <div onclick="setLang('fr')">Français</div>
+          <div onclick="setLang('ko'); closeMobileMenu()">한국어</div>
+          <div onclick="setLang('en'); closeMobileMenu()">English</div>
+          <div onclick="setLang('zh'); closeMobileMenu()">中文</div>
+          <div onclick="setLang('fr'); closeMobileMenu()">Français</div>
         </div>
+
 
       </div>
     </div>
