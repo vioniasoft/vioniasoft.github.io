@@ -1,0 +1,30 @@
+<div class="logo-gradient">VioniaSoft</div>
+
+<div class="nav-center">
+  <a href="/" class="nav-link" data-nav></a>
+  <a href="/about.html" class="nav-link" data-nav></a>
+  <a href="/services.html" class="nav-link" data-nav></a>
+  <a href="/contact.html" class="nav-link" data-nav></a>
+</div>
+
+<div class="nav-right">
+  <div class="lang">
+    <span class="lang-btn" onclick="toggleLang()">🌐</span>
+    <div class="lang-menu" id="langMenu">
+      <div onclick="setLang('ko')">한국어</div>
+      <div onclick="setLang('en')">English</div>
+      <div onclick="setLang('zh')">中文</div>
+      <div onclick="setLang('fr')">Français</div>
+    </div>
+  </div>
+
+  <div class="nav-mobile" id="mobileNav">
+    <span onclick="document.getElementById('mobileNav').classList.toggle('open')">☰</span>
+    <div class="nav-dropdown">
+      <a href="/" data-nav></a>
+      <a href="/about.html" data-nav></a>
+      <a href="/services.html" data-nav></a>
+      <a href="/contact.html" data-nav></a>
+    </div>
+  </div>
+</div>
