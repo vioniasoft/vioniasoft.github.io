@@ -641,10 +641,13 @@ body {
 }
 
 /* 只有内容少的页面才撑满 */
-.hero,
+/*.hero,
 .contact-page {
   flex: 1;
 }
+.hero {
+  flex: 1;
+}*/
 
 /* 内容多的页面不要强行拉伸 */
 .page,
