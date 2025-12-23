@@ -514,3 +514,23 @@ footer{
     flex-direction: column;
   }
 }
+
+
+
+
+
+
+
+
+/* =========================================================
+   FIX: Mobile Menu Text Invisible（关键修复）
+========================================================= */
+@media (max-width: 768px) {
+  .nav-dropdown a {
+    color: var(--text) !important;
+    font-size: 1em;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+}
+
