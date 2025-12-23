@@ -473,7 +473,11 @@ footer{
 .contact-card {
   padding: 36px;
 }
-
+/* Contact 页面表单：默认可见 */
+.contact-card {
+  opacity: 1 !important;
+  transform: none !important;
+}
 .contact-form {
   display: flex;
   flex-direction: column;
