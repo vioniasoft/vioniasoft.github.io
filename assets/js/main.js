@@ -461,47 +461,119 @@ ${fields.message.value}`
 
 
 
+
 /* =========================================================
-   Contact Form (ONLY if exists)
+   Contact Form Validation + Loading (Multi-language)
 ========================================================= */
+
+const CF = {
+  ko: {
+    name: "이름을 입력해 주세요.",
+    email: "이메일을 입력해 주세요.",
+    emailInvalid: "올바른 이메일 형식이 아닙니다.",
+    type: "문의 유형을 선택해 주세요.",
+    message: "문의 내용을 입력해 주세요.",
+    sending: "전송 중...",
+    send: "문의 보내기"
+  },
+  en: {
+    name: "Please enter your name.",
+    email: "Please enter your email.",
+    emailInvalid: "Invalid email format.",
+    type: "Please select an inquiry type.",
+    message: "Please enter your message.",
+    sending: "Sending...",
+    send: "Send Message"
+  },
+  zh: {
+    name: "请输入您的姓名。",
+    email: "请输入邮箱。",
+    emailInvalid: "邮箱格式不正确。",
+    type: "请选择咨询类型。",
+    message: "请输入咨询内容。",
+    sending: "发送中...",
+    send: "发送"
+  },
+  fr: {
+    name: "Veuillez saisir votre nom.",
+    email: "Veuillez saisir votre email.",
+    emailInvalid: "Format d’email invalide.",
+    type: "Veuillez sélectionner un type.",
+    message: "Veuillez saisir le message.",
+    sending: "Envoi...",
+    send: "Envoyer"
+  }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
-  const contactForm = document.getElementById("contactForm");
-  const formNotice = document.getElementById("formNotice");
+  const form = document.getElementById("contactForm");
+  const btn = document.getElementById("contactSubmit");
 
-  if (!contactForm || !formNotice) return;
+  if (!form || !btn) return; // 只在 contact 页面生效
 
-  contactForm.addEventListener("submit", function(e) {
+  form.addEventListener("submit", e => {
     e.preventDefault();
 
     const lang = localStorage.getItem("lang") || "ko";
     const t = CF[lang];
 
-    formNotice.textContent = "";
-    formNotice.style.color = "#dc2626";
+    // 清空错误
+    form.querySelectorAll(".field-error").forEach(el => el.textContent = "");
 
-    if (!this.name.value.trim() ||
-        !this.email.value.trim() ||
-        !this.type.value ||
-        !this.message.value.trim()) {
-      formNotice.textContent = t.error;
-      return;
+    let hasError = false;
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const type = form.type.value;
+    const message = form.message.value.trim();
+
+    if (!name) {
+      form.name.nextElementSibling.textContent = t.name;
+      hasError = true;
     }
 
+    if (!email) {
+      form.email.nextElementSibling.textContent = t.email;
+      hasError = true;
+    } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+      form.email.nextElementSibling.textContent = t.emailInvalid;
+      hasError = true;
+    }
+
+    if (!type) {
+      form.type.nextElementSibling.textContent = t.type;
+      hasError = true;
+    }
+
+    if (!message) {
+      form.message.nextElementSibling.textContent = t.message;
+      hasError = true;
+    }
+
+    if (hasError) return;
+
+    // Loading 状态
+    btn.classList.add("loading");
+    btn.textContent = t.sending;
+
     const body = encodeURIComponent(
-`Name: ${this.name.value}
-Email: ${this.email.value}
-Company: ${this.company.value || "-"}
-Type: ${this.type.options[this.type.selectedIndex].text}
+`Name: ${name}
+Email: ${email}
+Company: ${form.company.value || "-"}
+Type: ${form.type.options[form.type.selectedIndex].text}
 
 Message:
-${this.message.value}`
+${message}`
     );
 
-    formNotice.style.color = "#16a34a";
-    formNotice.textContent = t.success;
+    setTimeout(() => {
+      btn.classList.remove("loading");
+      btn.textContent = t.send;
 
-    window.location.href =
-      `mailto:info@vioniasoft.com?subject=Website Inquiry&body=${body}`;
+      window.location.href =
+        `mailto:info@vioniasoft.com?subject=Website Inquiry&body=${body}`;
+    }, 600);
   });
 });
+
 
