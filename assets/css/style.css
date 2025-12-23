@@ -6,7 +6,9 @@
   --muted:#64748b;
 }
 
-/* ================= RESET ================= */
+/* =========================================================
+   RESET & 基础设置
+========================================================= */
 *{
   margin:0;
   padding:0;
@@ -14,21 +16,25 @@
 }
 
 html,body{
-  width:100%;
-  min-height:100%;
+  height:100%;
   overflow-x:hidden;
+  overflow-y:auto;
 }
 
 body{
+  min-height:100vh;
   display:flex;
   flex-direction:column;
   font-family:Segoe UI,Roboto,sans-serif;
   background:var(--bg);
   color:var(--text);
   line-height:1.7;
+  padding-bottom:0;
 }
 
-/* ================= NAV ================= */
+/* =========================================================
+   顶部导航栏（NAV）
+========================================================= */
 nav{
   position:fixed;
   top:0;
@@ -45,34 +51,22 @@ nav{
   border-bottom:1px solid #e5e7eb;
 }
 
-/* nav 占位 */
+/* nav 占位补偿 */
 body::before{
   content:"";
   display:block;
   height:64px;
 }
 
-/* nav links */
-.nav-center{
-  display:flex;
-  justify-content:center;
-  gap:28px;
-}
-
-.nav-right{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:16px;
-}
-
+/* ===== 导航链接 ===== */
 .nav-link{
   position:relative;
   padding:6px 2px;
+  font-size:1em;
   font-weight:500;
   color:var(--text);
   text-decoration:none;
-  transition:.25s;
+  transition:color .25s ease,transform .25s ease;
 }
 
 .nav-link:hover{
@@ -87,34 +81,91 @@ body::before{
   bottom:-6px;
   width:0;
   height:2px;
+  border-radius:999px;
   background:linear-gradient(90deg,#7c3aed,#8b5cf6);
-  transition:.3s;
+  transition:width .3s ease;
 }
 
 .nav-link:hover::after{
   width:100%;
 }
 
-/* logo */
+/* Logo */
 .logo-gradient{
   font-size:1.6em;
   font-weight:800;
+  letter-spacing:.3px;
   background:linear-gradient(135deg,#7c3aed,#8b5cf6);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   cursor:pointer;
+  transition:transform .25s ease,filter .25s ease;
 }
 
-/* ================= PAGE ================= */
+.logo-gradient:hover{
+  transform:scale(1.05);
+  filter:brightness(1.1);
+}
+
+.nav-center{
+  display:flex;
+  justify-content:center;
+  gap:28px;
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+/* =========================================================
+   语言切换
+========================================================= */
+.lang{
+  position:relative;
+}
+
+.lang-menu{
+  display:none;
+  position:absolute;
+  right:0;
+  top:28px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.lang-menu div{
+  padding:10px 16px;
+  cursor:pointer;
+}
+
+.lang-menu div:hover{
+  background:#f1f5f9;
+}
+
+/* =========================================================
+   页面结构
+========================================================= */
 .page,
 .about-bg{
+  display:flex;
   flex:1;
+  flex-direction:column;
+  justify-content:flex-start;
   padding:120px 8% 80px;
 }
 
-/* ================= HERO ================= */
+/* =========================================================
+   HERO
+========================================================= */
 .hero{
   min-height:calc(100vh - 64px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
   padding:140px 8% 60px;
   text-align:center;
   background:
@@ -133,7 +184,42 @@ body::before{
   color:var(--muted);
 }
 
-/* ================= CARDS ================= */
+/* =========================================================
+   About / Services
+========================================================= */
+.about-bg{
+  text-align:center;
+  background:
+    radial-gradient(circle at 15% 20%,#93c5fd55,transparent 45%),
+    radial-gradient(circle at 85% 30%,#c4b5fd55,transparent 45%);
+}
+
+#aboutTitle,
+#servicesTitle{
+  font-size:2.4em;
+  margin-bottom:20px;
+}
+
+#aboutTitle::after,
+#servicesTitle::after{
+  content:"";
+  display:block;
+  width:42px;
+  height:3px;
+  margin:16px auto 0;
+  border-radius:999px;
+  background:linear-gradient(90deg,#7c3aed,#8b5cf6);
+}
+
+#aboutDesc{
+  max-width:640px;
+  margin:0 auto 72px;
+  color:var(--muted);
+}
+
+/* =========================================================
+   Cards
+========================================================= */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -147,141 +233,284 @@ body::before{
   box-shadow:0 10px 30px #00000010;
   opacity:0;
   transform:translateY(40px);
-  transition:.4s;
+  transition:
+    transform .25s ease,
+    opacity .6s ease,
+    box-shadow .35s ease,
+    background .45s ease;
 }
 
 .card.show{
   opacity:1;
-  transform:none;
+  transform:translateY(0);
 }
 
 .card:hover{
   transform:translateY(-6px);
   box-shadow:0 18px 40px #00000018;
+  background:
+    radial-gradient(circle at top left,#93c5fd33,transparent 60%),
+    #ffffff;
 }
 
-/* ================= BUTTON ================= */
+/* =========================================================
+   Button
+========================================================= */
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
   padding:14px 40px;
   border-radius:999px;
-  color:#fff;
+  font-size:1em;
+  font-weight:600;
   text-decoration:none;
+  color:#fff;
   background:linear-gradient(135deg,#7c3aed,#8b5cf6);
+  box-shadow:0 8px 25px rgba(124,58,237,.4);
+  transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;
 }
 
-/* ================= FOOTER ================= */
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 35px rgba(124,58,237,.5);
+  filter:brightness(1.07);
+}
+
+/* =========================================================
+   Footer
+========================================================= */
 footer{
   margin-top:auto;
   background:#0f172a;
   color:#cbd5f5;
   text-align:center;
-  padding:20px 0;
   font-size:.9em;
+  padding:20px 0;
 }
 
-/* ================= MOBILE NAV ================= */
+/* =========================================================
+   Mobile Navigation
+========================================================= */
 .nav-mobile{
   display:none;
   position:relative;
-}
-
-.menu-btn{
-  font-size:1.7em;
-  cursor:pointer;
-  padding:6px 8px;
 }
 
 .nav-dropdown{
   display:none;
   position:absolute;
   top:64px;
-  right:0;
-  width:220px;
+  right:16px;
+  width:calc(100vw - 32px);
   background:#fff;
   border-radius:12px;
-  box-shadow:0 12px 30px rgba(0,0,0,.15);
-  padding:12px 0;
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+  overflow:hidden;
+  animation:slideDown .25s ease forwards;
 }
 
 .nav-mobile.open .nav-dropdown{
   display:block;
 }
 
-/* dropdown items */
-.nav-dropdown a,
-.nav-dropdown div{
-  display:block;
-  padding:12px 20px;
-  font-size:.95em;
-  color:var(--text);
-  text-decoration:none;
+@keyframes slideDown{
+  from{opacity:0;transform:translateY(-10px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
-.nav-dropdown a:hover,
-.nav-dropdown div:hover{
-  background:#f1f5f9;
-}
-
-/* divider */
-.menu-divider{
-  height:1px;
-  background:#e5e7eb;
-  margin:8px 0;
-}
-
-/* language group */
-.menu-group-title{
-  padding:6px 20px;
-  font-size:.8em;
-  font-weight:600;
-  color:var(--muted);
-  text-transform:uppercase;
-}
-
-.menu-lang-toggle{
-  padding:12px 20px;
-  font-weight:600;
-  display:flex;
-  justify-content:space-between;
-  cursor:pointer;
-}
-
-.menu-sub{
-  display:none;
-}
-
-.menu-sub.open{
-  display:block;
-}
-
-.menu-sub div{
-  padding:10px 32px;
-  font-size:.9em;
-  color:var(--muted);
-}
-
-/* ================= RESPONSIVE ================= */
-.pc-only{display:flex;}
-.mobile-only{display:none;}
-
+/* =========================================================
+   Responsive
+========================================================= */
 @media (max-width:768px){
-
-  .pc-only{display:none!important;}
-  .mobile-only{display:flex!important;}
-
-  .nav-center{display:none;}
-  .nav-mobile{display:flex;}
-
+  .nav-center{ display:none; }
+  .nav-mobile{ display:block; }
   .hero,
   .page,
   .about-bg{
     padding:96px 6% 64px;
   }
-
   .cards{
     grid-template-columns:1fr;
+  }
+}
+
+/* =========================================================
+   PC / Mobile 显示控制
+========================================================= */
+.pc-only{ display:flex; }
+.mobile-only{ display:none; }
+
+/* =========================================================
+   Mobile 样式
+========================================================= */
+@media (max-width:768px){
+  .pc-only{ display:none !important; }
+  .mobile-only{ display:block; }
+
+  .nav-mobile{ position:relative; }
+
+  .menu-btn{
+    font-size:1.6em;
+    cursor:pointer;
+  }
+
+  .nav-dropdown{
+    right:0;
+    width:220px;
+  }
+
+  .nav-dropdown a,
+  .mobile-lang div{
+    display:block;
+    padding:12px 16px;
+    color:var(--text);
+    text-decoration:none;
+  }
+
+  .nav-dropdown a:hover,
+  .mobile-lang div:hover{
+    background:#f1f5f9;
+  }
+
+  .mobile-lang{
+    border-top:1px solid #e5e7eb;
+  }
+}
+
+/* =========================================================
+   Mobile NAV 修正
+========================================================= */
+@media (max-width:768px){
+  nav{
+    grid-template-columns:auto 1fr auto;
+  }
+
+  .nav-right{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+  }
+
+  .nav-mobile{
+    position:relative;
+    display:flex;
+    justify-content:flex-end;
+  }
+
+  .menu-btn{
+    font-size:1.7em;
+    cursor:pointer;
+    padding:6px 8px;
+  }
+
+  .nav-dropdown{
+    position:absolute;
+    top:64px;
+    right:0;
+    left:auto;
+    width:220px;
+    text-align:left;
+  }
+}
+
+/* =========================================================
+   Mobile Menu Structure
+========================================================= */
+@media (max-width:768px){
+  .nav-dropdown{
+    padding:8px 0;
+  }
+
+  .nav-dropdown > a{
+    display:block;
+    padding:14px 20px;
+    font-weight:500;
+  }
+
+  .menu-divider{
+    height:1px;
+    margin:6px 0;
+    background:#e5e7eb;
+  }
+
+  .menu-group-title{
+    padding:10px 20px 6px;
+    font-size:.85em;
+    font-weight:600;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.04em;
+  }
+
+  .menu-sub div{
+    padding:10px 32px;
+    font-size:.95em;
+    cursor:pointer;
+  }
+
+  .menu-sub div:hover{
+    background:#f1f5f9;
+  }
+}
+
+/* ========================================================= */
+/* ================= Contact Page 样式（新增） ============== */
+/* ========================================================= */
+
+.contact-page {
+  align-items: center;
+}
+
+.contact-wrap {
+  width: 100%;
+  max-width: 720px;
+  margin-top: 40px;
+}
+
+.contact-card {
+  padding: 36px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  font-size: 1em;
+  font-family: inherit;
+  outline: none;
+  background: #fff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--sub);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
   }
 }
