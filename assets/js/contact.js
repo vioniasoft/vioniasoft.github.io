@@ -18,7 +18,6 @@ const CF = {
     },
     success: "문의가 성공적으로 전송되었습니다."
   },
-
   en: {
     name: "Name *",
     email: "Email *",
@@ -35,7 +34,6 @@ const CF = {
     },
     success: "Your inquiry has been sent successfully."
   },
-
   zh: {
     name: "姓名 *",
     email: "邮箱 *",
@@ -52,7 +50,6 @@ const CF = {
     },
     success: "您的咨询已成功发送。"
   },
-
   fr: {
     name: "Nom *",
     email: "Email *",
@@ -71,10 +68,12 @@ const CF = {
   }
 };
 
+/* =========================================================
+   Utils
+========================================================= */
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
-
 
 /* =========================================================
    Init
@@ -85,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================================================
-   Language Apply（不改 setLang）
+   Language Apply
 ========================================================= */
 function applyContactLang(lang) {
   const t = CF[lang] || CF.ko;
@@ -102,9 +101,9 @@ function applyContactLang(lang) {
 }
 
 /* =========================================================
-   Submit
+   Submit → Formspree
 ========================================================= */
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
   clearErrors();
 
@@ -113,64 +112,67 @@ function handleSubmit(e) {
   let hasError = false;
 
   if (!fName.value.trim()) { showError(fName, t.errors.name); hasError = true; }
+
   if (!fEmail.value.trim()) {
-     showError(fEmail, t.errors.email);
-     hasError = true;
-   } else if (!isValidEmail(fEmail.value.trim())) {
-     showError(
-       fEmail,
-       lang === "ko"
-         ? "이메일 형식이 올바르지 않습니다. (예: example@domain.com)"
-         : lang === "en"
-         ? "Please enter a valid email address."
-         : lang === "zh"
-         ? "请输入正确的邮箱格式。"
-         : "Veuillez saisir une adresse email valide."
-     );
-     hasError = true;
-   }
+    showError(fEmail, t.errors.email);
+    hasError = true;
+  } else if (!isValidEmail(fEmail.value.trim())) {
+    showError(
+      fEmail,
+      lang === "ko"
+        ? "이메일 형식이 올바르지 않습니다. (예: example@domain.com)"
+        : lang === "zh"
+        ? "请输入正确的邮箱格式。"
+        : lang === "fr"
+        ? "Veuillez saisir une adresse email valide."
+        : "Please enter a valid email address."
+    );
+    hasError = true;
+  }
 
   if (!fType.value) { showError(fType, t.errors.type); hasError = true; }
   if (!fMessage.value.trim()) { showError(fMessage, t.errors.message); hasError = true; }
 
   if (hasError) return;
 
-  // loading
+  /* ===== Loading ===== */
   fSubmit.disabled = true;
   fSubmit.textContent = "Sending...";
 
-  setTimeout(() => {
+  const FORM_ENDPOINT = "https://formspree.io/f/mjgbzana"; // ← 换成你的
+
+  const formData = new FormData(document.getElementById("contactForm"));
+
+  try {
+    const res = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" }
+    });
+
+    if (!res.ok) throw new Error();
+
     formNotice.textContent = t.success;
     formNotice.style.color = "#16a34a";
-
     document.getElementById("contactForm").reset();
 
+  } catch {
+    formNotice.textContent = "전송 중 오류가 발생했습니다.";
+    formNotice.style.color = "#dc2626";
+  } finally {
     fSubmit.disabled = false;
     fSubmit.textContent = t.submit;
-  }, 800);
+  }
 }
 
 /* =========================================================
    Helpers
 ========================================================= */
-/* function showError(input, msg) {
-  input.closest(".field").querySelector(".field-error").textContent = msg;
-}*/
 function showError(el, msg) {
-  let field = el.closest(".field");
-
-  // 兜底（防止某些浏览器 select / textarea 失效）
-  if (!field) {
-    field = el.parentElement;
-  }
-
-  const err = field.querySelector(".field-error");
+  const err = el.parentElement.querySelector(".field-error");
   if (err) err.textContent = msg;
 }
-
 
 function clearErrors() {
   document.querySelectorAll(".field-error").forEach(e => e.textContent = "");
 }
-
-
