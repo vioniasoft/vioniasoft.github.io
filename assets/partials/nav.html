@@ -1,65 +1,54 @@
-<nav>
-  <!-- Logo -->
-  <div class="logo-gradient" onclick="location.href='/'">
-    VioniaSoft
-  </div>
+<!-- assets/partials/nav.html -->
+<nav class="nav" id="mainNav">
+    <div class="nav-inner" id="navApp" v-cloak>
 
-  <!-- PC 中间导航 -->
-  <div class="nav-center pc-only">
-    <a class="nav-link" data-nav href="/index.html"></a>
-    <a class="nav-link" data-nav href="/about.html"></a>
-    <a class="nav-link" data-nav href="/services.html"></a>
-    <a class="nav-link" data-nav href="/contact.html"></a>
-  </div>
-
-  <!-- 右侧区域 -->
-  <div class="nav-right">
-
-    <!-- PC 语言（仅桌面） -->
-    <div class="lang pc-only">
-      <span class="lang-btn" onclick="toggleLang()">🌐</span>
-      <div class="lang-menu" id="langMenu">
-        <div onclick="setLang('ko')">한국어</div>
-        <div onclick="setLang('en')">English</div>
-        <div onclick="setLang('zh')">中文</div>
-        <div onclick="setLang('fr')">Français</div>
-      </div>
-    </div>
-
-    
-    <!-- Mobile 菜单 -->
-    <div class="nav-mobile mobile-only" id="navMobile">
-      <span class="menu-btn" onclick="toggleMobileMenu()">☰</span>
-    
-      <!--<div class="nav-dropdown" onclick="event.stopPropagation()"> -->
-      <div class="nav-dropdown" onclick="event.stopPropagation()">
-
-        <!-- 主导航 -->
-        <a data-nav href="/index.html" onclick="closeMobileMenu()"></a>
-        <a data-nav href="/about.html" onclick="closeMobileMenu()"></a>
-        <a data-nav href="/services.html" onclick="closeMobileMenu()"></a>
-        <a data-nav href="/contact.html" onclick="closeMobileMenu()"></a>
-    
-        <div class="menu-divider"></div>
-    
-        <!-- Language -->
-        <!-- <div class="menu-group-title" onclick="toggleMobileLang(event)">
-          Language
-        </div>-->
-        <div class="menu-group-title" onclick="toggleMobileLang(event)">
-          Language
+        <!-- Logo -->
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="assets/images/common/vioniasoft_logo.png" class="nav-logo-img">
+            </a>
         </div>
 
-        <div class="menu-sub" id="mobileLangSub">
-          <div onclick="setLang('ko'); closeMobileMenu()">한국어</div>
-          <div onclick="setLang('en'); closeMobileMenu()">English</div>
-          <div onclick="setLang('zh'); closeMobileMenu()">中文</div>
-          <div onclick="setLang('fr'); closeMobileMenu()">Français</div>
+        <!-- ☰ 移动端 -->
+        <div class="nav-toggle mobile-only" @click="toggleMenu">
+            ☰
         </div>
-    
-      </div>
+
+        <!-- 菜单 -->
+        <ul class="nav-menu" :class="{ open: menuOpen }">
+
+            <li @click="go('index.html')">{{ t.nav.home }}</li>
+            <li @click="go('about.html')">{{ t.nav.about }}</li>
+            <li @click="go('services.html')">{{ t.nav.services }}</li>
+            <li @click="go('contact.html')">{{ t.nav.contact }}</li>
+
+            <!-- 移动端语言 -->
+            <li class="mobile-lang" :class="{ open: langOpen }" @click.stop="langOpen = !langOpen">
+                🌐 Language <span>▶</span>
+            </li>
+
+            <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('ko')">한국어</li>
+            <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('en')">English</li>
+            <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('zh')">中文</li>
+            <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('fr')">Français</li>
+        </ul>
+        
+                    <!-- 指示条 -->
+                    <div class="nav-indicator" ref="indicator"></div>
+
+        <!-- 桌面语言 -->
+        <div class="nav-lang desktop-only" @click.stop>
+            <div class="lang-btn" @click="open = !open">
+                🌐 {{ lang.toUpperCase() }}
+            </div>
+
+            <div class="lang-dropdown" v-if="open">
+                <div @click="switchLang('ko')">한국어</div>
+                <div @click="switchLang('en')">English</div>
+                <div @click="switchLang('zh')">中文</div>
+                <div @click="switchLang('fr')">Français</div>
+            </div>
+        </div>
+
     </div>
-
-
-  </div>
 </nav>

@@ -1,31 +1,92 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>VioniaSoft</title>
 
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- ================= 基础样式（必须最先） ================= -->
+  <link rel="stylesheet" href="./assets/css/base.css" />
+
+  <!-- ================= 首页样式 ================= -->
+  <link rel="stylesheet" href="./assets/css/home.css" />
+
+  <!-- ================= Vue 2 ================= -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+
 </head>
+
 <body>
 
-<!-- NAV（由 JS 注入） -->
-<nav id="siteNav"></nav>
+  <!-- ================= 导航注入位置 ================= -->
+  <div id="nav-container"></div>
 
-<!-- HERO -->
-<section class="hero">
-  <h1 id="heroTitle"></h1>
-  <p id="heroDesc"></p>
-  <p id="heroSub"></p>
-  <a href="/services.html" class="btn" id="heroBtn"></a>
-</section>
+  <!-- ================= Vue 根 ================= -->
+  <div id="app" v-cloak>
+    <main class="page page-fade-in">
 
-<!-- FOOTER -->
-<footer>
-        Email: info@vioniasoft.com<br>
-  © 2025 VioniaSoft. All rights reserved.
-</footer>
+      <!-- Hero -->
+      <section class="hero">
+        <h1 class="hero-title">
+          {{ t.home.heroTitle }}
+        </h1>
 
-<script src="/assets/js/main.js"></script>
+        <p class="hero-desc">
+          {{ t.home.heroDesc }}
+        </p>
+      </section>
+
+      <!-- 核心价值 -->
+      <section class="values">
+
+        <div class="value-header">
+          <span class="value-line"></span>
+          <h2>{{ t.home.valueTitle }}</h2>
+          <span class="value-line"></span>
+        </div>
+
+        <div class="value-grid">
+          <div class="value-card">
+            <h3>{{ t.home.value1Title }}</h3>
+            <p>{{ t.home.value1Desc }}</p>
+          </div>
+
+          <div class="value-card">
+            <h3>{{ t.home.value2Title }}</h3>
+            <p>{{ t.home.value2Desc }}</p>
+          </div>
+
+          <div class="value-card">
+            <h3>{{ t.home.value3Title }}</h3>
+            <p>{{ t.home.value3Desc }}</p>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ================= Footer ================= -->
+  <footer class="footer">
+    <p>Email: info@vioniasoft.com</p>
+    <p>© 2025 VioniaSoft. All rights reserved.</p>
+  </footer>
+
+  <!-- ================= i18n（必须在 base.js 之前） ================= -->
+  <script src="./assets/js/i18n.js"></script>
+
+  <!-- ================= 基础逻辑（Vue 实例 + 语言切换） ================= -->
+  <script src="./assets/js/base.js" defer></script>
+
+  <!-- ================= 导航交互 ================= -->
+  <script src="./assets/js/nav.js" defer></script>
+
+  <!-- ================= 首页逻辑 ================= -->
+  <script src="./assets/js/home.js" defer></script>
 </body>
+
 </html>

@@ -1,81 +1,60 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | VioniaSoft</title>
 
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav id="siteNav"></nav>
+  <div id="nav-container"></div>
 
-<!-- CONTACT -->
-<section class="page contact-page">
+  <main id="app" class="page" v-cloak>
 
-  <h1 id="contactTitle"></h1>
-  <p id="contactDesc"></p>
+    <section class="hero">
+      <div class="hero-copy">
+        <h1 class="hero-title">
+          <span>{{ t.contact.title }}</span>
+        </h1>
+        <p class="hero-desc">{{ t.contact.desc1 }}</p>
+        <p class="hero-desc">{{ t.contact.desc2 }}</p>
+      </div>
+    </section>
 
-  <div class="contact-wrap">
-    <div class="card contact-card">
+    <section class="values">
+      <div class="value-grid">
 
-      <form class="contact-form" id="contactForm" novalidate>
-
-        <!-- Name / Email -->
-        <div class="form-row">
-          <div class="field">
-            <input type="text" id="fName" name="name">
-            <div class="field-error"></div>
-          </div>
-
-          <div class="field">
-            <input type="email" id="fEmail" name="email">
-            <div class="field-error"></div>
-          </div>
+        <div class="value-card">
+          <p>{{ t.contact.email }}</p>
+          <p>{{ t.contact.web }}</p>
         </div>
 
-        <!-- Company -->
-        <div class="field">
-          <input type="text" id="fCompany" name="company">
+        <div class="value-card">
+          <h3>{{ t.contact.form.submit }}</h3>
+          <p>{{ t.contact.form.type1 }}</p>
+          <p>{{ t.contact.form.type2 }}</p>
+          <p>{{ t.contact.form.type3 }}</p>
         </div>
 
-        <!-- Type -->
-        <div class="field">
-          <select id="fType" name="type">
-            <option value=""></option>
-            <option value="project"></option>
-            <option value="consulting"></option>
-            <option value="partnership"></option>
-            <option value="other"></option>
-          </select>
-          <div class="field-error"></div>
-        </div>
+      </div>
+    </section>
 
-        <!-- Message -->
-        <div class="field">
-          <textarea id="fMessage" name="message" rows="6"></textarea>
-          <div class="field-error"></div>
-        </div>
+  </main>
 
-        <button type="submit" class="btn" id="fSubmit"></button>
+  <footer class="footer">
+    <p>Email: info@vioniasoft.com</p>
+    <p>© 2025 VioniaSoft. All rights reserved.</p>
+  </footer>
 
-        <div id="formNotice"></div>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/nav.js"></script>
 
-      </form>
-
-    </div>
-  </div>
-
-</section>
-
-<footer>
-  Email: info@vioniasoft.com<br>
-  © 2025 VioniaSoft. All rights reserved.
-</footer>
-
-<script src="/assets/js/main.js"></script>
-<script src="/assets/js/contact.js"></script>
 </body>
+
 </html>

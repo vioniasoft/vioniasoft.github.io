@@ -1,840 +1,632 @@
-:root{
-  --main:#2563eb;
-  --sub:#7c3aed;
-  --bg:#f8fafc;
-  --text:#0f172a;
-  --muted:#64748b;
-}
-
 /* =========================================================
-   RESET & 基础设置
-========================================================= */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+   VioniaSoft ｜ B + C 结合版 · 终极稳定 CSS
+   ✔ fixed 永不失效
+   ✔ 渐变能量卡片
+   ✔ 滚动统一显现
+   ✔ 页面语言切换淡出淡入
+   ========================================================= */
+
+
+/* ================= 基础重置 ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html,body{
-  height:100%;
-  overflow-x:hidden;
-  overflow-y:auto;
+html,
+body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #1f2937;
+
+    /* 连续高级背景（无分界线） */
+    background-color: #faf9ff;
+    background-image:
+        radial-gradient(1400px 600px at 50% -250px,
+            #ede9fe 0%,
+            rgba(237, 233, 254, 0) 72%);
+    background-repeat: no-repeat;
 }
 
-body{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  font-family:Segoe UI,Roboto,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.7;
-  padding-bottom:0;
-}
-
-/* =========================================================
-   顶部导航栏（NAV）
-========================================================= */
-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:64px;
-  z-index:1000;
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  align-items:center;
-  padding:0 24px;
-  background:#ffffffee;
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #e5e7eb;
-}
-
-/* nav 占位补偿 */
-body::before{
-  content:"";
-  display:block;
-  height:64px;
-}
-
-/* ===== 导航链接 ===== */
-.nav-link{
-  position:relative;
-  padding:6px 2px;
-  font-size:1em;
-  font-weight:500;
-  color:var(--text);
-  text-decoration:none;
-  transition:color .25s ease,transform .25s ease;
-}
-
-.nav-link:hover{
-  color:var(--sub);
-  transform:translateY(-1px);
-}
-
-.nav-link::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0;
-  height:2px;
-  border-radius:999px;
-  background:linear-gradient(90deg,#7c3aed,#8b5cf6);
-  transition:width .3s ease;
-}
-
-.nav-link:hover::after{
-  width:100%;
-}
-
-/* Logo */
-.logo-gradient{
-  font-size:1.6em;
-  font-weight:800;
-  letter-spacing:.3px;
-  background:linear-gradient(135deg,#7c3aed,#8b5cf6);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  cursor:pointer;
-  transition:transform .25s ease,filter .25s ease;
-}
-
-.logo-gradient:hover{
-  transform:scale(1.05);
-  filter:brightness(1.1);
-}
-
-.nav-center{
-  display:flex;
-  justify-content:center;
-  gap:28px;
-}
-
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-
-/* =========================================================
-   语言切换
-========================================================= */
-.lang{
-  position:relative;
-}
-
-.lang-menu{
-  display:none;
-  position:absolute;
-  right:0;
-  top:28px;
-  background:#fff;
-  border:1px solid #e5e7eb;
-  border-radius:10px;
-  overflow:hidden;
-}
-
-.lang-menu div{
-  padding:10px 16px;
-  cursor:pointer;
-}
-
-.lang-menu div:hover{
-  background:#f1f5f9;
-}
-
-/* =========================================================
-   页面结构
-========================================================= */
-.page,
-.about-bg{
-  display:flex;
-  flex:1;
-  flex-direction:column;
-  justify-content:flex-start;
-  padding:120px 8% 80px;
-}
-
-/* =========================================================
-   HERO
-========================================================= */
-.hero{
-  min-height:calc(100vh - 64px);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding:140px 8% 60px;
-  text-align:center;
-  background:
-    radial-gradient(circle at 20% 20%,#93c5fd55,transparent 45%),
-    radial-gradient(circle at 80% 30%,#c4b5fd55,transparent 45%);
-}
-
-.hero h1{
-  font-size:3em;
-  margin-bottom:20px;
-}
-
-.hero p{
-  max-width:800px;
-  margin:0 auto 36px;
-  color:var(--muted);
-}
-
-/* =========================================================
-   About / Services
-========================================================= */
-.about-bg{
-  text-align:center;
-  background:
-    radial-gradient(circle at 15% 20%,#93c5fd55,transparent 45%),
-    radial-gradient(circle at 85% 30%,#c4b5fd55,transparent 45%);
-}
-
-#aboutTitle,
-#servicesTitle{
-  font-size:2.4em;
-  margin-bottom:20px;
-}
-
-#aboutTitle::after,
-#servicesTitle::after{
-  content:"";
-  display:block;
-  width:42px;
-  height:3px;
-  margin:16px auto 0;
-  border-radius:999px;
-  background:linear-gradient(90deg,#7c3aed,#8b5cf6);
-}
-
-#aboutDesc{
-  max-width:640px;
-  margin:0 auto 72px;
-  color:var(--muted);
-}
-
-/* =========================================================
-   Cards
-========================================================= */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:28px;
-}
-
-.card{
-  background:#fff;
-  padding:32px;
-  border-radius:18px;
-  box-shadow:0 10px 30px #00000010;
-  opacity:0;
-  transform:translateY(40px);
-  transition:
-    transform .25s ease,
-    opacity .6s ease,
-    box-shadow .35s ease,
-    background .45s ease;
-}
-
-.card.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 18px 40px #00000018;
-  background:
-    radial-gradient(circle at top left,#93c5fd33,transparent 60%),
-    #ffffff;
-}
-
-/* =========================================================
-   Button
-========================================================= */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 40px;
-  border-radius:999px;
-  font-size:1em;
-  font-weight:600;
-  text-decoration:none;
-  color:#fff;
-  background:linear-gradient(135deg,#7c3aed,#8b5cf6);
-  box-shadow:0 8px 25px rgba(124,58,237,.4);
-  transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 14px 35px rgba(124,58,237,.5);
-  filter:brightness(1.07);
-}
-
-/* =========================================================
-   Footer
-========================================================= */
-footer{
-  margin-top:auto;
-  background:#0f172a;
-  color:#cbd5f5;
-  text-align:center;
-  font-size:.9em;
-  padding:20px 0;
-}
-
-/* =========================================================
-   Mobile Navigation
-========================================================= */
-.nav-mobile{
-  display:none;
-  position:relative;
-}
-
-.nav-dropdown{
-  display:none;
-  position:absolute;
-  top:64px;
-  right:16px;
-  width:calc(100vw - 32px);
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,.12);
-  overflow:hidden;
-  animation:slideDown .25s ease forwards;
-}
-
-.nav-mobile.open .nav-dropdown{
-  display:block;
-}
-
-@keyframes slideDown{
-  from{opacity:0;transform:translateY(-10px);}
-  to{opacity:1;transform:translateY(0);}
-}
-
-/* =========================================================
-   Responsive
-========================================================= */
-@media (max-width:768px){
-  .nav-center{ display:none; }
-  .nav-mobile{ display:block; }
-  .hero,
-  .page,
-  .about-bg{
-    padding:96px 6% 64px;
-  }
-  .cards{
-    grid-template-columns:1fr;
-  }
-}
-
-/* =========================================================
-   PC / Mobile 显示控制
-========================================================= */
-.pc-only{ display:flex; }
-.mobile-only{ display:none; }
-
-/* =========================================================
-   Mobile 样式
-========================================================= */
-@media (max-width:768px){
-  .pc-only{ display:none !important; }
-  .mobile-only{ display:block; }
-
-  .nav-mobile{ position:relative; }
-
-  .menu-btn{
-    font-size:1.6em;
-    cursor:pointer;
-  }
-
-  .nav-dropdown{
-    right:0;
-    width:220px;
-  }
-
-  .nav-dropdown a,
-  .mobile-lang div{
-    display:block;
-    padding:12px 16px;
-    color:var(--text);
-    text-decoration:none;
-  }
-
-  .nav-dropdown a:hover,
-  .mobile-lang div:hover{
-    background:#f1f5f9;
-  }
-
-  .mobile-lang{
-    border-top:1px solid #e5e7eb;
-  }
-}
-
-/* =========================================================
-   Mobile NAV 修正
-========================================================= */
-@media (max-width:768px){
-  nav{
-    grid-template-columns:auto 1fr auto;
-  }
-
-  .nav-right{
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-  }
-
-  .nav-mobile{
-    position:relative;
-    display:flex;
-    justify-content:flex-end;
-  }
-
-  .menu-btn{
-    font-size:1.7em;
-    cursor:pointer;
-    padding:6px 8px;
-  }
-
-  .nav-dropdown{
-    position:absolute;
-    top:64px;
-    right:0;
-    left:auto;
-    width:220px;
-    text-align:left;
-  }
-}
-
-/* =========================================================
-   Mobile Menu Structure
-========================================================= */
-@media (max-width:768px){
-  .nav-dropdown{
-    padding:8px 0;
-  }
-
-  .nav-dropdown > a{
-    display:block;
-    padding:14px 20px;
-    font-weight:500;
-  }
-
-  .menu-divider{
-    height:1px;
-    margin:6px 0;
-    background:#e5e7eb;
-  }
-
-  .menu-group-title{
-    padding:10px 20px 6px;
-    font-size:.85em;
-    font-weight:600;
-    color:var(--muted);
-    text-transform:uppercase;
-    letter-spacing:.04em;
-  }
-
-  .menu-sub div{
-    padding:10px 32px;
-    font-size:.95em;
-    cursor:pointer;
-  }
-
-  .menu-sub div:hover{
-    background:#f1f5f9;
-  }
-}
-
-/* ========================================================= */
-/* ================= Contact Page 样式（新增） ============== */
-/* ========================================================= */
-
-/* =========================================================
-   Contact 页面修复（表单可见 & 居中）
-========================================================= */
-
-.contact-page {
-  min-height: calc(100vh - 64px); /* 扣掉导航 */
-  padding: 80px 20px 40px;
-}
-
-.contact-wrap {
-  margin-top: 40px;
-}
-
-.contact-card {
-  padding: 36px;
-}
-/* Contact 页面表单：默认可见 */
-.contact-card {
-  opacity: 1 !important;
-  transform: none !important;
-}
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form-row {
-  display: flex;
-  gap: 16px;
-}
-
-.form-row input {
-  flex: 1;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 14px 16px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  font-size: 1em;
-  font-family: inherit;
-  outline: none;
-  background: #fff;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--sub);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
-}
-
-.contact-form textarea {
-  resize: vertical;
-}
-
-.contact-form select {
-  width: 100%;
-  padding: 14px 16px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  font-size: 1em;
-  font-family: inherit;
-  background: #fff;
-  outline: none;
-}
-
-.contact-form select:focus {
-  border-color: var(--sub);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
-}
-
-.contact-hero {
-  min-height: 40vh;              /* 控制“居中区域高度” */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;       /* 垂直居中 */
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.contact-hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 12px;
-}
-
-.contact-hero p {
-  color: #6b7280;
-  font-size: 1.05rem;
-}
-
-
-
-
-
-@media (max-width: 768px) {
-  .form-row {
-    flex-direction: column;
-  }
-}
-
-
-
-
-
-/* =========================================================
-   FIX: Mobile Menu Text Invisible（关键修复）
-========================================================= */
-@media (max-width: 768px) {
-  .nav-dropdown a {
-    color: var(--text) !important;
-    font-size: 1em;
-    line-height: 1.4;
-    white-space: nowrap;
-  }
-}
-
-
-
-
-
-
-/* =========================================================
-   Mobile Language Sub Menu（可展开）
-========================================================= */
-@media (max-width: 768px) {
-
-  /* Language 标题行（可点击） */
-  .menu-group-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  .menu-group-title::after {
-    content: "▶";
-    font-size: 0.75em;
-    transition: transform .25s ease;
-  }
-
-  /* 展开状态 */
-  .menu-group-title.open::after {
-    transform: rotate(90deg);
-  }
-
-  /* 子菜单默认收起 */
-  .menu-sub {
+[v-cloak] {
     display: none;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .3s ease;
-  }
-
-  /* 子菜单展开 */
-  .menu-sub.open {
-    display: block;
-    max-height: 200px;
-  }
-}
-.field {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 
-.field-error {
-  font-size: 0.8em;
-  color: #dc2626;
-  margin-top: 4px;
-  min-height: 1em;
+
+/* ================= 页面淡入淡出 ================= */
+.page {
+    padding-top: 72px;
+    padding-bottom: 96px;
+    transition: opacity .25s ease, transform .25s ease;
 }
 
-button.loading {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-/* =========================
-   Submit Button Loading
-========================= */
-.btn {
-  position: relative;
-}
-
-.btn-loading {
-  display: none;
-  width: 18px;
-  height: 18px;
-  border: 2px solid rgba(255,255,255,.4);
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: spin .8s linear infinite;
-  margin: 0 auto;
-}
-
-.btn.loading .btn-text {
-  display: none;
-}
-
-.btn.loading .btn-loading {
-  display: block;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.btn:disabled {
-  opacity: .6;
-  cursor: not-allowed;
-}
-
-/* =========================
-   Success Card
-========================= */
-.success-card {
-  display: none;
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 14px;
-  background: #ecfdf5;
-  border: 1px solid #10b981;
-  text-align: center;
-  animation: fadeUp .4s ease;
-}
-
-.success-icon {
-  font-size: 32px;
-  color: #10b981;
-  margin-bottom: 8px;
-}
-
-.success-text {
-  color: #065f46;
-  font-size: .95em;
-}
-
-@keyframes fadeUp {
-  from {
+.page-fade-out {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(6px);
+}
+
+.page-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ================= 顶部导航 ================= */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    background: rgba(255, 255, 255, .88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0, 0, 0, .06);
+    z-index: 1000;
+}
+
+.nav-inner {
+    max-width: 1200px;
+    height: 100%;
+    margin: auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-weight: 800;
+    font-size: 18px;
+    color: #6d28d9;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-menu li {
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-menu li::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #7b4fc9, #a77be3);
+    transition: .3s;
+}
+
+.nav-menu li:hover::after {
+    width: 100%;
+}
+
+
+/* ================= 🌐 语言按钮 ================= */
+.nav-lang {
+    position: relative;
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .75);
+    border: 1px solid rgba(123, 79, 201, .35);
+    font-size: 12px;
+    font-weight: 600;
+    color: #4c1d95;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.lang-btn:hover {
+    background: #f3e8ff;
+    box-shadow: 0 8px 24px rgba(123, 79, 201, .25);
+}
+
+.lang-dropdown {
+    position: absolute;
+    right: 0;
+    top: 46px;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .12);
+}
+
+.lang-dropdown div {
+    padding: 12px 18px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.lang-dropdown div:hover {
+    background: #f3e8ff;
+}
+
+
+/* ================= Hero ================= */
+.hero {
+    max-width: 900px;
+    margin: auto;
+    padding: 110px 24px 80px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: .18em;
+    color: #2e1065;
+    opacity: 0;
+    transform: translateY(28px);
+    animation: heroTitleIn 1.4s cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+@keyframes heroTitleIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: -.02em;
+    }
+}
+
+.hero-desc {
+    margin-top: 30px;
+    font-size: 15.5px;
+    line-height: 1.9;
+    color: #4b5563;
+    opacity: 0;
+    transform: translateY(26px);
+    animation: heroDescIn 1.2s ease forwards .35s;
+}
+
+@keyframes heroDescIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================= 核心价值 ================= */
+.values {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 24px 90px;
+}
+
+.value-header {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 76px;
+    opacity: 0;
+    transform: translateY(42px);
+    transition: .9s cubic-bezier(.2, .8, .2, 1);
+}
+
+.value-header.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.value-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2e1065;
+}
+
+.value-line {
+    width: 72px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #a77be3, transparent);
+}
+
+
+/* ================= 卡片 ================= */
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px;
+}
+
+.value-card {
+    position: relative;
+    padding: 48px 44px;
+    border-radius: 24px;
+    background: #fff;
+    opacity: 0;
+    transform: translateY(56px) scale(.96);
+    transition: .9s cubic-bezier(.2, .8, .2, 1);
+}
+
+.value-card.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.value-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 26px;
+    background: linear-gradient(120deg, #6d28d9, #a77be3, #7b4fc9, #6d28d9);
+    background-size: 300% 300%;
+    animation: energyFlow 6s ease infinite;
+    z-index: -1;
+}
+
+.value-card::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: 22px;
+    background: #fff;
+    z-index: -1;
+}
+
+.value-card:hover {
+    transform: translateY(-16px) scale(1.01);
+    box-shadow: 0 40px 90px rgba(123, 79, 201, .28);
+}
+
+@keyframes energyFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* ================= Footer ================= */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 96px;
+    background: #0f172a;
+    color: #d1d5db;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+
+/* ================= 响应式 ================= */
+@media (max-width: 900px) {
+    .value-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+}
+
+
+/* =========================================================
+   About 页面 · 高级信息结构设计
+   ========================================================= */
+
+/* About Hero 下方整体留白更克制 */
+.hero-about {
+    padding-bottom: 40px;
+}
+
+/* About intro 文案排版优化 */
+.about-intro {
+    max-width: 760px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.about-intro p {
+    font-size: 15.5px;
+    line-height: 1.9;
+    color: #4b5563;
+}
+
+/* =========================================================
+     市场背景整体区块
+     ========================================================= */
+.about-market {
+    max-width: 980px;
+    margin: 0 auto 120px;
+    padding: 0 24px;
+}
+
+/* 内容容器 */
+.about-market-content {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+/* =========================================================
+     信息面板（统一模块感）
+     ========================================================= */
+.market-panel {
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.95),
+            rgba(250, 247, 255, 0.95));
+    border-radius: 24px;
+    padding: 44px 48px;
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.08),
+        0 10px 28px rgba(123, 79, 201, 0.08);
+}
+
+/* 第一段：问题背景 */
+.market-lead {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #374151;
+}
+
+/* =========================================================
+     重点认知区域（咨询级强调）
+     ========================================================= */
+.market-focus {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 左侧淡紫强调条 */
+.market-focus::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 24px;
+    bottom: 24px;
+    width: 4px;
+    background: linear-gradient(180deg,
+            #7b4fc9,
+            #a77be3);
+    border-radius: 4px;
+}
+
+/* 说明文字 */
+.market-sub {
+    font-size: 15px;
+    color: #374151;
+    margin-bottom: 26px;
+}
+
+/* 列表高级化 */
+.market-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.market-list li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 14.5px;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+/* 小圆点 */
+.market-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background: #7b4fc9;
+    border-radius: 50%;
+}
+
+/* =========================================================
+     总结区（更克制）
+     ========================================================= */
+.market-conclusion {
+    background: linear-gradient(120deg,
+            #f6f3fd,
+            #ffffff);
+}
+
+.market-conclusion p {
+    font-size: 15.5px;
+    line-height: 1.9;
+    color: #2e1065;
+    font-weight: 500;
+}
+
+/* =========================================================
+     About 页面滚动进入动画
+     ========================================================= */
+.about-animate {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: all 0.9s cubic-bezier(.2, .8, .2, 1);
+}
+
+.about-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* =========================================================
+   Services 页面设计
+   ========================================================= */
+
+   .hero-services {
+    padding-bottom: 40px;
   }
-  to {
+  
+  /* ================= 核心服务 ================= */
+  .services-core {
+    max-width: 980px;
+    margin: 0 auto 120px;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+  
+  .service-block {
+    background: linear-gradient(180deg,#fff,#faf7ff);
+    border-radius: 28px;
+    padding: 52px 56px;
+    box-shadow:
+      0 26px 70px rgba(0,0,0,.08),
+      0 12px 30px rgba(123,79,201,.08);
+  }
+  
+  .service-block h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+    color: #2e1065;
+  }
+  
+  .service-desc {
+    font-size: 15.5px;
+    line-height: 1.9;
+    color: #374151;
+    margin-bottom: 16px;
+  }
+  
+  .service-desc.muted {
+    color: #6b7280;
+  }
+  
+  .service-desc.emphasis {
+    font-weight: 500;
+    color: #4c1d95;
+  }
+  
+  .service-meta span {
+    font-size: 14px;
+    color: #7b4fc9;
+    font-weight: 600;
+  }
+  
+  .service-meta ul {
+    margin-top: 14px;
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .service-meta li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 14.5px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .service-meta li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background: #7b4fc9;
+    border-radius: 50%;
+  }
+  
+  /* ================= 项目流程 ================= */
+  .service-process {
+    max-width: 860px;
+    margin: 0 auto 140px;
+    padding: 0 24px;
+  }
+  
+  .process-timeline {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 52px;
+    position: relative;
+  }
+  
+  .process-timeline::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(#7b4fc9,#e6d9fa);
+  }
+  
+  .process-step {
+    padding-left: 40px;
+  }
+  
+  .process-step h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #2e1065;
+  }
+  
+  .process-step p {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #4b5563;
+  }
+  
+  .process-step ul {
+    margin-top: 12px;
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .process-step li {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 8px;
+  }
+  
+  .process-note {
+    margin-top: 12px;
+    font-size: 13.5px;
+    color: #6d28d9;
+    font-weight: 500;
+  }
+  
+  /* ================= 动画 ================= */
+  .service-animate {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: all .9s cubic-bezier(.2,.8,.2,1);
+  }
+  
+  .service-animate.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-
-
-
-
-
-/* =========================================================
-   Footer 真·底部锁定（无抖动）
-========================================================= */
-
-html, body {
-  height: 100%;
-}
-
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* 主内容自动撑开 */
-.page,
-.hero,
-.about-bg {
-  flex: 1;
-}
-
-/* Footer 始终在底部 */
-footer {
-  margin-top: auto;
-}
-
-
-/* =========================================================
-   Mobile Menu 宽度收紧（不影响逻辑）
-========================================================= */
-.nav-dropdown {
-  width: 190px;
-  right: 12px;
-  border-radius: 14px;
-  padding: 6px 0;
-  box-shadow: 0 14px 36px rgba(0,0,0,.18);
-}
-
-@media (max-width: 768px) {
-  .nav-dropdown {
-    width: 190px;
-    right: 12px;
-    border-radius: 14px;
-    padding: 6px 0;
-    box-shadow: 0 14px 36px rgba(0,0,0,.18);
-  }
-}
-
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.error {
-  color: #dc2626;
-  font-size: 0.85rem;
-  min-height: 1em;
-}
-
-.form-success {
-  margin-top: 16px;
-  color: #16a34a;
-  text-align: center;
-  font-weight: 500;
-}
-
-button.loading {
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-.form-success {
-  animation: successPop 0.6s ease;
-}
-
-@keyframes successPop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-  100% { transform: scale(1); }
-}
-
-.form-notice {
-  margin-top: 12px;
-  font-size: 0.9em;
-}
-
-
-
-/* =========================================================
-   Footer 正确贴底方案（最终版）
-========================================================= */
-
-html, body {
-  height: 100%;
-}
-
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* 只有内容少的页面才撑满 */
-/*.hero,
-.contact-page {
-  flex: 1;
-}
-.hero {
-  flex: 1;
-}*/
-
-/* 内容多的页面不要强行拉伸 */
-.page,
-.about-bg {
-  flex: 0 0 auto;
-}
-
-/* footer 永远在最后 */
-footer {
-  margin-top: auto;
-}
+  

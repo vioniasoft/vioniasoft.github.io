@@ -1,35 +1,120 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About | VioniaSoft</title>
 
-  <link rel="stylesheet" href="/assets/css/style.css">
+<head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>About | VioniaSoft</title>
+
+     <link rel="stylesheet" href="assets/css/base.css" />
+     <link rel="stylesheet" href="assets/css/about.css" />
+
+     <style>
+          [v-cloak] {
+               display: none
+          }
+     </style>
+
+     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav id="siteNav"></nav>
+     <!-- Nav -->
+     <div id="nav-container"></div>
 
-<!-- ABOUT -->
-<section class="about-bg page">
+     <!-- Page -->
+     <main id="app" class="page about-page" v-cloak>
 
-  <div class="about-hero">
-    <h1 id="aboutTitle"></h1>
-    <p id="aboutDesc"></p>
-  </div>
 
-  <div class="cards" id="aboutCards"></div>
+          <!-- =========================
+     Company Overview
+     ========================= -->
+          <section class="about-overview reveal">
 
-</section>
+               <span class="overview-eyebrow">
+                    Company Overview
+               </span>
 
-<!-- FOOTER -->
-<footer>
-        Email: info@vioniasoft.com<br>
-  © 2025 VioniaSoft. All rights reserved.
-</footer>
+               <h1 class="overview-title">
+                    {{ t.about.title }}
+               </h1>
 
-<script src="/assets/js/main.js"></script>
+               <div class="overview-divider"></div>
+
+               <p class="overview-desc">
+                    {{ t.about.desc }}
+               </p>
+
+          </section>
+
+          <!-- =========================
+     Organization Structure
+     ========================= -->
+          <section class="org-section reveal delay-2">
+
+               <h2 class="org-title">
+                    Organization Structure
+                    <span>Founder-led Functional Model</span>
+               </h2>
+
+               <!-- Founder -->
+               <div class="org-founder">
+                    <div class="org-founder-card">
+                         <strong>Founder & Principal</strong>
+                         <span>{{ t.about.valueDesc }}</span>
+                    </div>
+               </div>
+
+               <!-- 连接线 -->
+
+               <!-- 竖线 -->
+               <div class="org-connector"></div>
+               <!-- 横线 -->
+               <div class="org-connector-h"></div>
+
+
+               <!-- 部门（一次排开） -->
+               <div class="org-departments">
+
+                    <div class="org-dept-card">
+                         <strong>{{ t.about.value1Title }}</strong>
+                         <span>{{ t.about.value1Desc }}</span>
+                    </div>
+
+                    <div class="org-dept-card">
+                         <strong>{{ t.about.value2Title }}</strong>
+                         <span>{{ t.about.value2Desc }}</span>
+                    </div>
+
+                    <div class="org-dept-card">
+                         <strong>{{ t.about.value3Title }}</strong>
+                         <span>{{ t.about.value3Desc }}</span>
+                    </div>
+
+                    <div class="org-dept-card">
+                         <strong>{{ t.about.value4Title }}</strong>
+                         <span>{{ t.about.value4Desc }}</span>
+                    </div>
+
+               </div>
+
+          </section>
+
+
+
+     </main>
+
+     <footer class="footer">
+          <p>Email: info@vioniasoft.com</p>
+          <p>© 2025 VioniaSoft. All rights reserved.</p>
+     </footer>
+
+     <script src="assets/js/i18n.js"></script>
+     <script src="assets/js/base.js"></script>
+     <script src="assets/js/about.js"></script>
+     <script src="assets/js/nav.js"></script>
+
 </body>
+
 </html>
