@@ -20,7 +20,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
+// export default {
+//     mounted() {
+//       const items = document.querySelectorAll(".reveal");
+  
+//       const observer = new IntersectionObserver(entries => {
+//         entries.forEach(entry => {
+//           if (entry.isIntersecting) {
+//             entry.target.classList.add("active");
+//             observer.unobserve(entry.target); // 只触发一次
+//           }
+//         });
+//       }, { threshold: 0.2 });
+  
+//       items.forEach(el => observer.observe(el));
+//     }
+//   }
+  
 
 
 

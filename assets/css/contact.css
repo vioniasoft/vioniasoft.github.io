@@ -1,8 +1,7 @@
 /* assets/css/contact.css */
 
-
 /* =========================================================
-   Contact 顶部文案（多语言稳定方案）
+   Contact 顶部文案（统一高级灰 + 稳定显示）
 ========================================================= */
 
 .contact-overview {
@@ -12,9 +11,16 @@
   text-align: center;
 }
 
-/* 标题 */
+/* 标题：紫色渐变标题（不做位移，防止移动端发糊） */
 .contact-title {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin-bottom: 24px;
+
+  background: linear-gradient(90deg, #2e1065 0%, #33206f 50%, #3b1a80 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* 分隔线 */
@@ -26,26 +32,21 @@
   background: linear-gradient(90deg, #9B5CFF, #7A6CFF);
 }
 
-/* 描述文本：统一宽度 */
+/* 描述文本（高级灰，正文不做位移动画） */
 .contact-desc {
   max-width: 560px;
   margin: 0 auto;
   font-size: 15px;
   line-height: 1.9;
-  text-wrap: pretty; /* 现代浏览器更自然断行 */
+  color: #6b6484;
 }
 
-
-/* 第二段：弱化 + 拉开层级 */
-.contact-desc + .contact-desc {
+/* 第二段弱化 */
+.contact-desc+.contact-desc {
   margin-top: 6px;
   font-size: 14px;
-  color: #6b7280;
+  color: #8b84a6;
 }
-
-
-
-
 
 
 /* =========================================================
@@ -62,11 +63,43 @@
   background: #fff;
   padding: 42px;
   border-radius: 20px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  overflow: visible;
 }
+
+/* =========================================================
+   表单行：逐个轻入（核心）
+========================================================= */
 
 .form-row {
   margin-bottom: 22px;
+  /* 初始状态：轻微下移 + 透明 */
+  opacity: 0;
+  transform: translateY(14px);
+  position: relative;
+  z-index: 1;
+}
+/* 下拉所在这一行强制最高层（核心） */
+.form-row.select-row {
+  z-index: 30;
+}
+
+/* 显示状态：JS 加 show */
+.form-row.show {
+  animation: fadeUpSoft 0.6s ease forwards;
+}
+
+/* 轻入动画（不抖、不糊） */
+@keyframes fadeUpSoft {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .form-row label {
@@ -86,12 +119,27 @@
 }
 
 /* =========================================================
-   🔥 自定义咨询类型下拉（关键）
+   自定义下拉（保持你原有设计）
+   咨询类型下拉被遮挡（关键层级修复）
 ========================================================= */
 
+/* 下拉容器本身抬高层级 */
 .custom-select {
   position: relative;
+  z-index: 20;
 }
+
+/* 下拉展开时再额外抬高（最稳） */
+.custom-select.open {
+  z-index: 999;
+}
+
+/* 下拉选项列表必须比表单字段高 */
+.select-options {
+  position: absolute;
+  z-index: 1000;
+}
+
 
 .select-trigger {
   width: 100%;
@@ -104,6 +152,10 @@
   position: relative;
 }
 
+.select-trigger.is-placeholder {
+  color: #9ca3af;
+}
+
 .select-trigger::after {
   content: "";
   position: absolute;
@@ -112,19 +164,14 @@
   width: 8px;
   height: 8px;
   transform: translateY(-50%) rotate(45deg);
-
   border-right: 2px solid transparent;
   border-bottom: 2px solid transparent;
-
-  /* ✅ Logo 同款渐变 */
   border-image: linear-gradient(90deg, #9B5CFF, #7A6CFF) 1;
 }
-
 
 .custom-select.open .select-trigger::after {
   transform: translateY(-50%) rotate(-135deg);
 }
-
 
 .select-options {
   position: absolute;
@@ -133,7 +180,7 @@
   top: calc(100% + 6px);
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
   list-style: none;
   padding: 8px 0;
   margin: 0;
@@ -157,22 +204,17 @@
 
 
 /* =========================================================
-   输入框 focus 渐变边框（Logo 同款）
+   输入框 focus 渐变边框
 ========================================================= */
 
 .form-row input:focus,
 .form-row textarea:focus {
   outline: none;
-
-  /* 关键：用双背景实现渐变边框 */
   border: 1px solid transparent;
   background:
     linear-gradient(#fff, #fff) padding-box,
     linear-gradient(90deg, #9B5CFF, #7A6CFF) border-box;
 }
-
-
-
 
 
 /* =========================================================
@@ -189,10 +231,7 @@
   padding: 0 28px;
   border-radius: 999px;
   border: none;
-
-  /* ✅ Logo 同款渐变 */
   background: linear-gradient(90deg, #9B5CFF 0%, #7A6CFF 100%);
-
   color: #fff;
   font-size: 14px;
   font-weight: 600;
@@ -213,21 +252,44 @@
 
 
 /* =========================================================
-   成功 / 失败浮层
+   错误提示（输入即消失）
+========================================================= */
+
+.field-error {
+  display: none;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #dc2626;
+  line-height: 1.5;
+}
+
+.field-error.show {
+  display: flex;
+  gap: 6px;
+}
+
+.field-error::before {
+  content: "⚠️";
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   成功 / 失败弹层（高级 SaaS 风格）
 ========================================================= */
 
 .form-success,
 .form-error {
   position: fixed;
   inset: 0;
-  background: rgba(20,12,40,0.45);
+  background: rgba(20, 12, 40, 0.45);
   backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: 0.4s;
+  transition: .4s;
   z-index: 9999;
 }
 
@@ -238,66 +300,23 @@
 }
 
 .form-success-card {
-  padding: 36px 44px;
+  background: #fff;
+  color: #2e1065;
+  padding: 40px 48px;
   border-radius: 20px;
   text-align: center;
-  color: #fff;
-  background: linear-gradient(135deg,#7b4fc9,#9d72ff);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.18);
+  animation: popSoft .5s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 
+@keyframes popSoft {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(.98);
+  }
 
-
-/* =========================================================
-   错误提示红色样式（带警示符号）
-========================================================= */
-
-.field-error {
-  display: none;
-  margin-top: 6px;
-  font-size: 12px;
-  color: #dc2626; /* 高级红，不刺眼 */
-  line-height: 1.5;
-}
-
-.field-error.show {
-  display: flex;
-  align-items: flex-start;
-  gap: 6px;
-}
-
-/* 左侧警示图标 */
-.field-error::before {
-  content: "⚠️";
-  font-size: 12px;
-  line-height: 1.4;
-  flex-shrink: 0;
-}
-
-/* 左侧小感叹号（纯 CSS） */
-/* .field-error::before {
-  content: "!";
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.6;
-  color: #dc2626;
-  flex-shrink: 0;
-} */
-/* 左侧小圆点（纯 CSS） */
-/* .field-error::before {
-  content: "•";
-  font-size: 18px;
-  line-height: 1;
-  margin-top: 2px;
-} */
-
-
-/* 输入错误时轻微强调（可选） */
-/* .form-row input:invalid,
-.form-row textarea:invalid {
-  border-color: #fca5a5;
-} */
-
-/* placeholder 状态 */
-.select-trigger.is-placeholder {
-  color: #9ca3af;
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
