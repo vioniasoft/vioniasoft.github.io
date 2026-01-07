@@ -7,6 +7,7 @@
   <title>Services | VioniaSoft</title>
 
   <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/nav.css"> <!-- ✅ 单独引入 nav -->
   <link rel="stylesheet" href="assets/css/services.css" />
 
   <style>
@@ -27,19 +28,19 @@
   <main id="app" class="page services-page" v-cloak>
 
     <!-- ================= Hero ================= -->
-    <section class="services-hero">
-      <h1>Our Services</h1>
-      <p>
+    <section class="services-hero reveal reveal--title">
+      <h1>{{ t.services.title }}</h1>
+      <!-- <p>
         We design and operate IT systems<br>
         based on long-term stability and real business usage.
-      </p>
+      </p> -->
     </section>
 
     <!-- ================= Core Services ================= -->
     <section class="services-core">
 
       <!-- ========== SI ========== -->
-      <div class="service-row">
+      <div class="service-row reveal">
 
         <!-- 左侧标题栏（关键） -->
         <div class="service-left">
@@ -64,7 +65,7 @@
       </div>
 
       <!-- ========== SM ========== -->
-      <div class="service-row">
+      <div class="service-row reveal">
 
         <div class="service-left">
           <div class="service-bar"></div>
@@ -87,7 +88,7 @@
       </div>
 
       <!-- ========== WEB ========== -->
-      <div class="service-row">
+      <div class="service-row reveal">
 
         <div class="service-left">
           <div class="service-bar"></div>
@@ -114,7 +115,7 @@
     </section>
 
     <!-- ================= Process ================= -->
-    <section class="process-section">
+    <section class="process-section reveal reveal--titles">
 
       <h2>{{ t.services.processTitle }}</h2>
 

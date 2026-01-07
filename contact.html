@@ -1,3 +1,4 @@
+<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -6,53 +7,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | VioniaSoft</title>
 
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/nav.css"> <!-- ✅ 单独引入 nav -->
+  <link rel="stylesheet" href="assets/css/contact.css" />
+
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
 
 <body>
 
+  <!-- 导航 -->
   <div id="nav-container"></div>
 
-  <main id="app" class="page" v-cloak>
+  <!-- Vue 管理区域 -->
+  <main id="app" class="page contact-page" v-cloak>
 
-    <section class="hero">
-      <div class="hero-copy">
-        <h1 class="hero-title">
-          <span>{{ t.contact.title }}</span>
-        </h1>
-        <p class="hero-desc">{{ t.contact.desc1 }}</p>
-        <p class="hero-desc">{{ t.contact.desc2 }}</p>
-      </div>
+    <!-- 页面标题 -->
+    <section class="contact-overview">
+      <h1 class="contact-title">{{ t.contact.title }}</h1>
+      <div class="contact-divider"></div>
+      <p class="contact-desc">{{ t.contact.desc1 }}</p>
+      <p class="contact-desc">{{ t.contact.desc2 }}</p>
     </section>
 
-    <section class="values">
-      <div class="value-grid">
+    <!-- 表单 -->
+    <section class="contact-form-section">
+      <form id="contactForm" class="contact-form" action="https://formspree.io/f/mjgbzana" method="POST" novalidate>
 
-        <div class="value-card">
-          <p>{{ t.contact.email }}</p>
-          <p>{{ t.contact.web }}</p>
+        <!-- 姓名 -->
+        <div class="form-row">
+          <label>{{ t.contact.form.name }}</label>
+          <input type="text" name="name" required />
+          <p class="field-error">{{ t.contact.form.nameRequired }}</p>
         </div>
 
-        <div class="value-card">
-          <h3>{{ t.contact.form.submit }}</h3>
-          <p>{{ t.contact.form.type1 }}</p>
-          <p>{{ t.contact.form.type2 }}</p>
-          <p>{{ t.contact.form.type3 }}</p>
+        <!-- 邮箱 -->
+        <div class="form-row">
+          <label>{{ t.contact.form.email }}</label>
+          <input type="email" name="email" required />
+          <p class="field-error">{{ t.contact.form.emailRequired }}</p>
         </div>
 
-      </div>
+        <!-- 公司 -->
+        <div class="form-row">
+          <label>{{ t.contact.form.company }}</label>
+          <input type="text" name="company" />
+        </div>
+
+        <!-- 咨询类型 -->
+        <div class="form-row">
+          <label>{{ t.contact.form.type }}</label>
+
+          <div id="contactTypeSelect" class="custom-select">
+            <div id="contactTypeTrigger" class="select-trigger is-placeholder" :data-placeholder="t.contact.form.type">
+              {{ t.contact.form.selectType }}
+            </div>
+
+            <ul class="select-options">
+              <li data-value="type1">{{ t.contact.form.type1 }}</li>
+              <li data-value="type2">{{ t.contact.form.type2 }}</li>
+              <li data-value="type3">{{ t.contact.form.type3 }}</li>
+              <li data-value="type4">{{ t.contact.form.type4 }}</li>
+            </ul>
+          </div>
+
+          <input type="hidden" name="type" id="contactTypeValue" />
+          <p class="field-error" id="typeError">
+            {{ t.contact.form.typeRequired }}
+          </p>
+        </div>
+
+        <!-- 内容 -->
+        <div class="form-row">
+          <label>{{ t.contact.form.message }}</label>
+          <textarea name="message" rows="4" required></textarea>
+          <p class="field-error">{{ t.contact.form.messageRequired }}</p>
+        </div>
+
+        <button type="submit" id="submitBtn" class="contact-submit">
+          {{ t.contact.form.submit }}
+        </button>
+
+      </form>
     </section>
-
   </main>
+
+  <!-- 成功弹窗（❗不使用 {{ }}） -->
+  <div class="form-success" id="formSuccess">
+    <div class="form-success-card">
+      <h3 id="successTitle"></h3>
+      <p id="successDesc"></p>
+    </div>
+  </div>
+
+  <!-- 失败弹窗（❗不使用 {{ }}） -->
+  <div class="form-error" id="formError">
+    <div class="form-success-card error">
+      <h3 id="errorTitle"></h3>
+      <p id="errorDesc"></p>
+    </div>
+  </div>
 
   <footer class="footer">
     <p>Email: info@vioniasoft.com</p>
     <p>© 2025 VioniaSoft. All rights reserved.</p>
   </footer>
 
+  <!-- JS -->
   <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/base.js"></script>
+  <script src="assets/js/contact.js"></script>
   <script src="assets/js/nav.js"></script>
 
 </body>

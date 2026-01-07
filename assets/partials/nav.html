@@ -5,7 +5,7 @@
         <!-- Logo -->
         <div class="nav-logo">
             <a href="index.html">
-                <img src="assets/images/common/vioniasoft_logo.png" class="nav-logo-img">
+                <img src="assets/images/common/vioniasoft_logo_20260105.png" class="nav-logo-img">
             </a>
         </div>
 
@@ -33,7 +33,7 @@
             <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('fr')">Français</li>
         </ul>
 
-        <!-- 指示条 -->
+        <!-- 指示条（桌面） -->
         <div class="nav-indicator" ref="indicator"></div>
 
         <!-- 桌面语言 -->
@@ -41,7 +41,6 @@
             <div class="lang-btn" @click="open = !open">
                 🌐 {{ lang.toUpperCase() }}
             </div>
-
             <div class="lang-dropdown" v-if="open">
                 <div @click="switchLang('ko')">한국어</div>
                 <div @click="switchLang('en')">English</div>

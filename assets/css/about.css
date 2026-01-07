@@ -1,289 +1,452 @@
 /* =========================================================
-   About · Company Overview（顶部公司介绍区）
+   About · SaaS UX 公司介绍页
+   - 保留原有样式
+   - 升级动画效果：更高级 UX 设计感
 ========================================================= */
 
+/* =========================================================
+   About · 公司概览
+========================================================= */
 .about-overview {
     max-width: 900px;
-    margin: 0 auto 110px;
+    margin: 0 auto 120px;
     padding: 120px 24px 0;
     text-align: center;
 }
 
-/* 顶部小标题 */
-.overview-eyebrow {
-    display: inline-block;
-    margin-bottom: 14px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #7c3aed;
-}
-
-/* 主标题 */
+/* ================= Overview Title（公司概览主标题） ================= */
 .overview-title {
     font-size: 42px;
     font-weight: 800;
-    color: #2e1065;
     letter-spacing: -0.02em;
+
+    /* 渐变文字 + 微光效果（深紫为主，右侧微光浅紫） */
+    background: linear-gradient(90deg,
+            #2e1065 0%,
+            #3b1a80 50%,
+            #7A6CFF 600%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 4px rgba(122, 108, 255, 0.25);
+
+    /* 高级 UX 动画升级版：带弹性缓动 + 浮动感 */
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    animation: fadeSlideElastic 1.2s cubic-bezier(.19, 1, .22, 1) forwards;
 }
 
-/* 标题下装饰横线 */
+/* 光影微交互 */
+.overview-title:hover {
+    background-position: 15% 50%;
+    transition: background-position 1s ease;
+}
+
+/* Overview Divider（标题下横线） */
 .overview-divider {
     width: 64px;
-    height: 3px;
+    height: 2px;
     margin: 28px auto 36px;
-    background: linear-gradient(90deg, #7c3aed, #a78bfa);
     border-radius: 2px;
+    background: linear-gradient(90deg,
+            rgba(122, 108, 255, 0),
+            #7A6CFF,
+            #9B5CFF,
+            rgba(155, 92, 255, 0));
+
+    /* 高级横线动画：带弹性拉伸 + 渐显 */
+    opacity: 0;
+    transform: scaleX(0);
+    animation: dividerElastic 1s cubic-bezier(.19, 1, .22, 1) forwards;
+    animation-delay: 0.3s;
 }
 
-/* 描述文字 */
+/* Overview Description（公司概览文字说明） */
 .overview-desc {
     font-size: 16px;
     line-height: 2;
-    color: #374151;
     max-width: 760px;
     margin: 0 auto;
-}
+    color: #6b6484;
+    text-shadow: 0 0 2px rgba(122, 108, 255, 0.15);
 
-
-/* =========================================================
-   Reveal 动画（滚动渐入）
-========================================================= */
-
-.reveal {
+    /* 动画升级：缓慢弹性浮动 + 微延迟叠加 */
     opacity: 0;
-    transform: translateY(36px);
-    transition: opacity .8s ease, transform .8s ease;
+    transform: translateY(32px);
+    animation: fadeSlideElastic 1s cubic-bezier(.19, 1, .22, 1) forwards;
+    animation-delay: 0.5s;
 }
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.delay-1 {
-    transition-delay: .15s;
-}
-
-.delay-2 {
-    transition-delay: .3s;
-}
-
 
 /* =========================================================
-   Organization Structure（组织架构整体）
+   Organization Structure · 组织架构
 ========================================================= */
-
 .org-section {
     max-width: 1100px;
     margin: 0 auto 140px;
     padding: 0 24px;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
-/* 区块标题 */
+/* Org Title（组织架构标题） */
 .org-title {
     font-size: 26px;
-    font-weight: 800;
-    color: #2e1065;
-    margin-bottom: 64px;
+    font-weight: 700;
+    margin-bottom: 46px;
+    position: relative;
+    top: 8px;
+    display: inline-block;
+    padding-bottom: 8px;
+    letter-spacing: -0.01em;
+
+    background: linear-gradient(90deg,
+            #2e1065 0%,
+            #3b1a80 50%,
+            #7A6CFF 600%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 4px rgba(122, 108, 255, 0.25);
+
+    /* 动画升级：轻微弹性 + 缩放 + 浮入 */
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+    animation: fadeSlideElastic 1.1s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 
-.org-title span {
-    display: block;
-    margin-top: 10px;
-    font-size: 13px;
-    font-weight: 500;
-    color: #6b7280;
-    letter-spacing: .3px;
-}
+/* Org Title 下横线 */
+.org-title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg,
+            rgba(122, 108, 255, 0),
+            #7A6CFF,
+            rgba(155, 92, 255, 0));
 
+    opacity: 0;
+    transform: translateX(-50%) scaleX(0);
+    animation: dividerElastic 1s cubic-bezier(.22, 1, .36, 1) forwards;
+    animation-delay: 0.2s;
+}
 
 /* =========================================================
-   Founder & Principal（顶层卡片）
+   Founder Card · 创始人
 ========================================================= */
-
 .org-founder {
     display: flex;
     justify-content: center;
+    margin-bottom: 32px;
 }
 
 .org-founder-card {
-    padding: 40px 48px 42px;
-    border-radius: 26px;
-    background:
-        radial-gradient(500px 160px at 50% -80px, #ede9fe, transparent),
-        #ffffff;
-    box-shadow:
-        0 26px 60px rgba(0, 0, 0, .12),
-        0 12px 26px rgba(123, 79, 201, .22);
+    position: relative;
+    padding: 36px 40px 40px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    box-shadow: 0 20px 48px rgba(46, 16, 101, .14);
+    transition: transform .35s cubic-bezier(.4, 0, .2, 1),
+        box-shadow .35s cubic-bezier(.4, 0, .2, 1);
+    will-change: transform;
+    z-index: 0;
+
+    /* 动画升级：弹性浮入，先高后落，带轻微摇晃感 */
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+    animation: fadeSlideBounce 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 
-/* Founder 标题 */
+/* 渐变边框伪元素 */
+.org-founder-card::before {
+    content: "";
+    position: absolute;
+    top: -1.5px;
+    left: -1.5px;
+    right: -1.5px;
+    bottom: -1.5px;
+    border-radius: 22px;
+    background: linear-gradient(90deg, rgba(155, 92, 255, 0.35), rgba(122, 108, 255, 0.35));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1.5px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Hover 光晕增强 */
+.org-founder-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 30px 68px rgba(123, 79, 201, .12),
+        0 0 28px rgba(155, 92, 255, .12);
+}
+
+/* 创始人姓名 */
 .org-founder-card strong {
     display: block;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 800;
-    color: #2e1065;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(90deg, #2e1065 0%, #3b1a80 50%, #7A6CFF 600%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 4px rgba(122, 108, 255, 0.25);
+
+    /* 动画升级：延迟弹性浮入 */
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+    animation: fadeSlideElastic 1s cubic-bezier(.22, 1, .36, 1) forwards;
+    animation-delay: 0.2s;
 }
 
-/* Founder 描述 */
+.org-founder-card strong::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 1px;
+    margin: 6px auto 0;
+    border-radius: 1px;
+    background: linear-gradient(90deg, rgba(155, 92, 255, 0.1), rgba(122, 108, 255, 0.1));
+}
+
+/* 创始人说明文字 */
 .org-founder-card span {
-    font-size: 14px;
+    display: block;
+    font-size: 13.5px;
     line-height: 1.85;
-    color: #4b5563;
-}
+    text-align: center;
+    margin-top: 8px;
+    color: #6b6484;
+    text-shadow: 0 0 2px rgba(122, 108, 255, 0.15);
 
+    /* 缓慢渐入 + 轻微浮动感 */
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeSlideElastic 1s cubic-bezier(.19, 1, .22, 1) forwards;
+    animation-delay: 0.35s;
+}
 
 /* =========================================================
-   连接线区域（竖线 + 横线）
+   组织架构横向连接器
 ========================================================= */
-
-/* 整个线条容器 */
-.org-connector {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 18px 0 42px;
+.org-connector-t {
+    width: 78%;
+    height: 38px;
+    margin: 14px auto 30px;
+    position: relative;
+    pointer-events: none;
 }
 
-/* 竖线（Founder → 横线） */
-.org-connector::before {
+.org-connector-t::before {
     content: "";
-    width: 2px;
-    height: 40px;
-    background: linear-gradient(#a78bfa, #c4b5fd);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.5px;
+    height: 100%;
+    background: linear-gradient(180deg,
+            rgba(122, 108, 255, 0),
+            rgba(122, 108, 255, .55),
+            rgba(122, 108, 255, .9));
 }
 
-/* 横线（分叉线） */
-.org-connector::after {
+.org-connector-t::after {
     content: "";
-    width: 360px;
-    height: 2px;
-    margin-top: 14px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
     background: linear-gradient(90deg,
-            transparent,
-            #a78bfa,
-            #7c3aed,
-            #a78bfa,
-            transparent);
-    border-radius: 2px;
+            rgba(122, 108, 255, 0),
+            rgba(122, 108, 255, .55),
+            rgba(122, 108, 255, 0));
 }
 
-
 /* =========================================================
-   Departments（下方 4 个部门）
+   Department Cards · 部门模块
 ========================================================= */
-
 .org-departments {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 32px;
 }
 
-/* 部门卡片（无 hover 抖动） */
-.org-dept-card {
-    padding: 32px 26px 34px;
-    border-radius: 20px;
-    background: #ffffff;
-    box-shadow:
-        0 14px 30px rgba(0, 0, 0, .08),
-        0 6px 14px rgba(123, 79, 201, .14);
-    text-align: left;
+.org-departments::after {
+    content: "";
+    display: block;
+    width: 70%;
+    height: 1px;
+    margin: -10px auto 0;
+    background: linear-gradient(90deg, rgba(122, 108, 255, 0), rgba(122, 108, 255, .25), rgba(155, 92, 255, .25), rgba(122, 108, 255, 0));
+    pointer-events: none;
 }
 
-/* 标题 */
+.org-dept-card {
+    position: relative;
+    width: 200px;
+    padding: 26px 24px 28px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    will-change: transform;
+    transition: transform .25s cubic-bezier(.4, 0, .2, 1), box-shadow .25s cubic-bezier(.4, 0, .2, 1);
+
+    /* 高级浮入动画：弹性浮动 + 延迟错位 */
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+    animation: fadeSlideElastic 1s cubic-bezier(.19, 1, .22, 1) forwards;
+}
+
+/* 渐变边框 */
+.org-dept-card::before {
+    content: "";
+    position: absolute;
+    top: -1.5px;
+    left: -1.5px;
+    right: -1.5px;
+    bottom: -1.5px;
+    border-radius: 16px;
+    background: linear-gradient(90deg, rgba(155, 92, 255, 0.35), rgba(122, 108, 255, 0.35));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1.5px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Hover 光晕 */
+.org-dept-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+        0 18px 36px rgba(123, 79, 201, .14),
+        0 0 24px rgba(155, 92, 255, .08);
+}
+
+/* 标题文字渐变 + 微光 */
 .org-dept-card strong {
     display: block;
     font-size: 15px;
     font-weight: 700;
-    color: #2e1065;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(90deg, #2e1065 0%, #3b1a80 50%, #7A6CFF 600%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 4px rgba(122, 108, 255, 0.25);
 }
 
-/* 描述 */
+/* 标题下横线 */
+.org-dept-card strong::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 1px;
+    margin: 6px auto 0;
+    border-radius: 1px;
+    background: linear-gradient(90deg, rgba(155, 92, 255, 0.1), rgba(122, 108, 255, 0.1));
+}
+
+/* 内容文字 */
 .org-dept-card span {
-    font-size: 13.5px;
-    line-height: 1.7;
-    color: #4b5563;
+    display: block;
+    font-size: 13px;
+    line-height: 1.65;
+    text-align: center;
+    margin-top: 8px;
+    transform: translateZ(0);
+    color: #6b6484;
+    text-shadow: 0 0 2px rgba(122, 108, 255, 0.15);
 }
-
 
 /* =========================================================
-   Footer 遮挡修复（关键）
+   Crystal Layer · 承载层
 ========================================================= */
-
-/* About 页面整体底部安全区 */
-.about-page {
-    padding-bottom: 96px;
+.org-section::after {
+    content: "";
+    position: absolute;
+    inset: -30px 44px -28px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, 0));
+    border: 1px solid rgba(122, 108, 255, .08);
+    box-shadow: 0 6px 18px rgba(46, 16, 101, .06);
+    pointer-events: none;
+    z-index: 0;
 }
-
 
 /* =========================================================
-   Responsive（响应式）
+   Safe Area
 ========================================================= */
-
-@media (max-width: 1024px) {
-    .org-departments {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* 横线在平板变短 */
-    .org-connector::after {
-        width: 240px;
-    }
+main {
+    padding-bottom: 160px;
 }
 
+/* =========================================================
+   分层动画 延迟错开，波浪式浮动感
+========================================================= */
+.org-dept-card:nth-child(1) { animation-delay: 0.2s; }
+.org-dept-card:nth-child(2) { animation-delay: 0.3s; }
+.org-dept-card:nth-child(3) { animation-delay: 0.4s; }
+.org-dept-card:nth-child(4) { animation-delay: 0.5s; }
+
+/* =========================================================
+   Responsive
+========================================================= */
 @media (max-width: 768px) {
-
-    /* 顶部介绍区收紧 */
-    .about-overview {
-        padding-top: 96px;
-        margin-bottom: 80px;
-    }
-
-    .overview-title {
-        font-size: 30px;
-    }
-
-    .overview-desc {
-        font-size: 15px;
-        line-height: 1.8;
-    }
-
-    /* 组织结构标题 */
-    .org-title {
-        font-size: 22px;
-        margin-bottom: 48px;
-    }
-
-    /* 连接线移动端适配 */
-    .org-connector {
-        margin: 14px 0 28px;
-    }
-
-    .org-connector::before {
-        height: 28px;
-    }
-
-    .org-connector::after {
-        width: 120px;
-    }
-
-    /* 卡片改为纵向 */
-    .org-departments {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .org-founder-card {
-        padding: 34px 28px 36px;
-    }
-
-    /* footer 留白更少 */
-    .about-page {
-        padding-bottom: 64px;
-    }
+    .overview-title { font-size: 30px; }
+    .org-title { font-size: 18px; margin-bottom: 44px; }
+    .org-departments { flex-direction: column; align-items: center; }
+    .org-departments::after { width: 88%; margin-top: -12px; }
+    .org-dept-card { width: 90%; }
+    .org-founder-card { padding: 26px 22px 28px; }
+    .org-section::after { inset: -26px 14px -24px; border-radius: 18px; }
 }
+
+/* =========================================================
+   Keyframe Animations · 高级动画升级版
+========================================================= */
+
+/* =========================================================
+   Keyframe Animations · 高级动画升级版
+========================================================= */
+
+/* 弹性浮入动画（淡入 + 上浮 + 弹性缩放 + 微晃动） */
+@keyframes fadeSlideElastic {
+    0% {opacity: 0;transform: translateY(40px) scale(0.95);}
+    60% {opacity: 1;transform: translateY(-6px) scale(1.03);}
+    80% {transform: translateY(3px) scale(0.99);}
+    100% {opacity: 1;transform: translateY(0) scale(1);}
+}
+
+/* 弹性浮入动画（创始人卡片专用，略强弹性） */
+@keyframes fadeSlideBounce {
+    0% {opacity: 0;transform: translateY(36px) scale(0.95);}
+    50% {opacity: 1;transform: translateY(-10px) scale(1.04);}
+    70% {transform: translateY(6px) scale(0.98);}
+    100% {opacity: 1;transform: translateY(0) scale(1);}
+}
+
+/* 横线弹性拉伸动画 */
+@keyframes dividerElastic {
+    0% {opacity: 0;transform: scaleX(0);}
+    60% {opacity: 1;transform: scaleX(1.1);}
+    80% {transform: scaleX(0.95);}
+    100% {opacity: 1;transform: scaleX(1);}
+}
+
