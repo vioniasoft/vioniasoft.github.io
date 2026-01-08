@@ -9,6 +9,7 @@
 
 /* 通用 Nav */
 .nav {
+    font-weight: 500;
     position: fixed;
     top: 0;
     left: 0;
