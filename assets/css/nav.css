@@ -316,3 +316,43 @@
         pointer-events: none !important;
     }
 }
+
+
+
+/* =========================================================
+   🔒 中文字体“粗细锁定”终极修复
+   目的：
+   - 禁止 fake bold
+   - 统一中文笔画粗细
+========================================================= */
+
+/* 1️⃣ 所有中文：强制使用真实字重 */
+:lang(zh),
+:lang(zh-CN),
+:lang(zh-Hans) {
+    font-weight: 400 !important;
+    font-synthesis: none; /* ❌ 禁止浏览器合成粗体 */
+}
+
+/* 2️⃣ 中文加粗：只允许 700（真实存在） */
+:lang(zh) strong,
+:lang(zh) b,
+:lang(zh) .bold,
+:lang(zh) .is-active {
+    font-weight: 700 !important;
+}
+
+/* 3️⃣ 导航 / 按钮中，中文不吃 500 / 600 */
+.nav :lang(zh),
+button :lang(zh),
+a :lang(zh),
+li :lang(zh) {
+    font-weight: 400 !important;
+}
+
+/* 4️⃣ 修复 span / li / a 混排导致的粗细跳变 */
+:lang(zh) span,
+:lang(zh) li,
+:lang(zh) a {
+    font-weight: inherit;
+}
