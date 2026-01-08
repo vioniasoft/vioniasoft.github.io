@@ -47,7 +47,8 @@
 
 /* Logo */
 .nav-logo-img {
-    height: 26px; /* 更小，更轻盈 */
+    height: 26px;
+    /* 更小，更轻盈 */
 }
 
 /* 桌面菜单 */
@@ -61,11 +62,13 @@
 .nav-menu li {
     position: relative;
     padding: 8px 14px;
-    border-radius: 999px; /* 胶囊形状 */
+    border-radius: 999px;
+    /* 胶囊形状 */
     cursor: pointer;
     color: #374151;
     transition: all .35s cubic-bezier(.2, .8, .2, 1);
-    background: transparent; /* 未选中菜单透明底 */
+    background: transparent;
+    /* 未选中菜单透明底 */
 }
 
 /* 菜单浮起透明胶囊效果 */
@@ -82,7 +85,7 @@
     background: linear-gradient(90deg, rgba(155, 92, 255, 0.8) 0%, rgba(122, 108, 255, 0.8) 100%);
     border-radius: 999px;
     box-shadow: inset 0 0 0 1px rgba(123, 79, 201, 0.32),
-                0 10px 28px rgba(123, 79, 201, 0.22);
+        0 10px 28px rgba(123, 79, 201, 0.22);
     position: relative;
 }
 
@@ -93,16 +96,21 @@
     inset: 0;
     border-radius: inherit;
     background: linear-gradient(120deg,
-        transparent 30%,
-        rgba(255,255,255,0.55),
-        transparent 70%);
+            transparent 30%,
+            rgba(255, 255, 255, 0.55),
+            transparent 70%);
     animation: glow 2.8s infinite;
     pointer-events: none;
 }
 
 @keyframes glow {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(100%); }
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
 }
 
 /* 桌面指示条 */
@@ -114,9 +122,16 @@
     background: linear-gradient(90deg, #9B5CFF 0%, #7A6CFF 100%);
     box-shadow: 0 4px 10px rgba(123, 79, 201, .3);
     transition: left .45s cubic-bezier(.2, .8, .2, 1),
-                width .45s cubic-bezier(.2, .8, .2, 1),
-                opacity .25s ease;
+        width .45s cubic-bezier(.2, .8, .2, 1),
+        opacity .25s ease;
     opacity: 0;
+}
+
+/* 桌面语言容器 */
+.nav-lang {
+    position: relative; /* ⭐ 必须 */
+    display: flex;
+    align-items: center;
 }
 
 /* 桌面语言按钮 */
@@ -138,12 +153,13 @@
 .nav-lang .lang-dropdown {
     position: absolute;
     right: 0;
-    top: 36px;
+    top: calc(100% + 8px); /* 比 36px 更稳 */
     background: #fff;
     border-radius: 10px;
     min-width: 120px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, .15);
+    z-index: 2000;
 }
 
 .nav-lang .lang-dropdown div {
@@ -159,8 +175,13 @@
    移动端菜单
 ========================= */
 @media (max-width: 768px) {
-    .desktop-only { display: none; }
-    .mobile-only { display: block; }
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
 
     .nav-toggle {
         font-size: 24px;
@@ -171,7 +192,9 @@
         user-select: none;
     }
 
-    .nav-toggle:hover { color: #374151; }
+    .nav-toggle:hover {
+        color: #374151;
+    }
 
     .nav-menu {
         position: absolute;
@@ -222,7 +245,7 @@
     .nav-menu>li.is-active {
         background: linear-gradient(90deg, rgba(155, 92, 255, 0.8) 0%, rgba(122, 108, 255, 0.8) 100%);
         box-shadow: inset 0 0 0 1px rgba(123, 79, 201, 0.32),
-                    0 10px 28px rgba(123, 79, 201, 0.22);
+            0 10px 28px rgba(123, 79, 201, 0.22);
     }
 
     .nav-menu>li.is-active::after {
@@ -282,6 +305,7 @@
 }
 
 @media (min-width: 769px) {
+
     .mobile-lang,
     .mobile-lang-item,
     .nav-toggle {
