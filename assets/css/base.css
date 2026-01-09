@@ -1,68 +1,114 @@
 /* assets/css/base.css */
 /* =========================================================
-   VioniaSoft · Base CSS（最终稳定版 · 字体修复版）
-   ✔ 全站字体系统统一
-   ✔ 修复中英文切换粗细不一致问题
-   ✔ 不影响 nav / 页面功能
+   VioniaSoft · Base CSS（最终可上线版）
+   ✔ 中文粗细统一
+   ✔ 大字不虚，小字不糊
+   ✔ iOS / Android / Desktop 一致
 ========================================================= */
 
 /* ================= Reset ================= */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-synthesis: none;
+    /* ❌ 禁止浏览器假粗 / 假斜 */
 }
 
 /* =========================================================
-   🌍 全站字体系统（关键修复点）
-   说明：
-   - Inter：英文 / UI 最佳
-   - Noto Sans SC：完整支持中文真实字重
-   - system-ui：兜底
+   🌍 字体系统（中英文彻底分离）
 ========================================================= */
 :root {
-    --font-main: "Inter", "Noto Sans SC", system-ui, -apple-system;
+    --font-en: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-zh:
+        "Noto Sans SC",
+        -apple-system,
+        BlinkMacSystemFont,
+        "PingFang SC",
+        "Microsoft YaHei",
+        sans-serif;
 }
 
 html,
 body {
     height: 100%;
-    font-family: var(--font-main);
+    font-family: var(--font-en);
+    /* 默认英文 */
     font-weight: 400;
-    /* 全站基准字重 */
     color: #1f2937;
     background: #f7f6fb;
 
-    /* 字体渲染优化（防抖 & 防虚） */
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 }
 
 /* =========================================================
-   🇨🇳 中文字体权重修正（非常关键）
-   作用：
-   - 禁止浏览器对中文做“假粗”
-   - 解决：有的字粗、有的字细的问题
+   🇨🇳 中文全局基准（正文）
 ========================================================= */
 :lang(zh),
 :lang(zh-CN),
 :lang(zh-Hans) {
-    font-weight: 400;
+    font-family: var(--font-zh);
+    font-weight: 500;
+    /* ✅ 中文正文标准厚度 */
+    line-height: 1.7;
+    color: #374151;
 }
 
-/* 中文加粗只允许到 600（真实存在） */
+/* 中文正文内强调 */
 :lang(zh) strong,
 :lang(zh) b {
     font-weight: 600;
+    /* ❗不超过 600 */
 }
 
+/* =========================================================
+   🇨🇳 中文标题分级（核心）
+========================================================= */
+
+/* 页面 / Hero 主标题 */
+:lang(zh) h1 {
+    font-weight: 700;
+    /* ✅ 大字必须厚 */
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+}
+
+/* Section / 卡片标题 */
+:lang(zh) h2,
+:lang(zh) h3 {
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* =========================================================
+   可选：中文标题安全微光（只给 h1）
+========================================================= */
+:lang(zh) h1 {
+    text-shadow: 0 1px 6px rgba(122, 108, 255, 0.25);
+}
+
+/* =========================================================
+   防止 span / a / li 混排导致粗细跳变
+========================================================= */
+:lang(zh) span,
+:lang(zh) a,
+:lang(zh) li,
+:lang(zh) p {
+    font-weight: inherit;
+}
+
+/* =========================================================
+   Vue
+========================================================= */
 [v-cloak] {
     display: none;
 }
 
 /* =========================================================
-   页面背景（柔和稳定）
+   页面背景
 ========================================================= */
 body::before {
     content: "";
@@ -76,7 +122,7 @@ body::before {
 }
 
 /* =========================================================
-   Footer（深色 · 固定底部）
+   Footer
 ========================================================= */
 .footer {
     position: fixed;
@@ -91,61 +137,11 @@ body::before {
     z-index: 900;
 }
 
-.footer a {
-    color: #a77be3;
-    text-decoration: none;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
-
 /* =========================================================
-   移动端菜单锁滚动（全局） 
+   移动端菜单锁滚动（不要 hidden）
 ========================================================= */
 body.nav-locked {
     overflow: auto;
-    /* ❗不能 hidden */
     position: static;
-    /* ❗不能 fixed */
     height: auto;
-}
-
-
-/* =========================================================
-   🔒 中文字体“粗细锁定”终极修复
-   目的：
-   - 禁止 fake bold
-   - 统一中文笔画粗细
-========================================================= */
-
-/* 1️⃣ 所有中文：强制使用真实字重 */
-:lang(zh),
-:lang(zh-CN),
-:lang(zh-Hans) {
-    font-weight: 400 !important;
-    font-synthesis: none; /* ❌ 禁止浏览器合成粗体 */
-}
-
-/* 2️⃣ 中文加粗：只允许 700（真实存在） */
-:lang(zh) strong,
-:lang(zh) b,
-:lang(zh) .bold,
-:lang(zh) .is-active {
-    font-weight: 700 !important;
-}
-
-/* 3️⃣ 导航 / 按钮中，中文不吃 500 / 600 */
-.nav :lang(zh),
-button :lang(zh),
-a :lang(zh),
-li :lang(zh) {
-    font-weight: 400 !important;
-}
-
-/* 4️⃣ 修复 span / li / a 混排导致的粗细跳变 */
-:lang(zh) span,
-:lang(zh) li,
-:lang(zh) a {
-    font-weight: inherit;
 }

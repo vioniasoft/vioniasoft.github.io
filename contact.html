@@ -6,7 +6,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | VioniaSoft</title>
-
+  <!-- 中文字体（必须，所有页面一致） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/nav.css"> <!-- ✅ 单独引入 nav -->
   <link rel="stylesheet" href="assets/css/contact.css" />
@@ -35,7 +38,7 @@
       <p class="contact-desc">{{ t.contact.desc1 }}</p>
       <p class="contact-desc">{{ t.contact.desc2 }}</p>
     </section>
- 
+
     <!-- 表单 -->
     <section class="contact-form-section">
       <form id="contactForm" class="contact-form" action="https://formspree.io/f/mjgbzana" method="POST" novalidate>
