@@ -68,3 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// base.js 或 nav.js
+watchLangChange(lang => {
+  const html = document.getElementById('htmlRoot');
+  if (lang === 'zh') html.setAttribute('lang', 'zh');
+  else if (lang === 'en') html.setAttribute('lang', 'en');
+  else if (lang === 'ko') html.setAttribute('lang', 'ko');
+  else if (lang === 'fr') html.setAttribute('lang', 'fr');
+});
