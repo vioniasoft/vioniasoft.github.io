@@ -1,11 +1,10 @@
 <!-- assets/partials/nav.html -->
-<nav class="nav" id="mainNav">
+<nav class="nav" id="mainNav" aria-label="메인 네비게이션">
     <div class="nav-inner" id="navApp" v-cloak>
-
         <!-- Logo -->
         <div class="nav-logo">
             <a href="index.html">
-                <img src="assets/images/common/vioniasoft_logo_20260105.png" class="nav-logo-img">
+                <img src="assets/images/common/vioniasoft_logo_20260105.png" class="nav-logo-img" alt="VioniaSoft 비오니아소프트 서비스 대표 이미지">
             </a>
         </div>
 
@@ -16,7 +15,6 @@
 
         <!-- 菜单 -->
         <ul class="nav-menu" :class="{ open: menuOpen }">
-
             <li @click="go('index.html')">{{ t.nav.home }}</li>
             <li @click="go('about.html')">{{ t.nav.about }}</li>
             <li @click="go('services.html')">{{ t.nav.services }}</li>
@@ -26,7 +24,6 @@
             <li class="mobile-lang" :class="{ open: langOpen }" @click.stop="langOpen = !langOpen">
                 🌐 Language <span>▶</span>
             </li>
-
             <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('ko')">한국어</li>
             <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('en')">English</li>
             <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('zh')">中文</li>
@@ -48,6 +45,5 @@
                 <div @click="switchLang('fr')">Français</div>
             </div>
         </div>
-
     </div>
 </nav>

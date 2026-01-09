@@ -1,67 +1,59 @@
+<!-- about.html -->
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
-     <meta charset="UTF-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>About | VioniaSoft</title>
-     <!-- 中文字体（必须，所有页面一致） -->
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <title>About | VioniaSoft | 회사 소개</title>
+     <meta name="description" content="VioniaSoft 회사 개요. IT 시스템 통합(SI), 서비스 관리(SM), 웹 솔루션 제공.">
+     <meta name="keywords" content="VioniaSoft, 회사소개, IT 서비스, SI, SM, 웹 솔루션">
+
+     <!-- Open Graph / Twitter -->
+     <meta property="og:title" content="About | VioniaSoft | 회사 소개">
+     <meta property="og:description" content="VioniaSoft 회사 개요. IT 시스템 통합(SI), 서비스 관리(SM), 웹 솔루션 제공.">
+     <meta property="og:type" content="website">
+     <meta property="og:url" content="https://vioniasoft.com/about.html">
+     <meta property="og:image" content="assets/images/common/vioniasoft_logo_20260105.png">
+     <meta name="twitter:card" content="summary_large_image">
+     <meta name="twitter:title" content="About | VioniaSoft | 회사 소개">
+     <meta name="twitter:description" content="VioniaSoft 회사 개요. IT 시스템 통합(SI), 서비스 관리(SM), 웹 솔루션 제공.">
+     <meta name="twitter:image" content="assets/images/common/vioniasoft_logo_20260105.png">
+
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
           rel="stylesheet">
-     <link rel="stylesheet" href="assets/css/base.css" />
-     <link rel="stylesheet" href="assets/css/nav.css"> <!-- ✅ 单独引入 nav -->
-     <link rel="stylesheet" href="assets/css/about.css" />
+
+     <link rel="stylesheet" href="assets/css/base.css">
+     <link rel="stylesheet" href="assets/css/nav.css">
+     <link rel="stylesheet" href="assets/css/about.css">
 
      <style>
           [v-cloak] {
-               display: none
+               display: none;
           }
      </style>
-
      <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
 
 <body>
 
-     <!-- Nav -->
      <div id="nav-container"></div>
 
-     <!-- Page -->
      <main id="app" class="page about-page" v-cloak>
 
-
-          <!-- =========================
-          Company Overview
-          ========================= -->
+          <!-- Company Overview -->
           <section class="about-overview reveal">
-
-               <!-- <span class="overview-eyebrow">
-                    Company Overview
-               </span> -->
-
-               <h1 class="overview-title">
-                    {{ t.about.title }}
-               </h1>
-
+               <h1 class="overview-title">{{ t.about.title }}</h1>
                <div class="overview-divider"></div>
-
-               <p class="overview-desc">
-                    {{ t.about.desc }}
-               </p>
-
+               <p class="overview-desc">{{ t.about.desc }}</p>
           </section>
 
-          <!-- =========================
-          Organization Structure
-          ========================= -->
+          <!-- Organization Structure -->
           <section class="org-section reveal delay-2">
-
-               <h2 class="org-title">
-                    {{ t.about.orgStructure }}
-                    <!-- <span>Founder-led Functional Model</span> -->
-               </h2>
+               <h2 class="org-title">{{ t.about.orgStructure }}</h2>
 
                <!-- Founder -->
                <div class="org-founder">
@@ -71,37 +63,28 @@
                     </div>
                </div>
 
-               <!-- 连接线 -->
                <div class="org-connector-t"></div>
 
-               <!-- 部门（一次排开） -->
+               <!-- Departments -->
                <div class="org-departments">
-
                     <div class="org-dept-card">
                          <strong>{{ t.about.value1Title }}</strong>
                          <span>{{ t.about.value1Desc }}</span>
                     </div>
-
                     <div class="org-dept-card">
                          <strong>{{ t.about.value2Title }}</strong>
                          <span>{{ t.about.value2Desc }}</span>
                     </div>
-
                     <div class="org-dept-card">
                          <strong>{{ t.about.value3Title }}</strong>
                          <span>{{ t.about.value3Desc }}</span>
                     </div>
-
                     <div class="org-dept-card">
                          <strong>{{ t.about.value4Title }}</strong>
                          <span>{{ t.about.value4Desc }}</span>
                     </div>
-
                </div>
-
           </section>
-
-
 
      </main>
 
@@ -110,10 +93,21 @@
           <p>© 2025 VioniaSoft. All rights reserved.</p>
      </footer>
 
+     <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"VioniaSoft",
+  "url":"https://vioniasoft.com/",
+  "logo":"https://vioniasoft.com/assets/images/common/vioniasoft_logo_20260105.png",
+  "contactPoint":[{"@type":"ContactPoint","email":"info@vioniasoft.com","contactType":"customer support","availableLanguage":["Korean","English","Chinese"]}]
+}
+</script>
+
      <script src="assets/js/i18n.js"></script>
-     <script src="assets/js/base.js"></script>
-     <script src="assets/js/about.js"></script>
-     <script src="assets/js/nav.js"></script>
+     <script src="assets/js/base.js" defer></script>
+     <script src="assets/js/about.js" defer></script>
+     <script src="assets/js/nav.js" defer></script>
 
 </body>
 
