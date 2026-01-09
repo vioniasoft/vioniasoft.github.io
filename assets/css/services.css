@@ -44,7 +44,7 @@
     line-height: 1.25;
     letter-spacing: -0.015em;
 
-    /* 🎨 与 Org Title / Founder 完全一致的渐变文字 */
+    /* 🎨 渐变文字 */
     background: linear-gradient(90deg,
             #2e1065 0%,
             #33206f 50%,
@@ -52,24 +52,25 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    /* ✨ 轻微发光，增强层次（稳定不抖） */
+    /* ✨ 轻微发光 */
     text-shadow: 0 0 4px rgba(122, 108, 255, 0.25);
 
-    /* ✅ 多语言安全：单行显示 */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* ✅ 多行显示并居中 */
+    white-space: normal;      /* 允许换行 */
+    word-break: break-word;   /* 超长单词自动换行 */
+    text-align: center;       /* 居中 */
 
     margin: 0;
 
-    /* ✅ 稳定进入动画：只透明 + 位移 */
+    /* ✅ 动画 */
     opacity: 0;
     transform: translateY(28px);
     animation: fadeSlideSoft 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
 
-    /* 🔒 防抖 */
     will-change: opacity, transform;
 }
+
+
 
 
 

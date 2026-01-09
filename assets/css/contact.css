@@ -1,101 +1,204 @@
-/* assets/css/contact.css */
-
 /* =========================================================
-   Contact 顶部文案（统一高级灰 + 稳定显示）
+   assets/css/contact.css
+   Contact 页面统一设计升级（与 About 页面风格一致）
 ========================================================= */
 
+/* =========================================================
+   Contact 顶部文案（标题 + 描述）
+   - 渐变紫色标题
+   - 多行居中
+   - 稳定微光效果
+========================================================= */
 .contact-overview {
-  max-width: 760px;
-  margin: 0 auto;
+  max-width: 760px;       /* 最大宽度 */
+  margin: 0 auto;         /* 居中 */
   padding: 140px 24px 72px;
-  text-align: center;
+  text-align: center;     /* 文本居中 */
 }
- 
-/* 标题：紫色渐变标题（不做位移，防止移动端发糊） */
+
+/* 标题：渐变文字 + 微光效果 + 动画进入 */
 .contact-title {
-  font-size: 36px;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: .18em;
   margin-bottom: 24px;
 
-  background: linear-gradient(90deg, #2e1065 0%, #33206f 50%, #3b1a80 100%);
+  /* 渐变文字 */
+  background: linear-gradient(90deg,
+          #2e1065 0%,
+          #33206f 50%,
+          #3b1a80 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 4px rgba(122, 108, 255, 0.25);
+
+  /* 多行居中 */
+  white-space: normal;
+  word-break: break-word;
+  text-align: center;
+
+  /* 初始动画状态 */
+  opacity: 0;
+  transform: translateY(28px);
+  animation: fadeSlideSoft 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
+  will-change: opacity, transform;
 }
 
-/* 分隔线 */
-.contact-divider {
-  width: 48px;
+/* 轻入动画 keyframes */
+@keyframes fadeSlideSoft {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 分隔线：渐变风格，居中 */
+.contact-divider-animated {
+  position: relative;
+  margin: 0 auto 32px;   /* 居中并保留底部间距 */
+  width: 100%;
+  max-width: 160px;      /* 横杠最大宽度 */
   height: 3px;
-  margin: 0 auto 32px;
+  overflow: hidden;      /* 隐藏未展开部分 */
+  transform: translateY(-12px); /* 向上移动 6px */
+}
+/* 真正动画的线 */
+.contact-divider-animated::before {
+  content: "";
+  position: absolute;
+  left: 50%;             /* 初始在中间 */
+  top: 0;
+  height: 80%;
+  width: 0;              /* 从 0 宽开始 */
+  transform: translateX(-50%); /* 保持中点在中心 */
   border-radius: 2px;
-  background: linear-gradient(90deg, #9B5CFF, #7A6CFF);
+
+  /* 渐变线条，左右渐隐 */
+  background: linear-gradient(90deg,
+      rgba(122, 108, 255, 0), /* 左侧透明 */
+      #7A6CFF,
+      #9B5CFF,
+      rgba(155, 92, 255, 0)  /* 右侧透明 */
+  );
+
+  /* 动画 */
+  animation: dividerExpand 0.6s ease-out forwards;
+  animation-delay: 0.3s; /* 稍后出现 */
+
+  /* 防抖性能优化 */
+  will-change: width;
 }
 
-/* 描述文本（高级灰，正文不做位移动画） */
+/* 横杠展开动画 */
+@keyframes dividerExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* 描述文本：高级灰 多行居中 + 入场动画 */
 .contact-desc {
   max-width: 560px;
   margin: 0 auto;
   font-size: 15px;
   line-height: 1.9;
   color: #6b6484;
+  text-align: center;
+
+  /* 动画初始状态 */
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeSlideSoft 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 
-/* 第二段弱化 */
+
+/* 第二段文字稍晚出现 + 弱化颜色 */
 .contact-desc + .contact-desc {
   margin-top: 6px;
   font-size: 14px;
   color: #8b84a6;
+  animation-delay: 0.15s; /* 稍晚一点入场 */
 }
-
 
 /* =========================================================
    表单区域
+   - 高级卡片阴影
+   - 内边距舒适
 ========================================================= */
-
 .contact-form-section {
   max-width: 560px;
   margin: 0 auto;
   padding: 0 24px 200px;
 }
 
+/* =========================================================
+   表单入场动画（轻微下移 + 渐显）
+========================================================= */
+
+/* 动画 keyframes：轻微下移 + 渐显 */
+@keyframes fadeSlideForm {
+  from {
+    opacity: 0;
+    transform: translateY(28px); /* 初始下移 */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);    /* 最终位置 */
+  }
+}
+
+/* 应用到表单 */
 .contact-form {
   background: #fff;
   padding: 42px;
   border-radius: 20px;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
   overflow: visible;
+  position: relative;
+
+  /* 初始状态 */
+  opacity: 0;
+  transform: translateY(28px);
+
+  /* 动画 */
+  animation: fadeSlideForm 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
+  animation-delay: 0.4s; /* 标题 + 横杠 + 描述后出现 */
+  will-change: opacity, transform; /* 性能优化 */
 }
 
 /* =========================================================
-   表单行：逐个轻入（核心）
+   表单行动画（轻入）
 ========================================================= */
-
 .form-row {
   margin-bottom: 22px;
-  /* 初始状态：轻微下移 + 透明 */
   opacity: 0;
   transform: translateY(14px);
   position: relative;
   z-index: 1;
 }
-/* 下拉所在这一行强制最高层（核心） */
+
+/* 下拉行抬高层级，避免被遮挡 */
 .form-row.select-row {
   z-index: 30;
 }
 
-/* 显示状态：JS 加 show */
+/* JS 加 .show 后触发动画 */
 .form-row.show {
   animation: fadeUpSoft 0.6s ease forwards;
 }
 
-/* 轻入动画（不抖、不糊） */
+/* 轻入动画 */
 @keyframes fadeUpSoft {
   from {
     opacity: 0;
     transform: translateY(14px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -116,30 +219,31 @@
   border-radius: 10px;
   border: 1px solid #e5e7eb;
   font-size: 14px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 输入 focus 渐变边框效果 */
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(90deg, #9B5CFF, #7A6CFF) border-box;
 }
 
 /* =========================================================
-   自定义下拉（保持你原有设计）
-   咨询类型下拉被遮挡（关键层级修复）
+   自定义下拉选择
+   - 与表单层级统一
 ========================================================= */
-
-/* 下拉容器本身抬高层级 */
 .custom-select {
   position: relative;
   z-index: 20;
 }
 
-/* 下拉展开时再额外抬高（最稳） */
 .custom-select.open {
   z-index: 999;
 }
-
-/* 下拉选项列表必须比表单字段高 */
-.select-options {
-  position: absolute;
-  z-index: 1000;
-}
-
 
 .select-trigger {
   width: 100%;
@@ -202,25 +306,9 @@
   background: #f5f3ff;
 }
 
-
 /* =========================================================
-   输入框 focus 渐变边框
+   提交按钮（渐变 + 交互反馈）
 ========================================================= */
-
-.form-row input:focus,
-.form-row textarea:focus {
-  outline: none;
-  border: 1px solid transparent;
-  background:
-    linear-gradient(#fff, #fff) padding-box,
-    linear-gradient(90deg, #9B5CFF, #7A6CFF) border-box;
-}
-
-
-/* =========================================================
-   提交按钮
-========================================================= */
-
 .contact-submit {
   margin: 40px auto 0;
   display: flex;
@@ -250,11 +338,9 @@
   box-shadow: none;
 }
 
-
 /* =========================================================
-   错误提示（输入即消失）
+   错误提示
 ========================================================= */
-
 .field-error {
   display: none;
   margin-top: 6px;
@@ -273,11 +359,9 @@
   font-size: 12px;
 }
 
-
 /* =========================================================
    成功 / 失败弹层（高级 SaaS 风格）
 ========================================================= */
-
 .form-success,
 .form-error {
   position: fixed;
@@ -299,7 +383,8 @@
   pointer-events: auto;
 }
 
-.form-success-card {
+.form-success-card,
+.form-error-card {
   background: #fff;
   color: #2e1065;
   padding: 40px 48px;
@@ -309,14 +394,34 @@
   animation: popSoft .5s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 
+/* 弹层轻弹动画 */
 @keyframes popSoft {
   from {
     opacity: 0;
     transform: translateY(16px) scale(.98);
   }
-
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+
+
+
+/* 标题响应式字体：移动端稍小 */
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 28px; /* 移动端稍小 */
+  }
+  .contact-divider-animated {
+    max-width: 120px; /* 移动端短一些 */
+    height: 2px;      /* 可选：横线也稍微细一点 */
+  }
+}
+
+@media (min-width: 769px) {
+  .contact-title {
+    font-size: 36px; /* 桌面端默认大小 */
   }
 }
