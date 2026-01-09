@@ -1,67 +1,112 @@
 <!-- services.html -->
 <!DOCTYPE html>
 <html lang="ko" id="htmlRoot">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Services | VioniaSoft | IT 솔루션</title>
-  <meta name="description" content="VioniaSoft 서비스. 시스템 통합(SI), 서비스 관리(SM), 웹 솔루션 제공.">
-  <meta name="keywords" content="VioniaSoft, 서비스, SI, SM, 웹 솔루션">
+<title>Services | VioniaSoft | IT 솔루션</title>
+<meta name="description" content="VioniaSoft 서비스. 시스템 통합(SI), 서비스 관리(SM), 웹 솔루션 제공.">
+<meta name="keywords" content="VioniaSoft, 서비스, SI, SM, 웹 솔루션">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Services | VioniaSoft | IT 솔루션">
-  <meta property="og:description" content="VioniaSoft 서비스. 시스템 통합(SI), 서비스 관리(SM), 웹 솔루션 제공.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://vioniasoft.com/services.html">
-  <meta property="og:image" content="assets/images/common/vioniasoft_logo_20260105.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Services | VioniaSoft | IT 솔루션">
-  <meta name="twitter:description" content="VioniaSoft 서비스. 시스템 통합(SI), 서비스 관리(SM), 웹 솔루션 제공.">
-  <meta name="twitter:image" content="assets/images/common/vioniasoft_logo_20260105.png">
+<!-- Open Graph / Twitter -->
+<meta property="og:title" content="Services | VioniaSoft | IT 솔루션">
+<meta property="og:description" content="VioniaSoft 서비스. 시스템 통합(SI), 서비스 관리(SM), 웹 솔루션 제공.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vioniasoft.com/services.html">
+<meta property="og:image" content="assets/images/common/vioniasoft_logo_20260105.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Services | VioniaSoft | IT 솔루션">
+<meta name="twitter:description" content="VioniaSoft 서비스. 시스템 통합(SI), 서비스 관리(SM), 웹 솔루션 제공.">
+<meta name="twitter:image" content="assets/images/common/vioniasoft_logo_20260105.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/nav.css">
-  <link rel="stylesheet" href="assets/css/services.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/nav.css">
+<link rel="stylesheet" href="assets/css/services.css">
 
-  <style>
-    [v-cloak] {
-      display: none;
-    }
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+<style>[v-cloak]{display:none;}</style>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
-
 <body>
 
-  <div id="nav-container"></div>
+<div id="nav-container"></div>
 
-  <main id="app" class="page services-page" v-cloak>
+<!-- Vue 根元素 -->
+<main id="app" class="page services-page" v-cloak>
 
-    <!-- Hero -->
-    <section class="services-hero reveal reveal--title">
-      <h1>{{ t.services.title }}</h1>
-    </section>
+  <!-- Hero -->
+  <section class="services-hero reveal reveal--title">
+    <h1>{{ t.services.title }}</h1>
+  </section>
 
-    <!-- Core Services -->
-    <section class="services-core">
-      <!-- ... 保留你原来的 service-row ... -->
-      <!-- 省略，保持原有 Vue 绑定 t.services.xxx -->
-    </section>
+  <!-- Core Services -->
+  <section class="services-core">
+    <!-- SI 서비스 -->
+    <div class="service-row reveal">
+      <div class="service-left">
+        <div class="service-bar"></div>
+        <h2>{{ t.services.siTitle }} <span>SYSTEM INTEGRATION</span></h2>
+      </div>
+      <div class="service-right">
+        <p>{{ t.services.siDesc }}</p>
+        <strong>{{ t.services.siApply }}</strong>
+        <ul>
+          <li>{{ t.services.siList[0] }}</li>
+          <li>{{ t.services.siList[1] }}</li>
+          <li>{{ t.services.siList[2] }}</li>
+        </ul>
+      </div>
+    </div>
 
-  </main>
+    <!-- SM 서비스 -->
+    <div class="service-row reveal">
+      <div class="service-left">
+        <div class="service-bar"></div>
+        <h2>{{ t.services.smTitle }} <span>SERVICE MANAGEMENT</span></h2>
+      </div>
+      <div class="service-right">
+        <p>{{ t.services.smDesc }}</p>
+        <strong>{{ t.services.smFocus }}</strong>
+        <ul>
+          <li>{{ t.services.smList[0] }}</li>
+          <li>{{ t.services.smList[1] }}</li>
+          <li>{{ t.services.smList[2] }}</li>
+        </ul>
+      </div>
+    </div>
 
-  <footer class="footer">
-    <p>Email: info@vioniasoft.com</p>
-    <p>© 2025 VioniaSoft. All rights reserved.</p>
-  </footer>
+    <!-- WEB 서비스 -->
+    <div class="service-row reveal">
+      <div class="service-left">
+        <div class="service-bar"></div>
+        <h2>{{ t.services.webTitle }} <span>WEB & DIGITAL SOLUTION</span></h2>
+      </div>
+      <div class="service-right">
+        <p>{{ t.services.webDesc1 }}</p>
+        <p>{{ t.services.webDesc2 }}</p>
+        <strong>{{ t.services.webFocus }}</strong>
+        <ul>
+          <li>{{ t.services.webList[0] }}</li>
+          <li>{{ t.services.webList[1] }}</li>
+          <li>{{ t.services.webList[2] }}</li>
+        </ul>
+        <p>{{ t.services.webDesc3 }}</p>
+      </div>
+    </div>
+  </section>
 
-  <script type="application/ld+json">
+</main>
+
+<footer class="footer">
+  <p>Email: info@vioniasoft.com</p>
+  <p>© 2025 VioniaSoft. All rights reserved.</p>
+</footer>
+
+<script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"Organization",
@@ -72,11 +117,10 @@
 }
 </script>
 
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/base.js" defer></script>
-  <script src="assets/js/services.js" defer></script>
-  <script src="assets/js/nav.js" defer></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/base.js" defer></script>
+<script src="assets/js/services.js" defer></script>
+<script src="assets/js/nav.js" defer></script>
 
 </body>
-
 </html>

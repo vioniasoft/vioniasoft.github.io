@@ -1,56 +1,106 @@
 <!-- contact.html -->
 <!DOCTYPE html>
 <html lang="ko" id="htmlRoot">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Contact | VioniaSoft | 문의</title>
-  <meta name="description" content="VioniaSoft 문의 페이지. 이메일 또는 폼으로 문의 가능합니다.">
-  <meta name="keywords" content="VioniaSoft, 연락처, 문의, Contact, 이메일">
+<title>Contact | VioniaSoft | 문의</title>
+<meta name="description" content="VioniaSoft 문의 페이지. 이메일 또는 폼으로 문의 가능합니다.">
+<meta name="keywords" content="VioniaSoft, 연락처, 문의, Contact, 이메일">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Contact | VioniaSoft | 문의">
-  <meta property="og:description" content="VioniaSoft 문의 페이지. 이메일 또는 폼으로 문의 가능합니다.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://vioniasoft.com/contact.html">
-  <meta property="og:image" content="assets/images/common/vioniasoft_logo_20260105.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact | VioniaSoft | 문의">
-  <meta name="twitter:description" content="VioniaSoft 문의 페이지. 이메일 또는 폼으로 문의 가능합니다.">
-  <meta name="twitter:image" content="assets/images/common/vioniasoft_logo_20260105.png">
+<!-- Open Graph / Twitter -->
+<meta property="og:title" content="Contact | VioniaSoft | 문의">
+<meta property="og:description" content="VioniaSoft 문의 페이지. 이메일 또는 폼으로 문의 가능합니다.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vioniasoft.com/contact.html">
+<meta property="og:image" content="assets/images/common/vioniasoft_logo_20260105.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact | VioniaSoft | 문의">
+<meta name="twitter:description" content="VioniaSoft 문의 페이지. 이메일 또는 폼으로 문의 가능합니다.">
+<meta name="twitter:image" content="assets/images/common/vioniasoft_logo_20260105.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/nav.css">
-  <link rel="stylesheet" href="assets/css/contact.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/nav.css">
+<link rel="stylesheet" href="assets/css/contact.css">
 
-  <style>
-    [v-cloak] {
-      display: none;
-    }
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+<style>[v-cloak]{display:none;}</style>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
-
 <body>
 
-  <div id="nav-container"></div>
+<div id="nav-container"></div>
 
-  <main id="app" class="page contact-page" v-cloak>
-    <!-- Contact 页面内容保留原来的 Vue t.contact.xxx 绑定 -->
-  </main>
+<main id="app" class="page contact-page" v-cloak>
+  <!-- 页面标题 -->
+  <section class="contact-overview">
+    <h1 class="contact-title">{{ t.contact.title }}</h1>
+    <div class="contact-divider-animated"></div>
+    <p class="contact-desc">{{ t.contact.desc1 }}</p>
+    <p class="contact-desc">{{ t.contact.desc2 }}</p>
+  </section>
 
-  <footer class="footer">
-    <p>Email: info@vioniasoft.com</p>
-    <p>© 2025 VioniaSoft. All rights reserved.</p>
-  </footer>
+  <!-- 表单 -->
+  <section class="contact-form-section">
+    <form id="contactForm" class="contact-form" action="https://formspree.io/f/mjgbzana" method="POST" novalidate>
+      <div class="form-row">
+        <label>{{ t.contact.form.name }}</label>
+        <input type="text" name="name" required />
+        <p class="field-error">{{ t.contact.form.nameRequired }}</p>
+      </div>
 
-  <script type="application/ld+json">
+      <div class="form-row">
+        <label>{{ t.contact.form.email }}</label>
+        <input type="email" name="email" required />
+        <p class="field-error">{{ t.contact.form.emailRequired }}</p>
+      </div>
+
+      <div class="form-row">
+        <label>{{ t.contact.form.company }}</label>
+        <input type="text" name="company" />
+      </div>
+
+      <div class="form-row select-row">
+        <label>{{ t.contact.form.type }}</label>
+        <div id="contactTypeSelect" class="custom-select">
+          <div id="contactTypeTrigger" class="select-trigger is-placeholder" :data-placeholder="t.contact.form.type">
+            {{ t.contact.form.selectType }}
+          </div>
+          <ul class="select-options">
+            <li data-value="type1">{{ t.contact.form.type1 }}</li>
+            <li data-value="type2">{{ t.contact.form.type2 }}</li>
+            <li data-value="type3">{{ t.contact.form.type3 }}</li>
+            <li data-value="type4">{{ t.contact.form.type4 }}</li>
+          </ul>
+        </div>
+        <input type="hidden" name="type" id="contactTypeValue" />
+        <p class="field-error" id="typeError">{{ t.contact.form.typeRequired }}</p>
+      </div>
+
+      <div class="form-row">
+        <label>{{ t.contact.form.message }}</label>
+        <textarea name="message" rows="4" required></textarea>
+        <p class="field-error">{{ t.contact.form.messageRequired }}</p>
+      </div>
+
+      <button type="submit" id="submitBtn" class="contact-submit">
+        {{ t.contact.form.submit }}
+      </button>
+    </form>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Email: info@vioniasoft.com</p>
+  <p>© 2025 VioniaSoft. All rights reserved.</p>
+</footer>
+
+<script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"Organization",
@@ -61,11 +111,10 @@
 }
 </script>
 
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/base.js" defer></script>
-  <script src="assets/js/contact.js" defer></script>
-  <script src="assets/js/nav.js" defer></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/base.js" defer></script>
+<script src="assets/js/contact.js" defer></script>
+<script src="assets/js/nav.js" defer></script>
 
 </body>
-
 </html>
