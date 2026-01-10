@@ -1,21 +1,21 @@
+<!-- about.html -->
 <!DOCTYPE html>
 <html lang="ko" id="htmlRoot">
 
 <head>
-     <!-- ===== 基础 ===== -->
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <!-- ===== SEO ===== -->
+     <!-- SEO Meta -->
      <title>회사 소개 | 비오니아소프트 | IT 시스템 통합 · 서비스 관리 전문 기업</title>
      <meta name="description"
-          content="VioniaSoft는 시스템 통합(SI), 서비스 관리(SM), 웹·디지털 솔루션을 제공하는 IT 전문 기업입니다. 비즈니스 중심의 안정적이고 확장 가능한 IT 시스템을 설계·구축합니다.">
-     <meta name="keywords" content="VioniaSoft, 회사 소개, IT 회사, 시스템 통합, SI, 서비스 관리, SM, 웹 개발, IT 솔루션">
+           content="비오니아소프트는 시스템 통합(SI), 서비스 관리(SM), 웹·디지털 솔루션을 제공하는 IT 전문 기업입니다. 기업 중심의 안정적이고 확장 가능한 IT 시스템을 설계·구축합니다.">
+     <meta name="keywords"
+           content="비오니아소프트, 회사 소개, IT 회사, 시스템 통합, SI, 서비스 관리, SM, 웹 개발, IT 솔루션">
+     <meta name="robots" content="index, follow">
 
-     <!-- ===== Canonical ===== -->
+     <!-- Canonical & Hreflang -->
      <link rel="canonical" href="https://www.vioniasoft.com/ko/about.html">
-
-     <!-- ===== hreflang ===== -->
      <link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/ko/about.html">
      <link rel="alternate" hreflang="en" href="https://www.vioniasoft.com/en/about.html">
      <link rel="alternate" hreflang="zh" href="https://www.vioniasoft.com/zh/about.html">
@@ -23,136 +23,101 @@
      <link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/ko/about.html">
 
      <!-- ===== Open Graph (Google / Kakao / Naver) ===== -->
-     <meta property="og:title" content="회사 소개 | VioniaSoft">
+     <meta property="og:title" content="회사 소개 | 비오니아소프트">
      <meta property="og:description"
-          content="시스템 통합(SI), 서비스 관리(SM), 웹·디지털 솔루션을 제공하는 IT 전문 기업 VioniaSoft의 회사 소개 페이지입니다.">
+           content="비오니아소프트는 기업 중심의 IT 시스템 설계·구축과 서비스 관리를 담당하는 IT 전문 기업입니다.">
      <meta property="og:type" content="website">
      <meta property="og:url" content="https://www.vioniasoft.com/ko/about.html">
      <meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
 
-     <!-- ===== Twitter ===== -->
+     <!-- Twitter Card -->
      <meta name="twitter:card" content="summary_large_image">
-     <meta name="twitter:title" content="회사 소개 | VioniaSoft">
-     <meta name="twitter:description" content="비즈니스 중심의 IT 시스템 설계 · 구축. VioniaSoft 회사 소개">
+     <meta name="twitter:title" content="회사 소개 | 비오니아소프트">
+     <meta name="twitter:description"
+           content="비오니아소프트 — 기업 중심의 IT 시스템 설계·구축 및 서비스 관리 전문 IT 회사">
      <meta name="twitter:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
 
-     <!-- ===== Fonts ===== -->
+     <!-- Fonts -->
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-     <!-- ===== CSS ===== -->
+     <!-- CSS -->
      <link rel="stylesheet" href="/assets/css/base.css">
      <link rel="stylesheet" href="/assets/css/nav.css">
      <link rel="stylesheet" href="/assets/css/about.css">
+
+     <!-- Structured Data -->
+     <script type="application/ld+json">
+     {
+       "@context": "https://schema.org",
+       "@type": "Organization",
+       "name": "VioniaSoft",
+       "url": "https://www.vioniasoft.com",
+       "logo": "https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png",
+       "contactPoint": [{
+         "@type": "ContactPoint",
+         "email": "info@vioniasoft.com",
+         "contactType": "customer support",
+         "availableLanguage": ["Korean","English","Chinese","French"]
+       }]
+     }
+     </script>
+
 </head>
 
 <body>
 
-     <!-- ===== Navigation ===== -->
-     <nav class="nav nav-scrolled">
-          <div class="nav-inner">
-               <div class="nav-logo">
-                    <a href="/ko/index.html">
-                         <img src="/assets/images/common/vioniasoft_logo.png" alt="VioniaSoft 로고">
-                    </a>
-               </div>
-               <ul class="nav-menu">
-                    <li><a href="/ko/index.html">홈</a></li>
-                    <li class="active">회사소개</li>
-                    <li><a href="/ko/services.html">서비스</a></li>
-                    <li><a href="/ko/contact.html">문의하기</a></li>
-               </ul>
-          </div>
-     </nav>
-
-     <!-- ===== Main ===== -->
      <main class="page about-page">
 
           <!-- Company Overview -->
-          <section class="about-overview">
-               <h1 class="overview-title">회사 소개</h1>
+          <section class="about-overview reveal">
+               <h1 class="overview-title">회사 개요</h1>
                <div class="overview-divider"></div>
-               <p class="overview-desc">
-                    VioniaSoft는 시스템 통합(SI)과 서비스 관리(SM)를 중심으로
-                    기업 운영에 실질적으로 기여하는 IT 시스템을 설계·구축하는
-                    IT 전문 기업입니다.
-               </p>
+               <p class="overview-desc">VioniaSoft는 2025년에 설립된 시스템 통합 및 IT 서비스 관리 전문 기업입니다。개인사업자로 출발했지만, 기술 기준·프로젝트 프로세스·서비스 방법론은 전문 IT 서비스 기업 수준으로 운영하고 있습니다。중소기업 및 성장 단계의 조직을 대상으로, 구조적으로 명확하고 지속 가능한 IT 솔루션을 제공합니다.</p>
           </section>
 
-          <!-- Philosophy -->
-          <section class="about-section">
-               <h2>기업 철학</h2>
-               <p>
-                    우리는 단순한 개발 납품이 아닌,
-                    비즈니스 구조와 실제 운영 흐름을 이해하는 것에서
-                    모든 프로젝트를 시작합니다.
-               </p>
-               <p>
-                    단기적인 기능 구현보다
-                    장기적인 안정성, 확장성, 유지 관리 가능성을
-                    핵심 가치로 삼고 있습니다.
-               </p>
-          </section>
+          <!-- Organization Structure -->
+          <section class="org-section reveal delay-2">
+               <h2 class="org-title">조직 구조</h2>
 
-          <!-- Organization -->
-          <section class="about-section">
-               <h2>조직 구성</h2>
+               <!-- Founder -->
+               <div class="org-founder">
+                    <div class="org-founder-card">
+                         <strong>창립자 겸 대표</strong>
+                         <span>회전략적 비전 수립 및 경영 총괄</span>
+                    </div>
+               </div>
 
-               <ul class="org-list">
-                    <li>
-                         <strong>대표 / 총괄</strong><br>
-                         기업 전략 수립 및 프로젝트 전반 관리
-                    </li>
-                    <li>
-                         <strong>시스템 통합(SI)</strong><br>
-                         기업 맞춤형 시스템 설계 및 통합 구축
-                    </li>
-                    <li>
-                         <strong>개발팀</strong><br>
-                         백엔드 · 프론트엔드 · 시스템 아키텍처 개발
-                    </li>
-                    <li>
-                         <strong>디자인 & UX</strong><br>
-                         사용자 경험 중심의 UI/UX 설계
-                    </li>
-                    <li>
-                         <strong>서비스 관리(SM)</strong><br>
-                         운영 안정화 및 장기 유지 관리 지원
-                    </li>
-               </ul>
+               <div class="org-connector-t"></div>
+
+               <!-- Departments -->
+               <div class="org-departments">
+                    <div class="org-dept-card">
+                         <strong>SI 사업부</strong>
+                         <span>시스템 통합 및 맞춤형 솔루션 제공</span>
+                    </div>
+                    <div class="org-dept-card">
+                         <strong>개발팀</strong>
+                         <span>시스템 아키텍처 설계 및 개발</span>
+                    </div>
+                    <div class="org-dept-card">
+                         <strong>디자인팀</strong>
+                         <span>UI/UX 디자인 및 최적화</span>
+                    </div>
+                    <div class="org-dept-card">
+                         <strong>고객지원팀</strong>
+                         <span>IT 서비스 관리 및 고객 피드백 대응</span>
+                    </div>
+               </div>
           </section>
 
      </main>
 
-     <!-- ===== Footer ===== -->
      <footer class="footer">
           <p>Email: info@vioniasoft.com</p>
           <p>© 2025 VioniaSoft. All rights reserved.</p>
      </footer>
-
-     <script src="assets/js/i18n.js"></script>
-     <script src="assets/js/base.js" defer></script>
-     <script src="assets/js/about.js" defer></script>
-     <script src="assets/js/nav.js" defer></script>
-
-     <!-- ===== Structured Data ===== -->
-     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "VioniaSoft",
-    "url": "https://www.vioniasoft.com",
-    "logo": "https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png",
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "email": "info@vioniasoft.com",
-      "contactType": "customer support",
-      "availableLanguage": ["Korean","English","Chinese","French"]
-    }]
-  }
-  </script>
 
 </body>
 

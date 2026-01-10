@@ -1,67 +1,143 @@
+<!-- contact.html (French) -->
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" id="htmlRoot">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Contact | VioniaSoft | Nous contacter</title>
+  <!-- SEO Meta -->
+  <title>Contact | VioniaSoft | Intégration de Systèmes · Gestion de Services</title>
   <meta name="description"
-    content="Contactez VioniaSoft pour l’intégration de systèmes, la gestion de services et les solutions web.">
-  <meta name="keywords" content="VioniaSoft, Contact, Société IT, Intégration de systèmes">
+    content="Contactez VioniaSoft pour des demandes concernant l'Intégration de Systèmes (SI), la Gestion de Services (SM) et les solutions Web/Digitales. Nous fournissons des services IT professionnels pour améliorer l'efficacité opérationnelle.">
+  <meta name="keywords"
+    content="VioniaSoft, contact, demande, Intégration de Systèmes, SI, Gestion de Services, SM, développement Web, solutions digitales, services IT">
+  <meta name="robots" content="index, follow">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Contact | VioniaSoft">
-  <meta property="og:description" content="Contactez VioniaSoft pour vos projets informatiques.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.vioniasoft.com/fr/contact.html">
-  <meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo_20260105.png">
-
-  <!-- hreflang -->
-  <link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/contact.html">
+  <!-- Canonical & Hreflang -->
+  <link rel="canonical" href="https://www.vioniasoft.com/fr/contact.html">
+  <link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/ko/contact.html">
   <link rel="alternate" hreflang="en" href="https://www.vioniasoft.com/en/contact.html">
   <link rel="alternate" hreflang="zh" href="https://www.vioniasoft.com/zh/contact.html">
   <link rel="alternate" hreflang="fr" href="https://www.vioniasoft.com/fr/contact.html">
-  <link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/ko/contact.html">
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Contact | VioniaSoft">
+  <meta property="og:description"
+    content="Contactez VioniaSoft pour des conseils sur la conception, la mise en œuvre et la gestion des systèmes IT d'entreprise.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.vioniasoft.com/fr/contact.html">
+  <meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
 
-  <link rel="stylesheet" href="../assets/css/base.css">
-  <link rel="stylesheet" href="../assets/css/nav.css">
-  <link rel="stylesheet" href="../assets/css/contact.css">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact | VioniaSoft">
+  <meta name="twitter:description"
+    content="VioniaSoft — Intégration de Systèmes (SI), Gestion de Services (SM), solutions Web & Digitales">
+  <meta name="twitter:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/contact.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "VioniaSoft",
+    "url": "https://vioniasoft.com/",
+    "logo": "https://vioniasoft.com/assets/images/common/vioniasoft_logo.png",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "email": "info@vioniasoft.com",
+        "contactType": "customer support",
+        "availableLanguage": ["Korean","English","Chinese","French"]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
 
 <body>
 
-  <div id="nav-container"></div>
-
-  <main class="page contact-page">
+  <main id="app" class="page contact-page">
     <section class="contact-overview">
-      <h1 class="contact-title">Nous contacter</h1>
+      <h1 class="contact-title">Contact</h1>
       <div class="contact-divider-animated"></div>
-      <p class="contact-desc">Votre partenaire IT de confiance</p>
+      <p class="contact-desc">Partenaire IT fiable pour la croissance à long terme</p>
+      <p class="contact-desc">VioniaSoft vise une collaboration durable grâce à une communication claire et des
+        décisions rationnelles.</p>
     </section>
 
-    <section class="contact-form-section"></section>
+    <section class="contact-form-section">
+      <form id="contactForm" class="contact-form" action="https://formspree.io/f/mjgbzana" method="POST" novalidate>
+        <div class="form-row">
+          <label>Nom *</label>
+          <input type="text" name="name" required />
+          <p class="field-error">Veuillez entrer votre nom.</p>
+        </div>
+
+        <div class="form-row">
+          <label>Email *</label>
+          <input type="email" name="email" required />
+          <p class="field-error">Veuillez entrer votre email.</p>
+        </div>
+
+        <div class="form-row">
+          <label>Entreprise (optionnel)</label>
+          <input type="text" name="company" />
+        </div>
+
+        <div class="form-row select-row">
+          <label>Type de demande *</label>
+          <div id="contactTypeSelect" class="custom-select">
+            <div id="contactTypeTrigger" class="select-trigger is-placeholder" :data-placeholder="t.contact.form.type">
+              Sélectionnez le type de demande
+            </div>
+            <ul class="select-options">
+              <li data-value="type1">Intégration de Systèmes / SI</li>
+              <li data-value="type2">Gestion de Services / SM</li>
+              <li data-value="type3">Web & Solutions Digitales</li>
+              <li data-value="type4">Autre</li>
+            </ul>
+          </div>
+          <input type="hidden" name="type" id="contactTypeValue" />
+          <p class="field-error" id="typeError">Veuillez sélectionner le type de demande.</p>
+        </div>
+
+        <div class="form-row">
+          <label>Message *</label>
+          <textarea name="message" rows="4" required></textarea>
+          <p class="field-error">Veuillez entrer votre message.</p>
+        </div>
+
+        <button type="submit" id="submitBtn" class="contact-submit">Envoyer</button>
+      </form>
+    </section>
   </main>
 
   <footer class="footer">
     <p>Email: info@vioniasoft.com</p>
-    <p>© 2025 VioniaSoft. Tous droits réservés.</p>
+    <p>© 2025 VioniaSoft. All rights reserved.</p>
   </footer>
 
-  <script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"VioniaSoft",
-  "url":"https://www.vioniasoft.com/"
-}
-</script>
-
-  <script src="../assets/js/i18n.js"></script>
-  <script src="../assets/js/base.js" defer></script>
-  <script src="../assets/js/contact.js" defer></script>
-  <script src="../assets/js/nav.js" defer></script>
+  <!-- JS -->
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/base.js" defer></script>
+  <script src="/assets/js/contact.js" defer></script>
+  <script src="/assets/js/nav.js" defer></script>
 
 </body>
 

@@ -1,75 +1,217 @@
+<!-- services.html -->
 <!DOCTYPE html>
-<html lang="zh-CN" id="htmlRoot">
+<html lang="zh" id="htmlRoot">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>IT 服务 | VioniaSoft | 系统集成与服务管理</title>
-  <meta name="description" content="VioniaSoft 提供稳定可靠的 IT 服务，包括系统集成（SI）、服务管理（SM）及可扩展的 Web 解决方案。">
-  <meta name="keywords" content="VioniaSoft, IT服务, 系统集成, SI, SM, 网站解决方案">
+  <!-- SEO Meta -->
+  <title>服务 | VioniaSoft | IT 系统集成 · 服务管理 专业公司</title>
+  <meta name="description" content="VioniaSoft 是提供系统集成（SI）、服务管理（SM）和网页数字化解决方案的 IT 专业公司。我们设计并搭建可靠、可扩展的 IT 服务，以提升企业运营效率。">
+  <meta name="keywords" content="VioniaSoft, 服务, 系统集成, SI, 服务管理, SM, 网页开发, 数字化解决方案, IT 服务">
+  <meta name="robots" content="index, follow">
 
-  <meta property="og:title" content="IT 服务 | VioniaSoft">
-  <meta property="og:description" content="为企业提供稳定、可持续发展的 IT 系统集成与服务管理解决方案。">
+  <!-- Canonical & Hreflang -->
+  <link rel="canonical" href="https://www.vioniasoft.com/zh/services.html">
+  <link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/ko/services.html">
+  <link rel="alternate" hreflang="en" href="https://www.vioniasoft.com/en/services.html">
+  <link rel="alternate" hreflang="zh" href="https://www.vioniasoft.com/zh/services.html">
+  <link rel="alternate" hreflang="fr" href="https://www.vioniasoft.com/fr/services.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/ko/services.html">
+
+  <!-- ===== Open Graph (Google / Kakao / Naver) ===== -->
+  <meta property="og:title" content="服务 | VioniaSoft">
+  <meta property="og:description" content="VioniaSoft 提供企业级 IT 系统设计、搭建和服务管理的专业 IT 服务。">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://vioniasoft.com/zh/services.html">
-  <meta property="og:image" content="https://vioniasoft.com/assets/images/common/vioniasoft_logo_20260105.png">
+  <meta property="og:url" content="https://www.vioniasoft.com/zh/services.html">
+  <meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
 
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="服务 | VioniaSoft">
+  <meta name="twitter:description" content="VioniaSoft — 系统集成(SI)、服务管理(SM)、网页与数字化解决方案专业 IT 公司">
+  <meta name="twitter:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
 
-  <link rel="stylesheet" href="../assets/css/base.css">
-  <link rel="stylesheet" href="../assets/css/nav.css">
-  <link rel="stylesheet" href="../assets/css/services.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/services.css" />
+
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"VioniaSoft",
+    "url":"https://vioniasoft.com/",
+    "logo":"https://vioniasoft.com/assets/images/common/vioniasoft_logo.png",
+    "contactPoint":[{"@type":"ContactPoint","email":"info@vioniasoft.com","contactType":"customer support","availableLanguage":["Korean","English","Chinese","French"]}]
+  }
+  </script>
+
+  <!-- Vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
 
 <body>
-  <main class="page services-page">
 
-    <section class="services-hero">
-      <h1>助力企业成长的综合 IT 服务</h1>
+  <!-- Nav -->
+  <!-- <div id="nav-container"></div> -->
+
+  <!-- Vue App -->
+  <main class="page about-page">
+    <!-- Hero -->
+    <section class="services-hero reveal reveal--title" aria-label="服务英雄">
+      <h1>推动业务增长的综合 IT 服务</h1>
     </section>
 
-    <section class="services-core">
-      <div class="service-row">
-        <h2>系统集成（SI）</h2>
-        <p>
-          从需求分析到系统设计、开发与整合，VioniaSoft 提供完整的一体化系统集成服务，
-          注重整体架构一致性与长期稳定性。
-        </p>
-        <ul>
-          <li>新系统建设</li>
-          <li>现有系统整合</li>
-          <li>企业扩展阶段的系统重构</li>
-        </ul>
+    <!-- Core Services -->
+    <section class="services-core" aria-label="核心服务">
+
+      <!-- SI -->
+      <div class="service-row reveal">
+        <div class="service-left">
+          <div class="service-bar"></div>
+          <h2>系统集成 (SI)<span>SYSTEM INTEGRATION</span></h2>
+        </div>
+        <div class="service-right">
+          <p>提供从需求分析、设计、开发到系统整合的全流程系统集成服务，确保整体架构一致性，避免局部优化带来的复杂度增加。</p>
+          <strong>应用领域：</strong>
+          <ul>
+            <li>新系统搭建</li>
+            <li>现有系统整合</li>
+            <li>业务扩展阶段的系统重构</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="service-row">
-        <h2>服务管理（SM）</h2>
-        <p>
-          服务管理不仅是维护，更是保障系统长期稳定运行和运营质量的关键。
-        </p>
-        <ul>
-          <li>系统稳定性</li>
-          <li>运营效率优化</li>
-          <li>长期成本控制</li>
-        </ul>
+      <!-- SM -->
+      <div class="service-row reveal">
+        <div class="service-left">
+          <div class="service-bar"></div>
+          <h2>服务管理 (SM)<span>SERVICE MANAGEMENT</span></h2>
+        </div>
+        <div class="service-right">
+          <p>服务管理不仅是维护，更是确保系统长期稳定与运营质量的核心环节。</p>
+          <strong>重点管理：</strong>
+          <ul>
+            <li>系统稳定性</li>
+            <li>运营效率</li>
+            <li>长期运营成本管理</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="service-row">
-        <h2>Web 与数字化解决方案</h2>
-        <p>
-          网站与数字平台是企业与客户的重要连接点，
-          我们同时关注品牌表达、用户体验与技术可持续性。
-        </p>
-        <ul>
-          <li>清晰的信息结构</li>
-          <li>以用户为中心的体验设计</li>
-          <li>可扩展、易维护的系统架构</li>
-        </ul>
+      <!-- WEB -->
+      <div class="service-row reveal">
+        <div class="service-left">
+          <div class="service-bar"></div>
+          <h2>网页 & 数字化解决方案<span>WEB & DIGITAL SOLUTION</span></h2>
+        </div>
+        <div class="service-right">
+          <p>Web 系统不仅提供信息，更是与客户和合作伙伴的关键业务接触点。</p>
+          <p>VioniaSoft 同时兼顾品牌呈现、用户体验及系统可扩展性。</p>
+          <strong>主要考虑：</strong>
+          <ul>
+            <li>清晰的品牌及信息结构</li>
+            <li>以用户为中心的 UX 设计</li>
+            <li>可扩展及易维护的技术架构</li>
+          </ul>
+          <p>确保数字渠道持续为业务增长提供支持。</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section reveal reveal--titles" aria-label="服务流程">
+      <h2>实际工作方式 / 项目流程</h2>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item reveal">
+          <span class="timeline-dot">1</span>
+          <div class="timeline-content">
+            <h3>业务理解与需求整理</h3>
+            <p>在项目初期综合分析客户业务背景、组织结构和现有系统。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <span class="timeline-dot">2</span>
+          <div class="timeline-content">
+            <h3>系统架构及技术设计</h3>
+            <p>根据需求设计整体系统架构与技术方向。</p>
+            <ul class="process-list">
+              <li>整体系统架构设计</li>
+              <li>数据流与系统间联动整理</li>
+              <li>技术栈及可扩展性评估</li>
+            </ul>
+            <p class="process-note">所有技术选择均以长期稳定性和可维护性为优先，而非短期速度。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <span class="timeline-dot">3</span>
+          <div class="timeline-content">
+            <h3>实施及阶段验证</h3>
+            <ul class="process-list">
+              <li>功能实现与结构验证并行</li>
+              <li>核心模块优先实现与确认</li>
+              <li>持续沟通与调整</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <span class="timeline-dot">4</span>
+          <div class="timeline-content">
+            <h3>交接及运营对接</h3>
+            <p>考虑系统上线后的实际运行环境，支持交接与初期稳定化。</p>
+            <ul class="process-list">
+              <li>运营交接</li>
+              <li>基础管理标准制定</li>
+              <li>初期运营稳定化支持</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <span class="timeline-dot">5</span>
+          <div class="timeline-content">
+            <h3>持续管理与优化 (SM 对接)</h3>
+            <p>对于需要长期运营的系统，自然过渡到服务管理阶段以持续优化和改进。</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
   </main>
+
+  <footer class="footer">
+    <p>Email: info@vioniasoft.com</p>
+    <p>© 2025 VioniaSoft. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/base.js" defer></script>
+  <script src="/assets/js/services.js" defer></script>
+  <script src="/assets/js/nav.js" defer></script>
+
 </body>
 
 </html>

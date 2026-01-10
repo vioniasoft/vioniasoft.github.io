@@ -1,74 +1,229 @@
+<!-- services.html -->
 <!DOCTYPE html>
 <html lang="fr" id="htmlRoot">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Services IT | VioniaSoft | Intégration & Gestion de Systèmes</title>
+  <!-- SEO Meta -->
+  <title>Services | VioniaSoft | Intégration de systèmes IT · Gestion de services</title>
   <meta name="description"
-    content="VioniaSoft propose des services IT fiables incluant l’intégration de systèmes, la gestion de services et des solutions web évolutives.">
-  <meta name="keywords" content="VioniaSoft, services IT, intégration système, SI, SM, solutions web">
+    content="VioniaSoft fournit des services professionnels IT en intégration de systèmes (SI), gestion de services (SM) et solutions web & digitales. Nous concevons et mettons en œuvre des services IT fiables et extensibles pour maximiser l’efficacité opérationnelle des entreprises.">
+  <meta name="keywords"
+    content="VioniaSoft, services, intégration de systèmes, SI, gestion de services, SM, développement web, solutions digitales, services IT">
+  <meta name="robots" content="index, follow">
 
-  <meta property="og:title" content="Services IT | VioniaSoft">
-  <meta property="og:description" content="Des solutions IT durables pour accompagner la croissance des entreprises.">
+  <!-- Canonical & Hreflang -->
+  <link rel="canonical" href="https://www.vioniasoft.com/fr/services.html">
+  <link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/ko/services.html">
+  <link rel="alternate" hreflang="en" href="https://www.vioniasoft.com/en/services.html">
+  <link rel="alternate" hreflang="zh" href="https://www.vioniasoft.com/zh/services.html">
+  <link rel="alternate" hreflang="fr" href="https://www.vioniasoft.com/fr/services.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/ko/services.html">
+
+  <!-- ===== Open Graph (Google / Kakao / Naver) ===== -->
+  <meta property="og:title" content="Services | VioniaSoft">
+  <meta property="og:description"
+    content="VioniaSoft fournit des services IT professionnels centrés sur la conception, la mise en œuvre et la gestion de systèmes informatiques.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://vioniasoft.com/fr/services.html">
-  <meta property="og:image" content="https://vioniasoft.com/assets/images/common/vioniasoft_logo_20260105.png">
+  <meta property="og:url" content="https://www.vioniasoft.com/fr/services.html">
+  <meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
 
-  <link rel="stylesheet" href="../assets/css/base.css">
-  <link rel="stylesheet" href="../assets/css/nav.css">
-  <link rel="stylesheet" href="../assets/css/services.css">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Services | VioniaSoft">
+  <meta name="twitter:description"
+    content="VioniaSoft — Intégration de systèmes (SI), Gestion de services (SM), Solutions web & digitales">
+  <meta name="twitter:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/services.css" />
+
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"VioniaSoft",
+    "url":"https://vioniasoft.com/",
+    "logo":"https://vioniasoft.com/assets/images/common/vioniasoft_logo.png",
+    "contactPoint":[{"@type":"ContactPoint","email":"info@vioniasoft.com","contactType":"customer support","availableLanguage":["Korean","English","Chinese","French"]}]
+  }
+  </script>
+
+  <!-- Vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
 
 <body>
-  <main class="page services-page">
 
-    <section class="services-hero">
-      <h1>Services IT intégrés pour la croissance des entreprises</h1>
+  <!-- Nav -->
+  <!-- <div id="nav-container"></div> -->
+
+  <!-- Vue App -->
+  <main class="page about-page">
+    <!-- Hero -->
+    <section class="services-hero reveal reveal--title" aria-label="Section Héros">
+      <h1>Services IT intégrés pour la croissance de votre entreprise</h1>
     </section>
 
-    <section class="services-core">
-      <div class="service-row">
-        <h2>Intégration de Systèmes (SI)</h2>
-        <p>
-          Nous assurons l’intégration complète des systèmes, de l’analyse à la mise en production,
-          en garantissant cohérence architecturale et évolutivité.
-        </p>
-        <ul>
-          <li>Développement de nouveaux systèmes</li>
-          <li>Intégration de systèmes existants</li>
-          <li>Reconstruction lors des phases d’expansion</li>
-        </ul>
+    <!-- Core Services -->
+    <section class="services-core" aria-label="Services principaux">
+
+      <!-- SI -->
+      <div class="service-row reveal">
+        <div class="service-left">
+          <div class="service-bar"></div>
+          <h2>Intégration de systèmes (SI)<span>SYSTEM INTEGRATION</span></h2>
+        </div>
+        <div class="service-right">
+          <p>Nous fournissons des services complets d’intégration de systèmes, de l’analyse des besoins à la conception,
+            au développement et à l’intégration, en garantissant la cohérence de l’architecture globale et en évitant la
+            complexité due à une optimisation partielle.</p>
+          <strong>Domaines d’application :</strong>
+          <ul>
+            <li>Construction de nouveaux systèmes</li>
+            <li>Intégration de systèmes existants</li>
+            <li>Refonte des systèmes pour l’expansion commerciale</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="service-row">
-        <h2>Gestion des Services (SM)</h2>
-        <p>
-          La gestion des services vise à garantir la stabilité opérationnelle et la qualité à long terme.
-        </p>
-        <ul>
-          <li>Stabilité des systèmes</li>
-          <li>Optimisation des opérations</li>
-          <li>Contrôle des coûts à long terme</li>
-        </ul>
+      <!-- SM -->
+      <div class="service-row reveal">
+        <div class="service-left">
+          <div class="service-bar"></div>
+          <h2>Gestion de services (SM)<span>SERVICE MANAGEMENT</span></h2>
+        </div>
+        <div class="service-right">
+          <p>La gestion de services garantit non seulement la maintenance, mais aussi la stabilité à long terme et la
+            qualité opérationnelle des systèmes.</p>
+          <strong>Points clés :</strong>
+          <ul>
+            <li>Stabilité du système</li>
+            <li>Efficacité opérationnelle</li>
+            <li>Gestion des coûts à long terme</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="service-row">
-        <h2>Solutions Web & Digitales</h2>
-        <p>
-          Les plateformes digitales sont des points de contact clés avec les clients et partenaires.
-          Nous concevons des solutions durables, centrées sur l’utilisateur.
-        </p>
-        <ul>
-          <li>Architecture claire de l’information</li>
-          <li>Expérience utilisateur optimisée</li>
-          <li>Systèmes évolutifs et maintenables</li>
-        </ul>
+      <!-- WEB -->
+      <div class="service-row reveal">
+        <div class="service-left">
+          <div class="service-bar"></div>
+          <h2>Web & Solutions digitales<span>WEB & DIGITAL SOLUTION</span></h2>
+        </div>
+        <div class="service-right">
+          <p>Les systèmes Web ne se contentent pas de fournir de l’information, ils sont un point de contact stratégique
+            avec clients et partenaires.</p>
+          <p>VioniaSoft prend en compte la marque, l’expérience utilisateur et l’extensibilité du système.</p>
+          <strong>Points principaux :</strong>
+          <ul>
+            <li>Structure claire de la marque et de l’information</li>
+            <li>UX centrée sur l’utilisateur</li>
+            <li>Architecture technique extensible et maintenable</li>
+          </ul>
+          <p>Conception pour que les canaux numériques contribuent continuellement à la croissance des activités.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section reveal reveal--titles" aria-label="Processus de service">
+      <h2>Mode de travail réel / Processus de projet</h2>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item reveal">
+          <span class="timeline-dot">1</span>
+          <div class="timeline-content">
+            <h3>Compréhension métier et collecte des besoins</h3>
+            <p>Analyse complète du contexte métier, de l’organisation et des systèmes existants du client au début du
+              projet.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <span class="timeline-dot">2</span>
+          <div class="timeline-content">
+            <h3>Conception système et technique</h3>
+            <p>Conception de l’architecture globale et des choix techniques basés sur les besoins.</p>
+            <ul class="process-list">
+              <li>Conception de l’architecture globale</li>
+              <li>Organisation des flux de données et interconnexions système</li>
+              <li>Évaluation des stacks techniques et extensibilité</li>
+            </ul>
+            <p class="process-note">Toutes les décisions techniques privilégient la stabilité et la maintenabilité à
+              long terme plutôt que la rapidité à court terme.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <span class="timeline-dot">3</span>
+          <div class="timeline-content">
+            <h3>Mise en œuvre et vérification par étapes</h3>
+            <ul class="process-list">
+              <li>Développement et vérification structurelle simultanés</li>
+              <li>Priorité aux modules clés pour tests et validation</li>
+              <li>Communication et ajustement continus</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <span class="timeline-dot">4</span>
+          <div class="timeline-content">
+            <h3>Transfert et intégration opérationnelle</h3>
+            <p>Prise en compte de l’environnement opérationnel réel après mise en production pour soutenir la transition
+              et la stabilisation initiale.</p>
+            <ul class="process-list">
+              <li>Transfert opérationnel</li>
+              <li>Définition des standards de gestion</li>
+              <li>Soutien à la stabilisation initiale</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <span class="timeline-dot">5</span>
+          <div class="timeline-content">
+            <h3>Gestion continue et amélioration (SM)</h3>
+            <p>Pour les systèmes nécessitant une exploitation à long terme, passage naturel à la gestion des services
+              pour un processus d’amélioration continue.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
   </main>
+
+  <footer class="footer">
+    <p>Email: info@vioniasoft.com</p>
+    <p>© 2025 VioniaSoft. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/base.js" defer></script>
+  <script src="/assets/js/services.js" defer></script>
+  <script src="/assets/js/nav.js" defer></script>
+
 </body>
 
 </html>

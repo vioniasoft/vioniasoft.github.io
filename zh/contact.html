@@ -1,53 +1,125 @@
+<!-- contact.html (Chinese) -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh" id="htmlRoot">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Contact | VioniaSoft | Get in Touch</title>
-  <meta name="description"
-    content="Contact VioniaSoft for system integration (SI), service management (SM), and web & digital solutions.">
-  <meta name="keywords" content="VioniaSoft, Contact, IT Company, System Integration, Service Management">
+  <!-- SEO Meta -->
+  <title>联系 | VioniaSoft | IT 系统集成 · 服务管理</title>
+  <meta name="description" content="联系 VioniaSoft 获取系统集成 (SI)、服务管理 (SM) 以及 Web/数字化解决方案相关咨询。我们提供专业 IT 服务，提高企业运营效率。">
+  <meta name="keywords" content="VioniaSoft, 联系, 咨询, 系统集成, SI, 服务管理, SM, Web开发, 数字化解决方案, IT服务">
+  <meta name="robots" content="index, follow">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Contact | VioniaSoft">
-  <meta property="og:description" content="Get in touch with VioniaSoft for professional IT services.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.vioniasoft.com/en/contact.html">
-  <meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo_20260105.png">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact | VioniaSoft">
-  <meta name="twitter:description" content="Professional IT service inquiries at VioniaSoft.">
-  <meta name="twitter:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo_20260105.png">
-
-  <!-- hreflang -->
-  <link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/contact.html">
+  <!-- Canonical & Hreflang -->
+  <link rel="canonical" href="https://www.vioniasoft.com/zh/contact.html">
+  <link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/ko/contact.html">
   <link rel="alternate" hreflang="en" href="https://www.vioniasoft.com/en/contact.html">
   <link rel="alternate" hreflang="zh" href="https://www.vioniasoft.com/zh/contact.html">
   <link rel="alternate" hreflang="fr" href="https://www.vioniasoft.com/fr/contact.html">
-  <link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/ko/contact.html">
 
-  <link rel="stylesheet" href="../assets/css/base.css">
-  <link rel="stylesheet" href="../assets/css/nav.css">
-  <link rel="stylesheet" href="../assets/css/contact.css">
+  <!-- Open Graph -->
+  <meta property="og:title" content="联系 | VioniaSoft">
+  <meta property="og:description" content="联系 VioniaSoft 获取企业 IT 系统设计、实施和服务管理相关咨询。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.vioniasoft.com/zh/contact.html">
+  <meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="联系 | VioniaSoft">
+  <meta name="twitter:description" content="VioniaSoft — 系统集成 (SI)、服务管理 (SM)、Web & 数字化解决方案咨询">
+  <meta name="twitter:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/contact.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "VioniaSoft",
+    "url": "https://vioniasoft.com/",
+    "logo": "https://vioniasoft.com/assets/images/common/vioniasoft_logo.png",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "email": "info@vioniasoft.com",
+        "contactType": "customer support",
+        "availableLanguage": ["Korean","English","Chinese","French"]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
 
 <body>
 
-  <div id="nav-container"></div>
-
-  <main class="page contact-page">
+  <main id="app" class="page contact-page">
     <section class="contact-overview">
-      <h1 class="contact-title">Contact Us</h1>
+      <h1 class="contact-title">联系</h1>
       <div class="contact-divider-animated"></div>
-      <p class="contact-desc">Your trusted IT partner for long-term success</p>
+      <p class="contact-desc">长期可信赖的 IT 合作伙伴</p>
+      <p class="contact-desc">VioniaSoft 通过明确沟通和合理决策，致力于实现可持续协作。</p>
     </section>
 
     <section class="contact-form-section">
-      <!-- 表单结构与 KO 完全一致 -->
+      <form id="contactForm" class="contact-form" action="https://formspree.io/f/mjgbzana" method="POST" novalidate>
+        <div class="form-row">
+          <label>姓名 *</label>
+          <input type="text" name="name" required />
+          <p class="field-error">请输入姓名。</p>
+        </div>
+
+        <div class="form-row">
+          <label>邮箱 *</label>
+          <input type="email" name="email" required />
+          <p class="field-error">请输入邮箱。</p>
+        </div>
+
+        <div class="form-row">
+          <label>公司（可选）</label>
+          <input type="text" name="company" />
+        </div>
+
+        <div class="form-row select-row">
+          <label>咨询类型 *</label>
+          <div id="contactTypeSelect" class="custom-select">
+            <div id="contactTypeTrigger" class="select-trigger is-placeholder" :data-placeholder="t.contact.form.type">
+              请选择咨询类型
+            </div>
+            <ul class="select-options">
+              <li data-value="type1">系统集成 / SI</li>
+              <li data-value="type2">服务管理 / SM</li>
+              <li data-value="type3">Web & 数字化解决方案</li>
+              <li data-value="type4">其他</li>
+            </ul>
+          </div>
+          <input type="hidden" name="type" id="contactTypeValue" />
+          <p class="field-error" id="typeError">请选择咨询类型。</p>
+        </div>
+
+        <div class="form-row">
+          <label>咨询内容 *</label>
+          <textarea name="message" rows="4" required></textarea>
+          <p class="field-error">请输入咨询内容。</p>
+        </div>
+
+        <button type="submit" id="submitBtn" class="contact-submit">提交</button>
+      </form>
     </section>
   </main>
 
@@ -56,26 +128,11 @@
     <p>© 2025 VioniaSoft. All rights reserved.</p>
   </footer>
 
-  <script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"VioniaSoft",
-  "url":"https://www.vioniasoft.com/",
-  "logo":"https://www.vioniasoft.com/assets/images/common/vioniasoft_logo_20260105.png",
-  "contactPoint":[{
-    "@type":"ContactPoint",
-    "email":"info@vioniasoft.com",
-    "contactType":"customer support",
-    "availableLanguage":["Korean","English","Chinese","French"]
-  }]
-}
-</script>
-
-  <script src="../assets/js/i18n.js"></script>
-  <script src="../assets/js/base.js" defer></script>
-  <script src="../assets/js/contact.js" defer></script>
-  <script src="../assets/js/nav.js" defer></script>
+  <!-- JS -->
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/base.js" defer></script>
+  <script src="/assets/js/contact.js" defer></script>
+  <script src="/assets/js/nav.js" defer></script>
 
 </body>
 
