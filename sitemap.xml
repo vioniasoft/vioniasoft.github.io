@@ -6,38 +6,38 @@
   <!-- HOME -->
   <url>
     <loc>https://vioniasoft.com/ko/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://vioniasoft.com/ko/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vioniasoft.com/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://vioniasoft.com/zh/index.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://vioniasoft.com/fr/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vioniasoft.com/ko/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vioniasoft.com/ko/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vioniasoft.com/en/index.html" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://vioniasoft.com/zh/index.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vioniasoft.com/fr/index.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vioniasoft.com/ko/index.html" />
   </url>
 
   <!-- ABOUT -->
   <url>
     <loc>https://vioniasoft.com/ko/about.html</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://vioniasoft.com/ko/about.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vioniasoft.com/en/about.html"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://vioniasoft.com/zh/about.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://vioniasoft.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vioniasoft.com/ko/about.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vioniasoft.com/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://vioniasoft.com/zh/about.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vioniasoft.com/fr/about.html" />
   </url>
 
   <!-- SERVICES -->
   <url>
     <loc>https://vioniasoft.com/ko/services.html</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://vioniasoft.com/ko/services.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vioniasoft.com/en/services.html"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://vioniasoft.com/zh/services.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://vioniasoft.com/fr/services.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vioniasoft.com/ko/services.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vioniasoft.com/en/services.html" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://vioniasoft.com/zh/services.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vioniasoft.com/fr/services.html" />
   </url>
 
   <!-- CONTACT -->
   <url>
     <loc>https://vioniasoft.com/ko/contact.html</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://vioniasoft.com/ko/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vioniasoft.com/en/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://vioniasoft.com/zh/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://vioniasoft.com/fr/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vioniasoft.com/ko/contact.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vioniasoft.com/en/contact.html" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://vioniasoft.com/zh/contact.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vioniasoft.com/fr/contact.html" />
   </url>
 
 </urlset>
