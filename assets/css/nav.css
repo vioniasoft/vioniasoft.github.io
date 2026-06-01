@@ -317,3 +317,95 @@
     }
 }
 
+
+/* =========================================================
+   Premium Navigation Polish
+========================================================= */
+.nav {
+    height: 70px;
+    background: rgba(255, 255, 255, 0.68);
+    border-bottom: 1px solid rgba(122, 108, 255, 0.16);
+    box-shadow: 0 14px 46px rgba(46, 16, 101, 0.08);
+    backdrop-filter: blur(22px) saturate(150%);
+    -webkit-backdrop-filter: blur(22px) saturate(150%);
+}
+
+.nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.58), transparent);
+    opacity: .6;
+}
+
+.nav-dim {
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 18px 52px rgba(46, 16, 101, 0.12);
+}
+
+.nav-logo-img {
+    height: 30px;
+    filter: drop-shadow(0 8px 14px rgba(46, 16, 101, 0.12));
+}
+
+.nav-menu li {
+    color: var(--color-ink-soft);
+    letter-spacing: .01em;
+}
+
+.nav-menu li:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(237, 233, 254, 0.72));
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.72),
+        0 12px 28px rgba(46, 16, 101, 0.12);
+}
+
+.nav-menu li.is-active {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7A6CFF 48%, #38d5ff 140%);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.34),
+        0 14px 34px rgba(122, 108, 255, 0.32);
+}
+
+.nav-lang .lang-btn {
+    background: rgba(255, 255, 255, 0.72);
+    border-color: rgba(122, 108, 255, 0.24);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86), 0 10px 26px rgba(46, 16, 101, 0.08);
+    transition: transform .25s var(--ease-premium), box-shadow .25s var(--ease-premium), background .25s ease;
+}
+
+.nav-lang .lang-btn:hover {
+    transform: translateY(-2px);
+    background: #fff;
+    box-shadow: 0 16px 36px rgba(122, 108, 255, 0.18);
+}
+
+.nav-lang .lang-dropdown {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(122, 108, 255, 0.16);
+    box-shadow: 0 24px 70px rgba(46, 16, 101, 0.18);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+@media (max-width: 768px) {
+    .nav {
+        height: 64px;
+    }
+
+    .nav-inner {
+        padding: 0 20px;
+    }
+
+    .nav-menu {
+        top: 74px;
+        width: min(230px, calc(100vw - 32px));
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(122, 108, 255, 0.16);
+        box-shadow: 0 24px 70px rgba(46, 16, 101, 0.18);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+}

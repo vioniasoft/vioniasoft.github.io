@@ -916,3 +916,83 @@ main {
     from { opacity: 0; }
     to   { opacity: 1; }
 } */
+
+
+
+/* =========================================================
+   Premium About Polish
+========================================================= */
+.about-overview {
+    position: relative;
+    max-width: 980px;
+}
+
+.about-overview::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 82px;
+    width: min(720px, 86vw);
+    height: 300px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at 28% 40%, rgba(255, 255, 255, .82), transparent 32%),
+        radial-gradient(circle at 58% 44%, rgba(122, 108, 255, .22), transparent 68%),
+        radial-gradient(circle at 78% 35%, rgba(56, 213, 255, .13), transparent 45%);
+    filter: blur(18px);
+    z-index: -1;
+}
+
+.overview-title {
+    font-size: clamp(38px, 5.8vw, 66px);
+    line-height: 1.08;
+    background: linear-gradient(100deg, #17072f 0%, #4c1d95 38%, #7A6CFF 72%, #38d5ff 116%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(0 16px 28px rgba(46, 16, 101, .14));
+}
+
+.overview-desc {
+    color: var(--color-muted);
+}
+
+.org-section {
+    max-width: 1180px;
+    padding: 46px 34px 54px;
+    border-radius: 38px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, .58), rgba(237, 233, 254, .30));
+    border: 1px solid rgba(255, 255, 255, .70);
+    box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, .78);
+    backdrop-filter: blur(18px) saturate(145%);
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
+}
+
+.org-founder-card,
+.org-dept-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, .82), rgba(255, 255, 255, .54));
+    border: 1px solid rgba(255, 255, 255, .74);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .86),
+        0 22px 64px rgba(46, 16, 101, .13);
+    backdrop-filter: blur(18px) saturate(145%);
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
+}
+
+.org-founder-card::before,
+.org-dept-card::before {
+    background: linear-gradient(135deg, rgba(122, 108, 255, .42), rgba(56, 213, 255, .16), rgba(179, 92, 255, .34));
+}
+
+.org-founder-card:hover,
+.org-dept-card:hover {
+    background: rgba(255, 255, 255, .78);
+    box-shadow: var(--shadow-lift);
+}
+
+@media (max-width: 768px) {
+    .org-section {
+        padding: 34px 18px 40px;
+        border-radius: 28px;
+    }
+}
