@@ -1,502 +1,447 @@
 /* =========================================================
-   assets/css/contact.css
-   Contact 页面统一设计升级（与 About 页面风格一致）
+   Contact Page · Dark Premium
 ========================================================= */
 
-/* =========================================================
-   Contact 顶部文案（标题 + 描述）
-   - 渐变紫色标题
-   - 多行居中
-   - 稳定微光效果
-========================================================= */
+/* ================= 顶部 ================= */
 .contact-overview {
-  max-width: 760px;       /* 最大宽度 */
-  margin: 0 auto;         /* 居中 */
-  padding: 140px 24px 72px;
-  text-align: center;     /* 文本居中 */
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 140px 24px 72px;
+    text-align: center;
 }
 
-/* 标题：渐变文字 + 微光效果 + 动画进入 */
+/* 光晕 */
+.contact-overview::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    width: min(580px, 80vw);
+    height: 280px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: radial-gradient(circle at 50% 38%, rgba(122, 108, 255, 0.18), transparent 70%);
+    filter: blur(24px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* 标题 */
 .contact-title {
-  font-weight: 800;
-  letter-spacing: .18em;
-  margin-bottom: 24px;
-
-  /* 渐变文字 */
-  background: linear-gradient(90deg,
-          #2e1065 0%,
-          #33206f 50%,
-          #3b1a80 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 4px rgba(122, 108, 255, 0.25);
-
-  /* 多行居中 */
-  white-space: normal;
-  word-break: break-word;
-  text-align: center;
-
-  /* 初始动画状态 */
-  opacity: 0;
-  transform: translateY(28px);
-  animation: fadeSlideSoft 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
-  will-change: opacity, transform;
-}
-
-/* 轻入动画 keyframes */
-@keyframes fadeSlideSoft {
-  from {
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    margin-bottom: 24px;
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.1;
+    background: linear-gradient(135deg, #fff 0%, #e0d5ff 30%, #c4b5fd 55%, #a78bfa 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 8px 20px rgba(122, 108, 255, 0.2));
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
     opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    transform: translateY(24px);
+    animation: fadeSlideSoft 0.9s cubic-bezier(.16, 1, .3, 1) forwards;
+    will-change: opacity, transform;
 }
 
-/* 分隔线：渐变风格，居中 */
+/* 分隔线 */
 .contact-divider-animated {
-  position: relative;
-  margin: 0 auto 32px;   /* 居中并保留底部间距 */
-  width: 100%;
-  max-width: 160px;      /* 横杠最大宽度 */
-  height: 3px;
-  overflow: hidden;      /* 隐藏未展开部分 */
-  transform: translateY(-12px); /* 向上移动 6px */
-}
-/* 真正动画的线 */
-.contact-divider-animated::before {
-  content: "";
-  position: absolute;
-  left: 50%;             /* 初始在中间 */
-  top: 0;
-  height: 80%;
-  width: 0;              /* 从 0 宽开始 */
-  transform: translateX(-50%); /* 保持中点在中心 */
-  border-radius: 2px;
-
-  /* 渐变线条，左右渐隐 */
-  background: linear-gradient(90deg,
-      rgba(122, 108, 255, 0), /* 左侧透明 */
-      #7A6CFF,
-      #9B5CFF,
-      rgba(155, 92, 255, 0)  /* 右侧透明 */
-  );
-
-  /* 动画 */
-  animation: dividerExpand 0.6s ease-out forwards;
-  animation-delay: 0.3s; /* 稍后出现 */
-
-  /* 防抖性能优化 */
-  will-change: width;
-}
-
-/* 横杠展开动画 */
-@keyframes dividerExpand {
-  from {
-    width: 0;
-  }
-  to {
+    position: relative;
+    margin: 0 auto 32px;
     width: 100%;
-  }
+    max-width: 140px;
+    height: 2px;
+    overflow: hidden;
 }
 
-/* 描述文本：高级灰 多行居中 + 入场动画 */
+.contact-divider-animated::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    width: 0;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(167, 139, 250, 0.8) 30%,
+        rgba(196, 181, 253, 0.9) 50%,
+        rgba(167, 139, 250, 0.8) 70%,
+        transparent);
+    box-shadow: 0 0 10px rgba(122, 108, 255, 0.3);
+    animation: dividerExpand 0.6s ease-out forwards;
+    animation-delay: 0.2s;
+    will-change: width;
+}
+
+@keyframes dividerExpand {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* 描述 */
 .contact-desc {
-  max-width: 560px;
-  margin: 0 auto;
-  font-size: 15px;
-  line-height: 1.9;
-  color: #6b6484;
-  text-align: center;
-
-  /* 动画初始状态 */
-  opacity: 0;
-  transform: translateY(18px);
-  animation: fadeSlideSoft 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
+    max-width: 560px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeSlideSoft 0.9s cubic-bezier(.16, 1, .3, 1) forwards;
+    animation-delay: 0.15s;
+    will-change: opacity, transform;
 }
 
-
-/* 第二段文字稍晚出现 + 弱化颜色 */
 .contact-desc + .contact-desc {
-  margin-top: 6px;
-  font-size: 14px;
-  color: #8b84a6;
-  animation-delay: 0.15s; /* 稍晚一点入场 */
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--text-muted);
+    animation-delay: 0.2s;
 }
 
-/* =========================================================
-   表单区域
-   - 高级卡片阴影
-   - 内边距舒适
-========================================================= */
+/* ================= 表单区域 ================= */
 .contact-form-section {
-  max-width: 560px;
-  margin: 0 auto;
-  padding: 0 24px 200px;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0 24px 180px;
 }
 
-/* =========================================================
-   表单入场动画（轻微下移 + 渐显）
-========================================================= */
-
-/* 动画 keyframes：轻微下移 + 渐显 */
-@keyframes fadeSlideForm {
-  from {
-    opacity: 0;
-    transform: translateY(28px); /* 初始下移 */
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);    /* 最终位置 */
-  }
-}
-
-/* 应用到表单 */
 .contact-form {
-  background: #fff;
-  padding: 42px;
-  border-radius: 20px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-  overflow: visible;
-  position: relative;
-
-  /* 初始状态 */
-  opacity: 0;
-  transform: translateY(28px);
-
-  /* 动画 */
-  animation: fadeSlideForm 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
-  animation-delay: 0.4s; /* 标题 + 横杠 + 描述后出现 */
-  will-change: opacity, transform; /* 性能优化 */
-}
-
-/* =========================================================
-   表单行动画（轻入）
-========================================================= */
-.form-row {
-  margin-bottom: 22px;
-  opacity: 0;
-  transform: translateY(14px);
-  position: relative;
-  z-index: 1;
-}
-
-/* 下拉行抬高层级，避免被遮挡 */
-.form-row.select-row {
-  z-index: 30;
-}
-
-/* JS 加 .show 后触发动画 */
-.form-row.show {
-  animation: fadeUpSoft 0.6s ease forwards;
-}
-
-/* 轻入动画 */
-@keyframes fadeUpSoft {
-  from {
+    position: relative;
+    padding: 42px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(180deg,
+        rgba(22, 22, 42, 0.75),
+        rgba(16, 16, 32, 0.6));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+        var(--shadow-lg),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    overflow: visible;
     opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    transform: translateY(24px);
+    animation: fadeSlideForm 0.9s cubic-bezier(.16, 1, .3, 1) forwards;
+    animation-delay: 0.3s;
+    will-change: opacity, transform;
+}
+
+/* 表单渐变边框 */
+.contact-form::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: calc(var(--radius-lg) + 1px);
+    background: linear-gradient(135deg,
+        rgba(167, 139, 250, 0.3),
+        rgba(56, 213, 255, 0.12),
+        rgba(167, 139, 250, 0.25));
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    padding: 1px;
+    pointer-events: none;
+}
+
+@keyframes fadeSlideForm {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 表单行 */
+.form-row {
+    margin-bottom: 22px;
+    opacity: 0;
+    transform: translateY(12px);
+    position: relative;
+    z-index: 1;
+}
+
+.form-row.select-row {
+    z-index: 30;
+}
+
+.form-row.show {
+    animation: fadeUpSoft 0.5s ease forwards;
+}
+
+@keyframes fadeUpSoft {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .form-row label {
-  display: block;
-  font-size: 13px;
-  color: #6b7280;
-  margin-bottom: 6px;
+    display: block;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    font-weight: 500;
 }
 
 .form-row input,
 .form-row textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  font-size: 14px;
-  transition: border 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(167, 139, 250, 0.15);
+    background: rgba(18, 18, 32, 0.5);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
 }
 
-/* 输入 focus 渐变边框效果 */
+.form-row input::placeholder,
+.form-row textarea::placeholder {
+    color: var(--text-muted);
+}
+
 .form-row input:focus,
 .form-row textarea:focus {
-  outline: none;
-  border: 1px solid transparent;
-  background:
-    linear-gradient(#fff, #fff) padding-box,
-    linear-gradient(90deg, #9B5CFF, #7A6CFF) border-box;
+    outline: none;
+    border-color: rgba(167, 139, 250, 0.5);
+    box-shadow:
+        0 0 0 4px rgba(122, 108, 255, 0.1),
+        0 0 20px rgba(122, 108, 255, 0.06);
+    transform: translateY(-1px);
+    background: rgba(20, 20, 38, 0.6);
 }
 
-/* =========================================================
-   自定义下拉选择
-   - 与表单层级统一
-========================================================= */
+/* ================= 自定义下拉 ================= */
 .custom-select {
-  position: relative;
-  z-index: 20;
+    position: relative;
+    z-index: 20;
 }
 
 .custom-select.open {
-  z-index: 999;
+    z-index: 999;
 }
 
 .select-trigger {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  font-size: 14px;
-  background: #fff;
-  cursor: pointer;
-  position: relative;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(167, 139, 250, 0.15);
+    background: rgba(18, 18, 32, 0.5);
+    color: var(--text-primary);
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    transition: border-color .25s ease, box-shadow .25s ease;
 }
 
 .select-trigger.is-placeholder {
-  color: #9ca3af;
+    color: var(--text-muted);
 }
 
 .select-trigger::after {
-  content: "";
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  width: 8px;
-  height: 8px;
-  transform: translateY(-50%) rotate(45deg);
-  border-right: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  border-image: linear-gradient(90deg, #9B5CFF, #7A6CFF) 1;
+    content: "";
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    transform: translateY(-50%) rotate(45deg);
+    border-right: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
 }
 
 .custom-select.open .select-trigger::after {
-  transform: translateY(-50%) rotate(-135deg);
+    transform: translateY(-50%) rotate(-135deg);
 }
 
 .select-options {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: calc(100% + 6px);
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
-  list-style: none;
-  padding: 8px 0;
-  margin: 0;
-  display: none;
-  z-index: 50;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 8px);
+    background: rgba(22, 22, 40, 0.98);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    display: none;
+    z-index: 50;
 }
 
 .custom-select.open .select-options {
-  display: block;
+    display: block;
 }
 
 .select-options li {
-  padding: 12px 16px;
-  font-size: 14px;
-  cursor: pointer;
+    padding: 12px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
 }
 
 .select-options li:hover {
-  background: #f5f3ff;
+    background: rgba(167, 139, 250, 0.12);
+    color: #fff;
 }
 
-/* =========================================================
-   提交按钮（渐变 + 交互反馈）
-========================================================= */
+/* ================= 提交按钮 ================= */
 .contact-submit {
-  margin: 40px auto 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 180px;
-  height: 42px;
-  padding: 0 28px;
-  border-radius: 999px;
-  border: none;
-  background: linear-gradient(90deg, #9B5CFF 0%, #7A6CFF 100%);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform .2s ease, box-shadow .2s ease;
+    margin: 36px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    height: 44px;
+    padding: 0 28px;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(135deg,
+        var(--accent) 0%,
+        var(--accent-strong) 60%,
+        var(--accent) 100%);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .25s cubic-bezier(.16, 1, .3, 1),
+                box-shadow .25s ease;
+    box-shadow: 0 8px 24px rgba(122, 108, 255, 0.25);
 }
 
 .contact-submit:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(123, 79, 201, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(122, 108, 255, 0.4);
 }
 
 .contact-submit:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  box-shadow: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
 
-/* =========================================================
-   错误提示
-========================================================= */
+/* ================= 错误提示 ================= */
 .field-error {
-  display: none;
-  margin-top: 6px;
-  font-size: 12px;
-  color: #dc2626;
-  line-height: 1.5;
+    display: none;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #ef4444;
+    line-height: 1.5;
 }
 
 .field-error.show {
-  display: flex;
-  gap: 6px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
 }
 
 .field-error::before {
-  content: "⚠️";
-  font-size: 12px;
+    content: "⚠️";
+    font-size: 12px;
 }
 
-/* =========================================================
-   成功 / 失败弹层（高级 SaaS 风格）
-========================================================= */
+/* ================= 成功/失败弹层 ================= */
 .form-success,
 .form-error {
-  position: fixed;
-  inset: 0;
-  background: rgba(20, 12, 40, 0.45);
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: .4s;
-  z-index: 9999;
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 6, 14, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .35s ease;
+    z-index: 9999;
 }
 
 .form-success.show,
 .form-error.show {
-  opacity: 1;
-  pointer-events: auto;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .form-success-card,
 .form-error-card {
-  background: #fff;
-  color: #2e1065;
-  padding: 40px 48px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.18);
-  animation: popSoft .5s cubic-bezier(.22, 1, .36, 1) forwards;
+    background: linear-gradient(180deg,
+        rgba(28, 28, 50, 0.95),
+        rgba(20, 20, 38, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--text-primary);
+    padding: 40px 48px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    animation: popSoft .5s cubic-bezier(.34, 1.56, .64, 1) forwards;
 }
 
-/* 弹层轻弹动画 */
 @keyframes popSoft {
-  from {
-    opacity: 0;
-    transform: translateY(16px) scale(.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
-
-
-
-/* 标题响应式字体：移动端稍小 */
+/* ================= 响应式 ================= */
 @media (max-width: 768px) {
-  .contact-title {
-    font-size: 28px; /* 移动端稍小 */
-  }
-  .contact-divider-animated {
-    max-width: 120px; /* 移动端短一些 */
-    height: 2px;      /* 可选：横线也稍微细一点 */
-  }
+    .contact-overview {
+        padding: 110px 20px 50px;
+    }
+
+    .contact-divider-animated {
+        max-width: 100px;
+    }
+
+    .contact-form-section {
+        padding: 0 20px 160px;
+    }
+
+    .contact-form {
+        padding: 28px 22px;
+    }
+
+    .contact-title {
+        font-size: 28px;
+    }
 }
 
-@media (min-width: 769px) {
-  .contact-title {
-    font-size: 36px; /* 桌面端默认大小 */
-  }
-}
-
-
-/* =========================================================
-   Premium Contact Polish
-========================================================= */
-.contact-overview {
-  position: relative;
-}
-
-.contact-overview::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 108px;
-  width: min(620px, 86vw);
-  height: 260px;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: radial-gradient(circle at 50% 38%, rgba(122, 108, 255, .22), transparent 70%);
-  filter: blur(18px);
-  z-index: -1;
-}
-
-.contact-title {
-  font-size: clamp(34px, 5vw, 58px);
-  line-height: 1.08;
-  letter-spacing: -0.045em;
-  background: linear-gradient(100deg, #17072f, #4c1d95 42%, #7A6CFF 72%, #38d5ff 118%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  filter: drop-shadow(0 16px 28px rgba(46, 16, 101, .14));
-}
-
-.contact-form {
-  border: 1px solid rgba(255, 255, 255, .74);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, .86), rgba(255, 255, 255, .62));
-  border-radius: 28px;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, .88),
-    0 28px 80px rgba(46, 16, 101, .15);
-  backdrop-filter: blur(18px) saturate(145%);
-  -webkit-backdrop-filter: blur(18px) saturate(145%);
-}
-
-.contact-form::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, rgba(122, 108, 255, .38), rgba(56, 213, 255, .18), rgba(179, 92, 255, .28));
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
-  pointer-events: none;
-}
-
-.form-row input,
-.form-row textarea,
-.form-row select {
-  background: rgba(255, 255, 255, .74);
-  border-color: rgba(122, 108, 255, .18);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .78);
-  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
-}
-
-.form-row input:focus,
-.form-row textarea:focus,
-.form-row select:focus {
-  border-color: rgba(122, 108, 255, .55);
-  box-shadow: 0 0 0 4px rgba(122, 108, 255, .12), inset 0 1px 0 rgba(255, 255, 255, .78);
-  transform: translateY(-1px);
+@keyframes fadeSlideSoft {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

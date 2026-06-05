@@ -1,215 +1,122 @@
-/* assets/css/base.css */
 /* =========================================================
-   VioniaSoft · Base CSS（最终可上线版）
-   ✔ 中文粗细统一
-   ✔ 大字不虚，小字不糊
-   ✔ iOS / Android / Desktop 一致
+   VioniaSoft · Base CSS · Dark Premium
 ========================================================= */
 
-/* ================= Reset ================= */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-synthesis: none;
-    /* ❌ 禁止浏览器假粗 / 假斜 */
 }
 
-/* =========================================================
-   🌍 字体系统（中英文彻底分离）
-========================================================= */
 :root {
-    --font-en: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-zh:
-        "Noto Sans SC",
-        -apple-system,
-        BlinkMacSystemFont,
-        "PingFang SC",
-        "Microsoft YaHei",
-        sans-serif;
-}
+    --font-en: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-zh: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
 
-html,
-body {
-    height: 100%;
-    font-family: var(--font-en);
-    /* 默认英文 */
-    font-weight: 400;
-    color: #1f2937;
-    background: #f7f6fb;
-
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-}
-
-/* =========================================================
-   🇨🇳 中文全局基准（正文）
-========================================================= */
-:lang(zh),
-:lang(zh-CN),
-:lang(zh-Hans) {
-    font-family: var(--font-zh);
-    font-weight: 500;
-    /* ✅ 中文正文标准厚度 */
-    line-height: 1.7;
-    color: #374151;
-}
-
-/* 中文正文内强调 */
-:lang(zh) strong,
-:lang(zh) b {
-    font-weight: 600;
-    /* ❗不超过 600 */
-}
-
-/* =========================================================
-   🇨🇳 中文标题分级（核心）
-========================================================= */
-
-/* 页面 / Hero 主标题 */
-:lang(zh) h1 {
-    font-weight: 700;
-    /* ✅ 大字必须厚 */
-    line-height: 1.25;
-    letter-spacing: 0.01em;
-}
-
-/* Section / 卡片标题 */
-:lang(zh) h2,
-:lang(zh) h3 {
-    font-weight: 600;
-    line-height: 1.3;
-}
-
-/* =========================================================
-   可选：中文标题安全微光（只给 h1）
-========================================================= */
-:lang(zh) h1 {
-    text-shadow: 0 1px 6px rgba(122, 108, 255, 0.25);
-}
-
-/* =========================================================
-   防止 span / a / li 混排导致粗细跳变
-========================================================= */
-:lang(zh) span,
-:lang(zh) a,
-:lang(zh) li,
-:lang(zh) p {
-    font-weight: inherit;
-}
-
-/* =========================================================
-   Vue
-========================================================= */
-[v-cloak] {
-    display: none;
-}
-
-/* =========================================================
-   页面背景
-========================================================= */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background:
-        radial-gradient(1200px 520px at 50% -240px,
-            #ede9fe 0%,
-            rgba(237, 233, 254, 0) 70%);
-}
-
-/* =========================================================
-   Footer
-========================================================= */
-.footer {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 14px 20px;
-    background: #0f172a;
-    color: #cbd5f5;
-    font-size: 12px;
-    text-align: center;
-    z-index: 900;
-}
-
-/* =========================================================
-   移动端菜单锁滚动（不要 hidden）
-========================================================= */
-body.nav-locked {
-    overflow: auto;
-    position: static;
-    height: auto;
-}
-
-/* =========================================================
-   Premium Visual System · 2026 polish
-   - Layered ambient background
-   - Consistent glass surfaces, shadows and focus states
-========================================================= */
-:root {
-    --color-ink: #15112f;
-    --color-ink-soft: #4f4b66;
-    --color-muted: #746f8f;
-    --color-primary: #7A6CFF;
-    --color-primary-deep: #2e1065;
-    --color-accent: #B35CFF;
-    --color-cyan: #38d5ff;
-    --surface-glass: rgba(255, 255, 255, 0.68);
-    --surface-glass-strong: rgba(255, 255, 255, 0.86);
-    --line-soft: rgba(122, 108, 255, 0.18);
-    --shadow-soft: 0 22px 70px rgba(46, 16, 101, 0.12);
-    --shadow-lift: 0 34px 90px rgba(46, 16, 101, 0.20);
-    --radius-xl: 30px;
-    --ease-premium: cubic-bezier(.22, 1, .36, 1);
+    /* 深色高级配色 */
+    --bg-deep: #06060e;
+    --bg-surface: #0c0c18;
+    --bg-card: #131324;
+    --bg-card-hover: #1a1a32;
+    --text-primary: #eeecff;
+    --text-secondary: #b4b0d0;
+    --text-muted: #7873a0;
+    --accent: #a78bfa;
+    --accent-strong: #c4b5fd;
+    --accent-cyan: #38d5ff;
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --border-card: rgba(255, 255, 255, 0.07);
+    --border-glow: rgba(167, 139, 250, 0.2);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 40px rgba(122, 108, 255, 0.12);
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 28px;
+    --radius-xl: 38px;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 html {
     scroll-behavior: smooth;
+    background: var(--bg-deep);
 }
 
 body {
-    color: var(--color-ink);
+    height: 100%;
+    font-family: var(--font-en);
+    font-weight: 400;
+    color: var(--text-primary);
     background:
-        radial-gradient(900px 520px at 12% 8%, rgba(122, 108, 255, 0.20), transparent 68%),
-        radial-gradient(780px 460px at 88% 0%, rgba(56, 213, 255, 0.13), transparent 64%),
-        linear-gradient(180deg, #fbfaff 0%, #f7f4ff 48%, #ffffff 100%);
+        radial-gradient(ellipse 80% 50% at 50% -15%, rgba(120, 80, 255, 0.12), transparent),
+        radial-gradient(ellipse 40% 35% at 85% 15%, rgba(80, 160, 255, 0.05), transparent),
+        var(--bg-deep);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
+    position: relative;
 }
 
+/* 背景星光粒子 */
 body::before {
-    background:
-        radial-gradient(1200px 520px at 50% -240px, rgba(237, 233, 254, 0.92) 0%, rgba(237, 233, 254, 0) 70%),
-        radial-gradient(760px 360px at -8% 28%, rgba(179, 92, 255, 0.12) 0%, rgba(179, 92, 255, 0) 72%),
-        radial-gradient(760px 360px at 108% 34%, rgba(56, 213, 255, 0.12) 0%, rgba(56, 213, 255, 0) 70%);
-}
-
-body::after {
-    content: "";
+    content: '';
     position: fixed;
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    opacity: .34;
     background-image:
-        linear-gradient(rgba(122, 108, 255, .055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(122, 108, 255, .055) 1px, transparent 1px);
-    background-size: 68px 68px;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .72), transparent 78%);
+        radial-gradient(1.5px 1.5px at 15% 25%, rgba(200, 180, 255, 0.35), transparent),
+        radial-gradient(1px 1px at 55% 20%, rgba(255, 255, 255, 0.25), transparent),
+        radial-gradient(1.5px 1.5px at 75% 65%, rgba(180, 200, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 8% 75%, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 42% 55%, rgba(200, 180, 255, 0.25), transparent),
+        radial-gradient(1.5px 1.5px at 68% 40%, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 90% 85%, rgba(200, 180, 255, 0.2), transparent),
+        radial-gradient(1.5px 1.5px at 32% 70%, rgba(255, 255, 255, 0.15), transparent);
 }
 
+:lang(zh), :lang(zh-CN), :lang(zh-Hans) {
+    font-family: var(--font-zh);
+    font-weight: 500;
+    line-height: 1.75;
+    color: var(--text-primary);
+}
+
+:lang(zh) strong, :lang(zh) b {
+    font-weight: 700;
+    color: #fff;
+}
+
+:lang(zh) h1 {
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: #fff;
+}
+
+:lang(zh) h2, :lang(zh) h3 {
+    font-weight: 700;
+    line-height: 1.22;
+    color: #fff;
+}
+
+:lang(zh) span, :lang(zh) a, :lang(zh) li, :lang(zh) p {
+    font-weight: inherit;
+}
+
+[v-cloak] { display: none; }
+
 ::selection {
-    background: rgba(122, 108, 255, 0.22);
-    color: var(--color-primary-deep);
+    background: rgba(167, 139, 250, 0.35);
+    color: #fff;
 }
 
 :focus-visible {
-    outline: 3px solid rgba(122, 108, 255, 0.38);
-    outline-offset: 3px;
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 8px;
 }
 
 .page {
@@ -217,18 +124,30 @@ body::after {
     isolation: isolate;
 }
 
+/* Footer */
 .footer {
-    background:
-        linear-gradient(180deg, rgba(18, 16, 43, 0.96), rgba(10, 12, 30, 0.98)),
-        radial-gradient(480px 140px at 50% 0%, rgba(122, 108, 255, 0.24), transparent 70%);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 -18px 60px rgba(46, 16, 101, 0.14);
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    padding: 12px 20px;
+    background: rgba(8, 8, 18, 0.88);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    font-size: 11px;
+    text-align: center;
+    z-index: 900;
+    letter-spacing: 0.04em;
+}
+
+body.nav-locked {
+    overflow: auto;
+    position: static;
+    height: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;

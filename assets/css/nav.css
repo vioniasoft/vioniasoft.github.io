@@ -1,220 +1,191 @@
 /* =========================================================
-   Nav 样式（桌面 + 移动端 · 渐变胶囊统一）
-   设计原则：
-   1️⃣ 左侧 Logo 调小
-   2️⃣ 菜单选中状态及语言按钮统一 Logo 渐变胶囊
-   3️⃣ 移动端 / 桌面端未选中菜单透明底
-   4️⃣ 保留 hover 浮起效果、指示条、语言下拉
+   VioniaSoft · Navigation · Dark Glass
 ========================================================= */
- 
-/* 通用 Nav */
+
 .nav {
-    font-weight: 500;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: 64px;
     z-index: 1000;
-    background: rgba(245, 244, 250, .9);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(123, 79, 201, .18);
-    transition:
-        transform .4s cubic-bezier(.2, .8, .2, 1),
-        background .3s ease,
-        box-shadow .3s ease;
+    background: rgba(10, 10, 22, 0.65);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border-bottom: 1px solid var(--border-subtle);
+    transition: transform 0.5s var(--ease-out-expo), background 0.4s ease;
 }
 
-/* 向下滚动隐藏菜单 */
 .nav-hidden {
     transform: translateY(-100%);
 }
 
-/* 滚动一定距离改变背景 */
 .nav-dim {
-    background: rgba(245, 244, 250, .85);
+    background: rgba(10, 10, 22, 0.85);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.03), 0 12px 48px rgba(0,0,0,0.5);
 }
 
-/* 内部容器 */
 .nav-inner {
     max-width: 1200px;
     height: 100%;
     margin: auto;
-    padding: 0 32px;
+    padding: 0 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* Logo */
 .nav-logo-img {
-    height: 26px;
-    /* 更小，更轻盈 */
+    height: 28px;
+    filter: brightness(1.15) drop-shadow(0 0 14px rgba(167, 139, 250, 0.45));
+    transition: filter 0.3s ease;
+}
+
+.nav-logo-img:hover {
+    filter: brightness(1.35) drop-shadow(0 0 22px rgba(167, 139, 250, 0.65));
 }
 
 /* 桌面菜单 */
 .nav-menu {
     display: flex;
-    gap: 32px;
+    gap: 6px;
     list-style: none;
-    position: relative;
+    align-items: center;
 }
 
 .nav-menu li {
     position: relative;
-    padding: 8px 14px;
-    border-radius: 999px;
-    /* 胶囊形状 */
+    padding: 8px 16px;
+    border-radius: 12px;
     cursor: pointer;
-    color: #374151;
-    transition: all .35s cubic-bezier(.2, .8, .2, 1);
+    color: var(--text-secondary);
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.3s var(--ease-spring);
     background: transparent;
-    /* 未选中菜单透明底 */
 }
 
-/* 菜单浮起透明胶囊效果 */
 .nav-menu li:hover {
-    background: linear-gradient(90deg, rgba(155, 92, 255, 0.15) 0%, rgba(122, 108, 255, 0.15) 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(123, 79, 201, 0.12);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
 }
 
-/* 当前页选中状态（深色浮起胶囊 + 闪光效果） */
 .nav-menu li.is-active {
     color: #fff;
     font-weight: 600;
-    background: linear-gradient(90deg, rgba(155, 92, 255, 0.8) 0%, rgba(122, 108, 255, 0.8) 100%);
-    border-radius: 999px;
-    box-shadow: inset 0 0 0 1px rgba(123, 79, 201, 0.32),
-        0 10px 28px rgba(123, 79, 201, 0.22);
-    position: relative;
+    background: rgba(167, 139, 250, 0.15);
+    box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.25), 0 0 24px rgba(167, 139, 250, 0.08);
 }
 
-/* 当前页闪光效果 */
-.nav-menu li.is-active::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(120deg,
-            transparent 30%,
-            rgba(255, 255, 255, 0.55),
-            transparent 70%);
-    animation: glow 2.8s infinite;
-    pointer-events: none;
-}
-
-@keyframes glow {
-    from {
-        transform: translateX(-100%);
-    }
-
-    to {
-        transform: translateX(100%);
-    }
-}
-
-/* 桌面指示条 */
+/* 指示条 */
 .nav-indicator {
     position: absolute;
-    bottom: -6px;
-    height: 4px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, #9B5CFF 0%, #7A6CFF 100%);
-    box-shadow: 0 4px 10px rgba(123, 79, 201, .3);
-    transition: left .45s cubic-bezier(.2, .8, .2, 1),
-        width .45s cubic-bezier(.2, .8, .2, 1),
-        opacity .25s ease;
+    bottom: 2px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 14px var(--accent);
+    transition: left 0.45s var(--ease-out-expo), width 0.45s var(--ease-out-expo), opacity 0.3s ease;
     opacity: 0;
 }
 
-/* 桌面语言容器 */
+/* 语言按钮 */
 .nav-lang {
-    position: relative; /* ⭐ 必须 */
+    position: relative;
     display: flex;
     align-items: center;
 }
 
-/* 桌面语言按钮 */
 .nav-lang .lang-btn {
-    padding: 4px 10px;
+    padding: 7px 14px;
     border-radius: 12px;
-    background: linear-gradient(90deg, #ede9fe 0%, #ede9fe 100%);
-    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     font-size: 12px;
     font-weight: 600;
-    color: #4c1d95;
+    color: var(--text-secondary);
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
+    transition: all 0.3s var(--ease-spring);
 }
 
-/* ▼ 桌面语言下拉 */
+.nav-lang .lang-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(167, 139, 250, 0.35);
+    color: #fff;
+    box-shadow: 0 0 24px rgba(167, 139, 250, 0.12);
+}
+
 .nav-lang .lang-dropdown {
     position: absolute;
     right: 0;
-    top: calc(100% + 8px); /* 比 36px 更稳 */
-    background: #fff;
-    border-radius: 10px;
-    min-width: 120px;
+    top: calc(100% + 10px);
+    background: rgba(16, 16, 28, 0.96);
+    border-radius: 14px;
+    min-width: 130px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, .15);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     z-index: 2000;
 }
 
 .nav-lang .lang-dropdown div {
-    padding: 10px 16px;
+    padding: 10px 18px;
     cursor: pointer;
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
 }
 
 .nav-lang .lang-dropdown div:hover {
-    background: #ede9fe;
+    background: rgba(167, 139, 250, 0.12);
+    color: #fff;
 }
 
-/* =========================
-   移动端菜单
-========================= */
+/* 移动端 */
 @media (max-width: 768px) {
-    .desktop-only {
-        display: none;
+    .nav {
+        height: 56px;
     }
 
-    .mobile-only {
-        display: block;
+    .nav-inner {
+        padding: 0 16px;
     }
+
+    .desktop-only { display: none; }
+    .mobile-only { display: block; }
 
     .nav-toggle {
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 1;
-        color: #4b5563;
+        font-size: 22px;
+        color: var(--text-secondary);
         cursor: pointer;
-        user-select: none;
+        transition: color 0.2s;
     }
 
-    .nav-toggle:hover {
-        color: #374151;
-    }
+    .nav-toggle:hover { color: #fff; }
 
     .nav-menu {
         position: absolute;
         top: 64px;
-        right: 16px;
-        width: 180px;
-        background: #fff;
-        border-radius: 14px;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, .18);
-        gap: 5px !important;
-        padding: 6px 0;
-        margin: 0;
-        list-style: none;
+        right: 12px;
+        width: min(220px, calc(100vw - 24px));
+        background: rgba(16, 16, 28, 0.96);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        padding: 8px;
         display: flex;
         flex-direction: column;
-        transform: translateY(-6px) scale(.96);
+        gap: 2px;
+        transform: translateY(-8px) scale(0.95);
         opacity: 0;
         pointer-events: none;
-        transition: .25s ease;
+        transition: 0.25s var(--ease-spring);
     }
 
     .nav-menu.open {
@@ -223,189 +194,33 @@
         pointer-events: auto;
     }
 
-    .nav-menu>li {
-        height: 32px;
-        display: flex;
-        align-items: center;
-        padding: 0 14px;
-        font-size: 13.5px;
-        line-height: 1;
-        cursor: pointer;
-        border-radius: 999px;
-        background: transparent;
-        transition: all .25s ease;
-        position: relative;
+    .nav-menu > li {
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-size: 13px;
     }
 
-    .nav-menu>li:hover {
-        background: linear-gradient(90deg, rgba(155, 92, 255, 0.15) 0%, rgba(122, 108, 255, 0.15) 100%);
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(123, 79, 201, 0.12);
-    }
-
-    .nav-menu>li.is-active {
-        background: linear-gradient(90deg, rgba(155, 92, 255, 0.8) 0%, rgba(122, 108, 255, 0.8) 100%);
-        box-shadow: inset 0 0 0 1px rgba(123, 79, 201, 0.32),
-            0 10px 28px rgba(123, 79, 201, 0.22);
-    }
-
-    .nav-menu>li.is-active::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, .55), transparent 70%);
-        animation: glow 2.8s infinite;
-        pointer-events: none;
-    }
-
-    .nav-menu>li.mobile-lang {
+    .nav-menu > li.mobile-lang {
         background: none !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        border-top: 1px solid rgba(0, 0, 0, .12);
+        border-top: 1px solid rgba(255,255,255,0.05);
         margin-top: 6px;
-        padding: 0 14px;
-        color: #4b5563;
+        padding-top: 12px;
+        color: var(--text-secondary);
         font-weight: 600;
         display: flex;
-        align-items: center;
         justify-content: space-between;
-    }
-
-    .nav-menu>li.mobile-lang span {
-        margin-left: 8px;
-        display: inline-block;
-        transform: rotate(0deg);
-        transition: transform .2s ease;
-    }
-
-    .nav-menu>li.mobile-lang.open span {
-        transform: rotate(90deg);
-    }
-
-    .nav-menu>li.mobile-lang-item {
-        height: 22px;
-        font-size: 12px;
-        display: flex;
         align-items: center;
-        padding-left: 20px;
-        padding-right: 14px;
-        color: #374151;
-        position: relative;
     }
 
-    .nav-menu>li.mobile-lang-item::before {
-        content: "•";
-        position: absolute;
-        left: 8px;
-        font-size: 13px;
-        color: #9ca3af;
-        line-height: 1;
+    .nav-menu > li.mobile-lang-item {
+        padding-left: 22px;
+        font-size: 12px;
+        color: var(--text-muted);
     }
 }
 
 @media (min-width: 769px) {
-
-    .mobile-lang,
-    .mobile-lang-item,
-    .nav-toggle {
+    .mobile-lang, .mobile-lang-item, .nav-toggle {
         display: none !important;
-        height: 0 !important;
-        overflow: hidden !important;
-        pointer-events: none !important;
-    }
-}
-
-
-/* =========================================================
-   Premium Navigation Polish
-========================================================= */
-.nav {
-    height: 70px;
-    background: rgba(255, 255, 255, 0.68);
-    border-bottom: 1px solid rgba(122, 108, 255, 0.16);
-    box-shadow: 0 14px 46px rgba(46, 16, 101, 0.08);
-    backdrop-filter: blur(22px) saturate(150%);
-    -webkit-backdrop-filter: blur(22px) saturate(150%);
-}
-
-.nav::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.58), transparent);
-    opacity: .6;
-}
-
-.nav-dim {
-    background: rgba(255, 255, 255, 0.78);
-    box-shadow: 0 18px 52px rgba(46, 16, 101, 0.12);
-}
-
-.nav-logo-img {
-    height: 30px;
-    filter: drop-shadow(0 8px 14px rgba(46, 16, 101, 0.12));
-}
-
-.nav-menu li {
-    color: var(--color-ink-soft);
-    letter-spacing: .01em;
-}
-
-.nav-menu li:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(237, 233, 254, 0.72));
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.72),
-        0 12px 28px rgba(46, 16, 101, 0.12);
-}
-
-.nav-menu li.is-active {
-    background: linear-gradient(135deg, #8b5cf6 0%, #7A6CFF 48%, #38d5ff 140%);
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.34),
-        0 14px 34px rgba(122, 108, 255, 0.32);
-}
-
-.nav-lang .lang-btn {
-    background: rgba(255, 255, 255, 0.72);
-    border-color: rgba(122, 108, 255, 0.24);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86), 0 10px 26px rgba(46, 16, 101, 0.08);
-    transition: transform .25s var(--ease-premium), box-shadow .25s var(--ease-premium), background .25s ease;
-}
-
-.nav-lang .lang-btn:hover {
-    transform: translateY(-2px);
-    background: #fff;
-    box-shadow: 0 16px 36px rgba(122, 108, 255, 0.18);
-}
-
-.nav-lang .lang-dropdown {
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(122, 108, 255, 0.16);
-    box-shadow: 0 24px 70px rgba(46, 16, 101, 0.18);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-}
-
-@media (max-width: 768px) {
-    .nav {
-        height: 64px;
-    }
-
-    .nav-inner {
-        padding: 0 20px;
-    }
-
-    .nav-menu {
-        top: 74px;
-        width: min(230px, calc(100vw - 32px));
-        padding: 10px;
-        background: rgba(255, 255, 255, 0.92);
-        border: 1px solid rgba(122, 108, 255, 0.16);
-        box-shadow: 0 24px 70px rgba(46, 16, 101, 0.18);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
     }
 }
