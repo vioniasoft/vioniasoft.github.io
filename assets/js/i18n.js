@@ -10,16 +10,16 @@ const i18n = {
         home: {
             heroTitle: "기업 운영을 위한 IT 시스템",
             heroDesc: "VioniaSoft는 시스템 통합(SI), 서비스 관리(SM), Web·디지털 솔루션을 핵심으로 하는 IT 서비스 기업입니다. 우리는 비즈니스 구조와 실제 운영 요구를 기반으로 안정적이고 확장 가능하며 장기 유지가 가능한 IT 시스템을 설계·구축하여, 급변하는 시장 환경 속에서도 기술적 확실성을 제공합니다.",
+            heroTrust: "Samsung Fire · Woori Bank · Lama 등 국내외 기업이 신뢰하는 파트너",
 
-            /* marketTitle: "시장 배경과 문제 인식",
-            marketP1: "디지털 전환이 가속화됨에 따라 기업의 IT 시스템은 단일 기능 중심에서 고도화된 통합형 비즈니스 인프라로 전환되고 있습니다。",
-            marketP2: "이 과정에서 많은 기업이 다음과 같은 현실적인 문제에 직면하고 있습니다。",
-            marketList: [
-                "기능은 증가하지만 전체 아키텍처의 일관성 부족",
-                "시스템 오픈 이후 장기 운영 및 관리 역량 부족",
-                "개발·운영·확장 간 책임 경계의 모호함"
-            ],
-            marketP3: "VioniaSoft는 시스템이 ‘완성되었는지’보다, 실제 비즈니스 환경에서 장기간 안정적으로 운영될 수 있는지를 중요하게 봅니다。", */
+            clientsTitle: "신뢰하는 고객사",
+            statProjects: "프로젝트 완료",
+            statRenewal: "계약 연장률",
+            statSuffix: "개국",
+            statCountries: "한국 · 중국 · 프랑스",
+
+            ctaText: "시스템 통합, 서비스 관리, 웹 솔루션이 필요하신가요?",
+            ctaBtn: "무료 상담 받기",
 
             valueTitle: "핵심 가치",
             value1Title: "비즈니스 중심의 시스템 설계",
@@ -27,30 +27,24 @@ const i18n = {
             value2Title: "안정성과 확장성의 균형",
             value2Desc: "초기 설계 단계부터 향후 확장과 유지 비용을 고려하여 장기적인 기술 부담을 최소화합니다.",
             value3Title: "장기 협업을 전제로 한 서비스 철학",
-            value3Desc: "모든 프로젝트를 일회성 납품이 아닌, 지속적인 협력 관계의 시작으로 인식합니다."
+            value3Desc: "모든 프로젝트를 일회성 납품이 아닌, 지속적인 협력 관계의 시작으로 인식합니다.",
+
+            footerDesc: "Enterprise IT & Smart Office Solutions<br>시스템 개발 • 운영 및 유지보수 • 디지털 전환<br>Powered by Korea, Designed for the World"
         },
 
         about: {
             title: "회사 개요",
-            desc: "VioniaSoft는 2025년에 설립된 시스템 통합 및 IT 서비스 관리 전문 기업입니다。개인사업자로 출발했지만, 기술 기준·프로젝트 프로세스·서비스 방법론은 전문 IT 서비스 기업 수준으로 운영하고 있습니다。중소기업 및 성장 단계의 조직을 대상으로, 구조적으로 명확하고 지속 가능한 IT 솔루션을 제공합니다.",
-            // desc1: "VioniaSoft는 2025년에 설립된 시스템 통합 및 IT 서비스 관리 전문 기업입니다。",
-            // desc2: "개인사업자로 출발했지만, 기술 기준·프로젝트 프로세스·서비스 방법론은 전문 IT 서비스 기업 수준으로 운영하고 있습니다。",
-            // desc3: "중소기업 및 성장 단계의 조직을 대상으로, 구조적으로 명확하고 지속 가능한 IT 솔루션을 제공합니다。",
+            desc: "VioniaSoft는 시스템 통합 및 IT 서비스 관리 전문 기업입니다. 기술 기준·프로젝트 프로세스·서비스 방법론은 전문 IT 서비스 기업 수준으로 운영하고 있습니다. 중소기업 및 성장 단계의 조직을 대상으로, 구조적으로 명확하고 지속 가능한 IT 솔루션을 제공합니다.",
 
-            // marketTitle: "산업 및 시장 배경",
-            // marketP1: "기업의 사업 규모와 시스템 복잡도가 증가함에 따라, ‘개발 완료’ 중심의 기존 IT 프로젝트 방식은 한계를 드러내고 있습니다。",
-            // marketP2: "점점 더 많은 기업이 다음과 같은 인식을 공유하고 있습니다。",
-            // marketList: [
-            //     "단기 기능 구현보다 장기적인 시스템 안정성이 중요하다",
-            //     "IT 서비스는 기획·구축·운영·개선까지 포함해야 한다",
-            //     "기술적 의사결정은 사업 성장 속도와 일치해야 한다"
-            // ],
-            // marketP3: "VioniaSoft는 이러한 시장 흐름 속에서, 시스템 전 생애주기를 포괄하는 IT 서비스 제공자로 자리매김하고 있습니다。"
-            
+            statDepts: "핵심 부서",
+            statProjects: "프로젝트",
+            statSuffix: "개국",
+            statCountries: "한국 · 중국 · 프랑스",
+
             orgStructure: "조직 구조",
 
             valueTitle: "창립자 겸 대표",
-            valueDesc: "회전략적 비전 수립 및 경영 총괄",
+            valueDesc: "회사 전략적 비전 수립 및 경영 총괄",
 
             value1Title: "SI 사업부",
             value1Desc: "시스템 통합 및 맞춤형 솔루션 제공",
@@ -122,8 +116,7 @@ const i18n = {
             title: "문의하기",
             desc1: "장기적인 관점에서 신뢰할 수 있는 IT 파트너",
             desc2: "VioniaSoft는 명확한 커뮤니케이션과 합리적인 의사결정을 통해 지속 가능한 협업을 지향합니다.",
-            // email: "Email: info@vioniasoft.com",
-            // web: "Website: www.vioniasoft.com",
+
             form: {
                 name: "성명 *",
                 email: "이메일 *",
@@ -163,16 +156,16 @@ const i18n = {
         home: {
             heroTitle: "IT Systems for Business Operations",
             heroDesc: "VioniaSoft is an IT service company specializing in System Integration (SI), Service Management (SM), and Web & Digital Solutions. We design and build stable, scalable, and maintainable IT systems based on real business structures and operational requirements, enabling organizations to maintain technical certainty in rapidly changing markets.",
+            heroTrust: "Trusted by Samsung Fire, Woori Bank, Lama and global enterprises",
 
-            /*  marketTitle: "Market Background & Problem Awareness",
-             marketP1: "As digital transformation accelerates, enterprise IT systems are evolving from single-purpose tools into highly integrated, continuously operating business infrastructures.",
-             marketP2: "During this transition, many organizations face the following challenges:",
-             marketList: [
-                 "Growing system functionality without architectural consistency",
-                 "Lack of long-term operational and management capabilities after deployment",
-                 "Unclear responsibility boundaries between development, operation, and expansion"
-             ],
-             marketP3: "VioniaSoft focuses not only on whether a system is completed, but whether it can remain stable, controllable, and scalable throughout long-term business operations.", */
+            clientsTitle: "Trusted Clients",
+            statProjects: "Projects Completed",
+            statRenewal: "Contract Renewal Rate",
+            statSuffix: "Countries",
+            statCountries: "Korea · China · France",
+
+            ctaText: "Need system integration, service management, or web solutions?",
+            ctaBtn: "Get Free Consultation",
 
             valueTitle: "Core Values",
             value1Title: "Business-Oriented System Design",
@@ -180,25 +173,19 @@ const i18n = {
             value2Title: "Balance Between Stability and Scalability",
             value2Desc: "We consider future expansion and maintenance costs from the earliest design stage to avoid long-term technical debt.",
             value3Title: "Long-Term Partnership Philosophy",
-            value3Desc: "We view every project as the starting point of a long-term partnership, not a one-time delivery."
+            value3Desc: "We view every project as the starting point of a long-term partnership, not a one-time delivery.",
+
+            footerDesc: "Enterprise IT & Smart Office Solutions<br>System Development • Operation & Maintenance • Digital Transformation<br>Powered by Korea, Designed for the World"
         },
 
         about: {
             title: "Company Overview",
-            desc: "Founded in 2025, VioniaSoft is an IT service company specializing in system integration and IT service management.lthough established as a sole proprietorship, our technical standards, project processes, and service methodologies are built to professional enterprise-level expectations.We provide clear, sustainable IT solutions for small and growing organizations.",
-            // desc1: "Founded in 2025, VioniaSoft is an IT service company specializing in system integration and IT service management.",
-            // desc2: "Although established as a sole proprietorship, our technical standards, project processes, and service methodologies are built to professional enterprise-level expectations.",
-            // desc3: "We provide clear, sustainable IT solutions for small and growing organizations.",
+            desc: "VioniaSoft is an IT service company specializing in system integration and IT service management. Our technical standards, project processes, and service methodologies are built to professional enterprise-level expectations. We provide clear, sustainable IT solutions for small and growing organizations.",
 
-            // marketTitle: "Industry & Market Background",
-            // marketP1: "As business scale and system complexity increase, traditional project models focused solely on development completion are becoming insufficient.",
-            // marketP2: "More organizations now recognize that:",
-            // marketList: [
-            //     "Long-term system stability outweighs short-term functionality",
-            //     "IT services must cover planning, implementation, operation, and continuous improvement",
-            //     "Technical decisions must align with business growth cycles"
-            // ],
-            // marketP3: "Within this context, VioniaSoft positions itself as an IT partner covering the entire system lifecycle."
+            statDepts: "Core Teams",
+            statProjects: "Projects",
+            statSuffix: "Countries",
+            statCountries: "Korea · China · France",
             
             orgStructure: "Organization Structure",
             
@@ -245,7 +232,7 @@ const i18n = {
 
             processTitle: "Work Methodology / Project Process",
             p1Title: "Business Understanding & Requirement Definition",
-            p1Desc: "We begin by deeply understanding the client’s business context, organizational structure, and existing systems.",
+            p1Desc: "We begin by deeply understanding the client's business context, organizational structure, and existing systems.",
 
             p2Title: "System Architecture & Technical Design",
             p2Desc: "Business requirements are translated into system architecture and technical solutions.",
@@ -279,8 +266,7 @@ const i18n = {
             title: "Contact",
             desc1: "A long-term IT partner built on trust",
             desc2: "VioniaSoft values clear communication, sound decision-making, and sustainable collaboration.",
-            // email: "Email: info@vioniasoft.com",
-            // web: "Website: www.vioniasoft.com",
+
             form: {
                 name: "Name *",
                 email: "Email *",
@@ -321,16 +307,16 @@ const i18n = {
         home: {
             heroTitle: "面向企业运营的 IT 系统",
             heroDesc: "VioniaSoft 是一家以系统集成（SI）、服务管理（SM）以及 Web·数字解决方案为核心的 IT 服务企业。我们从业务结构与实际运营需求出发，设计并构建稳定、可扩展、具备长期可维护性的 IT 系统，帮助企业在持续变化的市场环境中保持技术确定性。",
+            heroTrust: "Samsung Fire · Woori Bank · Lama 等国内外企业信赖的合作伙伴",
 
-            /* marketTitle: "市场背景与问题认知",
-            marketP1: "随着数字化转型的加速，企业 IT 系统正从“单一功能系统”转向“高度集成、持续运行的业务基础设施”。",
-            marketP2: "在这一过程中，许多企业面临以下现实问题：",
-            marketList: [
-                "系统功能逐步堆叠，但整体架构缺乏一致性",
-                "系统上线后缺乏长期运营与管理能力",
-                "开发、运维、扩展之间责任边界模糊"
-            ],
-            marketP3: "VioniaSoft 关注的不只是系统是否“完成”，而是系统是否能够在长期业务运行中保持稳定、可控与可扩展。", */
+            clientsTitle: "信赖的客户",
+            statProjects: "项目完成",
+            statRenewal: "续约率",
+            statSuffix: "个国家",
+            statCountries: "韩国 · 中国 · 法国",
+
+            ctaText: "需要系统集成、服务管理或 Web 解决方案？",
+            ctaBtn: "免费咨询",
 
             valueTitle: "核心价值",
             value1Title: "业务导向的系统设计",
@@ -338,25 +324,19 @@ const i18n = {
             value2Title: "稳定性与扩展性的平衡",
             value2Desc: "在系统初期设计阶段即考虑未来扩展与维护成本，避免因短期决策造成长期技术负担。",
             value3Title: "长期合作的服务理念",
-            value3Desc: "我们将项目视为长期合作关系的起点，而非一次性交付。"
+            value3Desc: "我们将项目视为长期合作关系的起点，而非一次性交付。",
+
+            footerDesc: "Enterprise IT & Smart Office Solutions<br>系统开发 • 运维管理 • 数字化转型<br>Powered by Korea, Designed for the World"
         },
 
         about: {
             title: "公司概述",
-            desc: "VioniaSoft 成立于 2025 年，是一家专注于系统集成与 IT 服务管理的技术服务企业。公司以个人事业体形式起步，但在技术标准、项目流程及服务方法论上，始终以专业 IT 服务企业的要求进行构建。我们致力于为中小型企业及成长型组织提供结构清晰、可持续运作的 IT 解决方案。",
-            // desc1: "VioniaSoft 成立于 2025 年，是一家专注于系统集成与 IT 服务管理的技术服务企业。",
-            // desc2: "公司以个人事业体形式起步，但在技术标准、项目流程及服务方法论上，始终以专业 IT 服务企业的要求进行构建。",
-            // desc3: "我们致力于为中小型企业及成长型组织提供结构清晰、可持续运作的 IT 解决方案。",
+            desc: "VioniaSoft 是一家专注于系统集成与 IT 服务管理的技术服务企业。在技术标准、项目流程及服务方法论上，始终以专业 IT 服务企业的要求进行构建。致力于为中小型企业及成长型组织提供结构清晰、可持续运作的 IT 解决方案。",
 
-            // marketTitle: "行业与市场背景",
-            // marketP1: "随着企业业务规模与系统复杂度的提升，传统以“开发完成”为目标的 IT 项目模式逐渐暴露出局限性。",
-            // marketP2: "越来越多的企业开始意识到：",
-            // marketList: [
-            //     "系统的长期稳定运行比短期功能更重要",
-            //     "IT 服务需要覆盖规划、构建、运营与持续优化",
-            //     "技术决策必须与业务发展节奏保持一致"
-            // ],
-            // marketP3: "VioniaSoft 正是在这一市场背景下，定位为“覆盖系统全生命周期”的 IT 服务提供方。"
+            statDepts: "核心部门",
+            statProjects: "项目",
+            statSuffix: "个国家",
+            statCountries: "韩国 · 中国 · 法国",
             
             orgStructure: "组织架构",
 
@@ -374,8 +354,6 @@ const i18n = {
 
             value4Title: "客户支持团队",
             value4Desc: "IT 服务管理与客户反馈响应"
-
-
         },
 
         services: {
@@ -438,8 +416,7 @@ const i18n = {
             title: "联系我们",
             desc1: "以长期合作为目标的 IT 技术伙伴",
             desc2: "VioniaSoft 注重清晰沟通、理性决策与可持续的协作方式。",
-            // email: "Email: info@vioniasoft.com",
-            // web: "Website: www.vioniasoft.com",
+
             form: {
                 name: "姓名 *",
                 email: "邮箱 *",
@@ -478,58 +455,52 @@ const i18n = {
         nav: { home: "Accueil", about: "À propos", services: "Services", contact: "Contact" },
 
         home: {
-            heroTitle: "Systèmes IT pour les opérations de l’entreprise",
+            heroTitle: "Systèmes IT pour les opérations de l'entreprise",
             heroDesc: "VioniaSoft est une société de services IT spécialisée en intégration de systèmes (SI), gestion des services (SM) et solutions Web & digitales. Nous concevons des systèmes stables, évolutifs et maintenables, fondés sur les structures métier réelles et les besoins opérationnels.",
+            heroTrust: "Partenaire de confiance de Samsung Fire, Woori Bank, Lama et d'entreprises internationales",
 
-            /* marketTitle: "Contexte du marché et constats",
-            marketP1: "Avec l’accélération de la transformation numérique, les systèmes IT évoluent vers des infrastructures métier intégrées et continues.",
-            marketP2: "De nombreuses entreprises rencontrent alors les problématiques suivantes :",
-            marketList: [
-                "Accumulation fonctionnelle sans cohérence architecturale",
-                "Manque de capacités d’exploitation à long terme",
-                "Frontières de responsabilité floues entre développement et exploitation"
-            ],
-            marketP3: "VioniaSoft se concentre sur la capacité d’un système à rester stable et contrôlable sur le long terme.", */
+            clientsTitle: "Clients de confiance",
+            statProjects: "Projets réalisés",
+            statRenewal: "Taux de renouvellement",
+            statSuffix: "pays",
+            statCountries: "Corée · Chine · France",
+
+            ctaText: "Besoin d'intégration de systèmes, de gestion de services ou de solutions Web ?",
+            ctaBtn: "Consultation gratuite",
 
             valueTitle: "Valeurs clés",
             value1Title: "Conception orientée métier",
-            value1Desc: "Nous partons des processus métier et de l’organisation, et non de simples besoins techniques.",
+            value1Desc: "Nous partons des processus métier et de l'organisation, et non de simples besoins techniques.",
             value2Title: "Équilibre entre stabilité et évolutivité",
-            value2Desc: "Les coûts de maintenance et d’évolution sont pris en compte dès la phase de conception.",
+            value2Desc: "Les coûts de maintenance et d'évolution sont pris en compte dès la phase de conception.",
             value3Title: "Philosophie de partenariat à long terme",
-            value3Desc: "Chaque projet est considéré comme le début d’une collaboration durable."
+            value3Desc: "Chaque projet est considéré comme le début d'une collaboration durable.",
+
+            footerDesc: "Enterprise IT & Smart Office Solutions<br>Développement • Exploitation • Transformation numérique<br>Powered by Korea, Designed for the World"
         },
 
         about: {
-            title: "Présentation de l’entreprise",
-            desc: "Fondée en 2025, VioniaSoft est spécialisée en intégration de systèmes et gestion des services IT.Bien que créée sous forme individuelle, l’entreprise applique des standards professionnels équivalents aux sociétés IT établies.Nous accompagnons les PME et organisations en croissance avec des solutions IT durables.",
-            // desc1: "Fondée en 2025, VioniaSoft est spécialisée en intégration de systèmes et gestion des services IT.",
-            // desc2: "Bien que créée sous forme individuelle, l’entreprise applique des standards professionnels équivalents aux sociétés IT établies.",
-            // desc3: "Nous accompagnons les PME et organisations en croissance avec des solutions IT durables.",
+            title: "Présentation de l'entreprise",
+            desc: "VioniaSoft est spécialisée en intégration de systèmes et gestion des services IT. L'entreprise applique des standards professionnels équivalents aux sociétés IT établies. Nous accompagnons les PME et organisations en croissance avec des solutions IT durables.",
 
-            // marketTitle: "Contexte sectoriel et marché",
-            // marketP1: "Les modèles de projets centrés uniquement sur la livraison technique montrent aujourd’hui leurs limites.",
-            // marketP2: "Les entreprises reconnaissent désormais que :",
-            // marketList: [
-            //     "La stabilité à long terme prime sur les fonctionnalités immédiates",
-            //     "Les services IT doivent couvrir l’ensemble du cycle de vie",
-            //     "Les décisions techniques doivent suivre la stratégie métier"
-            // ],
-            // marketP3: "VioniaSoft se positionne comme un partenaire IT couvrant l’intégralité du cycle de vie des systèmes."
+            statDepts: "Équipes",
+            statProjects: "Projets",
+            statSuffix: "pays",
+            statCountries: "Corée · Chine · France",
             
             orgStructure: "Structure organisationnelle",
             
             valueTitle: "Fondateur & Responsable",
-            valueDesc: "Définition de la vision stratégique et gestion globale de l’entreprise",
+            valueDesc: "Définition de la vision stratégique et gestion globale de l'entreprise",
 
             value1Title: "Division SI",
             value1Desc: "Intégration de systèmes et fourniture de solutions sur mesure",
 
             value2Title: "Équipe de Développement",
-            value2Desc: "Conception de l’architecture système et développement logiciel",
+            value2Desc: "Conception de l'architecture système et développement logiciel",
 
             value3Title: "Équipe Design",
-            value3Desc: "Conception UI/UX et optimisation de l’expérience utilisateur",
+            value3Desc: "Conception UI/UX et optimisation de l'expérience utilisateur",
 
             value4Title: "Support Client",
             value4Desc: "Gestion des services IT et traitement des retours clients"
@@ -540,7 +511,7 @@ const i18n = {
             title: "Des services IT intégrés au service de la croissance des entreprises",
 
             siTitle: "Intégration de systèmes (SI)",
-            siDesc: "Nous assurons des services complets d’intégration, de l’analyse à l’implémentation, en garantissant la cohérence globale.",
+            siDesc: "Nous assurons des services complets d'intégration, de l'analyse à l'implémentation, en garantissant la cohérence globale.",
             siApply: "Applicable à :",
             siList: ["Nouveaux systèmes", "Intégration de systèmes existants", "Refonte lors de phases de croissance"],
 
@@ -554,7 +525,7 @@ const i18n = {
             webDesc2: "Nous équilibrons image de marque, expérience utilisateur et évolutivité technique.",
             webFocus: "Nos priorités :",
             webList: [
-                "Structure claire de l’information",
+                "Structure claire de l'information",
                 "Conception centrée utilisateur",
                 "Architecture technique évolutive"
             ],
@@ -581,7 +552,7 @@ const i18n = {
             ],
 
             p4Title: "Mise en service & exploitation",
-            p4Desc: "Préparation complète à l’exploitation réelle.",
+            p4Desc: "Préparation complète à l'exploitation réelle.",
             p4List: [
                 "Transfert opérationnel",
                 "Standards de gestion",
@@ -596,8 +567,7 @@ const i18n = {
             title: "Contact",
             desc1: "Un partenaire IT fiable sur le long terme",
             desc2: "VioniaSoft privilégie une communication claire, des décisions raisonnées et une collaboration durable.",
-            // email: "Email: info@vioniasoft.com",
-            // web: "Website: www.vioniasoft.com",
+
             form: {
                 name: "Nom *",
                 email: "E-mail *",
@@ -626,21 +596,13 @@ const i18n = {
             successTitle: "Envoi réussi",
             successDesc: "Votre demande a été envoyée avec succès.",
         
-            errorTitle: "Échec de l’envoi",
+            errorTitle: "Échec de l'envoi",
             errorDesc: "Veuillez réessayer ultérieurement."
 
         }
     }
 };
 
-/* ✅ 关键：暴露为全局（Vue 才能用） */
-// window.i18nMessages = i18n;
-// window.defaultLang = "ko";
-
-
-/* =========================
-   ✅ 全站唯一语言来源
-========================= */
 const savedLang = localStorage.getItem("lang") || "ko";
 
 window.i18nMessages = i18n;

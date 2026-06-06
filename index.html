@@ -1,76 +1,178 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ko" id="htmlRoot">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, follow">
   <title>Home | VioniaSoft</title>
-  <!-- Fonts -->
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/nav.css">
   <link rel="stylesheet" href="/assets/css/home.css">
-  <style>
-    [v-cloak] {
-      display: none;
-    }
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+  
+  <style>[v-cloak] { display: none; }</style>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
-
 <body>
 
   <div id="nav-container"></div>
 
   <div id="app" v-cloak>
     <main class="page page-fade-in">
-      <!-- Hero -->
+
       <section class="hero">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          PREMIUM SYSTEM INTEGRATION
+        </div>
         <h1 class="hero-title">{{ t.home.heroTitle }}</h1>
         <p class="hero-desc">{{ t.home.heroDesc }}</p>
+        <p class="hero-trust">{{ t.home.heroTrust }}</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn-primary">{{ t.nav.contact }}</a>
+          <a href="services.html" class="btn-secondary">{{ t.nav.services }}</a>
+        </div>
       </section>
 
-      <!-- 核心价值 -->
+      <section class="clients">
+        <div class="clients-header">
+          <span class="clients-badge">
+            <span class="badge-dot"></span>
+            TRUSTED BY
+          </span>
+          <h2 class="clients-title">{{ t.home.clientsTitle }}</h2>
+        </div>
+        <div class="clients-grid">
+          <div class="client-card">
+            <div class="client-logo-wrap">
+              <div class="client-logo">
+                <img src="assets/images/client/samsung fire_logo.png" class="client-logo-img" alt="Samsung Fire">
+              </div>
+            </div>
+            <h3 class="client-name">Samsung Fire</h3>
+            <span class="client-country">🇰🇷 Korea</span>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrap">
+              <div class="client-logo">
+                <img src="assets/images/client/woori bank_logo.png" class="client-logo-img" alt="Woori Bank">
+              </div>
+            </div>
+            <h3 class="client-name">Woori Bank</h3>
+            <span class="client-country">🇰🇷 Korea</span>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrap">
+              <div class="client-logo">
+                <img src="assets/images/client/lama_logo.png" class="client-logo-img" alt="Lama">
+              </div>
+            </div>
+            <h3 class="client-name">Lama</h3>
+            <span class="client-country">🇫🇷 France</span>
+          </div>
+        </div>
+        <div class="metrics-stats">
+          <div class="stat-item">
+            <span class="stat-number">50<span class="stat-suffix">+</span></span>
+            <span class="stat-label">{{ t.home.statProjects }}</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">98<span class="stat-suffix">%</span></span>
+            <span class="stat-label">{{ t.home.statRenewal }}</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">3<span class="stat-suffix">{{ t.home.statSuffix }}</span></span>
+            <span class="stat-label">{{ t.home.statCountries }}</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-strip">
+        <div class="cta-strip-inner">
+          <p>{{ t.home.ctaText }}</p>
+          <a href="contact.html" class="btn-primary">{{ t.home.ctaBtn }}</a>
+        </div>
+      </section>
+
       <section class="values">
         <div class="value-header">
           <span class="value-line"></span>
           <h2>{{ t.home.valueTitle }}</h2>
           <span class="value-line"></span>
         </div>
-
         <div class="value-grid">
           <div class="value-card">
+            <div class="value-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
             <h3>{{ t.home.value1Title }}</h3>
             <p>{{ t.home.value1Desc }}</p>
+            <div class="card-shine"></div>
           </div>
           <div class="value-card">
+            <div class="value-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
             <h3>{{ t.home.value2Title }}</h3>
             <p>{{ t.home.value2Desc }}</p>
+            <div class="card-shine"></div>
           </div>
           <div class="value-card">
+            <div class="value-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/>
+              </svg>
+            </div>
             <h3>{{ t.home.value3Title }}</h3>
             <p>{{ t.home.value3Desc }}</p>
+            <div class="card-shine"></div>
           </div>
         </div>
       </section>
 
     </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <span class="footer-logo">VioniaSoft</span>
+            <p class="footer-desc" v-html="t.home.footerDesc"></p>
+          </div>
+          <div class="footer-col">
+            <h4>Menu</h4>
+            <a href="index.html">{{ t.nav.home }}</a>
+            <a href="about.html">{{ t.nav.about }}</a>
+            <a href="services.html">{{ t.nav.services }}</a>
+            <a href="contact.html">{{ t.nav.contact }}</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <span>info@vioniasoft.com</span>
+            <span>Seoul, Korea</span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 VioniaSoft. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
   </div>
 
-  <footer class="footer">
-    <p>Email: info@vioniasoft.com</p>
-    <p>© 2025 VioniaSoft. All rights reserved.</p>
-  </footer>
-
   <script src="/assets/js/i18n.js"></script>
-  <script src="/assets/js/base.js" defer></script>
-  <script src="/assets/js/home.js" defer></script>
-  <script src="/assets/js/nav.js" defer></script>
+  <script src="/assets/js/base.js"></script>
+  <script src="/assets/js/home.js"></script>
+  <script src="/assets/js/nav.js"></script>
 </body>
-
 </html>

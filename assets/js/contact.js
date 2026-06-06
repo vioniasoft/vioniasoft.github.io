@@ -1,13 +1,10 @@
 /* assets/js/contact.js */
 /* =========================================================
-   Contact 表单逻辑（完整最终版 · 不删功能 · UX 正确）
+   Contact 表单逻辑 · 修复下拉菜单
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ===============================
-       基础元素
-    =============================== */
     const form = document.getElementById("contactForm");
     const btn = document.getElementById("submitBtn");
     const success = document.getElementById("formSuccess");
@@ -20,67 +17,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!form) return;
 
-    /* ===============================
-       🌍 当前语言 & i18n 文案函数
-    =============================== */
-    const currentLang =
-        localStorage.getItem("lang") ||
-        document.documentElement.lang ||
-        "ko";
+    const currentLang = localStorage.getItem("lang") || document.documentElement.lang || "ko";
 
     function getText(path) {
-        return path.split(".").reduce((obj, key) => {
-            return obj && obj[key];
-        }, window.i18nMessages?.[currentLang]) || "";
+        return path.split(".").reduce((obj, key) => obj && obj[key], window.i18nMessages?.[currentLang]) || "";
     }
 
-    /* ===============================
-       页面加载时注入弹层文案
-    =============================== */
     if (successTitleEl) successTitleEl.textContent = getText("contact.successTitle");
     if (successDescEl) successDescEl.textContent = getText("contact.successDesc");
     if (errorTitleEl) errorTitleEl.textContent = getText("contact.errorTitle");
     if (errorDescEl) errorDescEl.textContent = getText("contact.errorDesc");
 
-    /* ===============================
-       表单字段逐个轻入
-    =============================== */
+    /* 表单字段逐个轻入 */
     document.querySelectorAll(".form-row").forEach((row, i) => {
         setTimeout(() => row.classList.add("show"), i * 80);
     });
 
     /* ===============================
-       自定义咨询类型下拉
+       自定义下拉 · 事件委托修复版
     =============================== */
     const select = document.getElementById("contactTypeSelect");
     const trigger = document.getElementById("contactTypeTrigger");
-    const options = select?.querySelectorAll(".select-options li");
     const hiddenInput = document.getElementById("contactTypeValue");
     const typeError = document.getElementById("typeError");
 
-    trigger?.addEventListener("click", () => {
-        select.classList.toggle("open");
-    });
+    if (trigger && select) {
+        trigger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            select.classList.toggle("open");
+        });
 
-    options?.forEach(option => {
-        option.addEventListener("click", () => {
-            trigger.textContent = option.textContent;
+        // 事件委托：监听整个 select 容器
+        select.addEventListener("click", (e) => {
+            const li = e.target.closest("li");
+            if (!li) return;
+            trigger.textContent = li.textContent;
             trigger.classList.remove("is-placeholder");
-            hiddenInput.value = option.dataset.value;
-            typeError?.classList.remove("show");
+            hiddenInput.value = li.dataset.value;
+            if (typeError) typeError.classList.remove("show");
             select.classList.remove("open");
         });
-    });
+    }
 
-    document.addEventListener("click", e => {
+    // 点击外部关闭
+    document.addEventListener("click", (e) => {
         if (select && !select.contains(e.target)) {
             select.classList.remove("open");
         }
     });
 
-    /* ===============================
-       错误提示：输入即消失
-    =============================== */
+    /* 错误提示：输入即消失 */
     form.querySelectorAll("input, textarea").forEach(input => {
         input.addEventListener("input", () => {
             const errorEl = input.closest(".form-row")?.querySelector(".field-error");
@@ -88,109 +74,64 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    /* ===============================
-       表单校验 + 提交
-    =============================== */
+    /* 提交 */
     form.addEventListener("submit", async e => {
         e.preventDefault();
-
         let valid = true;
         const originalText = btn.textContent;
 
-        // 清空错误
         form.querySelectorAll(".field-error").forEach(el => el.classList.remove("show"));
-        typeError?.classList.remove("show");
+        if (typeError) typeError.classList.remove("show");
 
-        /* ===============================
-           必填 & Email 校验
-        =============================== */
         form.querySelectorAll("[required]").forEach(input => {
             const errorEl = input.closest(".form-row")?.querySelector(".field-error");
             const value = input.value.trim();
-
             if (!value) {
                 if (errorEl) {
-                    switch (input.name) {
-                        case "name":
-                            errorEl.textContent = getText("contact.form.nameRequired");
-                            break;
-                        case "email":
-                            errorEl.textContent = getText("contact.form.emailRequired");
-                            break;
-                        case "message":
-                            errorEl.textContent = getText("contact.form.messageRequired");
-                            break;
-                        default:
-                            errorEl.textContent = getText("contact.form.required");
-                    }
+                    const msgMap = {
+                        name: "contact.form.nameRequired",
+                        email: "contact.form.emailRequired",
+                        message: "contact.form.messageRequired"
+                    };
+                    errorEl.textContent = getText(msgMap[input.name] || "contact.form.required");
                     errorEl.classList.add("show");
                 }
                 valid = false;
                 return;
             }
-
-            if (input.type === "email") {
-                const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailReg.test(value)) {
-                    if (errorEl) {
-                        errorEl.textContent = getText("contact.form.emailInvalid");
-                        errorEl.classList.add("show");
-                    }
-                    valid = false;
+            if (input.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                if (errorEl) {
+                    errorEl.textContent = getText("contact.form.emailInvalid");
+                    errorEl.classList.add("show");
                 }
+                valid = false;
             }
         });
 
-        /* 咨询类型必选 */
         if (!hiddenInput.value) {
-            typeError.textContent = getText("contact.form.typeRequired");
-            typeError.classList.add("show");
+            if (typeError) {
+                typeError.textContent = getText("contact.form.typeRequired");
+                typeError.classList.add("show");
+            }
             valid = false;
         }
 
         if (!valid) return;
 
-        /* ===============================
-           🚀 提交到 Formspree（🔧 关键修复区）
-        =============================== */
         btn.disabled = true;
         btn.textContent = getText("contact.form.sendingTitle") || "전송중...";
 
-        console.group("📨 Formspree Submit Debug");
-        console.log("ACTION:", form.action);
-        console.log("METHOD:", form.method);
-
         try {
             const formData = new FormData(form);
-
-            // 🔍 打印即将发送的数据（非常重要）
-            for (const [key, value] of formData.entries()) {
-                console.log(`FIELD → ${key}:`, value);
-            }
-
             const res = await fetch(form.action, {
                 method: "POST",
                 body: formData,
-                headers: {
-                    // ⚠️ 只保留 Accept，不要 Content-Type
-                    Accept: "application/json"
-                }
+                headers: { Accept: "application/json" }
             });
-
-            console.log("HTTP STATUS:", res.status);
-
             const result = await res.json().catch(() => null);
-            console.log("RESPONSE JSON:", result);
-            console.groupEnd();
+            if (!res.ok || !result || result.ok !== true) throw new Error("Formspree submit failed");
 
-            // ❗ Formspree 成功条件：res.ok === true 且 result.ok === true
-            if (!res.ok || !result || result.ok !== true) {
-                throw new Error("Formspree submit failed");
-            }
-
-            /* 成功 UI */
             success.classList.add("show");
-
             form.reset();
             hiddenInput.value = "";
             trigger.textContent = trigger.dataset.placeholder;
@@ -203,9 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 2000);
 
         } catch (err) {
-            console.error("❌ Form submit error:", err);
+            console.error("Form submit error:", err);
             error.classList.add("show");
-
             setTimeout(() => {
                 error.classList.remove("show");
                 btn.disabled = false;
@@ -213,5 +153,4 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 2000);
         }
     });
-
 });

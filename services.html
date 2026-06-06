@@ -1,170 +1,218 @@
-<!-- services.html -->
 <!DOCTYPE html>
 <html lang="ko" id="htmlRoot">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, follow">
   <title>Services | VioniaSoft</title>
-  <!-- Fonts -->
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/nav.css">
-  <link rel="stylesheet" href="/assets/css/services.css" />
-  <style>
-    [v-cloak] {
-      display: none;
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/css/services.css">
+  
+  <style>[v-cloak] { display: none; }</style>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
-
 <body>
 
-  <!-- Nav -->
   <div id="nav-container"></div>
 
-  <!-- Vue App -->
-  <main id="app" class="page services-page" v-cloak>
+  <div id="app" v-cloak>
+    <main class="page services-page">
 
-    <!-- Hero -->
-    <section class="services-hero reveal reveal--title" aria-label="서비스 히어로">
-      <h1>{{ t.services.title }}</h1>
-    </section>
-
-    <!-- Core Services -->
-    <section class="services-core" aria-label="핵심 서비스">
+      <!-- Hero -->
+      <section class="svc-hero">
+        <div class="svc-label">OUR EXPERTISE</div>
+        <h1 class="svc-title">{{ t.services.title }}</h1>
+        <p class="svc-subtitle">3개의 핵심 서비스로 비즈니스 성장을 지원합니다</p>
+      </section>
 
       <!-- SI -->
-      <div class="service-row reveal">
-        <div class="service-left">
-          <div class="service-bar"></div>
-          <h2>{{ t.services.siTitle }}<span>SYSTEM INTEGRATION</span></h2>
+      <section class="svc-section">
+        <div class="svc-grid">
+          <div class="svc-visual">
+            <div class="svc-number">01</div>
+            <div class="svc-icon si-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8"/>
+                <path d="M12 17v4"/>
+              </svg>
+            </div>
+            <div class="svc-glow si-glow"></div>
+          </div>
+          <div class="svc-content">
+            <span class="svc-tag">SYSTEM INTEGRATION</span>
+            <h2>{{ t.services.siTitle }}</h2>
+            <p class="svc-desc">{{ t.services.siDesc }}</p>
+            <div class="svc-list-block">
+              <h4>{{ t.services.siApply }}</h4>
+              <ul>
+                <li>{{ t.services.siList[0] }}</li>
+                <li>{{ t.services.siList[1] }}</li>
+                <li>{{ t.services.siList[2] }}</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="service-right">
-          <p>{{ t.services.siDesc }}</p>
-          <strong>{{ t.services.siApply }}</strong>
-          <ul>
-            <li>{{ t.services.siList[0] }}</li>
-            <li>{{ t.services.siList[1] }}</li>
-            <li>{{ t.services.siList[2] }}</li>
-          </ul>
-        </div>
-      </div>
+      </section>
 
       <!-- SM -->
-      <div class="service-row reveal">
-        <div class="service-left">
-          <div class="service-bar"></div>
-          <h2>{{ t.services.smTitle }}<span>SERVICE MANAGEMENT</span></h2>
+      <section class="svc-section alt">
+        <div class="svc-grid reverse">
+          <div class="svc-visual">
+            <div class="svc-number">02</div>
+            <div class="svc-icon sm-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <div class="svc-glow sm-glow"></div>
+          </div>
+          <div class="svc-content">
+            <span class="svc-tag">SERVICE MANAGEMENT</span>
+            <h2>{{ t.services.smTitle }}</h2>
+            <p class="svc-desc">{{ t.services.smDesc }}</p>
+            <div class="svc-list-block">
+              <h4>{{ t.services.smFocus }}</h4>
+              <ul>
+                <li>{{ t.services.smList[0] }}</li>
+                <li>{{ t.services.smList[1] }}</li>
+                <li>{{ t.services.smList[2] }}</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="service-right">
-          <p>{{ t.services.smDesc }}</p>
-          <strong>{{ t.services.smFocus }}</strong>
-          <ul>
-            <li>{{ t.services.smList[0] }}</li>
-            <li>{{ t.services.smList[1] }}</li>
-            <li>{{ t.services.smList[2] }}</li>
-          </ul>
-        </div>
-      </div>
+      </section>
 
       <!-- WEB -->
-      <div class="service-row reveal">
-        <div class="service-left">
-          <div class="service-bar"></div>
-          <h2>{{ t.services.webTitle }}<span>WEB & DIGITAL SOLUTION</span></h2>
+      <section class="svc-section">
+        <div class="svc-grid">
+          <div class="svc-visual">
+            <div class="svc-number">03</div>
+            <div class="svc-icon web-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/>
+                <path d="M12 2a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10"/>
+              </svg>
+            </div>
+            <div class="svc-glow web-glow"></div>
+          </div>
+          <div class="svc-content">
+            <span class="svc-tag">WEB & DIGITAL SOLUTION</span>
+            <h2>{{ t.services.webTitle }}</h2>
+            <p class="svc-desc">{{ t.services.webDesc1 }}</p>
+            <p class="svc-desc">{{ t.services.webDesc2 }}</p>
+            <div class="svc-list-block">
+              <h4>{{ t.services.webFocus }}</h4>
+              <ul>
+                <li>{{ t.services.webList[0] }}</li>
+                <li>{{ t.services.webList[1] }}</li>
+                <li>{{ t.services.webList[2] }}</li>
+              </ul>
+            </div>
+            <p class="svc-footnote">{{ t.services.webDesc3 }}</p>
+          </div>
         </div>
-        <div class="service-right">
-          <p>{{ t.services.webDesc1 }}</p>
-          <p>{{ t.services.webDesc2 }}</p>
-          <strong>{{ t.services.webFocus }}</strong>
-          <ul>
-            <li>{{ t.services.webList[0] }}</li>
-            <li>{{ t.services.webList[1] }}</li>
-            <li>{{ t.services.webList[2] }}</li>
-          </ul>
-          <p>{{ t.services.webDesc3 }}</p>
+      </section>
+
+      <!-- Process -->
+      <section class="svc-process">
+        <div class="svc-process-head">
+          <div class="svc-label">METHODOLOGY</div>
+          <h2 class="svc-title">{{ t.services.processTitle }}</h2>
+        </div>
+
+        <div class="svc-timeline">
+          <div class="svc-timeline-track"></div>
+
+          <div class="svc-step">
+            <div class="svc-step-marker">1</div>
+            <div class="svc-step-content">
+              <h3>{{ t.services.p1Title }}</h3>
+              <p>{{ t.services.p1Desc }}</p>
+            </div>
+          </div>
+          <div class="svc-step">
+            <div class="svc-step-marker">2</div>
+            <div class="svc-step-content">
+              <h3>{{ t.services.p2Title }}</h3>
+              <p>{{ t.services.p2Desc }}</p>
+              <ul>
+                <li v-for="item in t.services.p2List">{{ item }}</li>
+              </ul>
+              <p class="svc-step-note">{{ t.services.p2Note }}</p>
+            </div>
+          </div>
+          <div class="svc-step">
+            <div class="svc-step-marker">3</div>
+            <div class="svc-step-content">
+              <h3>{{ t.services.p3Title }}</h3>
+              <ul>
+                <li v-for="item in t.services.p3List">{{ item }}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="svc-step">
+            <div class="svc-step-marker">4</div>
+            <div class="svc-step-content">
+              <h3>{{ t.services.p4Title }}</h3>
+              <p>{{ t.services.p4Desc }}</p>
+              <ul>
+                <li v-for="item in t.services.p4List">{{ item }}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="svc-step">
+            <div class="svc-step-marker">5</div>
+            <div class="svc-step-content">
+              <h3>{{ t.services.p5Title }}</h3>
+              <p>{{ t.services.p5Desc }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <span class="footer-logo">VioniaSoft</span>
+            <p class="footer-desc" v-html="t.home.footerDesc"></p>
+          </div>
+          <div class="footer-col">
+            <h4>Menu</h4>
+            <a href="index.html">{{ t.nav.home }}</a>
+            <a href="about.html">{{ t.nav.about }}</a>
+            <a href="services.html">{{ t.nav.services }}</a>
+            <a href="contact.html">{{ t.nav.contact }}</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <span>info@vioniasoft.com</span>
+            <span>Seoul, Korea</span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 VioniaSoft. All rights reserved.</span>
         </div>
       </div>
+    </footer>
+  </div>
 
-    </section>
-
-    <!-- Process Section -->
-    <section class="process-section reveal reveal--titles" aria-label="서비스 프로세스">
-      <h2>{{ t.services.processTitle }}</h2>
-      <div class="timeline">
-        <div class="timeline-line"></div>
-
-        <div class="timeline-item reveal">
-          <span class="timeline-dot">1</span>
-          <div class="timeline-content">
-            <h3>{{ t.services.p1Title }}</h3>
-            <p>{{ t.services.p1Desc }}</p>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <span class="timeline-dot">2</span>
-          <div class="timeline-content">
-            <h3>{{ t.services.p2Title }}</h3>
-            <p>{{ t.services.p2Desc }}</p>
-            <ul class="process-list">
-              <li v-for="item in t.services.p2List">{{ item }}</li>
-            </ul>
-            <p class="process-note">{{ t.services.p2Note }}</p>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <span class="timeline-dot">3</span>
-          <div class="timeline-content">
-            <h3>{{ t.services.p3Title }}</h3>
-            <ul class="process-list">
-              <li v-for="item in t.services.p3List">{{ item }}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <span class="timeline-dot">4</span>
-          <div class="timeline-content">
-            <h3>{{ t.services.p4Title }}</h3>
-            <p>{{ t.services.p4Desc }}</p>
-            <ul class="process-list">
-              <li v-for="item in t.services.p4List">{{ item }}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <span class="timeline-dot">5</span>
-          <div class="timeline-content">
-            <h3>{{ t.services.p5Title }}</h3>
-            <p>{{ t.services.p5Desc }}</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <p>Email: info@vioniasoft.com</p>
-    <p>© 2025 VioniaSoft. All rights reserved.</p>
-  </footer>
-
-  <!-- JS -->
   <script src="/assets/js/i18n.js"></script>
-  <script src="/assets/js/base.js" defer></script>
-  <script src="/assets/js/services.js" defer></script>
-  <script src="/assets/js/nav.js" defer></script>
-
+  <script src="/assets/js/base.js"></script>
+  <script src="/assets/js/services.js"></script>
+  <script src="/assets/js/nav.js"></script>
 </body>
-
 </html>

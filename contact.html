@@ -1,103 +1,140 @@
-<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="ko" id="htmlRoot">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, follow">
   <title>Contact | VioniaSoft</title>
-  <!-- Fonts -->
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/nav.css">
   <link rel="stylesheet" href="/assets/css/contact.css">
-
-  <style>
-    [v-cloak] {
-      display: none;
-    }
-  </style>
+  
+  <style>[v-cloak] { display: none; }</style>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
-
 <body>
 
   <div id="nav-container"></div>
 
-  <main id="app" class="page contact-page" v-cloak>
-    <!-- 页面标题 -->
-    <section class="contact-overview">
-      <h1 class="contact-title">{{ t.contact.title }}</h1>
-      <div class="contact-divider-animated"></div>
-      <p class="contact-desc">{{ t.contact.desc1 }}</p>
-      <p class="contact-desc">{{ t.contact.desc2 }}</p>
-    </section>
+  <div id="app" v-cloak>
+    <main class="page contact-page">
 
-    <!-- 表单 -->
-    <section class="contact-form-section">
-      <form id="contactForm" class="contact-form" action="https://formspree.io/f/mjgbzana" method="POST" novalidate>
-        <div class="form-row">
-          <label>{{ t.contact.form.name }}</label>
-          <input type="text" name="name" required />
-          <p class="field-error">{{ t.contact.form.nameRequired }}</p>
-        </div>
+      <section class="ctc-hero">
+        <div class="ctc-label">GET IN TOUCH</div>
+        <h1 class="ctc-title">{{ t.contact.title }}</h1>
+        <p class="ctc-desc">{{ t.contact.desc1 }}</p>
+        <p class="ctc-desc ctc-desc-sub">{{ t.contact.desc2 }}</p>
+      </section>
 
-        <div class="form-row">
-          <label>{{ t.contact.form.email }}</label>
-          <input type="email" name="email" required />
-          <p class="field-error">{{ t.contact.form.emailRequired }}</p>
-        </div>
-
-        <div class="form-row">
-          <label>{{ t.contact.form.company }}</label>
-          <input type="text" name="company" />
-        </div>
-
-        <div class="form-row select-row">
-          <label>{{ t.contact.form.type }}</label>
-          <div id="contactTypeSelect" class="custom-select">
-            <div id="contactTypeTrigger" class="select-trigger is-placeholder" :data-placeholder="t.contact.form.type">
-              {{ t.contact.form.selectType }}
-            </div>
-            <ul class="select-options">
-              <li data-value="type1">{{ t.contact.form.type1 }}</li>
-              <li data-value="type2">{{ t.contact.form.type2 }}</li>
-              <li data-value="type3">{{ t.contact.form.type3 }}</li>
-              <li data-value="type4">{{ t.contact.form.type4 }}</li>
-            </ul>
+      <section class="ctc-form-section">
+        <form id="contactForm" class="ctc-form" action="https://formspree.io/f/你的FORM_ID" method="POST">
+          
+          <div class="form-row">
+            <label for="name">{{ t.contact.form.name }}</label>
+            <input type="text" id="name" name="name" :placeholder="t.contact.form.nameRequired" required>
+            <div class="field-error"></div>
           </div>
-          <input type="hidden" name="type" id="contactTypeValue" />
-          <p class="field-error" id="typeError">{{ t.contact.form.typeRequired }}</p>
+
+          <div class="form-row">
+            <label for="email">{{ t.contact.form.email }}</label>
+            <input type="email" id="email" name="email" :placeholder="t.contact.form.emailRequired" required>
+            <div class="field-error"></div>
+          </div>
+
+          <div class="form-row">
+            <label for="company">{{ t.contact.form.company }}</label>
+            <input type="text" id="company" name="company">
+          </div>
+
+          <div class="form-row select-row">
+            <label>{{ t.contact.form.type }}</label>
+            <div id="contactTypeSelect" class="custom-select">
+              <div id="contactTypeTrigger" class="select-trigger is-placeholder" data-placeholder="{{ t.contact.form.selectType }}">{{ t.contact.form.selectType }}</div>
+              <input type="hidden" id="contactTypeValue" name="type">
+              <ul class="select-options">
+                <li data-value="si">{{ t.contact.form.type1 }}</li>
+                <li data-value="sm">{{ t.contact.form.type2 }}</li>
+                <li data-value="web">{{ t.contact.form.type3 }}</li>
+                <li data-value="other">{{ t.contact.form.type4 }}</li>
+              </ul>
+            </div>
+            <div id="typeError" class="field-error"></div>
+          </div>
+
+          <div class="form-row">
+            <label for="message">{{ t.contact.form.message }}</label>
+            <textarea id="message" name="message" rows="5" :placeholder="t.contact.form.messageRequired" required></textarea>
+            <div class="field-error"></div>
+          </div>
+
+          <button type="submit" id="submitBtn" class="ctc-btn">
+            {{ t.contact.form.submit }}
+          </button>
+        </form>
+
+        <div id="formSuccess" class="ctc-modal-wrap">
+          <div class="ctc-modal">
+            <div class="ctc-modal-icon success">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <h3 id="successTitle">{{ t.contact.successTitle }}</h3>
+            <p id="successDesc">{{ t.contact.successDesc }}</p>
+          </div>
         </div>
 
-        <div class="form-row">
-          <label>{{ t.contact.form.message }}</label>
-          <textarea name="message" rows="4" required></textarea>
-          <p class="field-error">{{ t.contact.form.messageRequired }}</p>
+        <div id="formError" class="ctc-modal-wrap">
+          <div class="ctc-modal">
+            <div class="ctc-modal-icon error">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </div>
+            <h3 id="errorTitle">{{ t.contact.errorTitle }}</h3>
+            <p id="errorDesc">{{ t.contact.errorDesc }}</p>
+          </div>
         </div>
+      </section>
 
-        <button type="submit" id="submitBtn" class="contact-submit">
-          {{ t.contact.form.submit }}
-        </button>
-      </form>
-    </section>
+    </main>
 
-  </main>
-
-  <footer class="footer">
-    <p>Email: info@vioniasoft.com</p>
-    <p>© 2025 VioniaSoft. All rights reserved.</p>
-  </footer>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <span class="footer-logo">VioniaSoft</span>
+            <p class="footer-desc" v-html="t.home.footerDesc"></p>
+          </div>
+          <div class="footer-col">
+            <h4>Menu</h4>
+            <a href="index.html">{{ t.nav.home }}</a>
+            <a href="about.html">{{ t.nav.about }}</a>
+            <a href="services.html">{{ t.nav.services }}</a>
+            <a href="contact.html">{{ t.nav.contact }}</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <span>info@vioniasoft.com</span>
+            <span>Seoul, Korea</span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 VioniaSoft. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <script src="/assets/js/i18n.js"></script>
-  <script src="/assets/js/base.js" defer></script>
-  <script src="/assets/js/contact.js" defer></script>
-  <script src="/assets/js/nav.js" defer></script>
-
+  <script src="/assets/js/base.js"></script>
+  <script src="/assets/js/contact.js"></script>
+  <script src="/assets/js/nav.js"></script>
 </body>
-
 </html>

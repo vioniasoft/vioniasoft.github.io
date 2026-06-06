@@ -2,6 +2,15 @@
    VioniaSoft · Navigation · Dark Glass
 ========================================================= */
 
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.mobile-only {
+    display: none;
+}
+
 .nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -171,7 +180,7 @@
         position: absolute;
         top: 64px;
         right: 12px;
-        width: min(220px, calc(100vw - 24px));
+        width: min(180px, calc(100vw - 24px));
         background: rgba(16, 16, 28, 0.96);
         border-radius: 16px;
         border: 1px solid rgba(255, 255, 255, 0.05);
@@ -223,4 +232,83 @@
     .mobile-lang, .mobile-lang-item, .nav-toggle {
         display: none !important;
     }
+}
+
+.lang-icon {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 40%, #4f46e5 100%);
+  position: relative;
+  vertical-align: middle;
+  margin-right: 8px;
+  box-shadow: 
+    0 0 12px rgba(124,58,237,0.25),
+    inset 0 0 0 1px rgba(255,255,255,0.15);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.lang-icon::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.22);
+  filter: blur(2px);
+}
+.lang-icon::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: -2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.25);
+}
+.lang-btn {
+  display: flex;
+  align-items: center;
+}
+.lang-btn:hover .lang-icon {
+  transform: scale(1.08);
+  box-shadow: 
+    0 0 20px rgba(124,58,237,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.2);
+}
+.lang-arrow {
+  font-size: 11px;
+  margin-left: 6px;
+  opacity: 0.5;
+  transition: all 0.25s ease;
+}
+.lang-btn:hover .lang-arrow {
+  opacity: 0.8;
+}
+
+
+.nav-menu > li.mobile-lang {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.mobile-lang-arrow {
+    font-size: 10px;
+    transition: transform 0.25s ease;
+    margin-left: auto;
+}
+.mobile-lang-arrow.open {
+    transform: rotate(90deg);
+}
+.nav-menu > li.mobile-lang-item {
+    text-align: left !important;
+    padding-left: 22px !important;
+    width: 100%;
+    display: block;
 }

@@ -21,8 +21,9 @@
             <li @click="go('contact.html')">{{ t.nav.contact }}</li>
 
             <!-- 移动端语言 -->
-            <li class="mobile-lang" :class="{ open: langOpen }" @click.stop="langOpen = !langOpen">
-                🌐 Language <span>▶</span>
+            <li class="mobile-lang" @click.stop="langOpen = !langOpen">
+                <span>&#127758; Language</span>
+                <span class="mobile-lang-arrow" :class="{ open: langOpen }"> ▶</span>
             </li>
             <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('ko')">한국어</li>
             <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('en')">English</li>
@@ -36,7 +37,7 @@
         <!-- 桌面语言 -->
         <div class="nav-lang desktop-only" @click.stop>
             <div class="lang-btn" @click="open = !open">
-                🌐 {{ lang.toUpperCase() }}
+                &#127758; {{ lang === 'ko' ? '한국어' : lang === 'en' ? 'English' : lang === 'zh' ? '中文' : 'Français' }}
             </div>
             <div class="lang-dropdown" v-if="open">
                 <div @click="switchLang('ko')">한국어</div>
