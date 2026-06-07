@@ -6,15 +6,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO Meta -->
   <title>Contact | VioniaSoft | IT System Integration · Service Management</title>
   <meta name="description"
-    content="Get in touch with VioniaSoft for inquiries and consultation regarding System Integration (SI), Service Management (SM), and Web/Digital Solutions. We provide IT services to improve operational efficiency.">
+    content="Get in touch with VioniaSoft for inquiries and consultation regarding System Integration (SI), Service Management (SM), and Web/Digital Solutions.">
   <meta name="keywords"
     content="VioniaSoft, contact, inquiry, System Integration, SI, Service Management, SM, Web development, Digital Solutions, IT services">
   <meta name="robots" content="index, follow">
 
-  <!-- Canonical & Hreflang -->
   <link rel="canonical" href="https://www.vioniasoft.com/en/contact.html">
   <link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/ko/contact.html">
   <link rel="alternate" hreflang="en" href="https://www.vioniasoft.com/en/contact.html">
@@ -22,7 +20,6 @@
   <link rel="alternate" hreflang="fr" href="https://www.vioniasoft.com/fr/contact.html">
   <link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/ko/contact.html">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Contact | VioniaSoft">
   <meta property="og:description"
     content="Contact VioniaSoft for consultation on corporate IT system design, implementation, and service management.">
@@ -30,24 +27,20 @@
   <meta property="og:url" content="https://www.vioniasoft.com/en/contact.html">
   <meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact | VioniaSoft">
   <meta name="twitter:description"
     content="VioniaSoft — System Integration (SI), Service Management (SM), Web & Digital Solutions inquiry">
   <meta name="twitter:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/nav.css">
   <link rel="stylesheet" href="/assets/css/contact.css">
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -66,78 +59,103 @@
   }
   </script>
 
-  <!-- Vue -->
+  <style>[v-cloak] { display: none; }</style>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
 
 <body>
 
-  <main id="app" class="page contact-page">
-    <section class="contact-overview">
-      <h1 class="contact-title">Contact Us</h1>
-      <div class="contact-divider-animated"></div>
-      <p class="contact-desc">Your reliable IT partner for long-term business growth</p>
-      <p class="contact-desc">VioniaSoft aims for sustainable collaboration through clear communication and rational decisions.</p>
-    </section>
+  <div id="nav-container"></div>
 
-    <section class="contact-form-section">
-      <form id="contactForm" class="contact-form" action="https://formspree.io/f/mjgbzana" method="POST"
-        novalidate>
-        <div class="form-row">
-          <label>Name *</label>
-          <input type="text" name="name" required />
-          <p class="field-error">Please enter your name.</p>
-        </div>
+  <div id="app" v-cloak>
+    <main class="page page-fade-in">
 
-        <div class="form-row">
-          <label>Email *</label>
-          <input type="email" name="email" required />
-          <p class="field-error">Please enter your email.</p>
-        </div>
+      <section class="ctc-hero">
+        <div class="ctc-label">Get in Touch</div>
+        <h1 class="ctc-title">{{ t.contact.title }}</h1>
+        <p class="ctc-desc">{{ t.contact.desc }}</p>
+        <p class="ctc-desc-sub">{{ t.contact.descSub }}</p>
+      </section>
 
-        <div class="form-row">
-          <label>Company (optional)</label>
-          <input type="text" name="company" />
-        </div>
-
-        <div class="form-row select-row">
-          <label>Inquiry Type *</label>
-          <div id="contactTypeSelect" class="custom-select">
-            <div id="contactTypeTrigger" class="select-trigger is-placeholder" :data-placeholder="t.contact.form.type">
-              Please select an inquiry type.
-            </div>
-            <ul class="select-options">
-              <li data-value="type1">System Integration / SI</li>
-              <li data-value="type2">Service Management / SM</li>
-              <li data-value="type3">Web & Digital Solutions</li>
-              <li data-value="type4">Other</li>
-            </ul>
+      <section class="ctc-form-section">
+        <form id="contactForm" class="ctc-form" action="https://formspree.io/f/mjgbzana" method="POST" novalidate>
+          <div class="form-row">
+            <label>{{ t.contact.form.name }}</label>
+            <input type="text" name="name" required />
+            <p class="field-error">{{ t.contact.form.nameError }}</p>
           </div>
-          <input type="hidden" name="type" id="contactTypeValue" />
-          <p class="field-error" id="typeError">Please select an inquiry type.</p>
+
+          <div class="form-row">
+            <label>{{ t.contact.form.email }}</label>
+            <input type="email" name="email" required />
+            <p class="field-error">{{ t.contact.form.emailError }}</p>
+          </div>
+
+          <div class="form-row">
+            <label>{{ t.contact.form.company }}</label>
+            <input type="text" name="company" />
+          </div>
+
+          <div class="form-row select-row">
+            <label>{{ t.contact.form.type }}</label>
+            <div id="contactTypeSelect" class="custom-select">
+              <div id="contactTypeTrigger" class="select-trigger is-placeholder">
+                {{ t.contact.form.typePlaceholder }}
+              </div>
+              <ul class="select-options">
+                <li data-value="type1">{{ t.contact.form.type1 }}</li>
+                <li data-value="type2">{{ t.contact.form.type2 }}</li>
+                <li data-value="type3">{{ t.contact.form.type3 }}</li>
+                <li data-value="type4">{{ t.contact.form.type4 }}</li>
+              </ul>
+            </div>
+            <input type="hidden" name="type" id="contactTypeValue" />
+            <p class="field-error" id="typeError">{{ t.contact.form.typeError }}</p>
+          </div>
+
+          <div class="form-row">
+            <label>{{ t.contact.form.message }}</label>
+            <textarea name="message" rows="4" required></textarea>
+            <p class="field-error">{{ t.contact.form.messageError }}</p>
+          </div>
+
+          <button type="submit" id="submitBtn" class="ctc-btn">{{ t.contact.form.submit }}</button>
+        </form>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <span class="footer-logo">VioniaSoft</span>
+            <p class="footer-desc" v-html="t.contact.footerDesc"></p>
+          </div>
+          <div class="footer-col">
+            <h4>Menu</h4>
+            <a href="index.html">{{ t.nav.home }}</a>
+            <a href="about.html">{{ t.nav.about }}</a>
+            <a href="services.html">{{ t.nav.services }}</a>
+            <a href="contact.html">{{ t.nav.contact }}</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <span>info@vioniasoft.com</span>
+            <span>Seoul, Korea</span>
+          </div>
         </div>
-
-        <div class="form-row">
-          <label>Message *</label>
-          <textarea name="message" rows="4" required></textarea>
-          <p class="field-error">Please enter your message.</p>
+        <div class="footer-bottom">
+          <span>© 2026 VioniaSoft. All rights reserved.</span>
         </div>
+      </div>
+    </footer>
+  </div>
 
-        <button type="submit" id="submitBtn" class="contact-submit">Submit</button>
-      </form>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>Email: info@vioniasoft.com</p>
-    <p>© 2025 VioniaSoft. All rights reserved.</p>
-  </footer>
-
-  <!-- JS -->
   <script src="/assets/js/i18n.js"></script>
-  <script src="/assets/js/base.js" defer></script>
-  <script src="/assets/js/contact.js" defer></script>
-  <script src="/assets/js/nav.js" defer></script>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/base.js"></script>
+  <script src="/assets/js/contact.js"></script>
 
 </body>
 </html>

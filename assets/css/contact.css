@@ -116,6 +116,8 @@
     margin-bottom: 22px;
     opacity: 0;
     transform: translateY(10px);
+    position: relative;
+    z-index: 1;
 }
 
 .form-row.show {
@@ -163,14 +165,19 @@
 }
 
 /* ==================== SELECT ==================== */
-.select-row { z-index: 30; }
+.select-row {
+    z-index: 100;
+    position: relative;
+}
 
 .custom-select {
     position: relative;
     z-index: 20;
 }
 
-.custom-select.open { z-index: 999; }
+.custom-select.open {
+    z-index: 999;
+}
 
 .select-trigger {
     width: 100%;
@@ -223,7 +230,7 @@
     padding: 8px;
     margin: 0;
     display: none;
-    z-index: 50;
+    z-index: 9999;
 }
 
 .custom-select.open .select-options {

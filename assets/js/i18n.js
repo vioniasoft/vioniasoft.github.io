@@ -1,5 +1,5 @@
 /* assets/js/i18n.js */
-/* ⚠️ 无删减 · 四国语言完整版本 · 默认韩语 */
+/* 四国语言完整版本 · 默认韩语 */
 
 const i18n = {
 
@@ -13,8 +13,8 @@ const i18n = {
             heroTrust: "Samsung Fire · Woori Bank · Lama 등 국내외 기업이 신뢰하는 파트너",
 
             clientsTitle: "신뢰하는 고객사",
-            statProjects: "프로젝트 완료",
-            statRenewal: "계약 연장률",
+            statSatisfaction: "고객 만족도",
+            statSupport: "운영 지원",
             statSuffix: "개국",
             statCountries: "한국 · 중국 · 프랑스",
 
@@ -37,7 +37,7 @@ const i18n = {
             desc: "VioniaSoft는 시스템 통합 및 IT 서비스 관리 전문 기업입니다. 기술 기준·프로젝트 프로세스·서비스 방법론은 전문 IT 서비스 기업 수준으로 운영하고 있습니다. 중소기업 및 성장 단계의 조직을 대상으로, 구조적으로 명확하고 지속 가능한 IT 솔루션을 제공합니다.",
 
             statDepts: "핵심 부서",
-            statProjects: "프로젝트",
+            statSatisfaction: "고객 만족도",
             statSuffix: "개국",
             statCountries: "한국 · 중국 · 프랑스",
 
@@ -159,8 +159,8 @@ const i18n = {
             heroTrust: "Trusted by Samsung Fire, Woori Bank, Lama and global enterprises",
 
             clientsTitle: "Trusted Clients",
-            statProjects: "Projects Completed",
-            statRenewal: "Contract Renewal Rate",
+            statSatisfaction: "Client Satisfaction",
+            statSupport: "Operations Support",
             statSuffix: "Countries",
             statCountries: "Korea · China · France",
 
@@ -183,7 +183,7 @@ const i18n = {
             desc: "VioniaSoft is an IT service company specializing in system integration and IT service management. Our technical standards, project processes, and service methodologies are built to professional enterprise-level expectations. We provide clear, sustainable IT solutions for small and growing organizations.",
 
             statDepts: "Core Teams",
-            statProjects: "Projects",
+            statSatisfaction: "Client Satisfaction",
             statSuffix: "Countries",
             statCountries: "Korea · China · France",
             
@@ -310,8 +310,8 @@ const i18n = {
             heroTrust: "Samsung Fire · Woori Bank · Lama 等国内外企业信赖的合作伙伴",
 
             clientsTitle: "信赖的客户",
-            statProjects: "项目完成",
-            statRenewal: "续约率",
+            statSatisfaction: "客户满意度",
+            statSupport: "运维支持",
             statSuffix: "个国家",
             statCountries: "韩国 · 中国 · 法国",
 
@@ -334,7 +334,7 @@ const i18n = {
             desc: "VioniaSoft 是一家专注于系统集成与 IT 服务管理的技术服务企业。在技术标准、项目流程及服务方法论上，始终以专业 IT 服务企业的要求进行构建。致力于为中小型企业及成长型组织提供结构清晰、可持续运作的 IT 解决方案。",
 
             statDepts: "核心部门",
-            statProjects: "项目",
+            statSatisfaction: "客户满意度",
             statSuffix: "个国家",
             statCountries: "韩国 · 中国 · 法国",
             
@@ -460,8 +460,8 @@ const i18n = {
             heroTrust: "Partenaire de confiance de Samsung Fire, Woori Bank, Lama et d'entreprises internationales",
 
             clientsTitle: "Clients de confiance",
-            statProjects: "Projets réalisés",
-            statRenewal: "Taux de renouvellement",
+            statSatisfaction: "Satisfaction Client",
+            statSupport: "Support Opérationnel",
             statSuffix: "pays",
             statCountries: "Corée · Chine · France",
 
@@ -484,7 +484,7 @@ const i18n = {
             desc: "VioniaSoft est spécialisée en intégration de systèmes et gestion des services IT. L'entreprise applique des standards professionnels équivalents aux sociétés IT établies. Nous accompagnons les PME et organisations en croissance avec des solutions IT durables.",
 
             statDepts: "Équipes",
-            statProjects: "Projets",
+            statSatisfaction: "Satisfaction Client",
             statSuffix: "pays",
             statCountries: "Corée · Chine · France",
             

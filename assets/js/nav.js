@@ -9,8 +9,11 @@
 // 4️⃣ 语言切换读取 localStorage
 // =========================================================
 
+/* =========================================================
+   nav.js
+========================================================= */
+
 function initNav() {
-  // 获取菜单元素
   const navEl = document.getElementById("mainNav");
   if (!navEl) return;
 
@@ -20,13 +23,13 @@ function initNav() {
   const navApp = new Vue({
     el: "#navApp",
     data() {
-      const lang = localStorage.getItem("lang") || "ko";
+      const lang = sessionStorage.getItem("lang") || "ko";
       return {
-        open: false,      // 移动端菜单整体开关
-        menuOpen: false,  // 主菜单开关
-        langOpen: false,  // 语言菜单开关
+        open: false,
+        menuOpen: false,
+        langOpen: false,
         lang,
-        t: window.i18nMessages[lang] // 文案
+        t: window.i18nMessages[lang]
       };
     },
     mounted() {
@@ -34,7 +37,6 @@ function initNav() {
     },
     watch: {
       menuOpen(val) {
-        // 菜单打开时锁定 body 滚动
         document.body.classList.toggle("nav-locked", val);
       }
     },
@@ -48,7 +50,7 @@ function initNav() {
         setTimeout(() => location.href = url, 120);
       },
       switchLang(lang) {
-        localStorage.setItem("lang", lang);
+        sessionStorage.setItem("lang", lang);
         location.reload();
       },
       closeAll() {
@@ -58,10 +60,9 @@ function initNav() {
       },
       initIndicator() {
         const indicator = this.$refs.indicator;
-        const items = this.$el.querySelectorAll(".nav-menu > li");
+        const items = this.$el.querySelectorAll(".nav-menu > li:not(.mobile-lang):not(.mobile-lang-item)");
         if (!indicator || !items.length) return;
 
-        // 当前页面高亮菜单
         const page = location.pathname.split("/").pop() || "index.html";
         const map = {
           "index.html": 0,
@@ -69,22 +70,22 @@ function initNav() {
           "services.html": 2,
           "contact.html": 3
         };
-        const active = items[map[page] ?? 0];
+        const idx = map[page] ?? 0;
+        const active = items[idx];
+        if (!active) return;
+
         active.classList.add("is-active");
         this.moveIndicator(active);
 
-        // 鼠标悬停移动指示条
         items.forEach(li => {
           li.addEventListener("mouseenter", () => this.moveIndicator(li));
         });
-
-        // 鼠标离开恢复当前页指示条
         this.$el.querySelector(".nav-menu")
           .addEventListener("mouseleave", () => this.moveIndicator(active));
       },
       moveIndicator(target) {
         const indicator = this.$refs.indicator;
-        if (!indicator) return;
+        if (!indicator || !target) return;
         const r = target.getBoundingClientRect();
         const p = target.parentElement.getBoundingClientRect();
         indicator.style.left = r.left - p.left + "px";
@@ -94,33 +95,27 @@ function initNav() {
     }
   });
 
-  // 滚动控制菜单显示/隐藏
   window.addEventListener("scroll", () => {
     const current = window.scrollY;
-    // 向下滚动并超过 120px 隐藏
     navEl.classList.toggle("nav-hidden", current > lastScroll && current > 120);
-    // 滚动超过 80px 轻微透明
     navEl.classList.toggle("nav-dim", current > 80);
 
-    // 隐藏指示条短暂消失
-    navApp.$refs.indicator?.classList.add("hide");
+    if (navApp.$refs.indicator) {
+      navApp.$refs.indicator.classList.add("hide");
+    }
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(() => {
-      navApp.$refs.indicator?.classList.remove("hide");
+      if (navApp.$refs.indicator) {
+        navApp.$refs.indicator.classList.remove("hide");
+      }
     }, 140);
 
     lastScroll = current;
   });
 
-  // 点击菜单外区域关闭所有菜单
   document.addEventListener("click", e => {
     if (!e.target.closest(".nav")) {
       navApp.closeAll();
     }
   });
 }
-
-
-
-
-
