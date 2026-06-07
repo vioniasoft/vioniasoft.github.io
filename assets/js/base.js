@@ -21,7 +21,7 @@ window.switchLang = function(lang) {
 
 const navContainer = document.getElementById("nav-container");
 if (navContainer) {
-  fetch("assets/partials/nav.html")
+  fetch("/assets/partials/nav.html")
     .then(res => res.text())
     .then(html => {
       navContainer.innerHTML = html;
