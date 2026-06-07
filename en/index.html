@@ -1,120 +1,218 @@
 <!DOCTYPE html>
 <html lang="en" id="htmlRoot">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO Meta -->
-  <title>VioniaSoft | IT System Integration & Service Management</title>
-  <meta name="description"
-    content="VioniaSoft provides business-oriented IT system design, integration, and service management. We deliver reliable and scalable IT solutions including System Integration (SI), Service Management (SM), and web/digital solutions.">
-  <meta name="keywords"
-    content="VioniaSoft, System Integration, SI, Service Management, SM, Web development, Digital Solutions, IT services, IT company">
   <meta name="robots" content="index, follow">
-
-  <!-- Canonical & hreflang -->
+  
+  <title>VioniaSoft | Enterprise IT & Digital Transformation | System Integration & Service Management</title>
+  <meta name="description" content="VioniaSoft is your IT partner for accelerated business growth — System Integration (SI), Service Management (SM), and Digital Transformation (Web). Trusted across Korea, China, and France.">
+  <meta name="keywords" content="System Integration, SI, Service Management, SM, Digital Transformation, Web Development, IT Services, VioniaSoft">
+  
   <link rel="canonical" href="https://www.vioniasoft.com/en/index.html">
   <link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/ko/index.html">
   <link rel="alternate" hreflang="en" href="https://www.vioniasoft.com/en/index.html">
   <link rel="alternate" hreflang="zh" href="https://www.vioniasoft.com/zh/index.html">
   <link rel="alternate" hreflang="fr" href="https://www.vioniasoft.com/fr/index.html">
   <link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/ko/index.html">
-
-  <!-- ===== Open Graph (Google / Kakao / Naver) ===== -->
-  <meta property="og:title" content="VioniaSoft | IT System Integration & Service Management">
-  <meta property="og:description"
-    content="VioniaSoft is a business-oriented IT company specializing in system integration, service management, and digital solutions.">
+  
+  <meta property="og:title" content="VioniaSoft | Enterprise IT & Digital Transformation">
+  <meta property="og:description" content="System Integration (SI), Service Management (SM), Digital Transformation (Web) — your IT partner for accelerated growth">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.vioniasoft.com/en/index.html">
   <meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
-
-  <!-- Twitter Card -->
+  <meta property="og:site_name" content="VioniaSoft">
+  <meta property="og:locale" content="en_US">
+  
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VioniaSoft | IT System Integration & Service Management">
-  <meta name="twitter:description"
-    content="VioniaSoft — business-oriented IT system design, integration, and service management company.">
+  <meta name="twitter:title" content="VioniaSoft | Enterprise IT & Digital Transformation">
+  <meta name="twitter:description" content="System Integration (SI), Service Management (SM), Digital Transformation (Web) — your IT partner for accelerated growth">
   <meta name="twitter:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/base.css">
-  <link rel="stylesheet" href="/assets/css/nav.css">
-  <link rel="stylesheet" href="/assets/css/home.css">
-
-  <!-- Structured Data -->
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "VioniaSoft",
-    "url": "https://www.vioniasoft.com",
+    "url": "https://www.vioniasoft.com/en/",
     "logo": "https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png",
-    "contactPoint": [{
+    "description": "VioniaSoft provides System Integration (SI), Service Management (SM), and Digital Transformation (Web) services.",
+    "contactPoint": {
       "@type": "ContactPoint",
       "email": "info@vioniasoft.com",
-      "contactType": "customer support",
-      "availableLanguage": ["Korean","English","Chinese","French"]
-    }]
+      "contactType": "customer service",
+      "availableLanguage": ["Korean", "English", "Chinese", "French"]
+    },
+    "address": { "@type": "PostalAddress", "addressLocality": "Seoul", "addressCountry": "KR" }
   }
   </script>
-
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/home.css">
+  
+  <style>[v-cloak] { display: none; }</style>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
-
 <body>
 
-  <main class="page page-fade-in">
+  <div id="nav-container"></div>
 
-    <section class="hero">
-      <h1 class="hero-title">IT Systems for Business Operations</h1>
-      <p class="hero-desc">
-        VioniaSoft is an IT services company specializing in System Integration (SI), Service Management (SM), and
-        Web/Digital solutions.
-        We design and build stable, scalable, and long-term maintainable IT systems based on business structure and
-        operational needs.
-      </p>
-    </section>
+  <div id="app" v-cloak>
+    <main class="page page-fade-in">
 
-    <section class="values">
-      <div class="value-header">
-        <span class="value-line"></span>
-        <h2>Core Values</h2>
-        <span class="value-line"></span>
+      <section class="hero">
+        <div class="hero-glow"></div>
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          {{ t.home.badge }}
+        </div>
+        <h1 class="hero-title" v-html="t.home.heroTitle"></h1>
+        <p class="hero-desc">{{ t.home.heroDesc }}</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn-primary">
+            {{ t.home.ctaBtn }}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><polyline points="15 6 21 12 15 18"/></svg>
+          </a>
+          <a href="services.html" class="btn-secondary">{{ t.nav.services }}</a>
+        </div>
+      </section>
+
+      <section class="clients">
+        <div class="clients-header">
+          <span class="clients-badge">
+            <span class="badge-dot"></span>
+            {{ t.home.clientsBadge }}
+          </span>
+          <h2 class="clients-title">{{ t.home.clientsTitle }}</h2>
+        </div>
+        <div class="clients-grid">
+          <div class="client-card">
+            <div class="client-logo-wrap">
+              <div class="client-logo">
+                <img src="../assets/images/client/samsung fire_logo.png" class="client-logo-img" alt="Samsung Fire">
+              </div>
+            </div>
+            <h3 class="client-name">Samsung Fire</h3>
+            <span class="client-country">🇰🇷 Korea</span>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrap">
+              <div class="client-logo">
+                <img src="../assets/images/client/woori bank_logo.png" class="client-logo-img" alt="Woori Bank">
+              </div>
+            </div>
+            <h3 class="client-name">Woori Bank</h3>
+            <span class="client-country">🇰🇷 Korea</span>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrap">
+              <div class="client-logo">
+                <img src="../assets/images/client/lama_logo.png" class="client-logo-img" alt="Lama">
+              </div>
+            </div>
+            <h3 class="client-name">Lama</h3>
+            <span class="client-country">🇫🇷 France</span>
+          </div>
+        </div>
+
+        <div class="metrics-stats">
+          <div class="stat-item">
+            <span class="stat-number">100<span class="stat-suffix">%</span></span>
+            <span class="stat-label">{{ t.home.statSatisfaction }}</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">24<span class="stat-suffix">/7</span></span>
+            <span class="stat-label">{{ t.home.statSupport }}</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">3<span class="stat-suffix"> {{ t.home.statSuffix }}</span></span>
+            <span class="stat-label">{{ t.home.statCountries }}</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-strip reveal">
+        <div class="cta-strip-inner">
+          <div>
+            <p class="cta-heading">{{ t.home.ctaHeading }}</p>
+            <p class="cta-sub">{{ t.home.ctaSub }}</p>
+          </div>
+          <a href="contact.html" class="btn-primary">
+            {{ t.home.ctaBtn2 }}
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8l4 4-4 4"/><path d="M8 12h8"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="values">
+        <div class="value-header reveal">
+          <span class="value-tag">{{ t.home.valueTag }}</span>
+          <h2>{{ t.home.valueTitle }}</h2>
+        </div>
+        <div class="value-grid">
+          <div class="value-card reveal">
+            <div class="value-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>{{ t.home.value1Title }}</h3>
+            <p>{{ t.home.value1Desc }}</p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>{{ t.home.value2Title }}</h3>
+            <p>{{ t.home.value2Desc }}</p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/></svg>
+            </div>
+            <h3>{{ t.home.value3Title }}</h3>
+            <p>{{ t.home.value3Desc }}</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <span class="footer-logo">VioniaSoft</span>
+            <p class="footer-desc" v-html="t.home.footerDesc"></p>
+          </div>
+          <div class="footer-col">
+            <h4>{{ t.nav.menu }}</h4>
+            <a href="index.html">{{ t.nav.home }}</a>
+            <a href="about.html">{{ t.nav.about }}</a>
+            <a href="services.html">{{ t.nav.services }}</a>
+            <a href="contact.html">{{ t.nav.contact }}</a>
+          </div>
+          <div class="footer-col">
+            <h4>{{ t.nav.contact }}</h4>
+            <a href="mailto:info@vioniasoft.com">info@vioniasoft.com</a>
+            <span>Seoul, Korea</span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2025 VioniaSoft. All rights reserved.</span>
+        </div>
       </div>
+    </footer>
+  </div>
 
-      <div class="value-grid">
-        <div class="value-card">
-          <h3>Business-Oriented System Design</h3>
-          <p>Systems are designed starting from actual business workflows and organizational structure, not just
-            technical requirements.</p>
-        </div>
-        <div class="value-card">
-          <h3>Balance of Stability and Scalability</h3>
-          <p>From initial design to future expansion, long-term technical burden and maintenance costs are minimized.
-          </p>
-        </div>
-        <div class="value-card">
-          <h3>Service Philosophy Based on Long-Term Collaboration</h3>
-          <p>Every project is seen as the start of an ongoing partnership rather than a one-time delivery.</p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <p>Email: info@vioniasoft.com</p>
-    <p>© 2025 VioniaSoft. All rights reserved.</p>
-  </footer>
-
-<script src="/assets/js/i18n.js"></script>
-<script src="/assets/js/nav.js"></script>
-<script src="/assets/js/base.js"></script>
-<script src="/assets/js/home.js"></script>
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/base.js"></script>
+  <script src="../assets/js/home.js"></script>
 </body>
-
 </html>

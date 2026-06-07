@@ -1,217 +1,228 @@
-<!-- services.html -->
 <!DOCTYPE html>
 <html lang="zh" id="htmlRoot">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO Meta -->
-  <title>服务 | VioniaSoft | IT 系统集成 · 服务管理 专业公司</title>
-  <meta name="description" content="VioniaSoft 是提供系统集成（SI）、服务管理（SM）和网页数字化解决方案的 IT 专业公司。我们设计并搭建可靠、可扩展的 IT 服务，以提升企业运营效率。">
-  <meta name="keywords" content="VioniaSoft, 服务, 系统集成, SI, 服务管理, SM, 网页开发, 数字化解决方案, IT 服务">
   <meta name="robots" content="index, follow">
-
-  <!-- Canonical & Hreflang -->
+  
+  <title>Services | VioniaSoft | 系统集成 · 服务运营 · 数字化转型</title>
+  <meta name="description" content="VioniaSoft 综合IT服务 — 系统集成(SI)、服务运营(SM)、数字化转型(Web)。三大核心服务，助力您的业务增长。">
+  <meta name="keywords" content="系统集成, SI, 服务运营, SM, 数字化转型, Web开发, IT外包, 项目流程">
+  
   <link rel="canonical" href="https://www.vioniasoft.com/zh/services.html">
   <link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/ko/services.html">
   <link rel="alternate" hreflang="en" href="https://www.vioniasoft.com/en/services.html">
   <link rel="alternate" hreflang="zh" href="https://www.vioniasoft.com/zh/services.html">
   <link rel="alternate" hreflang="fr" href="https://www.vioniasoft.com/fr/services.html">
   <link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/ko/services.html">
-
-  <!-- ===== Open Graph (Google / Kakao / Naver) ===== -->
-  <meta property="og:title" content="服务 | VioniaSoft">
-  <meta property="og:description" content="VioniaSoft 提供企业级 IT 系统设计、搭建和服务管理的专业 IT 服务。">
+  
+  <meta property="og:title" content="Services | VioniaSoft">
+  <meta property="og:description" content="VioniaSoft 综合IT服务 — 系统集成(SI)、服务运营(SM)、数字化转型(Web)">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.vioniasoft.com/zh/services.html">
   <meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
-
-  <!-- Twitter Card -->
+  <meta property="og:site_name" content="VioniaSoft">
+  <meta property="og:locale" content="zh_CN">
+  
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="服务 | VioniaSoft">
-  <meta name="twitter:description" content="VioniaSoft — 系统集成(SI)、服务管理(SM)、网页与数字化解决方案专业 IT 公司">
+  <meta name="twitter:title" content="Services | VioniaSoft">
+  <meta name="twitter:description" content="VioniaSoft 综合IT服务 — 系统集成(SI)、服务运营(SM)、数字化转型(Web)">
   <meta name="twitter:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
-
-  <!-- Fonts -->
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/nav.css">
-  <link rel="stylesheet" href="/assets/css/services.css" />
-
-  <style>
-    [v-cloak] {
-      display: none;
-    }
-  </style>
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"VioniaSoft",
-    "url":"https://vioniasoft.com/",
-    "logo":"https://vioniasoft.com/assets/images/common/vioniasoft_logo.png",
-    "contactPoint":[{"@type":"ContactPoint","email":"info@vioniasoft.com","contactType":"customer support","availableLanguage":["Korean","English","Chinese","French"]}]
-  }
-  </script>
-
-  <!-- Vue -->
+  <link rel="stylesheet" href="/assets/css/services.css">
+  
+  <style>[v-cloak] { display: none; }</style>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
-
 <body>
 
-  <!-- Nav -->
-  <!-- <div id="nav-container"></div> -->
+  <div id="nav-container"></div>
 
-  <!-- Vue App -->
-  <main class="page about-page">
-    <!-- Hero -->
-    <section class="services-hero reveal reveal--title" aria-label="服务英雄">
-      <h1>推动业务增长的综合 IT 服务</h1>
-    </section>
+  <div id="app" v-cloak>
+    <main class="page services-page">
 
-    <!-- Core Services -->
-    <section class="services-core" aria-label="核心服务">
+      <section class="svc-hero">
+        <div class="svc-label">{{ t.services.badge }}</div>
+        <h1 class="svc-title" v-html="t.services.title"></h1>
+        <p class="svc-subtitle">{{ t.services.subtitle }}</p>
+      </section>
 
-      <!-- SI -->
-      <div class="service-row reveal">
-        <div class="service-left">
-          <div class="service-bar"></div>
-          <h2>系统集成 (SI)<span>SYSTEM INTEGRATION</span></h2>
+      <section class="svc-section reveal">
+        <div class="svc-grid">
+          <div class="svc-visual">
+            <div class="svc-number">01</div>
+            <div class="svc-icon si-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>
+              </svg>
+            </div>
+            <div class="svc-glow si-glow"></div>
+          </div>
+          <div class="svc-content">
+            <span class="svc-tag">{{ t.services.siTag }}</span>
+            <h2>{{ t.services.siTitle }}</h2>
+            <p class="svc-desc">{{ t.services.siDesc }}</p>
+            <div class="svc-list-block">
+              <h4>{{ t.services.siApply }}</h4>
+              <ul>
+                <li>{{ t.services.siList[0] }}</li>
+                <li>{{ t.services.siList[1] }}</li>
+                <li>{{ t.services.siList[2] }}</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="service-right">
-          <p>提供从需求分析、设计、开发到系统整合的全流程系统集成服务，确保整体架构一致性，避免局部优化带来的复杂度增加。</p>
-          <strong>应用领域：</strong>
-          <ul>
-            <li>新系统搭建</li>
-            <li>现有系统整合</li>
-            <li>业务扩展阶段的系统重构</li>
-          </ul>
+      </section>
+
+      <section class="svc-section alt reveal">
+        <div class="svc-grid reverse">
+          <div class="svc-visual">
+            <div class="svc-number">02</div>
+            <div class="svc-icon sm-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <div class="svc-glow sm-glow"></div>
+          </div>
+          <div class="svc-content">
+            <span class="svc-tag">{{ t.services.smTag }}</span>
+            <h2>{{ t.services.smTitle }}</h2>
+            <p class="svc-desc">{{ t.services.smDesc }}</p>
+            <div class="svc-list-block">
+              <h4>{{ t.services.smFocus }}</h4>
+              <ul>
+                <li>{{ t.services.smList[0] }}</li>
+                <li>{{ t.services.smList[1] }}</li>
+                <li>{{ t.services.smList[2] }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="svc-section reveal">
+        <div class="svc-grid">
+          <div class="svc-visual">
+            <div class="svc-number">03</div>
+            <div class="svc-icon web-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/><path d="M12 2a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10"/>
+              </svg>
+            </div>
+            <div class="svc-glow web-glow"></div>
+          </div>
+          <div class="svc-content">
+            <span class="svc-tag">{{ t.services.webTag }}</span>
+            <h2>{{ t.services.webTitle }}</h2>
+            <p class="svc-desc">{{ t.services.webDesc1 }}</p>
+            <p class="svc-desc">{{ t.services.webDesc2 }}</p>
+            <div class="svc-list-block">
+              <h4>{{ t.services.webFocus }}</h4>
+              <ul>
+                <li>{{ t.services.webList[0] }}</li>
+                <li>{{ t.services.webList[1] }}</li>
+                <li>{{ t.services.webList[2] }}</li>
+              </ul>
+            </div>
+            <p class="svc-footnote">{{ t.services.webDesc3 }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="svc-process reveal">
+        <div class="svc-process-head">
+          <div class="svc-label">{{ t.services.processBadge }}</div>
+          <h2 class="svc-title">{{ t.services.processTitle }}</h2>
+        </div>
+
+        <div class="svc-timeline">
+          <div class="svc-timeline-track"></div>
+          <div class="svc-step">
+            <div class="svc-step-marker">1</div>
+            <div class="svc-step-content">
+              <h3>{{ t.services.p1Title }}</h3>
+              <p>{{ t.services.p1Desc }}</p>
+            </div>
+          </div>
+          <div class="svc-step">
+            <div class="svc-step-marker">2</div>
+            <div class="svc-step-content">
+              <h3>{{ t.services.p2Title }}</h3>
+              <p>{{ t.services.p2Desc }}</p>
+              <ul>
+                <li v-for="item in t.services.p2List">{{ item }}</li>
+              </ul>
+              <p class="svc-step-note">{{ t.services.p2Note }}</p>
+            </div>
+          </div>
+          <div class="svc-step">
+            <div class="svc-step-marker">3</div>
+            <div class="svc-step-content">
+              <h3>{{ t.services.p3Title }}</h3>
+              <ul>
+                <li v-for="item in t.services.p3List">{{ item }}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="svc-step">
+            <div class="svc-step-marker">4</div>
+            <div class="svc-step-content">
+              <h3>{{ t.services.p4Title }}</h3>
+              <p>{{ t.services.p4Desc }}</p>
+              <ul>
+                <li v-for="item in t.services.p4List">{{ item }}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="svc-step">
+            <div class="svc-step-marker">5</div>
+            <div class="svc-step-content">
+              <h3>{{ t.services.p5Title }}</h3>
+              <p>{{ t.services.p5Desc }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <span class="footer-logo">VioniaSoft</span>
+            <p class="footer-desc" v-html="t.home.footerDesc"></p>
+          </div>
+          <div class="footer-col">
+            <h4>{{ t.nav.menu }}</h4>
+            <a href="index.html">{{ t.nav.home }}</a>
+            <a href="about.html">{{ t.nav.about }}</a>
+            <a href="services.html">{{ t.nav.services }}</a>
+            <a href="contact.html">{{ t.nav.contact }}</a>
+          </div>
+          <div class="footer-col">
+            <h4>{{ t.nav.contact }}</h4>
+            <a href="mailto:info@vioniasoft.com">info@vioniasoft.com</a>
+            <span>Seoul, Korea</span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2025 VioniaSoft. All rights reserved.</span>
         </div>
       </div>
+    </footer>
+  </div>
 
-      <!-- SM -->
-      <div class="service-row reveal">
-        <div class="service-left">
-          <div class="service-bar"></div>
-          <h2>服务管理 (SM)<span>SERVICE MANAGEMENT</span></h2>
-        </div>
-        <div class="service-right">
-          <p>服务管理不仅是维护，更是确保系统长期稳定与运营质量的核心环节。</p>
-          <strong>重点管理：</strong>
-          <ul>
-            <li>系统稳定性</li>
-            <li>运营效率</li>
-            <li>长期运营成本管理</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- WEB -->
-      <div class="service-row reveal">
-        <div class="service-left">
-          <div class="service-bar"></div>
-          <h2>网页 & 数字化解决方案<span>WEB & DIGITAL SOLUTION</span></h2>
-        </div>
-        <div class="service-right">
-          <p>Web 系统不仅提供信息，更是与客户和合作伙伴的关键业务接触点。</p>
-          <p>VioniaSoft 同时兼顾品牌呈现、用户体验及系统可扩展性。</p>
-          <strong>主要考虑：</strong>
-          <ul>
-            <li>清晰的品牌及信息结构</li>
-            <li>以用户为中心的 UX 设计</li>
-            <li>可扩展及易维护的技术架构</li>
-          </ul>
-          <p>确保数字渠道持续为业务增长提供支持。</p>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- Process Section -->
-    <section class="process-section reveal reveal--titles" aria-label="服务流程">
-      <h2>实际工作方式 / 项目流程</h2>
-      <div class="timeline">
-        <div class="timeline-line"></div>
-
-        <div class="timeline-item reveal">
-          <span class="timeline-dot">1</span>
-          <div class="timeline-content">
-            <h3>业务理解与需求整理</h3>
-            <p>在项目初期综合分析客户业务背景、组织结构和现有系统。</p>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <span class="timeline-dot">2</span>
-          <div class="timeline-content">
-            <h3>系统架构及技术设计</h3>
-            <p>根据需求设计整体系统架构与技术方向。</p>
-            <ul class="process-list">
-              <li>整体系统架构设计</li>
-              <li>数据流与系统间联动整理</li>
-              <li>技术栈及可扩展性评估</li>
-            </ul>
-            <p class="process-note">所有技术选择均以长期稳定性和可维护性为优先，而非短期速度。</p>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <span class="timeline-dot">3</span>
-          <div class="timeline-content">
-            <h3>实施及阶段验证</h3>
-            <ul class="process-list">
-              <li>功能实现与结构验证并行</li>
-              <li>核心模块优先实现与确认</li>
-              <li>持续沟通与调整</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <span class="timeline-dot">4</span>
-          <div class="timeline-content">
-            <h3>交接及运营对接</h3>
-            <p>考虑系统上线后的实际运行环境，支持交接与初期稳定化。</p>
-            <ul class="process-list">
-              <li>运营交接</li>
-              <li>基础管理标准制定</li>
-              <li>初期运营稳定化支持</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <span class="timeline-dot">5</span>
-          <div class="timeline-content">
-            <h3>持续管理与优化 (SM 对接)</h3>
-            <p>对于需要长期运营的系统，自然过渡到服务管理阶段以持续优化和改进。</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <p>Email: info@vioniasoft.com</p>
-    <p>© 2025 VioniaSoft. All rights reserved.</p>
-  </footer>
-
-  <!-- JS -->
-  <script src="/assets/js/i18n.js"></script>
-  <script src="/assets/js/base.js" defer></script>
-  <script src="/assets/js/services.js" defer></script>
-  <script src="/assets/js/nav.js" defer></script>
-
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/base.js"></script>
+  <script src="../assets/js/services.js"></script>
 </body>
-
 </html>

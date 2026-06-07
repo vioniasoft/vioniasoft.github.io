@@ -1,156 +1,162 @@
-<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="ko" id="htmlRoot">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<!-- SEO Meta -->
-	<title>문의하기 | 비오니아소프트 | IT 시스템 통합 · 서비스 관리 전문 기업</title>
-	<meta name="description"
-		content="비오니아소프트에 문의하여 시스템 통합(SI), 서비스 관리(SM), 웹·디지털 솔루션 관련 문의 및 상담을 받으세요. 기업 운영 효율성을 높이는 IT 전문 서비스 지원.">
-	<meta name="keywords" content="비오니아소프트, 문의, 연락, 시스템 통합, SI, 서비스 관리, SM, 웹 개발, 디지털 솔루션, IT 서비스">
-	<meta name="robots" content="index, follow">
-
-	<!-- Canonical & Hreflang -->
-	<link rel="canonical" href="https://www.vioniasoft.com/ko/contact.html">
-	<link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/ko/contact.html">
-	<link rel="alternate" hreflang="en" href="https://www.vioniasoft.com/en/contact.html">
-	<link rel="alternate" hreflang="zh" href="https://www.vioniasoft.com/zh/contact.html">
-	<link rel="alternate" hreflang="fr" href="https://www.vioniasoft.com/fr/contact.html">
-	<link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/ko/contact.html">
-
-	<!-- ===== Open Graph (Google / Kakao / Naver) ===== -->
-	<meta property="og:title" content="문의하기 | 비오니아소프트">
-	<meta property="og:description" content="비오니아소프트에 문의하여 기업 IT 시스템 설계, 구축, 서비스 관리 관련 상담을 받으세요.">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://www.vioniasoft.com/ko/contact.html">
-	<meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
-
-	<!-- Twitter Card -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="문의하기 | 비오니아소프트">
-	<meta name="twitter:description" content="비오니아소프트 — 시스템 통합(SI), 서비스 관리(SM), 웹·디지털 솔루션 전문 IT 기업 문의">
-	<meta name="twitter:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
-
-	<!-- Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
-		rel="stylesheet">
-
-	<!-- CSS -->
-	<link rel="stylesheet" href="/assets/css/base.css">
-	<link rel="stylesheet" href="/assets/css/nav.css">
-	<link rel="stylesheet" href="/assets/css/contact.css">
-	<style>
-		[v-cloak] {
-			display: none;
-		}
-	</style>
-	<!-- Structured Data -->
-	<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "VioniaSoft",
-    "url": "https://vioniasoft.com/",
-    "logo": "https://vioniasoft.com/assets/images/common/vioniasoft_logo.png",
-    "contactPoint": [
-      {
-        "@type": "ContactPoint",
-        "email": "info@vioniasoft.com",
-        "contactType": "customer support",
-        "availableLanguage": ["Korean","English","Chinese","French"]
-      }
-    ]
-  }
-  </script>
-
-	<!-- Vue -->
-	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  
+  <title>Contact | VioniaSoft | 문의하기 · 무료 상담</title>
+  <meta name="description" content="VioniaSoft 문의하기 — 시스템 통합, 서비스 운영, 디지털 전환에 대한 무료 상담을 신청하세요. 명확한 커뮤니케이션과 합리적인 의사결정을 약속드립니다.">
+  <meta name="keywords" content="VioniaSoft 문의, IT 상담, 무료 상담, 시스템 통합 문의, SM 문의, 웹 개발 문의">
+  
+  <link rel="canonical" href="https://www.vioniasoft.com/ko/contact.html">
+  <link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/ko/contact.html">
+  <link rel="alternate" hreflang="en" href="https://www.vioniasoft.com/en/contact.html">
+  <link rel="alternate" hreflang="zh" href="https://www.vioniasoft.com/zh/contact.html">
+  <link rel="alternate" hreflang="fr" href="https://www.vioniasoft.com/fr/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/ko/contact.html">
+  
+  <meta property="og:title" content="Contact | VioniaSoft">
+  <meta property="og:description" content="VioniaSoft 문의하기 — 시스템 통합, 서비스 운영, 디지털 전환 무료 상담">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.vioniasoft.com/ko/contact.html">
+  <meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
+  <meta property="og:site_name" content="VioniaSoft">
+  <meta property="og:locale" content="ko_KR">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact | VioniaSoft">
+  <meta name="twitter:description" content="VioniaSoft 문의하기 — 시스템 통합, 서비스 운영, 디지털 전환 무료 상담">
+  <meta name="twitter:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/contact.css">
+  
+  <style>[v-cloak] { display: none; }</style>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
-
 <body>
 
-	<!-- Nav -->
-	<!-- <div id="nav-container"></div> -->
+  <div id="nav-container"></div>
 
-	<!-- Vue App -->
-	<main id="app" class="page contact-page">
-		<!-- 页面标题 -->
-		<section class="contact-overview">
-			<h1 class="contact-title">문의하기</h1>
-			<div class="contact-divider-animated"></div>
-			<p class="contact-desc">장기적인 관점에서 신뢰할 수 있는 IT 파트너</p>
-			<p class="contact-desc">VioniaSoft는 명확한 커뮤니케이션과 합리적인 의사결정을 통해 지속 가능한 협업을 지향합니다.</p>
-		</section>
+  <div id="app" v-cloak>
+    <main class="page contact-page">
 
-		<!-- 表单 -->
-		<section class="contact-form-section">
-			<form id="contactForm" class="contact-form" action="https://formspree.io/f/mjgbzana" method="POST"
-				novalidate>
-				<div class="form-row">
-					<label>성명 *</label>
-					<input type="text" name="name" required />
-					<p class="field-error">이름을 입력해주세요.</p>
-				</div>
+      <section class="ctc-hero">
+        <div class="ctc-label">{{ t.contact.badge }}</div>
+        <h1 class="ctc-title">{{ t.contact.title }}</h1>
+        <p class="ctc-desc">{{ t.contact.desc1 }}</p>
+        <p class="ctc-desc ctc-desc-sub">{{ t.contact.desc2 }}</p>
+      </section>
 
-				<div class="form-row">
-					<label>이메일 *</label>
-					<input type="email" name="email" required />
-					<p class="field-error">이메일을 입력해주세요.</p>
-				</div>
+      <section class="ctc-form-section">
+        <form id="contactForm" class="ctc-form" action="https://formspree.io/f/mjgbzana" method="POST">
+          
+          <div class="form-row">
+            <label for="name">{{ t.contact.form.name }} *</label>
+            <input type="text" id="name" name="name" required>
+            <div class="field-error"></div>
+          </div>
 
-				<div class="form-row">
-					<label>회사명 (선택)</label>
-					<input type="text" name="company" />
-				</div>
+          <div class="form-row">
+            <label for="email">{{ t.contact.form.email }} *</label>
+            <input type="email" id="email" name="email" required>
+            <div class="field-error"></div>
+          </div>
 
-				<div class="form-row select-row">
-					<label>문의 유형 *</label>
-					<div id="contactTypeSelect" class="custom-select">
-						<div id="contactTypeTrigger" class="select-trigger is-placeholder"
-							:data-placeholder="t.contact.form.type">
-							문의 유형을 선택해주세요.
-						</div>
-						<ul class="select-options">
-							<li data-value="type1">시스템 통합 / SI</li>
-							<li data-value="type2">서비스 관리 / SM</li>
-							<li data-value="type3">Web · 디지털 솔루션</li>
-							<li data-value="type4">기타 문의</li>
-						</ul>
-					</div>
-					<input type="hidden" name="type" id="contactTypeValue" />
-					<p class="field-error" id="typeError">문의 유형을 선택해주세요.</p>
-				</div>
+          <div class="form-row">
+            <label for="company">{{ t.contact.form.company }}</label>
+            <input type="text" id="company" name="company">
+          </div>
 
-				<div class="form-row">
-					<label>문의 내용 *</label>
-					<textarea name="message" rows="4" required></textarea>
-					<p class="field-error">문의 내용을 입력해주세요.</p>
-				</div>
+          <div class="form-row select-row">
+            <label>{{ t.contact.form.type }} *</label>
+            <div id="contactTypeSelect" class="custom-select">
+              <div id="contactTypeTrigger" class="select-trigger is-placeholder">{{ t.contact.form.selectType }}</div>
+              <input type="hidden" id="contactTypeValue" name="type">
+              <ul class="select-options">
+                <li data-value="si">{{ t.contact.form.type1 }}</li>
+                <li data-value="sm">{{ t.contact.form.type2 }}</li>
+                <li data-value="web">{{ t.contact.form.type3 }}</li>
+                <li data-value="other">{{ t.contact.form.type4 }}</li>
+              </ul>
+            </div>
+            <div id="typeError" class="field-error"></div>
+          </div>
 
-				<button type="submit" id="submitBtn" class="contact-submit">
-					문의 제출
-				</button>
-			</form>
-		</section>
+          <div class="form-row">
+            <label for="message">{{ t.contact.form.message }} *</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <div class="field-error"></div>
+          </div>
 
-	</main>
+          <button type="submit" id="submitBtn" class="ctc-btn">
+            <span id="btnText">{{ t.contact.form.submit }}</span>
+          </button>
+        </form>
 
-	<footer class="footer">
-		<p>Email: info@vioniasoft.com</p>
-		<p>© 2025 VioniaSoft. All rights reserved.</p>
-	</footer>
+        <div id="formSuccess" class="ctc-modal-wrap">
+          <div class="ctc-modal">
+            <div class="ctc-modal-icon success">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <h3 id="successTitle">{{ t.contact.successTitle }}</h3>
+            <p id="successDesc">{{ t.contact.successDesc }}</p>
+          </div>
+        </div>
 
-	<!-- JS -->
-	<script src="/assets/js/i18n.js"></script>
-	<script src="/assets/js/base.js" defer></script>
-	<script src="/assets/js/contact.js" defer></script>
-	<script src="/assets/js/nav.js" defer></script>
+        <div id="formError" class="ctc-modal-wrap">
+          <div class="ctc-modal">
+            <div class="ctc-modal-icon error">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </div>
+            <h3 id="errorTitle">{{ t.contact.errorTitle }}</h3>
+            <p id="errorDesc">{{ t.contact.errorDesc }}</p>
+          </div>
+        </div>
+      </section>
 
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <span class="footer-logo">VioniaSoft</span>
+            <p class="footer-desc" v-html="t.home.footerDesc"></p>
+          </div>
+          <div class="footer-col">
+            <h4>{{ t.nav.menu }}</h4>
+            <a href="index.html">{{ t.nav.home }}</a>
+            <a href="about.html">{{ t.nav.about }}</a>
+            <a href="services.html">{{ t.nav.services }}</a>
+            <a href="contact.html">{{ t.nav.contact }}</a>
+          </div>
+          <div class="footer-col">
+            <h4>{{ t.nav.contact }}</h4>
+            <a href="mailto:info@vioniasoft.com">info@vioniasoft.com</a>
+            <span>Seoul, Korea</span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2025 VioniaSoft. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/base.js"></script>
+  <script src="../assets/js/contact.js"></script>
 </body>
-
 </html>

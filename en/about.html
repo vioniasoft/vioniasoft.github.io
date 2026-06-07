@@ -1,124 +1,182 @@
-<!-- about.html - English -->
 <!DOCTYPE html>
 <html lang="en" id="htmlRoot">
-
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-     <!-- SEO Meta -->
-     <title>About | VioniaSoft | IT System Integration · Service Management</title>
-     <meta name="description"
-           content="VioniaSoft is an IT company specializing in system integration (SI), service management (SM), and web & digital solutions. We design and implement stable, scalable IT systems centered on business needs.">
-     <meta name="keywords"
-           content="VioniaSoft, About, IT company, System Integration, SI, Service Management, SM, Web Development, IT Solutions">
-     <meta name="robots" content="index, follow">
-
-     <!-- Canonical & Hreflang -->
-     <link rel="canonical" href="https://www.vioniasoft.com/en/about.html">
-     <link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/ko/about.html">
-     <link rel="alternate" hreflang="en" href="https://www.vioniasoft.com/en/about.html">
-     <link rel="alternate" hreflang="zh" href="https://www.vioniasoft.com/zh/about.html">
-     <link rel="alternate" hreflang="fr" href="https://www.vioniasoft.com/fr/about.html">
-     <link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/ko/about.html">
-
-      <!-- ===== Open Graph (Google / Kakao / Naver) ===== -->
-     <meta property="og:title" content="About | VioniaSoft">
-     <meta property="og:description"
-           content="VioniaSoft specializes in business-centered IT system design, integration, and service management.">
-     <meta property="og:type" content="website">
-     <meta property="og:url" content="https://www.vioniasoft.com/en/about.html">
-     <meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
-
-     <!-- Twitter Card -->
-     <meta name="twitter:card" content="summary_large_image">
-     <meta name="twitter:title" content="About | VioniaSoft">
-     <meta name="twitter:description"
-           content="VioniaSoft — Business-focused IT system integration and service management company">
-     <meta name="twitter:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
-
-     <!-- Fonts -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-     <!-- CSS -->
-     <link rel="stylesheet" href="/assets/css/base.css">
-     <link rel="stylesheet" href="/assets/css/nav.css">
-     <link rel="stylesheet" href="/assets/css/about.css">
-
-     <!-- Structured Data -->
-     <script type="application/ld+json">
-     {
-       "@context": "https://schema.org",
-       "@type": "Organization",
-       "name": "VioniaSoft",
-       "url": "https://www.vioniasoft.com",
-       "logo": "https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png",
-       "contactPoint": [{
-         "@type": "ContactPoint",
-         "email": "info@vioniasoft.com",
-         "contactType": "customer support",
-         "availableLanguage": ["Korean","English","Chinese","French"]
-       }]
-     }
-     </script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  
+  <title>About | VioniaSoft | Company Overview · Organization Structure</title>
+  <meta name="description" content="VioniaSoft Company Overview — IT service company specializing in system integration and service management. 4 core teams, 100% client satisfaction, active in Korea, China, and France.">
+  <meta name="keywords" content="VioniaSoft About, SI company, SM company, IT service company, organization structure, system integration company">
+  
+  <link rel="canonical" href="https://www.vioniasoft.com/en/about.html">
+  <link rel="alternate" hreflang="ko" href="https://www.vioniasoft.com/ko/about.html">
+  <link rel="alternate" hreflang="en" href="https://www.vioniasoft.com/en/about.html">
+  <link rel="alternate" hreflang="zh" href="https://www.vioniasoft.com/zh/about.html">
+  <link rel="alternate" hreflang="fr" href="https://www.vioniasoft.com/fr/about.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.vioniasoft.com/ko/about.html">
+  
+  <meta property="og:title" content="About | VioniaSoft">
+  <meta property="og:description" content="VioniaSoft Company Overview — IT service company specializing in system integration and service management">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.vioniasoft.com/en/about.html">
+  <meta property="og:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
+  <meta property="og:site_name" content="VioniaSoft">
+  <meta property="og:locale" content="en_US">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About | VioniaSoft">
+  <meta name="twitter:description" content="VioniaSoft Company Overview — IT service company specializing in system integration and service management">
+  <meta name="twitter:image" content="https://www.vioniasoft.com/assets/images/common/vioniasoft_logo.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/about.css">
+  
+  <style>[v-cloak] { display: none; }</style>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 </head>
-
 <body>
 
-     <main class="page about-page">
+  <div id="nav-container"></div>
 
-          <!-- Company Overview -->
-          <section class="about-overview reveal">
-               <h1 class="overview-title">Company Overview</h1>
-               <div class="overview-divider"></div>
-               <p class="overview-desc">Founded in 2025, VioniaSoft specializes in system integration and IT service management. Starting as a sole proprietorship, our technical standards, project processes, and service methodologies operate at the level of professional IT service firms. We provide structured and sustainable IT solutions for SMEs and growing organizations.</p>
-          </section>
+  <div id="app" v-cloak>
+    <main class="page about-page">
 
-          <!-- Organization Structure -->
-          <section class="org-section reveal delay-2">
-               <h2 class="org-title">Organization Structure</h2>
+      <section class="about-hero reveal">
+        <div class="about-badge">
+          <span class="badge-dot"></span>
+          {{ t.about.badge }}
+        </div>
+        <h1 class="about-title">{{ t.about.title }}</h1>
+        <div class="about-divider"></div>
+        <p class="about-desc">{{ t.about.desc }}</p>
+      </section>
 
-               <!-- Founder -->
-               <div class="org-founder">
-                    <div class="org-founder-card">
-                         <strong>Founder & CEO</strong>
-                         <span>Sets strategic vision and oversees company management</span>
-                    </div>
-               </div>
+      <div class="about-metrics reveal">
+        <div class="about-metric-item">
+          <span class="about-metric-number">4</span>
+          <span class="about-metric-label">{{ t.about.statDepts }}</span>
+        </div>
+        <div class="about-metric-divider"></div>
+        <div class="about-metric-item">
+          <span class="about-metric-number">100<span class="about-metric-suffix">%</span></span>
+          <span class="about-metric-label">{{ t.about.statSatisfaction }}</span>
+        </div>
+        <div class="about-metric-divider"></div>
+        <div class="about-metric-item">
+          <span class="about-metric-number">3<span class="about-metric-suffix">{{ t.about.statSuffix }}</span></span>
+          <span class="about-metric-label">{{ t.about.statCountries }}</span>
+        </div>
+      </div>
 
-               <div class="org-connector-t"></div>
+      <section class="org-section reveal">
+        <div class="org-section-head">
+          <span class="about-badge">
+            <span class="badge-dot"></span>
+            {{ t.about.structureBadge }}
+          </span>
+          <h2 class="org-title">{{ t.about.orgStructure }}</h2>
+        </div>
 
-               <!-- Departments -->
-               <div class="org-departments">
-                    <div class="org-dept-card">
-                         <strong>SI Division</strong>
-                         <span>Provides system integration and tailored solutions</span>
-                    </div>
-                    <div class="org-dept-card">
-                         <strong>Development Team</strong>
-                         <span>System architecture design and development</span>
-                    </div>
-                    <div class="org-dept-card">
-                         <strong>Design Team</strong>
-                         <span>UI/UX design and optimization</span>
-                    </div>
-                    <div class="org-dept-card">
-                         <strong>Customer Support</strong>
-                         <span>IT service management and client support</span>
-                    </div>
-               </div>
-          </section>
+        <div class="org-founder">
+          <div class="org-founder-card">
+            <div class="founder-badge">{{ t.about.founderBadge }}</div>
+            <div class="founder-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <strong>{{ t.about.valueTitle }}</strong>
+            <span>{{ t.about.valueDesc }}</span>
+          </div>
+        </div>
 
-     </main>
+        <div class="org-connector"></div>
 
-     <footer class="footer">
-          <p>Email: info@vioniasoft.com</p>
-          <p>© 2025 VioniaSoft. All rights reserved.</p>
-     </footer>
+        <div class="org-departments">
+          <div class="org-dept-card">
+            <div class="dept-icon dept-si">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <strong>{{ t.about.value1Title }}</strong>
+            <span>{{ t.about.value1Desc }}</span>
+          </div>
+          <div class="org-dept-card">
+            <div class="dept-icon dept-dev">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <strong>{{ t.about.value2Title }}</strong>
+            <span>{{ t.about.value2Desc }}</span>
+          </div>
+          <div class="org-dept-card">
+            <div class="dept-icon dept-design">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                <path d="M2 2l7.586 7.586"/>
+                <circle cx="11" cy="11" r="2"/>
+              </svg>
+            </div>
+            <strong>{{ t.about.value3Title }}</strong>
+            <span>{{ t.about.value3Desc }}</span>
+          </div>
+          <div class="org-dept-card">
+            <div class="dept-icon dept-support">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <strong>{{ t.about.value4Title }}</strong>
+            <span>{{ t.about.value4Desc }}</span>
+          </div>
+        </div>
+      </section>
 
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <span class="footer-logo">VioniaSoft</span>
+            <p class="footer-desc" v-html="t.home.footerDesc"></p>
+          </div>
+          <div class="footer-col">
+            <h4>{{ t.nav.menu }}</h4>
+            <a href="index.html">{{ t.nav.home }}</a>
+            <a href="about.html">{{ t.nav.about }}</a>
+            <a href="services.html">{{ t.nav.services }}</a>
+            <a href="contact.html">{{ t.nav.contact }}</a>
+          </div>
+          <div class="footer-col">
+            <h4>{{ t.nav.contact }}</h4>
+            <a href="mailto:info@vioniasoft.com">info@vioniasoft.com</a>
+            <span>Seoul, Korea</span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2025 VioniaSoft. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/base.js"></script>
+  <script src="../assets/js/about.js"></script>
 </body>
-
 </html>
