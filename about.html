@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, follow">
+  <meta name="robots" content="index, follow">
   <title>About | VioniaSoft</title>
+  <meta name="description" content="VioniaSoft 회사 개요 - 시스템 통합 및 IT 서비스 관리 전문 기업">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,14 +28,14 @@
       <section class="about-hero reveal">
         <div class="about-badge">
           <span class="badge-dot"></span>
-          SYSTEM INTEGRATION
+          {{ t.about.badge }}
         </div>
         <h1 class="about-title">{{ t.about.title }}</h1>
         <div class="about-divider"></div>
         <p class="about-desc">{{ t.about.desc }}</p>
       </section>
 
-      <div class="about-metrics">
+      <div class="about-metrics reveal">
         <div class="about-metric-item">
           <span class="about-metric-number">4</span>
           <span class="about-metric-label">{{ t.about.statDepts }}</span>
@@ -55,14 +56,14 @@
         <div class="org-section-head">
           <span class="about-badge">
             <span class="badge-dot"></span>
-            STRUCTURE
+            {{ t.about.structureBadge }}
           </span>
           <h2 class="org-title">{{ t.about.orgStructure }}</h2>
         </div>
 
         <div class="org-founder">
           <div class="org-founder-card">
-            <div class="founder-badge">FOUNDER</div>
+            <div class="founder-badge">{{ t.about.founderBadge }}</div>
             <div class="founder-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
@@ -132,15 +133,15 @@
             <p class="footer-desc" v-html="t.home.footerDesc"></p>
           </div>
           <div class="footer-col">
-            <h4>Menu</h4>
+            <h4>{{ t.nav.menu }}</h4>
             <a href="index.html">{{ t.nav.home }}</a>
             <a href="about.html">{{ t.nav.about }}</a>
             <a href="services.html">{{ t.nav.services }}</a>
             <a href="contact.html">{{ t.nav.contact }}</a>
           </div>
           <div class="footer-col">
-            <h4>Contact</h4>
-            <span>info@vioniasoft.com</span>
+            <h4>{{ t.nav.contact }}</h4>
+            <a href="mailto:info@vioniasoft.com">info@vioniasoft.com</a>
             <span>Seoul, Korea</span>
           </div>
         </div>

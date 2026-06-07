@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, follow">
+  <meta name="robots" content="index, follow">
   <title>Contact | VioniaSoft</title>
+  <meta name="description" content="VioniaSoft 문의하기 - 시스템 통합, 서비스 운영, 디지털 전환 상담">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,24 +26,24 @@
     <main class="page contact-page">
 
       <section class="ctc-hero">
-        <div class="ctc-label">GET IN TOUCH</div>
+        <div class="ctc-label">{{ t.contact.badge }}</div>
         <h1 class="ctc-title">{{ t.contact.title }}</h1>
         <p class="ctc-desc">{{ t.contact.desc1 }}</p>
         <p class="ctc-desc ctc-desc-sub">{{ t.contact.desc2 }}</p>
       </section>
 
       <section class="ctc-form-section">
-        <form id="contactForm" class="ctc-form" action="https://formspree.io/f/你的FORM_ID" method="POST">
+        <form id="contactForm" class="ctc-form" action="https://formspree.io/f/mjgbzana" method="POST">
           
           <div class="form-row">
-            <label for="name">{{ t.contact.form.name }}</label>
-            <input type="text" id="name" name="name" :placeholder="t.contact.form.nameRequired" required>
+            <label for="name">{{ t.contact.form.name }} *</label>
+            <input type="text" id="name" name="name" required>
             <div class="field-error"></div>
           </div>
 
           <div class="form-row">
-            <label for="email">{{ t.contact.form.email }}</label>
-            <input type="email" id="email" name="email" :placeholder="t.contact.form.emailRequired" required>
+            <label for="email">{{ t.contact.form.email }} *</label>
+            <input type="email" id="email" name="email" required>
             <div class="field-error"></div>
           </div>
 
@@ -52,9 +53,9 @@
           </div>
 
           <div class="form-row select-row">
-            <label>{{ t.contact.form.type }}</label>
+            <label>{{ t.contact.form.type }} *</label>
             <div id="contactTypeSelect" class="custom-select">
-              <div id="contactTypeTrigger" class="select-trigger is-placeholder" data-placeholder="{{ t.contact.form.selectType }}">{{ t.contact.form.selectType }}</div>
+              <div id="contactTypeTrigger" class="select-trigger is-placeholder">{{ t.contact.form.selectType }}</div>
               <input type="hidden" id="contactTypeValue" name="type">
               <ul class="select-options">
                 <li data-value="si">{{ t.contact.form.type1 }}</li>
@@ -67,13 +68,13 @@
           </div>
 
           <div class="form-row">
-            <label for="message">{{ t.contact.form.message }}</label>
-            <textarea id="message" name="message" rows="5" :placeholder="t.contact.form.messageRequired" required></textarea>
+            <label for="message">{{ t.contact.form.message }} *</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
             <div class="field-error"></div>
           </div>
 
           <button type="submit" id="submitBtn" class="ctc-btn">
-            {{ t.contact.form.submit }}
+            <span id="btnText">{{ t.contact.form.submit }}</span>
           </button>
         </form>
 
@@ -93,8 +94,7 @@
           <div class="ctc-modal">
             <div class="ctc-modal-icon error">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"/>
-                <line x1="6" y1="6" x2="18" y2="18"/>
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
               </svg>
             </div>
             <h3 id="errorTitle">{{ t.contact.errorTitle }}</h3>
@@ -113,15 +113,15 @@
             <p class="footer-desc" v-html="t.home.footerDesc"></p>
           </div>
           <div class="footer-col">
-            <h4>Menu</h4>
+            <h4>{{ t.nav.menu }}</h4>
             <a href="index.html">{{ t.nav.home }}</a>
             <a href="about.html">{{ t.nav.about }}</a>
             <a href="services.html">{{ t.nav.services }}</a>
             <a href="contact.html">{{ t.nav.contact }}</a>
           </div>
           <div class="footer-col">
-            <h4>Contact</h4>
-            <span>info@vioniasoft.com</span>
+            <h4>{{ t.nav.contact }}</h4>
+            <a href="mailto:info@vioniasoft.com">info@vioniasoft.com</a>
             <span>Seoul, Korea</span>
           </div>
         </div>
@@ -133,8 +133,8 @@
   </div>
 
   <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/nav.js"></script>
   <script src="/assets/js/base.js"></script>
   <script src="/assets/js/contact.js"></script>
-  <script src="/assets/js/nav.js"></script>
 </body>
 </html>

@@ -1,10 +1,11 @@
 /* =========================================================
    Home · Premium Edition
-   - 价值标题动画
-   - 卡片顺序渐入
+   - 价值标题动画 + 卡片顺序渐入
    - 客户卡片渐入
    - 指标条渐入
    - CTA 条渐入
+   - 3D 倾斜
+   - Hero 光晕视差
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,12 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-
         if (entry.target.classList.contains("value-header")) {
           entry.target.classList.add("is-visible");
           observer.unobserve(entry.target);
         }
-
         if (entry.target.classList.contains("value-card")) {
           const index = [...cards].indexOf(entry.target);
           setTimeout(() => entry.target.classList.add("is-visible"), index * 80);
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, { threshold: 0.2 });
-
     if (header) observer.observe(header);
     cards.forEach(card => observer.observe(card));
   }
@@ -46,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, { threshold: 0.15 });
-
     clientCards.forEach((card, i) => {
       card.style.opacity = "0";
       card.style.transform = "translateY(30px)";
@@ -67,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, { threshold: 0.2 });
-
     metricsStats.style.opacity = "0";
     metricsStats.style.transform = "translateY(24px)";
     metricsStats.style.transition = "all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s";
@@ -86,10 +82,34 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, { threshold: 0.2 });
-
     ctaStrip.style.opacity = "0";
     ctaStrip.style.transform = "translateY(20px)";
     ctaStrip.style.transition = "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
     ctaObserver.observe(ctaStrip);
+  }
+
+  /* ========== 3D 倾斜 ========== */
+  document.querySelectorAll('.client-card, .value-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) / centerY * -8;
+      const rotateY = (x - centerX) / centerX * 8;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+    });
+  });
+
+  /* ========== Hero 光晕视差 ========== */
+  const glow = document.querySelector('.hero-glow');
+  if (glow) {
+    window.addEventListener('scroll', () => {
+      glow.style.transform = `translateX(-50%) translateY(${window.scrollY * 0.15}px)`;
+    }, { passive: true });
   }
 });

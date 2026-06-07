@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, follow">
+  <meta name="robots" content="index, follow">
   <title>Services | VioniaSoft</title>
+  <meta name="description" content="VioniaSoft 통합 IT 서비스 - 시스템 통합(SI), 서비스 운영(SM), 디지털 전환(Web) 솔루션">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,29 +25,25 @@
   <div id="app" v-cloak>
     <main class="page services-page">
 
-      <!-- Hero -->
       <section class="svc-hero">
-        <div class="svc-label">OUR EXPERTISE</div>
-        <h1 class="svc-title">{{ t.services.title }}</h1>
-        <p class="svc-subtitle">3개의 핵심 서비스로 비즈니스 성장을 지원합니다</p>
+        <div class="svc-label">{{ t.services.badge }}</div>
+        <h1 class="svc-title" v-html="t.services.title"></h1>
+        <p class="svc-subtitle">{{ t.services.subtitle }}</p>
       </section>
 
-      <!-- SI -->
-      <section class="svc-section">
+      <section class="svc-section reveal">
         <div class="svc-grid">
           <div class="svc-visual">
             <div class="svc-number">01</div>
             <div class="svc-icon si-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <path d="M8 21h8"/>
-                <path d="M12 17v4"/>
+                <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>
               </svg>
             </div>
             <div class="svc-glow si-glow"></div>
           </div>
           <div class="svc-content">
-            <span class="svc-tag">SYSTEM INTEGRATION</span>
+            <span class="svc-tag">{{ t.services.siTag }}</span>
             <h2>{{ t.services.siTitle }}</h2>
             <p class="svc-desc">{{ t.services.siDesc }}</p>
             <div class="svc-list-block">
@@ -61,22 +58,19 @@
         </div>
       </section>
 
-      <!-- SM -->
-      <section class="svc-section alt">
+      <section class="svc-section alt reveal">
         <div class="svc-grid reverse">
           <div class="svc-visual">
             <div class="svc-number">02</div>
             <div class="svc-icon sm-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5"/>
-                <path d="M2 12l10 5 10-5"/>
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
               </svg>
             </div>
             <div class="svc-glow sm-glow"></div>
           </div>
           <div class="svc-content">
-            <span class="svc-tag">SERVICE MANAGEMENT</span>
+            <span class="svc-tag">{{ t.services.smTag }}</span>
             <h2>{{ t.services.smTitle }}</h2>
             <p class="svc-desc">{{ t.services.smDesc }}</p>
             <div class="svc-list-block">
@@ -91,23 +85,19 @@
         </div>
       </section>
 
-      <!-- WEB -->
-      <section class="svc-section">
+      <section class="svc-section reveal">
         <div class="svc-grid">
           <div class="svc-visual">
             <div class="svc-number">03</div>
             <div class="svc-icon web-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M2 12h20"/>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/>
-                <path d="M12 2a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10"/>
+                <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/><path d="M12 2a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10"/>
               </svg>
             </div>
             <div class="svc-glow web-glow"></div>
           </div>
           <div class="svc-content">
-            <span class="svc-tag">WEB & DIGITAL SOLUTION</span>
+            <span class="svc-tag">{{ t.services.webTag }}</span>
             <h2>{{ t.services.webTitle }}</h2>
             <p class="svc-desc">{{ t.services.webDesc1 }}</p>
             <p class="svc-desc">{{ t.services.webDesc2 }}</p>
@@ -124,16 +114,14 @@
         </div>
       </section>
 
-      <!-- Process -->
-      <section class="svc-process">
+      <section class="svc-process reveal">
         <div class="svc-process-head">
-          <div class="svc-label">METHODOLOGY</div>
+          <div class="svc-label">{{ t.services.processBadge }}</div>
           <h2 class="svc-title">{{ t.services.processTitle }}</h2>
         </div>
 
         <div class="svc-timeline">
           <div class="svc-timeline-track"></div>
-
           <div class="svc-step">
             <div class="svc-step-marker">1</div>
             <div class="svc-step-content">
@@ -191,15 +179,15 @@
             <p class="footer-desc" v-html="t.home.footerDesc"></p>
           </div>
           <div class="footer-col">
-            <h4>Menu</h4>
+            <h4>{{ t.nav.menu }}</h4>
             <a href="index.html">{{ t.nav.home }}</a>
             <a href="about.html">{{ t.nav.about }}</a>
             <a href="services.html">{{ t.nav.services }}</a>
             <a href="contact.html">{{ t.nav.contact }}</a>
           </div>
           <div class="footer-col">
-            <h4>Contact</h4>
-            <span>info@vioniasoft.com</span>
+            <h4>{{ t.nav.contact }}</h4>
+            <a href="mailto:info@vioniasoft.com">info@vioniasoft.com</a>
             <span>Seoul, Korea</span>
           </div>
         </div>
@@ -211,8 +199,8 @@
   </div>
 
   <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/nav.js"></script>
   <script src="/assets/js/base.js"></script>
   <script src="/assets/js/services.js"></script>
-  <script src="/assets/js/nav.js"></script>
 </body>
 </html>
