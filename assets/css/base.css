@@ -158,6 +158,50 @@ body.nav-locked { overflow: auto; position: static; height: auto; }
     }
 }
 
+/* Shared enterprise imagery for internal-page headers */
+.about-hero,
+.svc-hero,
+.ctc-hero {
+    isolation: isolate;
+}
+
+.about-hero::before,
+.svc-hero::before,
+.ctc-hero::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 94px;
+    width: min(1160px, calc(100vw - 28px));
+    height: 500px;
+    transform: translateX(-50%);
+    z-index: -1;
+    border: 1px solid rgba(255,255,255,.055);
+    border-radius: 34px;
+    background:
+        linear-gradient(180deg, rgba(7,9,14,.1), rgba(7,9,14,.34) 55%, #07090e 100%),
+        radial-gradient(ellipse at 50% 42%, transparent 16%, rgba(7,9,14,.58) 100%),
+        url('../images/backgrounds/enterprise-inner.jpg') center 64% / cover no-repeat;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 32px 100px rgba(0,0,0,.24);
+    opacity: .76;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,.9) 62%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,.9) 62%, transparent 100%);
+}
+
+@media (max-width: 768px) {
+    .about-hero::before,
+    .svc-hero::before,
+    .ctc-hero::before {
+        top: 76px;
+        width: calc(100vw - 20px);
+        height: 500px;
+        border-radius: 26px;
+        background-position: center, center, 57% center;
+        opacity: .66;
+    }
+}
+
 @media (max-width: 480px) {
     .footer-grid {
         grid-template-columns: 1fr;

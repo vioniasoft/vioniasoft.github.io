@@ -117,8 +117,9 @@
       height: auto;
       padding: 100px 24px 76px;
       background:
-        radial-gradient(650px 500px at 40% 32%, rgba(111,118,246,.2), transparent 68%),
-        radial-gradient(550px 420px at 68% 35%, rgba(155,124,247,.08), transparent 70%),
+        linear-gradient(180deg, rgba(7,9,14,.38), rgba(7,9,14,.74) 68%, #07090e),
+        radial-gradient(650px 500px at 40% 32%, rgba(111,118,246,.14), transparent 68%),
+        url('/assets/images/backgrounds/enterprise-inner.jpg') center / cover no-repeat fixed,
         linear-gradient(180deg, #07090e, #090c13 58%, #07090e);
       color: #f7f8fb;
     }
@@ -256,7 +257,11 @@
     }
 
     @media (max-width: 600px) {
-      body { padding: 88px 14px 68px; }
+      body {
+        padding: 88px 14px 68px;
+        background-position: center, center, 58% center, center;
+        background-attachment: scroll;
+      }
       .brand { top: 25px; left: 24px; }
       .error-shell { padding: 60px 20px 56px; border-radius: 26px; }
       h1 { font-size: clamp(105px, 40vw, 160px); }

@@ -366,10 +366,11 @@
     border: 1px solid rgba(255,255,255,.06);
     border-radius: 42px;
     background:
-        linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px),
-        linear-gradient(145deg, rgba(142,162,255,.075), transparent 42%);
-    background-size: 72px 72px, 72px 72px, auto;
+        linear-gradient(180deg, rgba(7,9,14,.18) 0%, rgba(7,9,14,.34) 52%, rgba(7,9,14,.92) 100%),
+        radial-gradient(ellipse at 50% 42%, transparent 0%, rgba(7,9,14,.16) 48%, rgba(7,9,14,.68) 100%),
+        url('../images/backgrounds/enterprise-hero.jpg') center bottom / cover no-repeat;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 36px 100px rgba(0,0,0,.28);
+    opacity: .96;
     mask-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,.75) 58%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,.75) 58%, transparent 100%);
     pointer-events: none;
@@ -557,7 +558,12 @@
 
 @media (max-width: 768px) {
     .hero { min-height: 700px; padding: 165px 24px 110px; }
-    .hero::before { inset: 88px 10px 28px; border-radius: 28px; background-size: 52px 52px, 52px 52px, auto; }
+    .hero::before {
+        inset: 88px 10px 28px;
+        border-radius: 28px;
+        background-position: center, center, 58% center;
+        opacity: .82;
+    }
     .hero::after { left: 30px; bottom: 44px; font-size: 7px; }
     .hero-title { font-size: clamp(42px, 12vw, 60px); }
     .hero-desc { font-size: 14px; line-height: 1.8; }
