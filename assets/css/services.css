@@ -42,8 +42,8 @@
     content: '';
     width: 5px; height: 5px;
     border-radius: 50%;
-    background: #38d5ff;
-    box-shadow: 0 0 12px #38d5ff;
+    background: #8389f8;
+    box-shadow: 0 0 12px rgba(131, 137, 248, .55);
     animation: dotPulse 2s ease-in-out infinite;
 }
 
@@ -400,7 +400,7 @@
     border-color: rgba(143,120,247,.24);
 }
 .svc-label { padding: 7px 14px; }
-.svc-label::before { background: #9b7cf7; box-shadow: 0 0 12px rgba(155,124,247,.65); }
+.svc-label::before { background: #8389f8; box-shadow: 0 0 12px rgba(131, 137, 248, .55); }
 .svc-title {
     font-size: clamp(48px, 7vw, 78px);
     background: linear-gradient(104deg, #fff 5%, #eef0ff 38%, #a9adff 70%, #9b7cf7 100%);

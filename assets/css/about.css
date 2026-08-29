@@ -24,7 +24,7 @@
 
 .badge-dot {
     width: 5px; height: 5px; border-radius: 50%;
-    background: #38d5ff; box-shadow: 0 0 12px #38d5ff;
+    background: #8389f8; box-shadow: 0 0 12px rgba(131, 137, 248, .55);
     animation: dotPulse 2s ease-in-out infinite;
 }
 

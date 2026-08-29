@@ -31,8 +31,8 @@
 
 .badge-dot {
     width: 5px; height: 5px; border-radius: 50%;
-    background: #38d5ff;
-    box-shadow: 0 0 12px #38d5ff;
+    background: #8389f8;
+    box-shadow: 0 0 12px rgba(131, 137, 248, .55);
     animation: dotPulse 2s ease-in-out infinite;
 }
 
@@ -126,8 +126,8 @@
 
 .clients-badge .badge-dot {
     width: 5px; height: 5px; border-radius: 50%;
-    background: #38d5ff;
-    box-shadow: 0 0 10px #38d5ff;
+    background: #8389f8;
+    box-shadow: 0 0 10px rgba(131, 137, 248, .55);
     animation: dotPulse 2s ease-in-out infinite;
 }
 
@@ -406,7 +406,7 @@
     letter-spacing: .15em;
 }
 
-.badge-dot { background: #9b7cf7; box-shadow: 0 0 12px rgba(155,124,247,.65); }
+.badge-dot { background: #8389f8; box-shadow: 0 0 12px rgba(131, 137, 248, .55); }
 
 .hero-title {
     position: relative;
