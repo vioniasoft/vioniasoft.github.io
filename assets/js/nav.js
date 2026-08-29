@@ -43,6 +43,12 @@ function initNav() {
     methods: {
       toggleMenu() {
         this.menuOpen = !this.menuOpen;
+        this.open = false;
+        this.langOpen = false;
+      },
+      toggleLanguage() {
+        this.open = !this.open;
+        this.menuOpen = false;
         this.langOpen = false;
       },
       go(url) {
@@ -60,7 +66,7 @@ function initNav() {
       },
       initIndicator() {
         const indicator = this.$refs.indicator;
-        const items = this.$el.querySelectorAll(".nav-menu > li:not(.mobile-lang):not(.mobile-lang-item)");
+        const items = this.$el.querySelectorAll(".nav-menu > li:not(.mobile-lang):not(.mobile-lang-item):not(.mobile-lang-section)");
         if (!indicator || !items.length) return;
 
         const page = location.pathname.split("/").pop() || "index.html";

@@ -167,3 +167,148 @@ body.nav-locked { overflow: auto; position: static; height: auto; }
         grid-column: span 1;
     }
 }
+
+/* =========================================================
+   VioniaSoft · 2026 visual system
+   A quieter, editorial enterprise aesthetic shared by all pages.
+========================================================= */
+
+:root {
+    --bg-deep: #07090e;
+    --bg-surface: #0b0e15;
+    --bg-card: rgba(15, 19, 29, 0.78);
+    --bg-card-hover: rgba(20, 25, 38, 0.9);
+    --text-primary: #f7f8fb;
+    --text-secondary: #abb2c1;
+    --text-muted: #747d90;
+    --accent: #8a6ff7;
+    --accent-strong: #d8c8ff;
+    --accent-cyan: #a978fa;
+    --accent-purple: #9b7cf7;
+    --brand-violet: #6f76f6;
+    --brand-purple: #806df6;
+    --brand-magenta: #9b7cf7;
+    --border-subtle: rgba(255,255,255,0.07);
+    --border-card: rgba(255,255,255,0.09);
+    --shadow-sm: 0 4px 16px rgba(0,0,0,0.2);
+    --shadow-md: 0 20px 60px rgba(0,0,0,0.32);
+    --shadow-lg: 0 32px 100px rgba(0,0,0,0.42);
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+    --radius-xl: 40px;
+}
+
+html { color-scheme: dark; }
+
+body {
+    min-height: 100%;
+    background:
+        radial-gradient(1000px 620px at 50% -180px, rgba(111,118,246,.18), transparent 68%),
+        radial-gradient(720px 520px at 95% 28%, rgba(155,124,247,.055), transparent 72%),
+        linear-gradient(180deg, #07090e 0%, #090c13 44%, #07090e 100%);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: .18;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.17'/%3E%3C/svg%3E");
+    mix-blend-mode: soft-light;
+}
+
+body::after {
+    opacity: .045;
+    background-size: 80px 80px;
+    mask-image: linear-gradient(to bottom, black, transparent 72%);
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent 72%);
+}
+
+.page { min-height: calc(100vh - 280px); }
+
+.footer {
+    position: relative;
+    overflow: hidden;
+    background: rgba(5, 7, 11, .92);
+    border-top: 1px solid rgba(255,255,255,.075);
+    padding: 76px 32px 30px;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 12%, rgba(111,118,246,.54), rgba(155,124,247,.3), transparent 88%);
+}
+
+.footer-inner { max-width: 1120px; }
+
+.footer-grid {
+    grid-template-columns: minmax(280px, 2.2fr) 1fr 1fr;
+    gap: 72px;
+    margin-bottom: 56px;
+}
+
+.footer-logo {
+    font-size: 17px;
+    letter-spacing: -.025em;
+    background: linear-gradient(105deg, #f8f7ff 6%, #b6a7ff 56%, #9b7cf7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-desc {
+    max-width: 390px;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #697286;
+}
+
+.footer-col { gap: 12px; }
+.footer-col h4 { color: #dfe3ec; letter-spacing: .14em; }
+.footer-col a,
+.footer-col span { color: #737c8f; }
+.footer-col a { transition: color .25s ease, transform .25s ease; }
+.footer-col a:hover { color: #fff; transform: translateX(3px); }
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    color: #525b6e;
+    border-top-color: rgba(255,255,255,.065);
+}
+
+@media (max-width: 768px) {
+    .footer { padding: 56px 22px 26px; }
+    .footer {
+        overflow: visible;
+        padding-bottom: max(28px, env(safe-area-inset-bottom));
+    }
+    .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
+        margin-bottom: 38px;
+    }
+    .footer-col,
+    .footer-col:first-child {
+        min-width: 0;
+        grid-column: auto;
+    }
+    .footer-col a,
+    .footer-col span,
+    .footer-desc {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+    .footer-bottom {
+        width: 100%;
+        line-height: 1.6;
+        white-space: normal;
+    }
+}

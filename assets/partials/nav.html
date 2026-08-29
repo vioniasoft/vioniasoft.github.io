@@ -8,9 +8,11 @@
             </a>
         </div>
 
-        <!-- ☰ 移动端 -->
-        <div class="nav-toggle mobile-only" @click="toggleMenu">
-            ☰
+        <!-- Mobile navigation controls -->
+        <div class="mobile-nav-actions mobile-only">
+            <button class="nav-toggle" type="button" @click="toggleMenu" :aria-expanded="menuOpen ? 'true' : 'false'" aria-label="Toggle navigation">
+                <span></span><span></span>
+            </button>
         </div>
 
         <!-- 菜单 -->
@@ -20,15 +22,19 @@
             <li @click="go('services.html')">{{ t.nav.services }}</li>
             <li @click="go('contact.html')">{{ t.nav.contact }}</li>
 
-            <!-- 移动端语言 -->
-            <li class="mobile-lang" @click.stop="langOpen = !langOpen">
-                <span>&#127758; Language</span>
-                <span class="mobile-lang-arrow" :class="{ open: langOpen }"> ▶</span>
+            <li class="mobile-lang-section" @click.stop>
+                <button class="mobile-lang-trigger" type="button" @click="langOpen = !langOpen" :aria-expanded="langOpen ? 'true' : 'false'">
+                    <span class="lang-code">{{ lang.toUpperCase() }}</span>
+                    <span>{{ lang === 'ko' ? '한국어' : lang === 'en' ? 'English' : lang === 'zh' ? '中文' : 'Français' }}</span>
+                    <span class="lang-chevron" :class="{ open: langOpen }">⌄</span>
+                </button>
+                <div class="mobile-lang-options" v-if="langOpen">
+                    <button type="button" @click="switchLang('ko')" :class="{ active: lang === 'ko' }">한국어</button>
+                    <button type="button" @click="switchLang('en')" :class="{ active: lang === 'en' }">English</button>
+                    <button type="button" @click="switchLang('zh')" :class="{ active: lang === 'zh' }">中文</button>
+                    <button type="button" @click="switchLang('fr')" :class="{ active: lang === 'fr' }">Français</button>
+                </div>
             </li>
-            <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('ko')">한국어</li>
-            <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('en')">English</li>
-            <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('zh')">中文</li>
-            <li v-if="langOpen" class="mobile-lang-item" @click="switchLang('fr')">Français</li>
         </ul>
 
         <!-- 指示条（桌面） -->
@@ -36,9 +42,11 @@
 
         <!-- 桌面语言 -->
         <div class="nav-lang desktop-only" @click.stop>
-            <div class="lang-btn" @click="open = !open">
-                &#127758; {{ lang === 'ko' ? '한국어' : lang === 'en' ? 'English' : lang === 'zh' ? '中文' : 'Français' }}
-            </div>
+            <button class="lang-btn" type="button" @click="toggleLanguage" :aria-expanded="open ? 'true' : 'false'">
+                <span class="lang-code">{{ lang.toUpperCase() }}</span>
+                {{ lang === 'ko' ? '한국어' : lang === 'en' ? 'English' : lang === 'zh' ? '中文' : 'Français' }}
+                <span class="lang-chevron" :class="{ open: open }">⌄</span>
+            </button>
             <div class="lang-dropdown" v-if="open">
                 <div @click="switchLang('ko')">한국어</div>
                 <div @click="switchLang('en')">English</div>

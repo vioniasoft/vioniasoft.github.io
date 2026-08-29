@@ -61,5 +61,8 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
-});
 
+  document.querySelectorAll(".footer-bottom span").forEach(el => {
+    el.textContent = `© ${new Date().getFullYear()} VioniaSoft. All rights reserved.`;
+  });
+});
